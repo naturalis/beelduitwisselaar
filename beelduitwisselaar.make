@@ -13,14 +13,6 @@ projects:
     version: '1.0'
   autoupload:
     version: '1.0'
-  beeldfeature:
-    type: module
-    custom_download: true
-    version: '1.0'
-  beeldfeature1:
-    type: module
-    custom_download: true
-    version: '1.1'
   boxes:
     version: '1.2'
   ctools:
@@ -101,15 +93,23 @@ projects:
     version: '3.27'
   zurb_foundation:
     version: 5.0-rc7
+  beeldfeature:
+    type: module
+    download:
+        type: copy
+        url: "file://./modules/beeldfeature"
+  beeldfeature1:
+    type: module
+    download:
+        type: copy
+        url: "file://./modules/beeldfeature1"
   beelduitwisselaar:
     type: module
-    custom_download: true
+    download:
+        type: copy
+        url: "file://./modules/beelduitwisselaar"
   naturalis:
     type: theme
-    custom_download: true
-libraries:
-  colorbox:
-    directory_name: colorbox
-    custom_download: true
-    type: library
-
+    download:
+        type: copy
+        url: "file://./themes/naturalis"
