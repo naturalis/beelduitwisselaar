@@ -1,0 +1,5 @@
+name = Beelduitwisselaar
+description = "Beelduitwisselaar"
+version = "7.x-0.2"
+core = 7.x
+

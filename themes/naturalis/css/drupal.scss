@@ -1,0 +1,280 @@
+/* SLIDESHOW */
+	.krumo-node{
+		width: 700px;
+	}
+
+	#headercarrousel { 
+		// height: 1000px !important; /* for development only */
+		// background-color: rgba(255,255,255,0.8);
+		h2{
+			display: none;
+		}
+
+		.view-grouping-header{
+			display: none;
+		}
+
+	}
+
+ @mixin position-image($index, $left, $top){
+		.slide-image-#{$index}{
+			top: $top;
+			left: $left;
+		}		
+	}	
+
+	@mixin position-caption($index, $left, $top, $arrow){
+		.slide-caption-#{$index}{
+			top: $top;
+			left: $left;
+		}
+
+		.field-name-slide-popnaam-#{$index}:before{
+			background-image: url("../images/arrow-#{$arrow}.png");
+		}
+	}
+
+	.slide{
+		height: 240px;
+		width: 980px;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.slide-image{
+		position: absolute;
+
+		&:hover{
+			.field-name-slide-photogr-1, .field-name-slide-photogr-2, .field-name-slide-photogr-3{
+				top: -30px;
+			}
+		}
+	}
+
+	.slide-image-1, .slide-image-3{
+		width: 235px;
+		height: 120px;
+		overflow: hidden;
+	}
+
+	.slide-image-2{
+		width: 510px;
+		height: 240px;
+		overflow: hidden;
+	}
+
+	.slide-caption{
+		position: absolute;
+		width: 235px;
+	}
+
+	.field-name-slide-popnaam-1, .field-name-slide-popnaam-2, .field-name-slide-popnaam-3{
+	    font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Arial", sans-serif; 
+	    font-size: 14px;
+	    font-weight:200; 
+	    font-stretch:normal; 
+	    padding-left: 24px;
+	    -webkit-font-smoothing: antialiased !important;
+	    letter-spacing: 0.05em;
+
+	    &:before{
+	    	display: block;
+			float:left;
+			width: 24px;
+			height: 24px;
+			content: " ";
+	    }
+	}
+
+	.field-name-slide-science-name-1, .field-name-slide-science-name-2, .field-name-slide-science-name-3{
+	    font-family: Georgia;
+	    font-style: italic;
+	    padding-left: 24px;
+	}
+
+	.field-name-slide-photogr-1, .field-name-slide-photogr-2, .field-name-slide-photogr-3{
+		background-color: rgba(255,255,255,0.6);
+		position: relative;
+		top: 0px;
+		height: 30px;
+		padding: 6px 0 0 6px;
+		transition: top 200ms;
+		font-size: 11px;
+
+		h3{
+			font-size: 11px;
+			display: inline;
+			font-weight: normal !important;
+		}
+
+		li{
+			margin-left: 0;
+		}
+	}
+
+	.layout-mode-1{
+		   @include position-image(1,  0       ,      	 0);
+		   @include position-image(2,  236px, 	0);
+		   @include position-image(3,  745px, 	50%);
+		
+		   @include position-caption(1 ,       0,     		55%, 	'up'   		);
+		   @include position-caption(2 ,       745px, 	 0,   	'left' 	 );
+		   @include position-caption(3 ,       745px,   		20%, 	'down' 	 );
+	}
+
+	.layout-mode-2{
+		   @include position-image(1,   0,     	0);
+		   @include position-image(2,   236px, 	 0);
+		   @include position-image(3,   0, 		50%);
+
+		   @include position-caption(1, 745px,   0,    'left-left');
+		   @include position-caption(2, 745px,   20%,  'left');
+		   @include position-caption(3, 745px,   40%,  'down');      		
+	}
+
+	.layout-mode-3{
+		   @include position-image(1,   0,     50%);
+		   @include position-image(2,   236px, 0);
+		   @include position-image(3,   745px, 0%);
+
+		   @include position-caption(1, 0,     20%,  'down');
+		   @include position-caption(2, 0,    0,    'right');
+		   @include position-caption(3, 745px, 55%,  'up');    		
+	}
+
+
+/* GENERAL */
+
+	.placeholder{
+		background-color : #eee;
+		background-image : repeating-linear-gradient(45deg, transparent, transparent 20px, white 20px, white 40px);
+		//opacity          : 0.5;
+	}
+
+	#baseNav h2{
+		display          : none;
+	}
+
+	#left .block{
+		margin-bottom    : 20px;
+	}
+
+	#content {
+		margin-top       : 0;
+	}
+
+
+/* Nieuws-artikelen */
+
+
+	#block-views-news-nieuws{
+		margin-top       : 20px;
+	}
+
+	#block-views-news-jaargangen h2{
+		margin-top       : 40px;
+		padding-top      : 40px;
+		border-top       : 1px solid #666;
+		border-bottom    : none;
+
+	}
+	.node-news .field, .node-news .meta{
+		margin-bottom: 1em;
+	}
+
+
+
+	.field-name-field-news-bron,
+	.field-name-field-news-photographer,
+	.field-name-field-news-caption, 
+	.field-name-field-news-photographer h3{
+		font-size: 10px;
+
+	}
+
+	.field-name-field-news-caption, 
+	.field-name-field-news-photographer,
+	.field-name-field-news-caption div,
+	.field-name-field-news-photographer h3,
+	.field-name-field-news-photographer div {
+		display: inline;
+		float: none !important;
+	}
+
+	.field-name-field-news-photographer  .field-label{
+		margin-left: 30px;
+	}
+
+	.field-name-field-news-photographer  li{
+		margin-left: 0;
+	}
+
+	.field-name-field-news-caption:before{
+		display: inline-block;
+		float: left;
+		height: 1em;
+		margin-bottom: 3em;
+		content: " ";
+	}
+
+/* Redactie menu */
+	.region-menucontainer{
+		width: 100%;
+	}
+
+	#menucontainer{
+		width: 75%;
+	}
+
+	#block-menu-menu-editor-menu{
+		position: absolute;
+		top: 0;
+		right: 0;
+		color: #FA7001;
+		color: #f0f0f0;
+		width: 220px;
+
+		.content > ul > li > a:before{
+			content: url('../images/pen.png');
+			margin-top: -10px;
+			margin-right: 5px;
+			display: inline-block;
+		}
+
+		.content > ul > li > a:after{
+			content: '\25BE';
+			margin-top: -10px;
+			margin-left: 5px;
+			display: inline-block;
+		}
+
+
+		li a, li a.active{
+			text-transform: capitalize;
+			color: #FA7001;
+			text-decoration: none;
+			
+			li a.active, li a{
+				text-transform: lowercase;
+			}
+		}
+
+
+	}
+
+/* Secondary menu */
+
+	#block-menu-block-1{
+		border-top: 1px solid black;
+		margin-top: 40px;
+		padding-top: 5px;
+	}
+
+	.logged-in #block-menu-block-1{
+		margin-top: 66px;
+
+	}
+
+	.logged-in #block-views-news-jaargangen h2{
+		margin-top: 66px;
+	}

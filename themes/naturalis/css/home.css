@@ -1,0 +1,296 @@
+/* Rijen
+----------------------------------*/
+#home #quicksearch {
+  margin-bottom: 0; }
+
+/* Intro homepage
+----------------------------------*/
+h1, h2, #content h2, #right h2, #left h2 {
+  font-family: Georgia;
+  font-size: 18px;
+  padding-bottom: 6px;
+  font-weight: normal; }
+
+#home div.intro {
+  position: relative;
+  font-size: 0.85em;
+  margin: 0;
+  padding: 0;
+  border-bottom: solid 1px #e5e5e5;
+  min-height: 120px;
+  height: auto !important;
+  height: 120px; }
+  #home div.intro h3 {
+    font-size: 1em;
+    margin: 0 0 0.2em; }
+  #home div.intro img {
+    border: none; }
+#home div#catchy img {
+  position: absolute;
+  left: 0;
+  top: -5px; }
+#home div.intro ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+#home div.intro li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 2px;
+  background: url(../images/icon_ok.gif) no-repeat 0 2px; }
+
+/* uitgelicht */
+.view-display-id-uitgelicht {
+  clear: both;
+  font-size: 11px;
+  margin-top: -5px;
+  font-family: Arial, Helvetica, sans-serif; }
+  .view-display-id-uitgelicht:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  .view-display-id-uitgelicht a.imagelink {
+    background: none;
+    padding: 0;
+    margin: 0;
+    display: inline; }
+  .view-display-id-uitgelicht .crop {
+    width: 160px;
+    height: 100px;
+    overflow: hidden; }
+
+.uitgelichtItem {
+  float: left;
+  width: 160px;
+  margin-right: 14px; }
+  .uitgelichtItem p {
+    line-height: 15px; }
+
+.view-display-id-uitgelicht .views-row-last, #uitgelicht-more .views-rowlast {
+  margin-right: 0px; }
+
+#uitgelicht-more {
+  clear: both;
+  margin-bottom: 30px; }
+  #uitgelicht-more:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+
+.view-display-id-uitgelicht h3 {
+  margin: 12px 0;
+  height: 26px; }
+.view-display-id-uitgelicht .siteLink, .view-display-id-uitgelicht .externLink {
+  display: block;
+  width: 55px;
+  font-family: Georgia;
+  font-style: oblique;
+  color: #fa7001;
+  padding-right: 10px;
+  font-size: 11px;
+  background: url("../images/readmorelink_bg.png") right center no-repeat; }
+
+#uitgelicht-more .siteLink, #uitgelicht-more .externLink {
+  display: block;
+  width: 55px;
+  font-family: Georgia;
+  font-style: oblique;
+  color: #fa7001;
+  padding-right: 10px;
+  font-size: 11px;
+  background: url("../images/readmorelink_bg.png") right center no-repeat; }
+
+/* Random selectie homepage
+----------------------------------*/
+#randomsoort {
+  width: 518px;
+  font-size: 0.85em;
+  border: solid 1px #e5e5e5;
+  overflow: auto;
+  height: 150px;
+  background: #F6FAE7; }
+  #randomsoort #treefragment, #randomsoort #speciesdata {
+    float: left;
+    width: 50%;
+    height: 140px;
+    margin: 10px;
+    display: inline; }
+  #randomsoort #treefragment {
+    width: 160px;
+    overflow: auto;
+    background: #fff; }
+
+#treefragment .treeitem, #treefragment .treeitem_active, #treefragment .preferredname {
+  padding-left: 0;
+  margin-left: 0; }
+#treefragment .rank, #treefragment img {
+  display: none; }
+#treefragment .treeitem {
+  margin: 0;
+  padding: 0; }
+#treefragment div.nodecontainer, #treefragment div.nodecontainerconnect {
+  padding-left: 12px;
+  background-position: 0 0; }
+
+#randomsoort #speciesdata {
+  float: right;
+  margin: 10px 0 0;
+  width: 510px;
+  overflow: hidden; }
+#randomsoort ul, #randomsoort li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left; }
+#randomsoort .speciesimage {
+  margin: 0 10px 5px 0;
+  border: solid 1px #999;
+  float: left; }
+
+#speciesdata li {
+  clear: left; }
+  #speciesdata li strong {
+    float: left;
+    width: 11em; }
+
+/* links naar boom & concept */
+#randomsoort #links {
+  margin-top: 5px; }
+  #randomsoort #links a {
+    font-weight: bold;
+    padding-left: 15px;
+    background: url(../images/icon_arrow.gif) no-repeat 0 0; }
+
+/* Laatste soortfoto
+----------------------------------*/
+#laatsteFoto {
+  background: #f6f5ec;
+  margin-bottom: 20px;
+  padding: 0 10px 10px 10px; }
+  #laatsteFoto .thumbContainer {
+    margin-left: -10px;
+    height: 100px;
+    width: 190px;
+    overflow: hidden; }
+    #laatsteFoto .thumbContainer img {
+      width: 190px; }
+  #laatsteFoto h3 {
+    color: #000;
+    margin: 12px 0 5px 0; }
+  #laatsteFoto .wetenschappelijkenaam {
+    font-family: Georgia;
+    color: #000;
+    font-size: 12px; }
+  #laatsteFoto dl {
+    margin-bottom: 14px; }
+  #laatsteFoto dt {
+    font-size: 11px; }
+
+dd {
+  font-size: 11px; }
+
+#laatsteFoto dt {
+  margin-top: 8px;
+  font-weight: bold; }
+#laatsteFoto a {
+  font-family: Georgia;
+  font-style: italic;
+  color: #FA7001;
+  font-size: 11px;
+  padding-right: 10px;
+  background: url("../images/readmorelink_orange_bg.png") right center no-repeat; }
+#laatsteFoto br {
+  margin-bottom: 2px;
+  display: block; }
+
+/* Stand van zaken
+----------------------------------*/
+#standvanzaken h3 {
+  margin: 12px 0 5px 0; }
+#standvanzaken .speciescount {
+  font-family: Georgia;
+  font-style: italic;
+  color: #000;
+  font-size: 12px; }
+#standvanzaken .speciesspecified {
+  font-size: 11px;
+  margin: 10px 0 0 0; }
+#standvanzaken ul, #standvanzaken li {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+#standvanzaken table {
+  margin-top: 8px;
+  border: none;
+  border-collapse: collapse; }
+#standvanzaken tbody {
+  border: none; }
+#standvanzaken td {
+  vertical-align: top;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  font-size: 11px; }
+  #standvanzaken td.count {
+    width: 40px; }
+
+#content p {
+  margin-bottom: 1em; }
+
+/* Nieuwsoverzicht
+----------------------------------*/
+.news-frontpage {
+  position: relative;
+  clear: both;
+  margin-top: 20px; }
+
+#rss {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+  font-size: 0.85em;
+  padding-left: 18px;
+  line-height: 16px;
+  background: transparent url(../images/feed-icon-14x14.png) no-repeat 0 50%; }
+
+/* Quicksearch links
+----------------------------------*/
+#home #quicksearch a {
+  font-weight: bold;
+  font-size: 0.85em; }
+
+/* Kader Zijbalk (Sponsors)
+----------------------------------*/
+.kader {
+  margin-bottom: 20px;
+  text-align: left; }
+  .kader .content {
+    font-size: 0.85em; }
+  .kader ul, .kader li {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .kader ul {
+    float: left;
+    width: 170px;
+    margin: 10px 20px 0 0;
+    width: 170px; }
+  .kader li {
+    position: relative;
+    padding-left: 18px;
+    background: url(../images/icon_arrow.gif) no-repeat 0 0; }
+
+#headercarrousel {
+  position: absolute;
+  top: 100px;
+  width: 980px;
+  height: 240px;
+  overflow: hidden;
+  z-index: 150; }

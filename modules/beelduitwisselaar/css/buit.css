@@ -1,0 +1,194 @@
+
+/**
+ * Custom styling for beelduitwisselaar
+ */
+
+/** 
+ * Buttons colors (default is red, we need approve button to be green, wait button to be gray)
+ */
+button#edit-submit--2 {background-color: #929083; border-color: #929083;}
+button#edit-goedgekeurd {background-color: #3a0; border-color: #3a0; }
+button#edit-wacht {background-color: #ddd; border-color: #ddd; }
+button#edit-afgekeurd {background-color: #b6003d; border-color: #b6003d; }
+form input.button-user {
+  border-style: solid;
+  border-width: 0px;
+  cursor: pointer;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.25rem;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  display: inline-block;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-bottom: 1.0625rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  background-color: #e3004a;
+  border-color: #b6003d;
+  color: #fff;
+  transition: background-color 300ms ease-out;
+}
+
+/**
+ * Uitlijning tickboxes
+ */
+tr.odd .form-item, tr.even .form-item {margin-bottom: -10px; }
+.vbo-views-form thead .form-type-checkbox {margin-bottom: -12px; }
+input[type="checkbox"], input[type="radio"], select {margin: 0 0 0 0 !important;}
+
+
+/** 
+ * Make Bewerkingen menu more compact
+ */
+
+div.vbo-views-form form select#edit-operation {width:75%; }
+div.vbo-views-form form fieldset#edit-select {padding: 0.25rem; margin: 0.25rem 0; }
+
+/**
+ * Hide "Gewicht rijen tonon"
+ */
+form#beelduitwisselaar-node-form a.tabledrag-toggle-weight {display: none; }
+
+/**
+ * Labels bold
+ */
+form#user-profile-form label {font-weight: bold;}
+form#user-profile-form label.option {font-weight: normal;}
+
+/**
+ * Various issues add new image ( node/add/beelduitwisselaar ) 
+ */
+body.section-node-add table#field-afbeeldingen-values th.field-label label {font-size: 17px; font-weight:bold; }
+body.section-node-add div#edit-field-afbeeldingen-und-0-field-soort-taxon {display: none;}
+body.section-node-add div.vertical-tabs {display: none; }
+body.section-node-add button#edit-field-afbeeldingen-und-add-more--2,
+body.section-node-add button#edit-field-afbeeldingen-und-0-field-newimage-und-0-upload-button, 
+body.section-node-add form button#edit-submit {background-color: #3a0 !important; border-color: #3a0 !important; }
+body.section-node-add form .field-add-more-submit {background-color: #b2b1a8 !important; border-color: #b2b1a8 !important; }
+
+body.section-node-add form tbody label {font-weight: bold; font-size:15px; margin-top: 25px;}
+body.section-node-add form tbody div#edit-field-afbeeldingen-und-0-field-datum {margin-top: 0px; }
+body.section-node-add form tbody div#edit-field-afbeeldingen-und-0-field-datum legend {background: transparent;}
+body.section-node-add form tbody div#edit-field-afbeeldingen-und-0-field-datum fieldset {padding: 0px;} 
+body.section-node-add form tbody div.description {margin-top: 0px; padding-bottom: 0px; }
+
+body.section-node-add form tbody div#field-afbeeldingen-und-0-field-datum-add-more-wrapper {margin-top: 45px; }
+body.section-node-add form tbody div#field-afbeeldingen-und-0-field-opmerkingen-add-more-wrapper {margin-top: 20px; }
+body.section-node-add form tbody div#edit-field-afbeeldingen-und-0-field-license {margin-top: 20px; }
+body.section-node-add form tbody div.form-item-field-afbeeldingen-und-0-field-license-und div.description {padding-bottom: 35px; }
+
+body.section-node-add form table tr th, body.section-node-add form table tr td {padding:3px; }
+
+body.section-grid-afbeeldingen div.vbo-select-all-markup,
+body.section-grid-afbeeldingen-expert-all div.vbo-select-all-markup,
+body.section-grid-afbeeldingen-geevalueerd-all div.vbo-select-all-markup,
+body.section-grid-afbeeldingen-wachtrij div.vbo-select-all-markup {display: none !important; }
+
+/**
+ * All other style requirements
+ */
+
+body.page-user div.tabs {display:none;}
+
+td.views-field-field-newimage img, 
+td.views-field-field-newimage-file img {
+  display: block;
+  max-width:230px;
+  max-height:95px;
+  width: auto;
+  height: auto;
+}
+form#views-form-search-results-page td.views-field-field-newimage-file img {max-width:100px;  max-height:70px;}
+
+body.page-batch div.messages {display:none; }
+div#messages {margin-bottom: 10px;} 
+body.page-node-add-beelduitwisselaar div.form-item-field-afbeeldingen-und-0-field-fotograaf-und {display:none;}
+
+
+.field-name-field-datum-publicatie {display:none;}
+
+
+/* VIEW image details fotograaf */
+body.page-beelddetail div.views-field-field-newimage span.views-label-field-newimage {font-weight:bold;}
+body.page-beelddetail div.views-field-field-newimage div.field-content {margin-bottom:10px;}
+
+body.page-beelddetail div.views-field-field-created,
+body.page-beelddetail div.views-field-created,
+body.page-beelddetail div.views-field-field-datum,
+body.page-beelddetail div.views-field-field-soort-taxon,
+body.page-beelddetail div.views-field-field-nlsr,
+body.page-beelddetail div.views-field-field-opnameland,
+body.page-beelddetail div.views-field-field-license,
+body.page-beelddetail div.views-field-field-locatie,
+body.page-beelddetail div.views-field-field-fotograaf,
+body.page-beelddetail div.views-field-field-opmerkingen,
+body.page-beelddetail div.views-field-field-status {display:table-row;}
+
+body.page-beelddetail div.views-field-field-created span.views-label-field-created,
+body.page-beelddetail div.views-field-created span.views-label-created,
+body.page-beelddetail div.views-field-field-datum span.views-label-field-datum,
+body.page-beelddetail div.views-field-field-soort-taxon span.views-label-field-soort-taxon,
+body.page-beelddetail div.views-field-field-nlsr span.views-label-field-nlsr,
+body.page-beelddetail div.views-field-field-opnameland span.views-label-field-opnameland,
+body.page-beelddetail div.views-field-field-license span.views-label-field-license,
+body.page-beelddetail div.views-field-field-locatie span.views-label-field-locatie,
+body.page-beelddetail div.views-field-field-fotograaf span.views-label-field-fotograaf,
+body.page-beelddetail div.views-field-field-beeldevaluatie span.views-label-field-beeldevaluatie,
+body.page-beelddetail div.views-field-field-opmerkingen span.views-label-field-opmerkingen,
+body.page-beelddetail div.views-field-field-status span.views-label-field-status  {display:table-cell;font-weight:bold;padding-right:10px;}
+
+
+body.page-beelddetail div.views-field-field-beeldevaluatie {display:none;}
+body.role-validator  div.views-field-field-beeldevaluatie {display:table-row;}
+
+
+
+body.page-beelddetail div.views-field-field-created div.field-content,
+body.page-beelddetail div.views-field-created span.field-content,
+body.page-beelddetail div.views-field-field-datum div.field-content,
+body.page-beelddetail div.views-field-field-soort-taxon div.field-content,
+body.page-beelddetail div.views-field-field-nlsr div.field-content,
+body.page-beelddetail div.views-field-field-opnameland div.field-content,
+body.page-beelddetail div.views-field-field-license div.field-content,
+body.page-beelddetail div.views-field-field-locatie div.field-content,
+body.page-beelddetail div.views-field-field-fotograaf div.field-content,
+body.page-beelddetail div.views-field-field-beeldevaluatie div.field-content,
+body.page-beelddetail div.views-field-field-opmerkingen div.field-content,
+body.page-beelddetail div.views-field-field-status div.field-content {display:table-cell;}
+
+body.page-beelddetail div.view-beelddetail {clear: both;}
+
+div#block-search-form input.form-submit {display:none;}
+
+form#views-exposed-form-afbeeldingen-geevalueerd-page div.views-submit-button {display:none;}
+form#views-exposed-form-afbeeldingen-per-user-page div.views-submit-button {display:none;}
+form#views-exposed-form-afbeeldingen-per-expert-page div.views-submit-button {display:none;}
+
+fieldset.group-gegevens {display:none;}
+
+div.field-name-field-woonplaats {display:none;}
+div.field-name-field-land {display:none;}
+div.field-name-field-akkoord {display:none;}
+div.field-name-field-created {display:none;}
+
+body.page-user .tabs.primary {display:none; }
+.tabs.primary {display:none; }
+body.node-type-page .tabs.primary {display:block} 
+body.page-user .tabs.primary {display:block} 
+div.status, table tr.ok {
+  padding-bottom:31px;
+}
+
+body.page-field-collection-field-afbeeldingen div.field-name-field-soort-taxon, 
+body.page-field-collection-field-afbeeldingen div.field-name-field-groep,
+body.page-field-collection-field-afbeeldingen div.field-name-field-beeldexpert,
+body.page-field-collection-field-afbeeldingen div.field-name-field-newimage,
+body.page-field-collection-field-afbeeldingen div.field-name-field-nlsr {display: none;}
+
+
