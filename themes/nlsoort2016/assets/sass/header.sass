@@ -1,0 +1,79 @@
+.header
+	height: 500px
+	overflow: hidden
+	position: relative		
+	@media screen and (max-width: 640px)
+		height: 200px
+	.photographer
+		color: $blue
+	.flexslider 
+		height: 500px
+		@media screen and (max-width: 640px)
+			height: 200px
+		.imageGradient
+			z-index: 10
+		.slides > li
+			height: 500px
+			@media screen and (max-width: 640px)
+				height: 200px
+		.subtitle
+			color: #009ee0
+			font-style: italic
+		img
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+			width: 100%
+			@media screen and (max-width: 1454px)
+				height: 500px
+				width: auto
+			@media screen and (max-width: 640px)
+				height: 300px
+	.photoInformation
+		position: absolute
+		bottom: 30px
+		right: 0
+		text-align: right
+		color: #fff
+		z-index: 100
+		@media screen and (max-width: 994px)
+			right: 30px
+	.scientificName
+		font-size: 16px
+		color: #fff
+		font-style: italic
+		margin-bottom: 5px
+		margin-top: 5px
+
+	.flex-control-nav
+		@media screen and (max-width: 640px)
+			display: none
+
+.sliderOverlay
+	padding-bottom: 30px
+	position: absolute
+	z-index: 100
+	width: 100%
+	max-width: 994px
+	left: 50%
+	transform: translateX(-50%)
+	bottom: 0
+	height: 100%
+	padding-top: 30px
+	@media screen and (max-width: 994px)
+		padding-left: 30px
+	.title
+		width: 100%
+		max-width: 312px
+		@media screen and (max-width: 640px)
+			display: none
+
+	.logo
+		position: absolute
+		bottom: 30px
+		max-width: 100px
+		left: 0
+		@media screen and (max-width: 994px)
+			left: 30px
+		

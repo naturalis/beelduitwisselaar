@@ -1,0 +1,27 @@
+name = Nederlandse Soorten Theme 2016
+description = A custom theme for Nederlandse Soorten
+core = 7.x
+
+; Load the css files.
+stylesheets[all][]               = assets/css/reset.css
+stylesheets[all][]               = assets/css/style.css
+stylesheets[all][]               = assets/css/flexslider.css
+stylesheets[all][]               = assets/css/overrides.css
+stylesheets[all][]               = assets/css/overrides-mds.css
+stylesheets[all][]               = assets/css/table.css
+
+; Load the scripts.
+scripts[] = assets/js/jquery.flexslider-min.js
+scripts[] = assets/js/script.js
+
+regions[menucontainer]           = Menu Container
+regions[headercarrousel]         = Header Carrousel
+regions[search_container]        = Search container
+regions[left_sidebar]            = Left sidebar
+regions[content]                 = Content
+regions[below_content_left]      = Below main content left
+regions[below_content_right]     = Below main content right
+regions[footer]                  = Footer
+
+settings[nlsoorttheme_id_prefix] = "http://www.soortenregister.nl/"
+settings[nlsoorttheme_id_suffix] = "/?"

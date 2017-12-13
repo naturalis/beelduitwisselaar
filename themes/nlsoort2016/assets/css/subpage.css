@@ -1,0 +1,7 @@
+.content.subpage {
+    display: flex;
+}
+
+.content.subpage .whitebox {
+    background-color: #fff;
+}

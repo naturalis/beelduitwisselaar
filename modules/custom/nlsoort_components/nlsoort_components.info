@@ -1,0 +1,4 @@
+name = NL soort theme components
+description = Contains various components like blocks.
+package = NL soort 2016
+core = 7.x

@@ -1,9 +1,5 @@
 name = Beelduitwisselaar
 description = "Beelduitwisselaar"
-core = 7.x
-
-; Information added by Drupal.org packaging script on 2017-01-19
 version = "7.x-0.2"
 core = 7.x
-project = "beelduitwisselaar"
-datestamp = "1484801287"
+

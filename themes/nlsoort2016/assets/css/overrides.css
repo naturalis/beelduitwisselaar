@@ -1,0 +1,159 @@
+.admin-menu .menuContainer {
+    top: 29px;
+}
+
+#search-form {
+    display: none;
+}
+
+.contentContainer .content.subpage .left .quicksearch input.moreSearchOptions {
+    height: auto !important;
+    background-color: #fff;
+}
+
+h2 a {
+    color: #009EE0;
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: block;
+    line-height: 1.3;
+    text-decoration: none;
+}
+
+.search-info a.username,
+ul.pager li a {
+    color: #009EE0;
+    text-decoration: none;
+}
+a {
+    color : #009EE0;
+}
+ul.pager li a {
+    color : #009EE0;
+}
+table.views-table th, table.views-table td {
+    font-size : 11px;
+}
+ul.pager li {
+    font-size : 11px;
+}
+
+.admin-menu .menu > li > a {
+    height: auto;
+}
+
+/* Override for drupal menu styling */
+#block-nlsoort-components-nlsoort-components-main-menu ul.menu li {
+    margin: 0;
+}
+
+ul.sideMenu li.leaf {
+    list-style: none none;
+}
+
+/* Addition for fixing ratio */
+.container.news img {
+    height: auto;
+}
+
+@media screen and (min-width: 1455px) {
+    .header .flexslider img {
+        height: auto;
+    }
+}
+
+/* Fixes for sidemenu */
+.sideMenu .menu {
+    display: inline-block;
+}
+
+.sideMenu .menu li {
+    background-color: transparent;
+    border: 0;
+}
+.contentContainer .content.subpage {
+    padding : 15px;
+}
+
+.contentContainer .content.subpage .left .sideMenu .menu li a {
+    height: auto;
+    line-height: 1.2em;
+}
+
+.contentContainer .content.subpage .left .sideMenu .menu li a:hover {
+    background-color: #fff;
+}
+
+.contentContainer .content.subpage .left .sideMenu .menu li:first-child a {
+    margin-top: 1em;
+}
+
+li.expanded,
+li.collapsed,
+li.leaf {
+    padding: 0;
+    margin: 0;
+}
+
+.left .addon {
+    padding : 0 !important;
+}
+
+
+.left .block,
+.region-left-sidebar .block {
+    padding: 0;
+    width : 200px;
+    margin-right : 20px;
+}
+
+.left .block label,
+.region-left-sidebar .block label {
+    display: block;
+    background-color: #009EE0;
+    color: #fff;
+    min-height: 50px;
+    padding: 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+.left .block label i,
+.region-left-sidebar .block label i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.left .block .filter,
+.region-left-sidebar .block .filter {
+    background-color : #ffffff;
+    padding : 15px;
+}
+
+.left .block a,
+.region-left-sidebar .block a {
+    text-decoration : none;
+    font-size: 11px;
+    color: #000;
+}
+
+.left .block .count,
+.region-left-sidebar .block .count {
+    text-decoration : none;
+    font-size: 11px;
+    color: #666666;
+}
+.form-item label {
+    margin-bottom : 10px;
+}
+.form-item .description {
+    margin-top : 5px;
+    line-height : 150%;
+}
+div#block-search-form input.form-submit {
+    display : inline-block !important;
+}

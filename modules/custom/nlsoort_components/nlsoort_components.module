@@ -1,0 +1,511 @@
+<?php
+/**
+ * @file
+ * This file contins the module components for the new NLsoort theme.
+ */
+
+// The amount of columns in the footer.
+define('NLSOORT_COMPONENTS_FOOTER_COLUMNS', 3);
+define('NLSOORT_COMPONENTS_FOOTER_SITEMAP_LINKS', 4);
+
+/**
+ * Implements hook_block_info().
+ */
+function nlsoort_components_block_info() {
+  return array(
+    'nlsoort_components_main_menu' => array(
+      'info' => t('Main menu block'),
+    ),
+    'nlsoort_components_header'    => array(
+      'info' => t('Slider block'),
+    ),
+    'nlsoort_components_picture'   => array(
+      'info'   => t('Soort determineren?'),
+    ),
+    'nlsoort_components_footer'    => array(
+      'info' => t('Footer'),
+    ),
+    'nlsoort_components_submenu'    => array(
+      'info' => t('Sidemenu'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function nlsoort_components_block_view($delta = '') {
+  // Initiate block with empty title.
+  $block = array(
+    'subject' => NULL,
+    'content' => '',
+  );
+
+  // Switch on block delta.
+  switch ($delta) {
+    
+    case 'nlsoort_components_main_menu':
+
+      // Load blocks for processing.
+      module_load_include('inc', 'nlsoort_components', 'includes/blocks');
+      $block['content'] = nlsoort_components_block_mainmenu();
+      break;
+
+    case 'nlsoort_components_header':
+
+      // Load blocks for processing.
+      module_load_include('inc', 'nlsoort_components', 'includes/blocks');
+      $block_data = nlsoort_components_block_header();
+      if (!empty($block_data)) {
+        $block['content'] = theme('nlsoort_components_header', $block_data);
+      }
+      break;
+
+    // Content is added via preprocessing.
+    case 'nlsoort_components_picture':
+      $block['subject'] = t('Soort determineren?');
+      $block['content'] = '&nbsp;';
+      break;
+
+    case 'nlsoort_components_footer':
+      module_load_include('inc', 'nlsoort_components', 'includes/blocks');
+      $block['content'] = nlsoort_components_block_footer();
+      break;
+
+    case 'nlsoort_components_submenu':
+      module_load_include('inc', 'nlsoort_components', 'includes/blocks');
+      $block['content'] = nlsoort_components_block_sidemenu();
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function nlsoort_components_theme($existing, $type, $theme, $path) {
+  return array(
+    'nlsoort_components_header'      => array(
+      'template' => 'templates/nlsoort_components_header',
+    ),
+    'nlsoort_components_links_field' => array(
+      'render element' => 'element',
+    ),
+    'nlsoort_components_footer'      => array(
+      'template' => 'templates/nlsoort_components_footer',
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function nlsoort_components_block_configure($delta = '') {
+  $form = array();
+
+  switch ($delta) {
+
+    // For the picture block we need a picture and a link.
+    case 'nlsoort_components_picture':
+
+      $form['nlsoort_components_picture_image'] = array(
+        '#type'               => 'managed_file',
+        '#upload_location'    => 'public://nlsoort_components_images',
+        '#progress_indicator' => "bar",
+        '#title'              => t('De afbeelding voor het "Soort determineren?" block.'),
+        '#default_value'      => variable_get('nlsoort_components_picture_image', 0),
+      );
+
+      $form['nlsoort_components_picture_link'] = array(
+        '#type'          => 'textfield',
+        '#title'         => t('Het pad naar de soortenzoekers-pagina'),
+        '#size'          => 60,
+        '#default_value' => variable_get('nlsoort_components_picture_link', ''),
+      );
+      break;
+
+    case 'nlsoort_components_footer':
+
+      // Add a form element for each column.
+      for ($i = 0; $i < NLSOORT_COMPONENTS_FOOTER_COLUMNS; $i++) {
+
+        $form['footer_links_' . $i] = array(
+          '#type'        => 'fieldset',
+          '#collapsible' => TRUE,
+          '#collapsed'   => FALSE,
+          '#title'       => t('Kolom ' . $i),
+        );
+
+        // Get the amount of links generated.
+        $count = variable_get('footer_links_' . $i . '_count', 1);
+        for ($link_count = 0; $link_count < $count; $link_count++) {
+          $form['footer_links_' . $i]['footer_links_' . $i . '_link_' . $link_count] = array(
+            '#type'          => 'nlsoort_components_links',
+            '#default_value' => variable_get('footer_links_' . $i . '_link_' . $link_count, array()),
+          );
+        }
+
+        $form['footer_links_' . $i]['add_link_' . $i] = array(
+          '#type'  => 'submit',
+          '#value' => t('Voeg link toe aan de lijst.'),
+          '#ajax'  => array(
+            'callback'        => 'nlsoort_components_footer_form_ajax_submit',
+            'variable'        => 'footer_links_' . $i . '_count',
+            'variable_action' => 'increase',
+            'wrapper'         => 'content',
+            'method'          => 'html',
+            'event'           => 'click',
+          ),
+          '#name'  => 'nlsoort_components_footer_form_ajax_add_' . $i,
+        );
+
+        $form['footer_links_' . $i]['remove_link_' . $i] = array(
+          '#type'  => 'submit',
+          '#value' => t('Verwijder link van de lijst'),
+          '#ajax'  => array(
+            'callback'        => 'nlsoort_components_footer_form_ajax_submit',
+            'wrapper'         => 'content',
+            'variable'        => 'footer_links_' . $i . '_count',
+            'variable_link'   => 'footer_links_' . $i . '_link_',
+            'variable_action' => 'decrease',
+            'method'          => 'html',
+            'event'           => 'click',
+          ),
+          '#name'  => 'nlsoort_components_footer_form_ajax_remove_' . $i,
+        );
+      }
+
+      // Add extra fieldset for the sitemap links.
+      $form['footer_links_sitemap'] = array(
+        '#type'  => 'fieldset',
+        '#title' => t('De sitemap links voor de footer'),
+      );
+
+      for ($i = 0; $i < NLSOORT_COMPONENTS_FOOTER_SITEMAP_LINKS; $i++) {
+        $form['footer_links_sitemap']['footer_links_sitemap_' . $i . '_link'] = array(
+          '#type'          => 'nlsoort_components_links',
+          '#default_value' => variable_get('footer_links_sitemap_' . $i . '_link', array()),
+        );
+      }
+
+      // Add link for colofon.
+      $form['footer_links_colofon'] = array(
+        '#type'          => 'nlsoort_components_links',
+        '#title'         => t('Colofon link'),
+        '#default_value' => variable_get('footer_links_colofon', array()),
+      );
+      break;
+  }
+
+  return $form;
+}
+
+/**
+ * Ajax form submission handler for the footer block.
+ */
+function nlsoort_components_footer_form_ajax_submit($form, $form_state) {
+
+  // The container which should contain the rebuilt form.
+  $content_container = '#block-system-main .content';
+
+  // Initiate commands array for ajax.
+  $commands = array();
+
+  // Fetch variable name.
+  $variable = $form_state['triggering_element']['#ajax']['variable'];
+
+  // Fetch the action to perform.
+  $action = $form_state['triggering_element']['#ajax']['variable_action'];
+
+  if ($action == 'increase') {
+    $value = variable_get($variable, 1);
+    variable_set($variable, $value + 1);
+  }
+  else {
+    $value = variable_get($variable, 1);
+
+    // Check if the count is higher than one, as that is the minimal amount.
+    if ($value > 1) {
+      // Fetch the variable.
+      $variable_link = $form_state['triggering_element']['#ajax']['variable_link'] . ($value - 1);
+
+      // Delete the link.
+      variable_set($variable_link, array());
+
+      // Lower the counter.
+      variable_set($variable, $value - 1);
+    }
+  }
+
+  // Rebuild form using the current form_state.
+  $new_form_array = drupal_rebuild_form('block_admin_configure', $form_state, $form);
+  $new_form = drupal_render($new_form_array);
+
+  // Replace the form.
+
+  $commands[] = ajax_command_html($content_container, $new_form);
+
+  return array(
+    '#type'     => 'ajax',
+    '#commands' => $commands,
+  );
+}
+
+/**
+ * Implements hook_element_info().
+ */
+function nlsoort_components_element_info() {
+  $elements['nlsoort_components_links'] = array(
+    '#default_value'  => '',
+    '#input'          => TRUE,
+    '#process'        => array('nlsoort_components_links_element_process'),
+    '#theme'          => array('nlsoort_components_links_field'),
+    '#theme_wrappers' => array('form_element'),
+    '#tree'           => TRUE,
+    '#value_callback' => 'nlsoort_components_links_element_value_callback',
+  );
+  return $elements;
+}
+
+/**
+ * Pre-processing method for the nlsoort_components_links field.
+ *
+ * @param array $element
+ *   The element to be processed.
+ * @param array $form_state
+ *   The form_state for the element.
+ * @param array $complete_form
+ *   The complete form the element resides in.
+ *
+ * @return mixed
+ *   Returns the element.
+ */
+function nlsoort_components_links_element_process($element, $form_state, $complete_form) {
+  $element['nlsoort_components_links']['path'] = array(
+    '#type'           => 'textfield',
+    '#size'           => 50,
+    '#required'       => $element['#required'],
+    '#title'          => t('Link pad'),
+    '#title_display'  => 'invisible',
+    '#attributes'     => array('placeholder' => t('Het pad voor de link')),
+    '#theme_wrappers' => array(),
+  );
+
+  if (isset($element['#default_value']['nlsoort_components_links']['path'])) {
+    $element['nlsoort_components_links']['path']['#default_value'] = $element['#default_value']['nlsoort_components_links']['path'];
+  }
+
+  $element['nlsoort_components_links']['title'] = array(
+    '#type'           => 'textfield',
+    '#size'           => 50,
+    '#required'       => $element['#required'],
+    '#title'          => t('Titel'),
+    '#title_display'  => 'invisible',
+    '#attributes'     => array('placeholder' => t('De text voor de weergave van de link')),
+    '#theme_wrappers' => array(),
+  );
+
+  if (isset($element['#default_value']['nlsoort_components_links']['title'])) {
+    $element['nlsoort_components_links']['title']['#default_value'] = $element['#default_value']['nlsoort_components_links']['title'];
+  }
+
+  return $element;
+}
+
+/**
+ * Theming method for the links field.
+ *
+ * @param array $variables
+ *   The variables the field should be rendered from.
+ *
+ * @return string
+ *   Returns html output.
+ */
+function theme_nlsoort_components_links_field($variables) {
+  $element = $variables['element'];
+  $output = '';
+  $output .= drupal_render($element['nlsoort_components_links']['title']);
+
+  // This space forces our fields to have a little room in between.
+  $output .= " ";
+  $output .= drupal_render($element['nlsoort_components_links']['path']);
+  return $output;
+}
+
+/**
+ * Value callback for the links field.
+ *
+ * @param array      $element
+ *   The element to obtain the value from.
+ * @param array|bool $input
+ *   The input for the element.
+ * @param array      $form_state
+ *   The form_state.
+ *
+ * @return bool|array
+ *   Returns either the input, the default value or FALSE.
+ */
+function nlsoort_components_links_element_value_callback($element, $input = FALSE, &$form_state) {
+  if ($input !== FALSE) {
+    return $input;
+  }
+  elseif (!empty($element['#default_value'])) {
+    return $element['#default_value'];
+  }
+
+  return FALSE;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function nlsoort_components_block_save($delta = '', $edit = array()) {
+  global $user;
+
+  switch ($delta) {
+
+    case 'nlsoort_components_picture':
+
+      // If there's a picture make it permanent.
+      if (!empty($edit['nlsoort_components_picture_image'])) {
+        $file = file_load($edit['nlsoort_components_picture_image']);
+
+        // Change status to permanent.
+        $file->status = FILE_STATUS_PERMANENT;
+
+        // Save.
+        file_save($file);
+
+        // Record that the module is using the file.
+        file_usage_add($file, 'nlsoort_components', 'nlsoort_components', $user->uid);
+
+        variable_set('nlsoort_components_picture_image', $edit['nlsoort_components_picture_image']);
+      }
+
+      // Check if there is a link set.
+      if (!empty($edit['nlsoort_components_picture_link'])) {
+        variable_set('nlsoort_components_picture_link', $edit['nlsoort_components_picture_link']);
+      }
+      break;
+
+    case 'nlsoort_components_footer':
+
+      // Loop through columns and checj which values are set in $edit.
+      for ($i = 0; $i < NLSOORT_COMPONENTS_FOOTER_COLUMNS; $i++) {
+
+        // Get the current count for this column.
+        $count = variable_get('footer_links_' . $i . '_count', 1);
+
+        for ($link_counter = 0; $link_counter < $count; $link_counter++) {
+
+          // Build variable name.
+          $variable = 'footer_links_' . $i . '_link_' . $link_counter;
+
+          // Check if the variable isset.
+          if (!empty($edit[$variable])) {
+
+            // Store the variable.
+            variable_set($variable, $edit[$variable]);
+          }
+        }
+      }
+
+      // Foreach sitemap link check if it was changed if so save it.
+      for ($i = 0; $i < NLSOORT_COMPONENTS_FOOTER_SITEMAP_LINKS; $i++) {
+
+        // Check if the sitemap link was set.
+        if (!empty($edit['footer_links_sitemap_' . $i . '_link'])) {
+          variable_set('footer_links_sitemap_' . $i . '_link', $edit['footer_links_sitemap_' . $i . '_link']);
+        }
+      }
+
+      // Store the colofon link.
+      if (!empty($edit['footer_links_colofon'])) {
+        variable_set('footer_links_colofon', $edit['footer_links_colofon']);
+      }
+      break;
+  }
+}
+
+/**
+ * Custom function to create a pretty formatted object from a menu tree.
+ *
+ * @param array $menu
+ *   A drupal menu tree.
+ *
+ * @return string
+ *   The processed version of the menu tree.
+ */
+function _nlsoort_components_process_menu(array $menu) {
+
+  // Initialize menu.
+  $processed_menu = '<ul class="menu">';
+
+  // Loop through each link.
+  foreach ($menu as $menu_link) {
+
+    // For shorter code.
+    $ref = $menu_link['link'];
+
+    // For the first item add the home class.
+    if ($menu_link === reset($menu)) {
+      $html = '<li class="home"><a href="' . url($ref['link_path'], array('absolute' => TRUE)) . '">' . $ref['link_title'] . '</a>';
+    }
+    // For all other items.
+    else {
+      $html = '<li><a href="' . url($ref['link_path']) . '">' . $ref['link_title'] . '</a>';
+
+      // Check if this link has any children.
+      if (isset($menu_link['below']) && !empty($menu_link['below'])) {
+        $html .= '<a class="toggle-submenu toggle-submenu-js" href="javascript:void(0);"><i class="ion-plus-round plus"></i>
+                  <i class="ion-minus-round min"></i></a>';
+
+        // Initialize array for sub-items.
+        $sub_items = array();
+        foreach ($menu_link['below'] as $item) {
+          $ref = $item['link'];
+          $sub_items[] = '<li><a href="' . url($ref['link_path'], array('absolute' => TRUE)) . '">' . $ref['link_title'] . '</a></li>';
+        }
+
+        // Place as oredered list items.
+        $html .= '<ol>' . implode('', $sub_items) . '</ol>';
+      }
+
+      // Close the list item.
+      $html .= '</li>';
+    }
+
+    // Append to menu.
+    $processed_menu .= $html;
+  }
+
+  return $processed_menu . '</ul><a href="javascript:void(0)" class="search-toggle search-toggle-js"><img src="/sites/all/themes/nlsoort2016/assets/img/search.svg" class="siteTitle"></a>';
+}
+
+/**
+ * Implements hook_context_load_alter().
+ */
+function nlsoort_components_context_load_alter(&$context) {
+  // Check if the context is the frontpage.
+  if ($context->name == 'voorpagina') {
+
+    // Add the weight block weight is not working.
+    $context->reactions['block']['blocks']['nlsoort_components-nlsoort_components_picture']['weight'] = 10;
+  }
+
+  // Add lower weight for editor menu.
+  if ($context->name == 'editor_menu' && !empty($context->reactions['block']['blocks']['menu-menu-editor-menu'])) {
+    $context->reactions['block']['blocks']['menu-menu-editor-menu']['weight'] = -100;
+  }
+}
+
+/**
+ * Function to obtain the path to assets.
+ *
+ * @return string
+ */
+function nlsoort_components_path_to_assets() {
+  return base_path() . path_to_theme() . '/assets';
+}
+

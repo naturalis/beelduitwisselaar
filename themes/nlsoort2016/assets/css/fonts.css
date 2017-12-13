@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'Platform-Bold';
+    src: url('../fonts/Platform-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Platform-Bold.otf') format('opentype'),
+    url('../fonts/Platform-Bold.woff') format('woff'), url('../fonts/Platform-Bold.ttf') format('truetype'), url('../fonts/Platform-Bold.svg#Platform-Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Platform-BoldItalic';
+    src: url('../fonts/Platform-BoldItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/Platform-BoldItalic.otf') format('opentype'),
+    url('../fonts/Platform-BoldItalic.woff') format('woff'), url('../fonts/Platform-BoldItalic.ttf') format('truetype'), url('../fonts/Platform-BoldItalic.svg#Platform-BoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Platform-Hairline';
+    src: url('../fonts/Platform-Hairline.eot?#iefix') format('embedded-opentype'), url('../fonts/Platform-Hairline.otf') format('opentype'),
+    url('../fonts/Platform-Hairline.woff') format('woff'), url('../fonts/Platform-Hairline.ttf') format('truetype'), url('../fonts/Platform-Hairline.svg#Platform-Hairline') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Platform-HairlineItalic';
+    src: url('../fonts/Platform-HairlineItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/Platform-HairlineItalic.otf') format('opentype'),
+    url('../fonts/Platform-HairlineItalic.woff') format('woff'), url('../fonts/Platform-HairlineItalic.ttf') format('truetype'), url('../fonts/Platform-HairlineItalic.svg#Platform-HairlineItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Platform-Light';
+    src: url('../fonts/Platform-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/Platform-Light.otf') format('opentype'),
+    url('../fonts/Platform-Light.woff') format('woff'), url('../fonts/Platform-Light.ttf') format('truetype'), url('../fonts/Platform-Light.svg#Platform-Light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Platform-LightItalic';
+    src: url('../fonts/Platform-LightItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/Platform-LightItalic.otf') format('opentype'),
+    url('../fonts/Platform-LightItalic.woff') format('woff'), url('../fonts/Platform-LightItalic.ttf') format('truetype'), url('../fonts/Platform-LightItalic.svg#Platform-LightItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Platform-Medium';
+    src: url('../fonts/Platform-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/Platform-Medium.otf') format('opentype'),
+    url('../fonts/Platform-Medium.woff') format('woff'), url('../fonts/Platform-Medium.ttf') format('truetype'), url('../fonts/Platform-Medium.svg#Platform-Medium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Platform-MediumItalic';
+    src: url('../fonts/Platform-MediumItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/Platform-MediumItalic.otf') format('opentype'),
+    url('../fonts/Platform-MediumItalic.woff') format('woff'), url('../fonts/Platform-MediumItalic.ttf') format('truetype'), url('../fonts/Platform-MediumItalic.svg#Platform-MediumItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Platform-Regular';
+    src: url('../fonts/Platform-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Platform-Regular.otf') format('opentype'),
+    url('../fonts/Platform-Regular.woff') format('woff'), url('../fonts/Platform-Regular.ttf') format('truetype'), url('../fonts/Platform-Regular.svg#Platform-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Platform-RegularItalic';
+    src: url('../fonts/Platform-RegularItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/Platform-RegularItalic.otf') format('opentype'),
+    url('../fonts/Platform-RegularItalic.woff') format('woff'), url('../fonts/Platform-RegularItalic.ttf') format('truetype'), url('../fonts/Platform-RegularItalic.svg#Platform-RegularItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

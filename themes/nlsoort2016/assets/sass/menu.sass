@@ -1,0 +1,122 @@
+.menuContainer
+	position: absolute
+	top: 0
+	height: 50px
+	overflow: hidden
+	width: 100%
+	z-index: 900
+	background-color: #000
+	&:hover
+		height: auto
+
+
+.menu
+	width: 100%
+	max-width: 994px
+	margin: 0 auto
+	display: flex
+	border-left: 1px solid #2d2d2d
+	@media screen and (max-width: 994px)
+		display: none
+	a
+		color: #fff
+		text-decoration: none
+		display: block
+		outline-width: 0
+	.home
+		max-width: 40px
+		background-image: url('../img/home.png')
+		background-repeat: no-repeat
+		background-size: 18px 18px
+		background-position: center top 15px
+		@media screen and (max-width: 994px)
+			background-image: none
+		a
+			text-indent: -9999px
+	> li
+		flex-grow: 1
+		border-right: 1px solid #2d2d2d
+		i
+			display: none
+		> a
+			line-height: 50px
+			height: 50px
+			padding-left: 10px
+			&:hover
+				color: $blue
+		&:hover
+			background-color: #222
+	ol 
+		padding-bottom: 30px
+		a
+			font-size: 12px
+			padding-left: 10px
+			padding-bottom: 5px
+			padding-top: 5px
+			&:hover
+				color: #009932
+
+.menuToggle
+	display: none
+	padding-left: 30px
+	line-height: 50px
+	img
+		display: inline-block
+		vertical-align: middle
+		width: 30px
+		height: 25px
+	.mobileTitle
+		display: none
+		@media screen and (max-width: 500px)
+			display: block
+			position: absolute
+			color: #fff
+			padding-left: 80px
+			left: 0
+			width: 100%
+			font-size: 16px
+
+@media screen and (max-width: 994px)
+	.menuToggle
+		display: block
+		height: 50px
+		position: relative
+		img
+			position: absolute
+			top: 50%
+			left: 30px 
+			transform: translateY(-50%)
+
+	.menuContainer
+		height: auto
+		min-height: 50px
+
+	.menu
+		border-left: 0
+		width: 100%
+		> li
+			border-right: 0
+			border-bottom: 1px solid #2d2d2d
+			width: 100%
+			display: block
+			position: relative
+			> a
+				padding-left: 30px
+				
+				padding-right: 60px
+			i
+				position: absolute
+				top: 50px
+				margin-top: -33px
+				display: block
+				color: #fff
+				right: 30px
+		ol
+			display: none
+			a
+				padding-left: 60px
+				padding-bottom: 10px
+		.home
+			max-width: 100%
+			a
+				text-indent: 0

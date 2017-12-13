@@ -1,0 +1,41 @@
+<?php
+/**
+ * @file
+ * This file contains the install requirements.
+ */
+
+/**
+ * Installs the links for the footer block.
+ *
+ */
+function nlsoort_components_install() {
+  nlsoort_components_update_7000();
+
+  // Disable the featured context.
+  $contexts = variable_get('context_status', array());
+  $contexts['featured'] = TRUE;
+  $contexts['editor_menu'] = TRUE;
+  $contexts['to_archive'] = TRUE;
+  variable_set('context_status', $contexts);
+}
+
+/**
+ * Set the components for the footer.
+ */
+function nlsoort_components_update_7000() {
+  $json = '{"footer_links_0_count":6,"footer_links_0_link_0":{"nlsoort_components_links":{"title":"Ministerie van Economische Zaken","path":"http:\/\/www.rijksoverheid.nl\/ministeries\/eleni"}},"footer_links_0_link_1":{"nlsoort_components_links":{"title":"Ecyclopedia of Life","path":"http:\/\/www.eol.org\/"}},"footer_links_0_link_2":{"nlsoort_components_links":{"title":"Universiteit van Amsterdam","path":"http:\/\/www.uva.nl\/"}},"footer_links_0_link_3":{"nlsoort_components_links":{"title":"Nationaal Herbarium Nederland","path":"http:\/\/www.nationaalherbarium.nl\/"}},"footer_links_0_link_4":{"nlsoort_components_links":{"title":"Centraal Bureau voor Schimmelcultures","path":"http:\/\/www.cbs.knaw.nl\/"}},"footer_links_0_link_5":{"nlsoort_components_links":{"title":"Bryologische en Lichenologische Werkgroep - KNNV","path":"http:\/\/www.blwg.nl\/"}},"footer_links_1_count":7,"footer_links_1_link_0":{"nlsoort_components_links":{"title":"Fauna Europaea","path":"http:\/\/www.faunaeur.org\/"}},"footer_links_1_link_1":{"nlsoort_components_links":{"title":"MARBEF","path":"http:\/\/www.marbef.org\/"}},"footer_links_1_link_2":{"nlsoort_components_links":{"title":"Nederlandse Voedsel- en Warenautoriteit","path":"http:\/\/www.vwa.nl\/"}},"footer_links_1_link_3":{"nlsoort_components_links":{"title":"NLBIF","path":"http:\/\/www.nlbif.nl\/"}},"footer_links_1_link_4":{"nlsoort_components_links":{"title":"Centraal Bureau voor Statistiek","path":"http:\/\/www.cbs.nl\/"}},"footer_links_1_link_5":{"nlsoort_components_links":{"title":"Nederlandse Entomologische Vereniging","path":"http:\/\/www.nev.nl\/"}},"footer_links_1_link_6":{"nlsoort_components_links":{"title":"Nederlandse Malacologische Vereniging","path":"http:\/\/www.spirula.nl\/"}},"footer_links_2_count":8,"footer_links_2_link_0":{"nlsoort_components_links":{"title":"Waarneming.nl","path":"http:\/\/waarneming.nl\/"}},"footer_links_2_link_1":{"nlsoort_components_links":{"title":"FLORON","path":"http:\/\/www.floron.nl\/"}},"footer_links_2_link_2":{"nlsoort_components_links":{"title":"Stichting Anemoon","path":"http:\/\/www.anemoon.org\/"}},"footer_links_2_link_3":{"nlsoort_components_links":{"title":"De Vlinderstichting","path":"http:\/\/www.vlinderstichting.nl\/"}},"footer_links_2_link_4":{"nlsoort_components_links":{"title":"SOVON Vogelonderzoek Nederland","path":"http:\/\/www.sovon.nl\/"}},"footer_links_2_link_5":{"nlsoort_components_links":{"title":"EIS Kenniscentrum Insecten en andere ongewervelden","path":"http:\/\/www.naturalis.nl\/eis"}},"footer_links_2_link_6":{"nlsoort_components_links":{"title":"Stichting RAVON","path":"http:\/\/www.ravon.nl\/"}},"footer_links_2_link_7":{"nlsoort_components_links":{"title":"Zoogdiervereniging","path":"http:\/\/www.zoogdiervereniging.nl\/"}},"footer_links_sitemap_0_link":{"nlsoort_components_links":{"title":"Sitemap","path":"http:\/\/www.nederlandsesoorten.nl\/node\/375"}},"footer_links_sitemap_1_link":{"nlsoort_components_links":{"title":"Links","path":"http:\/\/www.nederlandsesoorten.nl\/node\/373"}},"footer_links_sitemap_2_link":{"nlsoort_components_links":{"title":"English","path":"http:\/\/www.nederlandsesoorten.nl\/node\/374"}},"footer_links_sitemap_3_link":{"nlsoort_components_links":{"title":"Contact","path":"http:\/\/www.nederlandsesoorten.nl\/content\/contact"}},"footer_links_colofon":{"nlsoort_components_links":{"title":"Colofon \u0026 Disclaimer","path":"http:\/\/www.nederlandsesoorten.nl\/nsr\/nsr\/colofon.html"}}}';
+  $data = drupal_json_decode($json);
+
+  foreach ($data as $variable => $content) {
+    variable_set($variable, $content);
+  }
+}
+
+/**
+ * Re-enable the editor menu.
+ */
+function nlsoort_components_update_7001() {
+  $contexts = variable_get('context_status', array());
+  $contexts['editor_menu'] = FALSE;
+  variable_set('context_status', $contexts);
+}

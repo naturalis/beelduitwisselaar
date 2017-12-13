@@ -1,0 +1,52 @@
+.menuContainer {
+    position: absolute;
+    top: 0;
+    height: 50px;
+    overflow: hidden;
+    width: 100%;
+    z-index: 900;
+    background-color: #000;
+}
+
+.menuContainer:hover {
+    height: auto;
+}
+
+.menu {
+    width: 994px;
+    margin: 0 auto;
+    display: flex;
+    border-left: 1px solid #2d2d2d;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.menu .home {
+    max-width: 40px;
+}
+
+.menu > li {
+    flex-grow: 1;
+    border-right: 1px solid #2d2d2d;
+}
+
+.menu > li > a {
+    line-height: 50px;
+    height: 50px;
+    padding-left: 10px;
+}
+
+.menu ol {
+    padding-bottom: 30px;
+}
+
+.menu ol a {
+    font-size: 12px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
