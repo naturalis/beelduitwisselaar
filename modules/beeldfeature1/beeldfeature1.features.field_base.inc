@@ -10,14 +10,13 @@
 function beeldfeature1_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_notificaties'
+  // Exported field_base: 'field_notificaties'.
   $field_bases['field_notificaties'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_notificaties',
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -37,14 +36,13 @@ function beeldfeature1_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_original_id'
+  // Exported field_base: 'field_original_id'.
   $field_bases['field_original_id'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_original_id',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -53,21 +51,13 @@ function beeldfeature1_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_soortenregister'
+  // Exported field_base: 'field_soortenregister'.
   $field_bases['field_soortenregister'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_soortenregister',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',

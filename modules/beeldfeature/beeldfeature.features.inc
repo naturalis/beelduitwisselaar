@@ -28,11 +28,12 @@ function beeldfeature_node_info() {
     'beelduitwisselaar' => array(
       'name' => t('Beelduitwisselaar'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Een nieuwe set aan beelden opsturen.'),
       'has_title' => '1',
-      'title_label' => t('Titel - Gefotografeerd object en naam fotograaf'),
+      'title_label' => t('Titel - Naam fotograaf'),
       'help' => t('Plaatsing van beelden geschiedt onder de voorwaarden zoals beschreven op deze site.'),
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }

@@ -10,7 +10,7 @@
 function beeldfeature1_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-mail-body'
+  // Exported field_instance: 'node-mail-body'.
   $field_instances['node-mail-body'] = array(
     'bundle' => 'mail',
     'default_value' => NULL,
