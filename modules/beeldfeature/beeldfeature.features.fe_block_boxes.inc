@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * beelduitwisselaar_feature.features.fe_block_boxes.inc
+ * beeldfeature.features.fe_block_boxes.inc
  */
 
 /**
  * Implements hook_default_fe_block_boxes().
  */
-function beelduitwisselaar_feature_default_fe_block_boxes() {
+function beeldfeature_default_fe_block_boxes() {
   $export = array();
 
   $fe_block_boxes = new stdClass();

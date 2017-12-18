@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * beelduitwisselaar_feature.features.fe_block_settings.inc
+ * beeldfeature.features.fe_block_settings.inc
  */
 
 /**
  * Implements hook_default_fe_block_settings().
  */
-function beelduitwisselaar_feature_default_fe_block_settings() {
+function beeldfeature_default_fe_block_settings() {
   $export = array();
 
   $export['version'] = '2.0';
