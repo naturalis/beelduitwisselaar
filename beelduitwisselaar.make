@@ -108,8 +108,18 @@ projects:
     download:
         type: copy
         url: "file://./modules/beelduitwisselaar"
-  naturalis:
+  drush_nlsoort_blocksync:
+    type: module
+    download:
+        type: copy
+        url: "file://./modules/custom/drush_nlsoort_blocksync"
+  nlsoort_components:
+    type: module
+    download:
+        type: copy
+        url: "file://./modules/custom/nlsoort_components"
+  nlsoort2016:
     type: theme
     download:
         type: copy
-        url: "file://./themes/naturalis"
+        url: "file://./themes/nlsoort2016"
