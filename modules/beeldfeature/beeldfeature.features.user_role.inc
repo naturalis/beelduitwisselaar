@@ -7,20 +7,21 @@
 /**
  * Implements hook_user_default_roles().
  */
-function beeldfeature_user_default_roles() {
-  $roles = array();
+function beeldfeature_user_default_roles()
+{
+    $roles = array();
 
-  // Exported role: author.
-  $roles['author'] = array(
-    'name' => 'author',
-    'weight' => 3,
-  );
+    // Exported role: author.
+    $roles['author'] = array(
+        'name' => 'author',
+        'weight' => 3,
+    );
 
-  // Exported role: expert.
-  $roles['expert'] = array(
-    'name' => 'expert',
-    'weight' => 4,
-  );
+    // Exported role: expert.
+    $roles['expert'] = array(
+        'name' => 'expert',
+        'weight' => 4,
+    );
 
-  return $roles;
+    return $roles;
 }

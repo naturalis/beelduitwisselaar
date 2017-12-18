@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the beeldfeature feature.
- */
-
-include_once 'beeldfeature1.features.inc';
