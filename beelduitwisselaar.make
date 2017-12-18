@@ -98,11 +98,6 @@ projects:
     download:
         type: copy
         url: "file://./modules/beeldfeature"
-  beeldfeature1:
-    type: module
-    download:
-        type: copy
-        url: "file://./modules/beeldfeature1"
   beelduitwisselaar:
     type: module
     download:
@@ -112,12 +107,12 @@ projects:
     type: module
     download:
         type: copy
-        url: "file://./modules/custom/drush_nlsoort_blocksync"
+        url: "file://./modules/drush_nlsoort_blocksync"
   nlsoort_components:
     type: module
     download:
         type: copy
-        url: "file://./modules/custom/nlsoort_components"
+        url: "file://./modules/nlsoort_components"
   nlsoort2016:
     type: theme
     download:
