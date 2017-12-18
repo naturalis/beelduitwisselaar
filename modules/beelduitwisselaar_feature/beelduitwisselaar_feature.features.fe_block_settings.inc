@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * beeldfeature_blokken.features.fe_block_settings.inc
+ * beelduitwisselaar_feature.features.fe_block_settings.inc
  */
 
 /**
  * Implements hook_default_fe_block_settings().
  */
-function beeldfeature_blokken_default_fe_block_settings() {
+function beelduitwisselaar_feature_default_fe_block_settings() {
   $export = array();
 
   $export['version'] = '2.0';
@@ -23,11 +23,23 @@ function beeldfeature_blokken_default_fe_block_settings() {
       'administrator' => 3,
     ),
     'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
       'nlsoort2016' => array(
         'region' => 'left_sidebar',
         'status' => 1,
         'theme' => 'nlsoort2016',
         'weight' => -23,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
       ),
     ),
     'title' => '<none>',
@@ -45,11 +57,23 @@ function beeldfeature_blokken_default_fe_block_settings() {
       'fotograaf' => 4,
     ),
     'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
       'nlsoort2016' => array(
         'region' => 'left_sidebar',
         'status' => 1,
         'theme' => 'nlsoort2016',
         'weight' => -21,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
       ),
     ),
     'title' => '<none>',
@@ -67,14 +91,26 @@ function beeldfeature_blokken_default_fe_block_settings() {
       'anonymous user' => 1,
     ),
     'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
       'nlsoort2016' => array(
         'region' => 'left_sidebar',
         'status' => 1,
         'theme' => 'nlsoort2016',
         'weight' => -24,
       ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
     ),
-    'title' => 'Menu',
+    'title' => '<none>',
     'visibility' => 0,
   );
 
@@ -87,11 +123,23 @@ function beeldfeature_blokken_default_fe_block_settings() {
     'pages' => 'admin*',
     'roles' => array(),
     'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
       'nlsoort2016' => array(
         'region' => 'left_sidebar',
         'status' => 1,
         'theme' => 'nlsoort2016',
         'weight' => -23,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
       ),
     ),
     'title' => '',
@@ -109,11 +157,23 @@ function beeldfeature_blokken_default_fe_block_settings() {
       'validator' => 5,
     ),
     'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
       'nlsoort2016' => array(
         'region' => 'left_sidebar',
         'status' => 1,
         'theme' => 'nlsoort2016',
         'weight' => -22,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
       ),
     ),
     'title' => '<none>',
@@ -129,10 +189,54 @@ function beeldfeature_blokken_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
       'nlsoort2016' => array(
         'region' => 'menucontainer',
         'status' => 1,
         'theme' => 'nlsoort2016',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['block-nlsoorter_footer'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'machine_name' => 'nlsoorter_footer',
+    'module' => 'block',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'nlsoort2016' => array(
+        'region' => 'footer',
+        'status' => 1,
+        'theme' => 'nlsoort2016',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
         'weight' => 0,
       ),
     ),

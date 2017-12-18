@@ -1,5 +1,5 @@
 name = beeldfeature
-description = Beelduitwisselaar feature
+description = Beelduitwisselaar uitbreiding 2: velden en views
 core = 7.x
 package = Features
 version = 7.x-1.1
