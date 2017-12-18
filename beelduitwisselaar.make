@@ -39,6 +39,8 @@ projects:
     version: 2.0-rc7
   features:
     version: '2.10'
+  features_extra:
+    version: '1.0'
   field_collection:
     version: 1.0-beta12
   field_group:
