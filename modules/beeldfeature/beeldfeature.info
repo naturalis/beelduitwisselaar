@@ -179,7 +179,6 @@ features[fe_block_settings][] = block-bu_validator_block
 features[fe_block_settings][] = block-nlsoorten_menu
 features[fe_block_settings][] = block-nlsoorter_footer
 features_exclude[dependencies][ctools] = ctools
-features_exclude[field_base][body] = body
 features_exclude[dependencies][date] = date
 features_exclude[dependencies][email] = email
 features_exclude[dependencies][entityreference] = entityreference
