@@ -150,10 +150,6 @@ li.leaf {
 .form-wrapper {
     padding : 5px 0px;
 }
-.form-item {
-    clear :both;
-
-}
 .form-item label {
     padding : 5px 0;
     font-weight : bold;
@@ -167,4 +163,15 @@ li.leaf {
 }
 div#block-search-form input.form-submit {
     display : inline-block !important;
+}
+.components td.component {
+    padding : 5px 0 10px 20px;
+}
+.features-component-list {
+    line-height : 150%;
+}
+.features-component-list .features-source {
+    background-color : #eeeeee;
+    padding : 1px;
+    border-radius : 2px;
 }
