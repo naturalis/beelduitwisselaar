@@ -15,15 +15,15 @@
       var body = $('body'),
           menu = $('.menu'),
           menuToggle = $('.menuToggle');
-      $('body').on('click', '.menuToggle', function (e) {
+
+      $('.menuTogggle').click(function (e) {
         e.preventDefault();
-        console.log('test');
         menu.slideToggle('fast', function () {
           $('body').toggleClass('menuOpen');
         });
       });
 
-      $('body').on('click', '.menu li .toggle-submenu-js', function (e) {
+      $('.menu li .toggle-submenu-js').click(function (e) {
         if (menuToggle.css('display') === 'block') {
           e.preventDefault();
           var submenu = $(this).parent().find('ol'),
@@ -53,7 +53,7 @@
         }
       });
 
-      $('body').on('click', '.toggleFooterLinks', function (e) {
+      $('.toggleFooterLinks').click(function (e) {
         e.preventDefault();
 
         if (menuToggle.css('display') === 'block') {
@@ -62,19 +62,19 @@
       });
 
       // Open search bar
-      $('body').on('click', '.search-toggle-js', function() {
+      $('.search-toggle-js').click(function() {
         $('body').toggleClass('search-open');
         $('.menuContainer').find('input').select().focus();
       });
 
       // Close search bar
-      $('body').on('click', '.close-suggestion-list-js', function() {
+      $('.close-suggestion-list-js').click(function() {
         $('#name_suggestion').hide();
         $('body').removeClass('search-open');
       });
 
       // Provide suggestion list
-      $('body').on('keyup', '#inlineformsearch #inlineformsearchInput', function(e) {
+      $('#inlineformsearch #inlineformsearchInput').keyup(function(e) {
         if (e.keyCode==27 || $(this).val() == '') {
           $('.simpleSuggestions').hide();
         } else {
@@ -83,7 +83,6 @@
 
         $('.simpleSuggestions ul').append('<li>Nog een suggestie</li>');
       }); 
-
     }
   };
 })(jQuery);
