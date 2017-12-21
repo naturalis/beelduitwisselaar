@@ -264,7 +264,7 @@ select.form-select {
     background-repeat: no-repeat;
 }
 
-#edit-actions .form-submit {
+#edit-actions .form-submit, #edit-actions .button-user {
     margin-right : 5px;
     padding : 5px 15px;
     height : 30px;
