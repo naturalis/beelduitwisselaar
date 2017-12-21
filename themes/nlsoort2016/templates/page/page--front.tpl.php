@@ -60,6 +60,7 @@
 
       <?php if (!empty($page['content'])): ?>
           <div class="whitebox">
+            <h1>Gaat het werken?</h1>
             <?php print render($page['content']); ?>
           </div>
       <?php endif; ?>
