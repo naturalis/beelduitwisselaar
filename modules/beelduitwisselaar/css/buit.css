@@ -11,28 +11,7 @@ button#edit-goedgekeurd {background-color: #3a0; border-color: #3a0; }
 button#edit-wacht {background-color: #ddd; border-color: #ddd; }
 button#edit-afgekeurd {background-color: #b6003d; border-color: #b6003d; }
 form input.button-user {
-  border-style: solid;
-  border-width: 0px;
-  cursor: pointer;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  line-height: normal;
-  margin: 0 0 1.25rem;
-  position: relative;
-  text-decoration: none;
-  text-align: center;
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
-  display: inline-block;
-  padding-top: 1rem;
-  padding-right: 2rem;
-  padding-bottom: 1.0625rem;
-  padding-left: 2rem;
-  font-size: 1rem;
   background-color: #e3004a;
-  border-color: #b6003d;
-  color: #fff;
-  transition: background-color 300ms ease-out;
 }
 
 /**
