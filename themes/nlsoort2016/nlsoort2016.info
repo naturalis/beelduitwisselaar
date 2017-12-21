@@ -1,5 +1,5 @@
 name = Nederlandse Soorten Theme 2016
-description = A custom theme for Nederlandse Soorten!
+description = A custom theme for Nederlandse Soorten
 core = 7.x
 
 ; Load the css files.
