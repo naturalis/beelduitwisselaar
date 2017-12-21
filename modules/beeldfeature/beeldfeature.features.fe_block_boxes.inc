@@ -104,7 +104,7 @@ if ($user) {
 </div>
 <div class="filter">
 <ul>
-<li><a href="/user<?php echo($user->uid); ?>/edit"><i class="ion-edit"></i> Profiel aanpassen</a></li>
+<li><a href="/user/<?php echo($user->uid); ?>/edit"><i class="ion-edit"></i> Profiel aanpassen</a></li>
 <li><a href="/user/logout"><i class="ion-paper-airplane"></i> Uitloggen</a></li>
 </ul>
 </div>
