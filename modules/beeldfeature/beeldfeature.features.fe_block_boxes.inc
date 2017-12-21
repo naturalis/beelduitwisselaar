@@ -5,6 +5,7 @@
  */
 
 /**
+ *
  * Implements hook_default_fe_block_boxes().
  */
 function beeldfeature_default_fe_block_boxes() {
