@@ -103,6 +103,7 @@ li.leaf {
 .left .block,
 .region-left-sidebar .block {
     padding: 0;
+    border : red solid 10px;
     width : 220px;
     margin-right : 20px;
 }
