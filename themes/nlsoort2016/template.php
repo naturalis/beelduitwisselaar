@@ -9,11 +9,14 @@
  */
 function nlsoort2016_preprocess_html(&$vars) {
 
-  // Append external css for ionicons.
-  drupal_add_css('//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', array(
-    'type'  => 'external',
-    'group' => CSS_DEFAULT,
-  ));
+      // Append external css for ionicons.
+      drupal_add_css('//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', array(
+        'type'  => 'external',
+        'group' => CSS_DEFAULT,
+      ));
+    foreach($vars['user']->roles as $role){
+        $vars['classes_array'][] = 'role-' . drupal_html_class($role);
+    }
 }
 
 /**
@@ -21,6 +24,10 @@ function nlsoort2016_preprocess_html(&$vars) {
  */
 function nlsoort2016_preprocess_block(&$vars) {
 
+    // In the header region visually hide block titles.
+    //if ($variables['block']->region == 'header') {
+    //    $variables['title_attributes_array']['class'][] = 'element-invisible';
+    //}
   // Add the path to the assets folder for each block.
   $vars['path_to_assets'] = nlsoort_components_path_to_assets();
 
@@ -84,6 +91,11 @@ function nlsoort2016_preprocess_block(&$vars) {
  */
 function nlsoort2016_preprocess_page(&$variables) {
 
+    if ($vars['user']) {
+        foreach($vars['user']->roles as $key => $role) {
+            $vars['class'][] = 'role-' . drupal_html_class($role);
+        }
+    }
   // Merge tabs into content area.
   if (!empty($variables['tabs'])) {
     $variables['page']['content']['system_main'] = array_merge(array('tabs' => $variables['tabs']), $variables['page']['content']['system_main']);
@@ -205,6 +217,18 @@ function nlsoort2016_block_view_alter(&$data, $block) {
   }
 }
 
+function nlsoort2016_form_alter(&$form, &$form_state, $form_id) {
+    if ($form_id == 'beelduitwisselaar_node_form' ) {
+
+        // Disable it, if already enabled.
+        $javascript = &drupal_static('drupal_add_js', array());
+        unset($javascript['misc/tabledrag.js']);
+
+        // Prevent it from being enabled later.
+        $tabledrag_added = &drupal_static('drupal_add_tabledrag');
+        $tabledrag_added = TRUE;
+    }
+}
 /**
  * Custom theme wrapper for the editor menu.
  *
@@ -230,3 +254,192 @@ function nlsoort2016_menu_tree__editor_menu(&$variables) {
 function nlsoort2016_menu_tree__main_menu_2(&$variables) {
   return '<ul class="sideMenu">' . $variables['tree'] . '</ul>';
 }
+
+/**
+ * Override or insert variables into the node template.
+ */
+function nlsoort2016_preprocess_node(&$variables) {
+    if ($variables['view_mode'] == 'full' && node_is_page($variables['node'])) {
+        $variables['classes_array'][] = 'node-full';
+    }
+
+    $variables['submitted'] = t('@date', array('@date' => date("j F Y", $variables['created']))) ." - " . $variables['name'];
+
+    // //  Retrieve URL pre- and suffix
+
+    // $variables['soort_id_url_prefix'] = theme_get_setting('nlsoorttheme_id_prefix','nlsoorttheme');
+    // $variables['soort_id_url_suffix'] = theme_get_setting('nlsoorttheme_id_suffix','nlsoorttheme');
+}
+
+
+/**
+ * Implements theme_menu_tree().
+ */
+function nlsoort2016_menu_tree($variables) {
+    return '<ul class="menu clearfix">' . $variables['tree'] . '</ul>';
+}
+
+/**
+ * Implements theme_field__field_type().
+ */
+function nlsoort2016_field__taxonomy_term_reference($variables) {
+    $output = '';
+
+    // Render the label, if it's not hidden.
+    if (!$variables['label_hidden']) {
+        $output .= '<h3 class="field-label">' . $variables['label'] . ': </h3>';
+    }
+
+    // Render the items.
+    $output .= ($variables['element']['#label_display'] == 'inline') ? '<ul class="links inline">' : '<ul class="links">';
+    foreach ($variables['items'] as $delta => $item) {
+        $output .= '<li class="taxonomy-term-reference-' . $delta . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</li>';
+    }
+    $output .= '</ul>';
+
+    // Render the top-level DIV.
+    $output = '<div class="' . $variables['classes'] . (!in_array('clearfix', $variables['classes_array']) ? ' clearfix' : '') . '"' . $variables['attributes'] .'>' . $output . '</div>';
+
+    return $output;
+}
+
+/**
+ * Implements nlsoorttheme_image_widget()
+ *
+ * Remove the possibility to sort for field_afbeeldingen only
+ */
+
+function nlsoort2016_image_widget($variables) {
+
+    $element = $variables['element'];
+
+    $output = '';
+    $output .= '<div class="image-widget form-managed-file clearfix">';
+
+    if (isset($element['preview'])) {
+        $output .= '<div class="image-preview test">';
+        $output .= "  <a href='".file_create_url($element['#file']->uri)."' class='colorbox' rel=''>";
+        $output .=      drupal_render($element['preview']);
+        $output .= "  </a>";
+        $output .= '</div>';
+    }
+
+    $output .= '<div class="image-widget-data">';
+    if ($element['fid']['#value'] != 0) {
+        $element['filename']['#markup'] .= ' <span class="file-size">(' . format_size($element['#file']->filesize) . ')</span> ';
+    }
+    $output .= drupal_render_children($element);
+    $output .= '</div>';
+    $output .= '</div>';
+
+    return $output;
+}
+
+/**
+ * Implements theme_field_multiple_value_form()
+ *
+ * Remove the possibility to sort for field_afbeeldingen only
+ */
+
+function nlsoort2016_field_multiple_value_form($variables) {
+
+
+    $element = $variables['element'];
+
+
+
+    $output = '';
+
+    if ($element['#cardinality'] > 1 || $element['#cardinality'] == FIELD_CARDINALITY_UNLIMITED) {
+
+        $table_id = drupal_html_id($element['#field_name'] . '_values');
+        $order_class = $element['#field_name'] . '-delta-order';
+        $required = !empty($element['#required']) ? theme('form_required_marker', $variables) : '';
+
+
+        if ( $element['#field_name'] == "field_afbeeldingen"){
+
+            $header = array(
+                array(
+                    'data' => '<label>' . t('!title !required', array('!title' => $element['#title'], '!required' => $required)) . "</label>",
+                    'class' => array('field-label'),
+                )
+            );
+
+        } else {
+
+            $header = array(
+                array(
+                    'data' => '<label>' . t('!title !required', array('!title' => $element['#title'], '!required' => $required)) . "</label>",
+                    'colspan' => 2,
+                    'class' => array('field-label'),
+                ),
+                t('Order'),
+            );
+        }
+
+        $rows = array();
+
+        // Sort items according to '_weight' (needed when the form comes back after
+        // preview or failed validation)
+        $items = array();
+        foreach (element_children($element) as $key) {
+            if ($key === 'add_more') {
+                $add_more_button = &$element[$key];
+            }
+            else {
+                $items[] = &$element[$key];
+            }
+        }
+        usort($items, '_field_sort_items_value_helper');
+
+        // Add the items as table rows.
+        foreach ($items as $key => $item) {
+            $item['_weight']['#attributes']['class'] = array($order_class);
+            $delta_element = drupal_render($item['_weight']);
+
+            $cells = array();
+
+
+            $cells[0] =  array(
+                'data' => '',
+                'class' => array('field-multiple-drag'),
+            );
+
+            $cells[1] =  drupal_render($item);
+
+            $cells[2] =  array(
+                'data' => $delta_element,
+                'class' => array('delta-order'),
+            );
+
+            // OVERRIDING THEMED OUTPUT OF FIELD TO PREVENT SORTING FUNCTIONALITY (weight)
+            if ( $element['#field_name'] == "field_afbeeldingen"){
+                unset($cells[2]);
+                unset($cells[0]);
+            }
+
+            $rows[] = array(
+                'data' => $cells,
+            );
+        }
+
+        $output = '<div class="form-item">';
+        $output .= theme('table', array('header' => $header, 'rows' => $rows, 'attributes' => array('id' => $table_id, 'class' => array('field-multiple-table'))));
+        $output .= $element['#description'] ? '<div class="description">' . $element['#description'] . '</div>' : '';
+        $output .= '<div class="clearfix">' . drupal_render($add_more_button) . '</div>';
+        $output .= '</div>';
+
+
+        drupal_add_tabledrag($table_id, 'order', 'sibling', $order_class);
+    }
+    else {
+        foreach (element_children($element) as $key) {
+            $output .= drupal_render($element[$key]);
+        }
+    }
+
+
+    return $output;
+}
+

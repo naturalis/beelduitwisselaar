@@ -32,10 +32,10 @@ ul.pager li a {
     color : #009EE0;
 }
 table.views-table th, table.views-table td {
-    font-size : 11px;
+    font-size : 14px;
 }
 ul.pager li {
-    font-size : 11px;
+    font-size : 14px;
 }
 
 .admin-menu .menu > li > a {
@@ -103,7 +103,6 @@ li.leaf {
 .left .block,
 .region-left-sidebar .block {
     padding: 0;
-    border : red solid 10px;
     width : 220px;
     margin-right : 20px;
 }
@@ -149,7 +148,7 @@ li.leaf {
     color: #666666;
 }
 .form-wrapper {
-    padding : 5px 0px;
+    padding : 0;
 }
 .form-item label {
     padding : 5px 0;
@@ -179,4 +178,124 @@ div#block-search-form input.form-submit {
     background-color : #eeeeee;
     padding : 1px;
     border-radius : 2px;
+}
+.gridright {
+    padding-top : 5px;
+    float : right;
+}
+
+.views-exposed-form {
+    display : table;
+    margin-bottom : 10px;
+}
+.views-exposed-widgets {
+    display : table-row;
+}
+.views-exposed-widgets label {
+    display : table-cell;
+}
+.views-exposed-widgets .views-widget {
+    display : table-cell;
+}
+.view-content span.fieldset-legend { display : none;}
+/* form */
+
+/* table */
+.field-multiple-table .odd, .field-multiple-table .even {
+    background : none !important;
+    border : none ! important;
+}
+tr.odd div.form-item, tr.even div.form-item {
+   margin-bottom : 0;
+}
+
+
+/* buttons and inputs */
+input[type=button], input[type=submit] {
+    height: 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size : 14px;
+    background : #cccccc;
+    cursor: pointer;
+    border: 0;
+}
+.node-beelduitwisselaar-form div.field-name-field-soort-taxon {
+    display : none;
+}
+
+input[type=text] {
+    font-family : arial, helvetica, sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    border: solid #cccccc 1px;
+    outline-width: 1px;
+    height: 20px;
+}
+textarea {
+    font-family : arial, helvetica, sans-serif;
+    font-size: 14px;
+}
+textarea[disabled='1'] {
+    color : #666666;
+    background-color : #eeeeee;
+}
+
+
+.item-list .pager li {
+    padding : 0;
+}
+
+select.form-select {
+    font-size: 14px;
+    height: 20px;
+    width: auto;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 0;
+    outline-width: 1px;
+    padding-left: 14px;
+    background-color: #eeede9;
+    border-radius: 0;
+    background-image: url("../img/arrow-down-b.png");
+    background-position: center right 8px;
+    padding-right: 35px;
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+
+#edit-actions .form-submit {
+    margin-right : 5px;
+    padding : 5px 15px;
+    height : 30px;
+    font-weight : bold;
+}
+#edit-goedgekeurd {
+    background-color : green;
+    font-weight : bold;
+}
+#edit-afgekeurd {
+    background-color : red;
+    font-weight : bold;
+}
+input[id*="remove-button"] {
+    margin-right : 5px;
+    padding : 5px 15px;
+    height : 30px;
+    background-color : red;
+    font-weight : bold;
+}
+input.field-add-more-submit {
+    margin-right : 5px;
+    padding : 5px 15px;
+    height : 30px;
+    background-color : #1cc7ff;
+    font-weight : bold;
+}
+
+body.page-node-add-beelduitwisselaar div.vertical-tabs, body.page-node-add-beelduitwisselaar div.vertical-tabs {
+    border : none !important;
+}
+body.page-node-add-beelduitwisselaar div.vertical-tabs ul.vertical-tabs-list, body.page-node-add-beelduitwisselaar div.vertical-tabs div.vertical-tabs-panes {
+    display : none;
 }
