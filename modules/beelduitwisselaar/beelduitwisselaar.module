@@ -60,7 +60,7 @@ function beelduitwisselaar_init() {
 	  variable_del("beelduitwisselaar_action");
 	  variable_del("beelduitwisselaar_entityid");
 	  variable_del("beelduitwisselaar_mailrequired");
-          variable_del("beelduitwisselaar_mailsend");
+      variable_del("beelduitwisselaar_mailsend");
 	  break;
       }
 
@@ -76,6 +76,21 @@ function beelduitwisselaar_init() {
      $lastview = current_path();
      variable_set("beelduitwisselaar_lastview", $lastview);
   }
+  /*
+  if (current_path() == "afbeeldingen") {
+      $params = drupal_get_query_parameters();
+      if (array_key_exists('order', $params)) {
+          $_SESSION['order'] = $params['order'];
+      } else {
+          unset($_SESSION['order']);
+      }
+      if (array_key_exists('sort', $params)) {
+          $_SESSION['sort'] = $params['sort'];
+      } else {
+          unset($_SESSION['sort']);
+      }
+  }
+  */
   //dpm($lastview);
 }
 

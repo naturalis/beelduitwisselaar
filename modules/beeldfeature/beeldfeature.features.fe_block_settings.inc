@@ -200,7 +200,7 @@ function beeldfeature_default_fe_block_settings() {
         'region' => 'left_sidebar',
         'status' => 1,
         'theme' => 'nlsoort2016',
-        'weight' => -24,
+        'weight' => -20,
       ),
       'seven' => array(
         'region' => '',
@@ -232,7 +232,7 @@ function beeldfeature_default_fe_block_settings() {
         'region' => 'left_sidebar',
         'status' => 1,
         'theme' => 'nlsoort2016',
-        'weight' => -23,
+        'weight' => -19,
       ),
       'seven' => array(
         'region' => '',
@@ -427,6 +427,38 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'nlsoort2016',
         'weight' => 5,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['diff-inline'] = array(
+    'cache' => 1,
+    'custom' => 0,
+    'delta' => 'inline',
+    'module' => 'diff',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'nlsoort2016' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'nlsoort2016',
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -780,7 +812,7 @@ function beeldfeature_default_fe_block_settings() {
         'region' => 'left_sidebar',
         'status' => 1,
         'theme' => 'nlsoort2016',
-        'weight' => -20,
+        'weight' => -24,
       ),
       'seven' => array(
         'region' => '',
@@ -789,7 +821,7 @@ function beeldfeature_default_fe_block_settings() {
         'weight' => -10,
       ),
     ),
-    'title' => 'Zoeken',
+    'title' => 'Zoek foto\'s',
     'visibility' => 0,
   );
 

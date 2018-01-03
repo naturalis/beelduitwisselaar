@@ -751,6 +751,17 @@ function beeldfeature_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: 'diff view changes'.
+  $permissions['diff view changes'] = array(
+    'name' => 'diff view changes',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'diff',
+  );
+
   // Exported permission: 'display drupal links'.
   $permissions['display drupal links'] = array(
     'name' => 'display drupal links',

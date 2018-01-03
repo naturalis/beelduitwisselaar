@@ -5,7 +5,6 @@
  */
 
 /**
- *
  * Implements hook_default_fe_block_boxes().
  */
 function beeldfeature_default_fe_block_boxes() {
@@ -15,23 +14,22 @@ function beeldfeature_default_fe_block_boxes() {
   $fe_block_boxes->info = 'Admin menu';
   $fe_block_boxes->format = 'php_code';
   $fe_block_boxes->machine_name = 'bu_admin_block';
-  $fe_block_boxes->body = '<fieldset class="block addon">
+  $fe_block_boxes->body = '<?php
+    $counts = beelduitwisselaar_counts();
+?>
+<fieldset class="block addon">
 <div class="formrow">
 <label for="admin">Admin</label>
 </div>
 <div class="filter">
 <ul>
-<li><a href="/grid-afbeeldingen"><i class="ion-android-apps"></i></a> <a href="/afbeeldingen">Nieuwe beelden</a> <?php $sqlnew = "select count(*) from {field_data_field_status} where field_status_value = 0";
-echo "<span class=\'count\'>(" . db_query($sqlnew)->FetchField() . ")</span>";?></li>
+<li><a href="/grid-afbeeldingen"><i class="ion-android-apps"></i></a> <a href="/afbeeldingen?order=created&sort=asc">Nieuwe beelden</a><span class=\'count\'>(<?= $counts[\'new\'] ?>)</span></li>
 <li><a href="/grid-afbeeldingen-expert-all"><i class="ion-android-apps"></i></a> 
-<a href="/afbeeldingen-expert-all">Beelden bij validator</a> <?php $sqlnew = "select count(*) from {field_data_field_status} where field_status_value = 1";
-echo "<span class=\'count\'>(" . db_query($sqlnew)->FetchField() . ")</span>";?></li>
+<a href="/afbeeldingen-expert-all">Beelden bij validator</a> <span class=\'count\'>(<?= $counts[\'queued\'] ?>)</span></li>
 <li><a href="/grid-afbeeldingen-geevalueerd-all"><i class="ion-android-apps"></i></a>
-<a href="/afbeeldingen-geevalueerd-all">Gevalideerde beelden</a> <?php $sqlnew = "select count(*) from {field_data_field_status} where (field_status_value = 2) OR  (field_status_value = 3)";
-echo "<span class=\'count\'>(" . db_query($sqlnew)->FetchField() . ")</span>";?></li>
+<a href="/afbeeldingen-geevalueerd-all">Gevalideerde beelden</a> <span class=\'count\'>(<?= $counts[\'validated\'] ?>)</span></li> 
 <li><a href="/grid-afbeeldingen-wachtrij"><i class="ion-android-apps"></i></a> 
-<a href="/afbeeldingen-wachtrij">Wachtrij</a> <?php $sqlnew = "select count(*) from {field_data_field_status} where field_status_value = 4";
-echo "<span class=\'count\'>(" . db_query($sqlnew)->FetchField() . ")</span>";?></li>
+<a href="/afbeeldingen-wachtrij">Wachtrij</a> <span class=\'count\'>(<?= $counts[\'waiting\'] ?>)</span></li> 
 
 <li><a href="/email-expert"><i class="ion-edit"></i> Lijst validatoren</a></li>
 <li><a href="/email-fotograaf"><i class="ion-edit"></i> Lijst fotografen</a></li>
@@ -40,7 +38,8 @@ echo "<span class=\'count\'>(" . db_query($sqlnew)->FetchField() . ")</span>";?>
 </ul>
 </div>
 
-</fieldset>';
+</fieldset>
+';
 
   $export['bu_admin_block'] = $fe_block_boxes;
 
@@ -123,6 +122,7 @@ if ($user) {
   $fe_block_boxes->body = '<?php
 global $user;
 if ($user) {
+    $counts = beelduitwisselaar_validator_counts();
 ?>
 <fieldset class="block addon">
 <div class="formrow">
@@ -130,16 +130,9 @@ if ($user) {
 </div>
 <div class="filter">
 <ul>
-<li><a href="/afbeeldingen-expert"><i class="ion-camera"></i> Nieuwe beelden</a>
-<?php
-  $sqlnew = "select count(*) from {field_data_field_beeldexpert} b, {field_data_field_status} s where b.entity_id = s.entity_id AND  b.field_beeldexpert_target_id = " . $user->uid . " AND s.field_status_value = 1";
-  echo "<span class=\'count\'>(" . db_query($sqlnew)->FetchField() . ")</span>";
-?></li>
-<li><a href="/afbeeldingen-geevalueerd"><i class="ion-camera"></i> Gevalideerde beelden</a> <?php
-  $sqlnew = "select count(*) from {field_data_field_beeldexpert} b, {field_data_field_status} s where b.entity_id = s.entity_id AND b.field_beeldexpert_target_id = " . $user->uid . " AND (s.field_status_value = 2 OR s.field_status_value = 3)";
-  echo "<span class=\'count\'>(" . db_query($sqlnew)->FetchField() . ")</span>";
-?></li>
-<li><a target="_blank" href="http://www.nederlandsesoorten.nl/linnaeus_ng/app/views/search/nsr_search_pictures.php?photographer=&validator=<?= $user->name ?>"><i class="ion-camera"></i> Gepubliceerde beelden</a></li><?php
+<li><a href="/afbeeldingen-expert?order=created&sort=asc"><i class="ion-camera"></i> Nieuwe beelden</a> <span class=\'count\'>(<?= $counts[\'queued\'] ?>)</span></li>
+<li><a href="/afbeeldingen-geevalueerd"><i class="ion-camera"></i> Gevalideerde beelden</a> <span class=\'count\'>(<?= $counts[\'queued\'] ?>)</span></li>
+<li><a target="_blank" href="//www.nederlandsesoorten.nl/linnaeus_ng/app/views/search/nsr_search_pictures.php?photographer=&validator=<?= $user->name ?>"><i class="ion-camera"></i> Gepubliceerde beelden</a></li><?php
 
 }
 ?>

@@ -443,3 +443,23 @@ function nlsoort2016_field_multiple_value_form($variables) {
     return $output;
 }
 
+function beelduitwisselaar_counts() {
+    $counts = array();
+    $counts['new'] =  db_query("select count(*) from {field_data_field_status} where field_status_value = 0")->FetchField();
+    $counts['queued'] =  db_query("select count(*) from {field_data_field_status} where field_status_value = 1")->FetchField();
+    $counts['validated'] =  db_query("select count(*) from {field_data_field_status} where (field_status_value = 2) OR (field_status_value = 3)")->FetchField();
+    $counts['waiting'] =  db_query("select count(*) from {field_data_field_status} where (field_status_value = 4)")->FetchField();
+
+    return $counts;
+}
+
+function beelduitwisselaar_validator_counts() {
+    global $user;
+
+    $counts = array();
+    $counts['queued'] =  db_query("select count(*) from {field_data_field_beeldexpert} b, {field_data_field_status} s where b.entity_id = s.entity_id AND  b.field_beeldexpert_target_id = " . $user->uid . " AND s.field_status_value = 1")->FetchField();
+    $counts['validated'] =  db_query("select count(*) from {field_data_field_beeldexpert} b, {field_data_field_status} s where b.entity_id = s.entity_id AND  b.field_beeldexpert_target_id = " . $user->uid . " AND (s.field_status_value = 2) OR (s.field_status_value = 3)")->FetchField();
+
+    return $counts;
+}
+
