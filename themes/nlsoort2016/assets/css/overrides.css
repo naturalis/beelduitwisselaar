@@ -370,6 +370,9 @@ th.field-label label {
     font-weight : normal;
     font-size : 12px;
 }
+.vbo-select-all-markup em {
+    display : none;
+}
 table td[class*="col-"] {
     vertical-align : middle;
     text-align : center;
