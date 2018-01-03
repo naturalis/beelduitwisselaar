@@ -15,4 +15,4 @@ The result is a complete install of the beelduitwisselaar site. The only things 
 drush sql-dump > nameofdatabase.sql
 ```
 
-And a complete copy of the uploaded files directory. You also need to change the settings.php to contain the database credentials of your new setup.
+...and a complete copy of the uploaded files directory. You also need to change the settings.php to contain the database credentials of your new setup.
