@@ -778,7 +778,7 @@ function setSuggestionId(ele) {
   if(oFormObject.elements["group"].value.length > 2) {
 //    jQuery( oFormObject.elements["group"].value ).appendTo( "#selectlijst" );
 
-jQuery.getJSON("http://' . variable_get('beelduitwisselaar_block_string', "www.nederlandsesoorten.nl/linnaeus_ng/app/views/webservices/search.php") . '?pid=1&text=" + oFormObject.elements["group"].value + "&max=1000&callback=?",
+jQuery.getJSON("//' . variable_get('beelduitwisselaar_block_string', "www.nederlandsesoorten.nl/linnaeus_ng/app/views/webservices/search.php") . '?pid=1&text=" + oFormObject.elements["group"].value + "&max=1000&callback=?",
   {
     tagmode: "any",
     format: "json"
