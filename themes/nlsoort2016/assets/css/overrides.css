@@ -289,13 +289,6 @@ select.form-select {
     background : #cccccc;
     cursor: pointer;
     margin-right : 5px;
-
-    /*
-    border: 0;
-    padding : 5px 15px;
-    height : 30px;
-    font-weight : bold;
-    */
 }
 #edit-goedgekeurd {
     background-color : green !important;
