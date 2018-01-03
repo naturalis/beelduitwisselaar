@@ -298,11 +298,13 @@ select.form-select {
     */
 }
 #edit-goedgekeurd {
-    background-color : green;
+    background-color : green !important;
+    color : #000000;
     font-weight : bold;
 }
 #edit-afgekeurd {
-    background-color : red;
+    background-color : red !important;
+    color : #000000;
     font-weight : bold;
 }
 input[id*="remove-button"] {
