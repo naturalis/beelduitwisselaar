@@ -786,7 +786,8 @@ jQuery.getJSON("//' . variable_get('beelduitwisselaar_block_string', "www.nederl
   function(data) {
     clear();
     jQuery.each(data.results, function(i,item){
-      jQuery("<a href=\'#\' onclick=\'setId(\"" + item.nsr_id + "\");setName(\"" + "" + item.name + "\");document.getElementById(\"validated\").style.visibility=\"visible\";\'>" + item.label + "</a><br />").appendTo("#selectlijst");
+      var divclass = (i%2) ? "even" : "oneven";
+      jQuery("<div class=\"" +  divclass + "\"><a href=\'#\' onclick=\'setId(\"" + item.nsr_id + "\");setName(\"" + "" + item.name + "\");document.getElementById(\"validated\").style.visibility=\"visible\";\'>" + item.label + "</a></div>").appendTo("#selectlijst");
       if ( i == 50 ) return false;
     });
   });
