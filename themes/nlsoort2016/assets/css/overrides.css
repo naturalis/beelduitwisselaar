@@ -366,3 +366,12 @@ th.field-label label {
 #selectlijst div.even {
     background-color : #fcfcfc;
 }
+.vbo-select-all-markup .form-item label {
+    font-weight : normal;
+    font-size : 12px;
+}
+table td[class*="col-"] {
+    vertical-align : middle;
+    text-align : center;
+}
+
