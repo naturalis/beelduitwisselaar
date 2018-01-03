@@ -31,9 +31,7 @@
 <div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
     <fieldset class="block addon">
         <div class="formrow">
-            <?php if (empty($variables['form']['#block']->subject)): ?>
-            <label><?php print t('Search form'); ?></label>
-            <?php endif; ?>
+            <label><?= $block->subject ?></label>
         </div>
   <div class="filter">
     <?php print $content ?>
