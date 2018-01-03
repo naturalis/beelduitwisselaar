@@ -20,7 +20,7 @@ function setSuggestionId(ele) {
 
   if(oFormObject.elements["group"].value.length > 2) {
 
-$.getJSON("http://soortenregister-development-001.cloud.naturalis.nl/linnaeus_ng/app/views/webservices/search.php?pid=1&start=1&text=" + oFormObject.elements["group"].value + "&max=1000&callback=?",
+$.getJSON("://soortenregister-development-001.cloud.naturalis.nl/linnaeus_ng/app/views/webservices/search.php?pid=1&start=1&text=" + oFormObject.elements["group"].value + "&max=1000&callback=?",
   {
     tagmode: "any",
     format: "json"

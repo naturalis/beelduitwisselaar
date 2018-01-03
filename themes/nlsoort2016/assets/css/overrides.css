@@ -233,6 +233,9 @@ input[type=button], input[type=submit] {
     color : #666666 !important;
     font-weight : bold;
 }
+#search-block-form #edit-submit {
+    margin-right : 0px;
+}
 
 .node-beelduitwisselaar-form div.field-name-field-soort-taxon {
     display : none;
