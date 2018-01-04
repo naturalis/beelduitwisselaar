@@ -1667,13 +1667,13 @@ function beelduitwisselaar_afgekeurd(&$form, &$form_state) {
   if (empty($myentity->field_opmerkingen['und'][0]['value'])) $myentity->field_opmerkingen['und'][0]['value'] = $form['field_opmerkingen']['und'][0]['value']['#default_value'];
   $myentity->field_textsoortenregister['und'][0]['value'] = $form['field_textsoortenregister']['und'][0]['value']['#value'];
   //$myentity->save();
-  
+
   //Stuur mail afgekeurd
   global $user;
   global $base_url;
   $mymail = node_load(MAILDECLINESUBMISSION);
   $mail = $mymail->body['und'][0]['value'];
-  $mail = str_replace("%%beeldnaam%%",  $form['field_newimage']['und'][0]['#file']->filename, $mail);
+  $mail = str_replace("%%beeldnaam%%",  $myentity->field_newimage['und'][0]['#file']->filename, $mail);
   $mail = str_replace("%%expertnaam%%", $user->name, $mail);
   $mail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>", $mail);
   //$mail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/user/" . $user->uid . "'>" . $user->name . "</a>", $mail);
