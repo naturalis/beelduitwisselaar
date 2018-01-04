@@ -23,7 +23,7 @@ function beeldfeature_default_fe_block_boxes() {
 </div>
 <div class="filter">
 <ul>
-<li><a href="/grid-afbeeldingen"><i class="ion-android-apps"></i></a> <a href="/afbeeldingen?order=created&sort=asc">Nieuwe beelden</a><span class=\'count\'>(<?= $counts[\'new\'] ?>)</span></li>
+<li><a href="/grid-afbeeldingen"><i class="ion-android-apps"></i></a> <a href="/afbeeldingen">Nieuwe beelden</a> <span class=\'count\'>(<?= $counts[\'new\'] ?>)</span></li>
 <li><a href="/grid-afbeeldingen-expert-all"><i class="ion-android-apps"></i></a> 
 <a href="/afbeeldingen-expert-all">Beelden bij validator</a> <span class=\'count\'>(<?= $counts[\'queued\'] ?>)</span></li>
 <li><a href="/grid-afbeeldingen-geevalueerd-all"><i class="ion-android-apps"></i></a>
@@ -131,7 +131,7 @@ if ($user) {
 <div class="filter">
 <ul>
 <li><a href="/afbeeldingen-expert?order=created&sort=asc"><i class="ion-camera"></i> Nieuwe beelden</a> <span class=\'count\'>(<?= $counts[\'queued\'] ?>)</span></li>
-<li><a href="/afbeeldingen-geevalueerd"><i class="ion-camera"></i> Gevalideerde beelden</a> <span class=\'count\'>(<?= $counts[\'queued\'] ?>)</span></li>
+<li><a href="/afbeeldingen-geevalueerd"><i class="ion-camera"></i> Gevalideerde beelden</a> <span class=\'count\'>(<?= $counts[\'validated\'] ?>)</span></li>
 <li><a target="_blank" href="//www.nederlandsesoorten.nl/linnaeus_ng/app/views/search/nsr_search_pictures.php?photographer=&validator=<?= $user->name ?>"><i class="ion-camera"></i> Gepubliceerde beelden</a></li><?php
 
 }

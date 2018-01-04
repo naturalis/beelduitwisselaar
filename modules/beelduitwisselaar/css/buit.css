@@ -165,8 +165,6 @@ div.status, table tr.ok {
 }
 
 body.page-field-collection-field-afbeeldingen div.field-name-field-soort-taxon, 
-body.page-field-collection-field-afbeeldingen div.field-name-field-groep,
-body.page-field-collection-field-afbeeldingen div.field-name-field-beeldexpert,
 body.page-field-collection-field-afbeeldingen div.field-name-field-newimage,
 body.page-field-collection-field-afbeeldingen div.field-name-field-nlsr {display: none;}
 
