@@ -23,13 +23,13 @@ function beeldfeature_default_fe_block_boxes() {
 </div>
 <div class="filter">
 <ul>
-<li><a href="/grid-afbeeldingen"><i class="ion-android-apps"></i></a> <a href="/afbeeldingen">Nieuwe beelden</a> <span class=\'count\'>(<?= $counts[\'new\'] ?>)</span></li>
-<li><a href="/grid-afbeeldingen-expert-all"><i class="ion-android-apps"></i></a> 
-<a href="/afbeeldingen-expert-all">Beelden bij validator</a> <span class=\'count\'>(<?= $counts[\'queued\'] ?>)</span></li>
-<li><a href="/grid-afbeeldingen-geevalueerd-all"><i class="ion-android-apps"></i></a>
-<a href="/afbeeldingen-geevalueerd-all">Gevalideerde beelden</a> <span class=\'count\'>(<?= $counts[\'validated\'] ?>)</span></li> 
-<li><a href="/grid-afbeeldingen-wachtrij"><i class="ion-android-apps"></i></a> 
-<a href="/afbeeldingen-wachtrij">Wachtrij</a> <span class=\'count\'>(<?= $counts[\'waiting\'] ?>)</span></li> 
+<li><a href="/grid-afbeeldingen?combine=&order=created&sort=desc"><i class="ion-android-apps"></i></a> <a href="/afbeeldingen?combine=&order=created&sort=desc">Nieuwe beelden</a> <span class=\'count\'>(<?= $counts[\'new\'] ?>)</span></li>
+<li><a href="/grid-afbeeldingen-expert-all?combine=&order=field_created&sort=desc"><i class="ion-android-apps"></i></a> 
+<a href="/afbeeldingen-expert-all?combine=&order=field_created&sort=desc">Beelden bij validator</a> <span class=\'count\'>(<?= $counts[\'queued\'] ?>)</span></li>
+<li><a href="/grid-afbeeldingen-geevalueerd-all?combine=&order=created&sort=desc"><i class="ion-android-apps"></i></a>
+<a href="/afbeeldingen-geevalueerd-all?combine=&order=created&sort=desc">Gevalideerde beelden</a> <span class=\'count\'>(<?= $counts[\'validated\'] ?>)</span></li> 
+<li><a href="/grid-afbeeldingen-wachtrij?combine=&order=field_created&sort=desc"><i class="ion-android-apps"></i></a> 
+<a href="/afbeeldingen-wachtrij?combine=&order=field_created&sort=desc">Wachtrij</a> <span class=\'count\'>(<?= $counts[\'waiting\'] ?>)</span></li> 
 
 <li><a href="/email-expert"><i class="ion-edit"></i> Lijst validatoren</a></li>
 <li><a href="/email-fotograaf"><i class="ion-edit"></i> Lijst fotografen</a></li>
@@ -38,8 +38,7 @@ function beeldfeature_default_fe_block_boxes() {
 </ul>
 </div>
 
-</fieldset>
-';
+</fieldset>';
 
   $export['bu_admin_block'] = $fe_block_boxes;
 

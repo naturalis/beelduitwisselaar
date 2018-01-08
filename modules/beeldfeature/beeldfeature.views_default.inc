@@ -132,7 +132,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -142,7 +142,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: URL */
+  /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url_1']['id'] = 'url_1';
   $handler->display->display_options['fields']['url_1']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url_1']['field'] = 'url';
@@ -153,7 +153,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['url_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['url_1']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url_1']['link_to_entity'] = 0;
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -182,7 +182,7 @@ function beeldfeature_views_default_views() {
       ),
     ),
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -193,7 +193,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage_1']['id'] = 'field_newimage_1';
   $handler->display->display_options['fields']['field_newimage_1']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage_1']['field'] = 'field_newimage';
@@ -205,7 +205,7 @@ function beeldfeature_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Veld: Content: Post date */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -214,7 +214,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd M Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Veld: Field collection item: Datum van opname */
+  /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
@@ -227,7 +227,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field: Voornaam */
+  /* Field: Field: Voornaam */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -235,7 +235,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Veld: Field: Achternaam */
+  /* Field: Field: Achternaam */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -244,16 +244,16 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['alter']['text'] = '<a href="/search/node/[field_achternaam] [field_voornaam]">[field_achternaam], [field_voornaam]</a>';
   $handler->display->display_options['fields']['field_achternaam']['element_label_colon'] = FALSE;
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
-  /* Veld: Field collection item: Soortnaam en opmerkingen */
+  /* Field: Field collection item: Soortnaam en opmerkingen */
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'field_data_field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Opmerking fotograaf';
-  /* Veld: Field collection item: URL */
+  /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url']['id'] = 'url';
   $handler->display->display_options['fields']['url']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url']['field'] = 'url';
@@ -435,7 +435,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -445,7 +445,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -471,7 +471,7 @@ function beeldfeature_views_default_views() {
       'label' => 'Verstuur mail',
     ),
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -483,7 +483,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage_1']['id'] = 'field_newimage_1';
   $handler->display->display_options['fields']['field_newimage_1']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage_1']['field'] = 'field_newimage';
@@ -495,12 +495,12 @@ function beeldfeature_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Veld: Broken/missing handler */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['lightbox2']['id'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['table'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['field'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['label'] = 'Beeld';
-  /* Veld: Field collection item: Datum van opname */
+  /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
@@ -512,7 +512,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field: Voornaam */
+  /* Field: Field: Voornaam */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -520,7 +520,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Veld: Field: Achternaam */
+  /* Field: Field: Achternaam */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -528,17 +528,17 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['label'] = '';
   $handler->display->display_options['fields']['field_achternaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['element_label_colon'] = FALSE;
-  /* Veld: Global: Custom text */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = 'Fotograaf';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_achternaam], [field_voornaam]';
-  /* Veld: Field collection item: Soort/taxon */
+  /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['table'] = 'field_data_field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
-  /* Veld: Field collection item: Validator */
+  /* Field: Field collection item: Validator */
   $handler->display->display_options['fields']['field_beeldexpert']['id'] = 'field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['table'] = 'field_data_field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['field'] = 'field_beeldexpert';
@@ -546,7 +546,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_beeldexpert']['settings'] = array(
     'link' => 0,
   );
-  /* Veld: Field collection item: status */
+  /* Field: Field collection item: status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -692,7 +692,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Veld: Field collection item: Datum van opname */
+  /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
@@ -703,15 +703,15 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
-  /* Veld: Field collection item: Soort/taxon */
+  /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['table'] = 'field_data_field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -720,7 +720,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -752,7 +752,7 @@ function beeldfeature_views_default_views() {
       ),
     ),
   );
-  /* Veld: Field collection item: Validator */
+  /* Field: Field collection item: Validator */
   $handler->display->display_options['fields']['field_beeldexpert']['id'] = 'field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['table'] = 'field_data_field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['field'] = 'field_beeldexpert';
@@ -760,7 +760,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_beeldexpert']['settings'] = array(
     'link' => 0,
   );
-  /* Veld: Field collection item: Opmerking validator */
+  /* Field: Field collection item: Opmerking validator */
   $handler->display->display_options['fields']['field_beeldevaluatie']['id'] = 'field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['table'] = 'field_data_field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['field'] = 'field_beeldevaluatie';
@@ -907,7 +907,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -916,7 +916,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Veld: Field collection item: Datum van opname */
+  /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
@@ -927,11 +927,11 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
-  /* Veld: Field collection item: Soortnaam en opmerkingen */
+  /* Field: Field collection item: Soortnaam en opmerkingen */
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'field_data_field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
@@ -1064,13 +1064,13 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: Field collection item ID */
+  /* Field: Field collection item: Field collection item ID */
   $handler->display->display_options['fields']['item_id']['id'] = 'item_id';
   $handler->display->display_options['fields']['item_id']['table'] = 'field_collection_item';
   $handler->display->display_options['fields']['item_id']['field'] = 'item_id';
   $handler->display->display_options['fields']['item_id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['item_id']['separator'] = '';
-  /* Veld: Field collection item: URL */
+  /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url']['id'] = 'url';
   $handler->display->display_options['fields']['url']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url']['field'] = 'url';
@@ -1081,7 +1081,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -1092,7 +1092,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Content: Post date */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -1100,11 +1100,11 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['created']['label'] = 'Datum insturen';
   $handler->display->display_options['fields']['created']['date_format'] = 'superkort';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
-  /* Veld: Field collection item: Soort/taxon */
+  /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['table'] = 'field_data_field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
@@ -1288,7 +1288,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -1298,7 +1298,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: URL */
+  /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url']['id'] = 'url';
   $handler->display->display_options['fields']['url']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url']['field'] = 'url';
@@ -1309,7 +1309,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -1328,7 +1328,7 @@ function beeldfeature_views_default_views() {
       'label' => 'Verstuur mail',
     ),
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage_1']['id'] = 'field_newimage_1';
   $handler->display->display_options['fields']['field_newimage_1']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage_1']['field'] = 'field_newimage';
@@ -1340,7 +1340,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Field collection item: Datum insturen */
+  /* Field: Field collection item: Datum insturen */
   $handler->display->display_options['fields']['field_created']['id'] = 'field_created';
   $handler->display->display_options['fields']['field_created']['table'] = 'field_data_field_created';
   $handler->display->display_options['fields']['field_created']['field'] = 'field_created';
@@ -1351,7 +1351,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field: Voornaam */
+  /* Field: Field: Voornaam */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -1359,7 +1359,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Veld: Field: Achternaam */
+  /* Field: Field: Achternaam */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -1368,18 +1368,18 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['alter']['text'] = '[field_achternaam], [field_voornaam]';
   $handler->display->display_options['fields']['field_achternaam']['element_label_colon'] = FALSE;
-  /* Veld: Field collection item: Validator */
+  /* Field: Field collection item: Validator */
   $handler->display->display_options['fields']['field_beeldexpert']['id'] = 'field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['table'] = 'field_data_field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['field'] = 'field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['settings'] = array(
     'link' => 0,
   );
-  /* Veld: Field collection item: Soort/taxon */
+  /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['table'] = 'field_data_field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
-  /* Veld: Field collection item: Opmerking validator */
+  /* Field: Field collection item: Opmerking validator */
   $handler->display->display_options['fields']['field_beeldevaluatie']['id'] = 'field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['table'] = 'field_data_field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['field'] = 'field_beeldevaluatie';
@@ -1594,7 +1594,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -1612,7 +1612,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['relationships']['field_groep_tid']['id'] = 'field_groep_tid';
   $handler->display->display_options['relationships']['field_groep_tid']['table'] = 'field_data_field_groep';
   $handler->display->display_options['relationships']['field_groep_tid']['field'] = 'field_groep_tid';
-  /* Veld: Field collection item: URL */
+  /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url_1']['id'] = 'url_1';
   $handler->display->display_options['fields']['url_1']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url_1']['field'] = 'url';
@@ -1623,7 +1623,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['url_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['url_1']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url_1']['link_to_entity'] = 0;
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -1652,7 +1652,7 @@ function beeldfeature_views_default_views() {
       ),
     ),
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -1663,7 +1663,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Content: Post date */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -1672,7 +1672,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd M Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Veld: Field: Voornaam */
+  /* Field: Field: Voornaam */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -1680,7 +1680,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Veld: Field: Achternaam */
+  /* Field: Field: Achternaam */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -1688,13 +1688,13 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['label'] = 'Fotograaf';
   $handler->display->display_options['fields']['field_achternaam']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['alter']['text'] = '<a href="/search/node/[field_achternaam] [field_voornaam]">[field_achternaam], [field_voornaam]</a>';
-  /* Veld: Field: Voornaam */
+  /* Field: Field: Voornaam */
   $handler->display->display_options['fields']['field_voornaam_1']['id'] = 'field_voornaam_1';
   $handler->display->display_options['fields']['field_voornaam_1']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam_1']['field'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam_1']['relationship'] = 'field_beeldexpert_target_id';
   $handler->display->display_options['fields']['field_voornaam_1']['exclude'] = TRUE;
-  /* Veld: Field: Achternaam */
+  /* Field: Field: Achternaam */
   $handler->display->display_options['fields']['field_achternaam_1']['id'] = 'field_achternaam_1';
   $handler->display->display_options['fields']['field_achternaam_1']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam_1']['field'] = 'field_achternaam';
@@ -1702,7 +1702,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam_1']['label'] = 'Validator';
   $handler->display->display_options['fields']['field_achternaam_1']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam_1']['alter']['text'] = '<a href="/search/node/[field_achternaam_1] [field_voornaam_1]">[field_achternaam_1], [field_voornaam_1]</a>';
-  /* Veld: Field collection item: Validator */
+  /* Field: Field collection item: Validator */
   $handler->display->display_options['fields']['field_beeldexpert']['id'] = 'field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['table'] = 'field_data_field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['field'] = 'field_beeldexpert';
@@ -1711,7 +1711,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_beeldexpert']['settings'] = array(
     'link' => 0,
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage_1']['id'] = 'field_newimage_1';
   $handler->display->display_options['fields']['field_newimage_1']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage_1']['field'] = 'field_newimage';
@@ -1723,15 +1723,15 @@ function beeldfeature_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Veld: Field collection item: Soort/taxon */
+  /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['table'] = 'field_data_field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
-  /* Veld: Field collection item: Opmerking validator */
+  /* Field: Field collection item: Opmerking validator */
   $handler->display->display_options['fields']['field_beeldevaluatie']['id'] = 'field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['table'] = 'field_data_field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['field'] = 'field_beeldevaluatie';
-  /* Veld: Field collection item: URL */
+  /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url']['id'] = 'url';
   $handler->display->display_options['fields']['url']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url']['field'] = 'url';
@@ -1740,7 +1740,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['url']['alter']['text'] = '<a href="[url]/edit"><img src="/sites/all/files/icon/edit.png" class="gridicon" border="no" /></a>';
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
-  /* Veld: Field collection item: status */
+  /* Field: Field collection item: status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -1748,7 +1748,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_status']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_status']['alter']['text'] = '<img class="status" width="24px" src="/sites/all/modules/beelduitwisselaar/img/[field_status-value].png" title="[field_status]" />';
   $handler->display->display_options['fields']['field_status']['element_label_colon'] = FALSE;
-  /* Veld: Taxonomy term: Name */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -1822,7 +1822,7 @@ function beeldfeature_views_default_views() {
     t('laatste »'),
     t('<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
-    t('User entity referenced from field_beeldexpert'),
+    t('Gebruiker entity referenced from field_beeldexpert'),
     t('term from field_groep'),
     t('[url_1]/edit'),
     t('- Choose an operation -'),
@@ -1936,7 +1936,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -1946,7 +1946,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -1972,7 +1972,7 @@ function beeldfeature_views_default_views() {
       'label' => 'Verstuur mail',
     ),
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -1984,7 +1984,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage_1']['id'] = 'field_newimage_1';
   $handler->display->display_options['fields']['field_newimage_1']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage_1']['field'] = 'field_newimage';
@@ -1996,12 +1996,12 @@ function beeldfeature_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Veld: Broken/missing handler */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['lightbox2']['id'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['table'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['field'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['label'] = 'Beeld';
-  /* Veld: Field collection item: Datum van opname */
+  /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
@@ -2013,7 +2013,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field: Voornaam */
+  /* Field: Field: Voornaam */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -2021,7 +2021,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Veld: Field: Achternaam */
+  /* Field: Field: Achternaam */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -2029,17 +2029,17 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['label'] = '';
   $handler->display->display_options['fields']['field_achternaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['element_label_colon'] = FALSE;
-  /* Veld: Global: Custom text */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = 'Fotograaf';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_achternaam], [field_voornaam]';
-  /* Veld: Field collection item: Soort/taxon */
+  /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['table'] = 'field_data_field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
-  /* Veld: Field collection item: Validator */
+  /* Field: Field collection item: Validator */
   $handler->display->display_options['fields']['field_beeldexpert']['id'] = 'field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['table'] = 'field_data_field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['field'] = 'field_beeldexpert';
@@ -2047,7 +2047,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_beeldexpert']['settings'] = array(
     'link' => 0,
   );
-  /* Veld: Field collection item: status */
+  /* Field: Field collection item: status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -2193,7 +2193,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Veld: Field collection item: Datum van opname */
+  /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
@@ -2204,15 +2204,15 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
-  /* Veld: Field collection item: Soort/taxon */
+  /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['table'] = 'field_data_field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -2221,7 +2221,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -2246,7 +2246,7 @@ function beeldfeature_views_default_views() {
       ),
     ),
   );
-  /* Veld: Field collection item: Validator */
+  /* Field: Field collection item: Validator */
   $handler->display->display_options['fields']['field_beeldexpert']['id'] = 'field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['table'] = 'field_data_field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['field'] = 'field_beeldexpert';
@@ -2254,7 +2254,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_beeldexpert']['settings'] = array(
     'link' => 0,
   );
-  /* Veld: Field collection item: status */
+  /* Field: Field collection item: status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -2400,7 +2400,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -2409,7 +2409,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Veld: Field collection item: Datum van opname */
+  /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
@@ -2421,11 +2421,11 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
-  /* Veld: Field collection item: Soort/taxon */
+  /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['table'] = 'field_data_field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
@@ -2612,7 +2612,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: URL */
+  /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url']['id'] = 'url';
   $handler->display->display_options['fields']['url']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url']['field'] = 'url';
@@ -2623,7 +2623,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -2634,7 +2634,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Content: Post date */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -2642,7 +2642,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['created']['label'] = 'Datum insturen';
   $handler->display->display_options['fields']['created']['date_format'] = 'superkort';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Veld: Field collection item: Datum van opname */
+  /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
@@ -2654,11 +2654,11 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
-  /* Veld: Field collection item: Soortnaam en opmerkingen */
+  /* Field: Field collection item: Soortnaam en opmerkingen */
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'field_data_field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
@@ -2715,7 +2715,7 @@ function beeldfeature_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_1');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Field collection item: URL */
+  /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url']['id'] = 'url';
   $handler->display->display_options['fields']['url']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url']['field'] = 'url';
@@ -2726,7 +2726,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -2737,7 +2737,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Field collection item: Datum van opname */
+  /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
@@ -2749,7 +2749,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
@@ -2916,7 +2916,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -2945,7 +2945,7 @@ function beeldfeature_views_default_views() {
     'licentie' => 0,
     'tags' => 0,
   );
-  /* Veld: Field collection item: URL */
+  /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url']['id'] = 'url';
   $handler->display->display_options['fields']['url']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url']['field'] = 'url';
@@ -2956,7 +2956,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -2985,7 +2985,7 @@ function beeldfeature_views_default_views() {
       ),
     ),
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -2997,7 +2997,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Field collection item: Datum insturen */
+  /* Field: Field collection item: Datum insturen */
   $handler->display->display_options['fields']['field_created']['id'] = 'field_created';
   $handler->display->display_options['fields']['field_created']['table'] = 'field_data_field_created';
   $handler->display->display_options['fields']['field_created']['field'] = 'field_created';
@@ -3008,7 +3008,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field: Voornaam */
+  /* Field: Field: Voornaam */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -3016,7 +3016,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Veld: Field: Achternaam */
+  /* Field: Field: Achternaam */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -3028,13 +3028,13 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['settings'] = array(
     'trim_length' => '1',
   );
-  /* Veld: Field: Voornaam */
+  /* Field: Field: Voornaam */
   $handler->display->display_options['fields']['field_voornaam_1']['id'] = 'field_voornaam_1';
   $handler->display->display_options['fields']['field_voornaam_1']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam_1']['field'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam_1']['relationship'] = 'field_beeldexpert_target_id';
   $handler->display->display_options['fields']['field_voornaam_1']['exclude'] = TRUE;
-  /* Veld: Field: Achternaam */
+  /* Field: Field: Achternaam */
   $handler->display->display_options['fields']['field_achternaam_1']['id'] = 'field_achternaam_1';
   $handler->display->display_options['fields']['field_achternaam_1']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam_1']['field'] = 'field_achternaam';
@@ -3042,19 +3042,19 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam_1']['label'] = 'Validator';
   $handler->display->display_options['fields']['field_achternaam_1']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam_1']['alter']['text'] = '<a href="/search/node/[field_achternaam_1] [field_voornaam_1]">[field_achternaam_1], [field_voornaam_1]</a>';
-  /* Veld: Field collection item: Soortgroep */
+  /* Field: Field collection item: Soortgroep */
   $handler->display->display_options['fields']['field_groep']['id'] = 'field_groep';
   $handler->display->display_options['fields']['field_groep']['table'] = 'field_data_field_groep';
   $handler->display->display_options['fields']['field_groep']['field'] = 'field_groep';
   $handler->display->display_options['fields']['field_groep']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_groep']['alter']['text'] = '<a href="/search/node/[field_groep]">[field_groep]</a>';
   $handler->display->display_options['fields']['field_groep']['type'] = 'taxonomy_term_reference_plain';
-  /* Veld: Field collection item: Soortnaam en opmerkingen */
+  /* Field: Field collection item: Soortnaam en opmerkingen */
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'field_data_field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Opmerking fotograaf';
-  /* Veld: Taxonomy term: Name */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -3183,7 +3183,7 @@ function beeldfeature_views_default_views() {
     t('laatste »'),
     t('<div class="gridright"><a href="/?q=grid-afbeeldingen-expert-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-expert-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
-    t('User entity referenced from field_beeldexpert'),
+    t('Gebruiker entity referenced from field_beeldexpert'),
     t('term from field_groep'),
     t('termgroep'),
     t('[url]/edit'),
@@ -3310,13 +3310,13 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: Field collection item ID */
+  /* Field: Field collection item: Field collection item ID */
   $handler->display->display_options['fields']['item_id']['id'] = 'item_id';
   $handler->display->display_options['fields']['item_id']['table'] = 'field_collection_item';
   $handler->display->display_options['fields']['item_id']['field'] = 'item_id';
   $handler->display->display_options['fields']['item_id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['item_id']['separator'] = '';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -3328,7 +3328,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Content: Post date */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -3336,16 +3336,16 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['created']['label'] = 'Datum insturen';
   $handler->display->display_options['fields']['created']['date_format'] = 'superkort';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
-  /* Veld: Field collection item: Soortnaam en opmerkingen */
+  /* Field: Field collection item: Soortnaam en opmerkingen */
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'field_data_field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Opmerking fotograaf';
-  /* Veld: Field collection item: status */
+  /* Field: Field collection item: status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -3533,7 +3533,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Veld: Field collection item: Datum insturen */
+  /* Field: Field collection item: Datum insturen */
   $handler->display->display_options['fields']['field_created']['id'] = 'field_created';
   $handler->display->display_options['fields']['field_created']['table'] = 'field_data_field_created';
   $handler->display->display_options['fields']['field_created']['field'] = 'field_created';
@@ -3544,15 +3544,15 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
-  /* Veld: Field collection item: Soort/taxon */
+  /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['table'] = 'field_data_field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -3561,7 +3561,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage_1']['id'] = 'field_newimage_1';
   $handler->display->display_options['fields']['field_newimage_1']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage_1']['field'] = 'field_newimage';
@@ -3715,7 +3715,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Veld: Field collection item: Datum van opname */
+  /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
@@ -3726,15 +3726,15 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
-  /* Veld: Field collection item: Soort/taxon */
+  /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['table'] = 'field_data_field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -3743,7 +3743,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Veld: Field collection item: Validator */
+  /* Field: Field collection item: Validator */
   $handler->display->display_options['fields']['field_beeldexpert']['id'] = 'field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['table'] = 'field_data_field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['field'] = 'field_beeldexpert';
@@ -3884,7 +3884,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Veld: Field collection item: Datum van opname */
+  /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
@@ -3895,15 +3895,15 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
-  /* Veld: Field collection item: Soort/taxon */
+  /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['table'] = 'field_data_field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -3912,7 +3912,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -3944,7 +3944,7 @@ function beeldfeature_views_default_views() {
       ),
     ),
   );
-  /* Veld: Field collection item: Validator */
+  /* Field: Field collection item: Validator */
   $handler->display->display_options['fields']['field_beeldexpert']['id'] = 'field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['table'] = 'field_data_field_beeldexpert';
   $handler->display->display_options['fields']['field_beeldexpert']['field'] = 'field_beeldexpert';
@@ -3952,7 +3952,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_beeldexpert']['settings'] = array(
     'link' => 0,
   );
-  /* Veld: Field collection item: Opmerking validator */
+  /* Field: Field collection item: Opmerking validator */
   $handler->display->display_options['fields']['field_beeldevaluatie']['id'] = 'field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['table'] = 'field_data_field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['field'] = 'field_beeldevaluatie';
@@ -4119,7 +4119,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -4137,7 +4137,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['relationships']['field_groep_tid']['id'] = 'field_groep_tid';
   $handler->display->display_options['relationships']['field_groep_tid']['table'] = 'field_data_field_groep';
   $handler->display->display_options['relationships']['field_groep_tid']['field'] = 'field_groep_tid';
-  /* Veld: Field collection item: URL */
+  /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url']['id'] = 'url';
   $handler->display->display_options['fields']['url']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url']['field'] = 'url';
@@ -4148,7 +4148,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -4177,7 +4177,7 @@ function beeldfeature_views_default_views() {
       ),
     ),
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage_1']['id'] = 'field_newimage_1';
   $handler->display->display_options['fields']['field_newimage_1']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage_1']['field'] = 'field_newimage';
@@ -4189,7 +4189,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Field collection item: Datum insturen */
+  /* Field: Field collection item: Datum insturen */
   $handler->display->display_options['fields']['field_created']['id'] = 'field_created';
   $handler->display->display_options['fields']['field_created']['table'] = 'field_data_field_created';
   $handler->display->display_options['fields']['field_created']['field'] = 'field_created';
@@ -4200,7 +4200,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field: Voornaam */
+  /* Field: Field: Voornaam */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -4208,7 +4208,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Veld: Field: Achternaam */
+  /* Field: Field: Achternaam */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -4216,19 +4216,19 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['label'] = '';
   $handler->display->display_options['fields']['field_achternaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['element_label_colon'] = FALSE;
-  /* Veld: Global: Custom text */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = 'Fotograaf';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="/search/node/[field_achternaam] [field_voornaam]">[field_achternaam], [field_voornaam]</a>';
-  /* Veld: Field: Voornaam */
+  /* Field: Field: Voornaam */
   $handler->display->display_options['fields']['field_voornaam_1']['id'] = 'field_voornaam_1';
   $handler->display->display_options['fields']['field_voornaam_1']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam_1']['field'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam_1']['relationship'] = 'field_beeldexpert_target_id';
   $handler->display->display_options['fields']['field_voornaam_1']['exclude'] = TRUE;
-  /* Veld: Field: Achternaam */
+  /* Field: Field: Achternaam */
   $handler->display->display_options['fields']['field_achternaam_1']['id'] = 'field_achternaam_1';
   $handler->display->display_options['fields']['field_achternaam_1']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam_1']['field'] = 'field_achternaam';
@@ -4236,18 +4236,18 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam_1']['label'] = 'Validator';
   $handler->display->display_options['fields']['field_achternaam_1']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam_1']['alter']['text'] = '<a href="/search/node/[field_achternaam_1] [field_voornaam_1]">[field_achternaam_1], [field_voornaam_1]</a>';
-  /* Veld: Field collection item: Soortgroep */
+  /* Field: Field collection item: Soortgroep */
   $handler->display->display_options['fields']['field_groep']['id'] = 'field_groep';
   $handler->display->display_options['fields']['field_groep']['table'] = 'field_data_field_groep';
   $handler->display->display_options['fields']['field_groep']['field'] = 'field_groep';
   $handler->display->display_options['fields']['field_groep']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_groep']['alter']['text'] = '<a href="/search/node/[field_groep]">[field_groep]</a>';
   $handler->display->display_options['fields']['field_groep']['type'] = 'taxonomy_term_reference_plain';
-  /* Veld: Field collection item: Opmerking validator */
+  /* Field: Field collection item: Opmerking validator */
   $handler->display->display_options['fields']['field_beeldevaluatie']['id'] = 'field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['table'] = 'field_data_field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['field'] = 'field_beeldevaluatie';
-  /* Veld: Taxonomy term: Name */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -4323,7 +4323,7 @@ function beeldfeature_views_default_views() {
     t('laatste »'),
     t('<div class="gridright"><a href="/?q=grid-afbeeldingen-wachtrij">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-wachtrij"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
-    t('User entity referenced from field_beeldexpert'),
+    t('Gebruiker entity referenced from field_beeldexpert'),
     t('term from field_groep'),
     t('[url]/edit'),
     t('- Choose an operation -'),
@@ -4377,14 +4377,14 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: Field collection item ID */
+  /* Field: Field collection item: Field collection item ID */
   $handler->display->display_options['fields']['item_id']['id'] = 'item_id';
   $handler->display->display_options['fields']['item_id']['table'] = 'field_collection_item';
   $handler->display->display_options['fields']['item_id']['field'] = 'item_id';
   $handler->display->display_options['fields']['item_id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['item_id']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['item_id']['separator'] = '';
-  /* Veld: Content: Post date */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -4393,7 +4393,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'superkort';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Veld: Field collection item: Datum van opname */
+  /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
@@ -4405,7 +4405,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field collection item: Fotograaf */
+  /* Field: Field collection item: Fotograaf */
   $handler->display->display_options['fields']['field_fotograaf']['id'] = 'field_fotograaf';
   $handler->display->display_options['fields']['field_fotograaf']['table'] = 'field_data_field_fotograaf';
   $handler->display->display_options['fields']['field_fotograaf']['field'] = 'field_fotograaf';
@@ -4413,7 +4413,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_fotograaf']['settings'] = array(
     'link' => 0,
   );
-  /* Veld: Field collection item: Licentie */
+  /* Field: Field collection item: Licentie */
   $handler->display->display_options['fields']['field_license']['id'] = 'field_license';
   $handler->display->display_options['fields']['field_license']['table'] = 'field_data_field_license';
   $handler->display->display_options['fields']['field_license']['field'] = 'field_license';
@@ -4423,29 +4423,29 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_license']['alter']['text'] = '<a href="/licentie">[field_license]</a>';
   $handler->display->display_options['fields']['field_license']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_license']['type'] = 'taxonomy_term_reference_plain';
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['element_label_colon'] = FALSE;
-  /* Veld: Field collection item: Land */
+  /* Field: Field collection item: Land */
   $handler->display->display_options['fields']['field_opnameland']['id'] = 'field_opnameland';
   $handler->display->display_options['fields']['field_opnameland']['table'] = 'field_data_field_opnameland';
   $handler->display->display_options['fields']['field_opnameland']['field'] = 'field_opnameland';
   $handler->display->display_options['fields']['field_opnameland']['element_label_colon'] = FALSE;
-  /* Veld: Field collection item: Soortnaam en opmerkingen */
+  /* Field: Field collection item: Soortnaam en opmerkingen */
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'field_data_field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Opmerkingen fotograaf';
   $handler->display->display_options['fields']['field_opmerkingen']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_opmerkingen']['type'] = 'text_plain';
-  /* Veld: Field collection item: Opmerking validator */
+  /* Field: Field collection item: Opmerking validator */
   $handler->display->display_options['fields']['field_beeldevaluatie']['id'] = 'field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['table'] = 'field_data_field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['field'] = 'field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['element_label_colon'] = FALSE;
-  /* Veld: Field collection item: nlsr */
+  /* Field: Field collection item: nlsr */
   $handler->display->display_options['fields']['field_nlsr']['id'] = 'field_nlsr';
   $handler->display->display_options['fields']['field_nlsr']['table'] = 'field_data_field_nlsr';
   $handler->display->display_options['fields']['field_nlsr']['field'] = 'field_nlsr';
@@ -4455,7 +4455,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_nlsr']['alter']['text'] = 'http://www.nederlandsesoorten.nl/nsr/concept/[field_nlsr-value]';
   $handler->display->display_options['fields']['field_nlsr']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_nlsr']['hide_empty'] = TRUE;
-  /* Veld: Field collection item: Soort/taxon */
+  /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['table'] = 'field_data_field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
@@ -4545,7 +4545,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -4555,7 +4555,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -4567,7 +4567,7 @@ function beeldfeature_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage_1']['id'] = 'field_newimage_1';
   $handler->display->display_options['fields']['field_newimage_1']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage_1']['field'] = 'field_newimage';
@@ -4579,13 +4579,13 @@ function beeldfeature_views_default_views() {
     'image_style' => '',
     'image_link' => '',
   );
-  /* Veld: Broken/missing handler */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['lightbox2']['id'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['table'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['field'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['label'] = '';
   $handler->display->display_options['fields']['lightbox2']['element_label_colon'] = FALSE;
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -4618,7 +4618,7 @@ function beeldfeature_views_default_views() {
       ),
     ),
   );
-  /* Veld: Field collection item: status */
+  /* Field: Field collection item: status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -4706,7 +4706,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Veld: Bulk operations: User */
+  /* Field: Bulk operations: User */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_user';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -4724,31 +4724,31 @@ function beeldfeature_views_default_views() {
       'label' => '',
     ),
   );
-  /* Veld: Field: Voornaam */
+  /* Field: Field: Voornaam */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Veld: Field: Achternaam */
+  /* Field: Field: Achternaam */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['label'] = '';
   $handler->display->display_options['fields']['field_achternaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['element_label_colon'] = FALSE;
-  /* Veld: Global: Custom text */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = 'Fotograaf';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_achternaam], [field_voornaam]';
-  /* Veld: User: E-mail */
+  /* Field: User: E-mail */
   $handler->display->display_options['fields']['mail']['id'] = 'mail';
   $handler->display->display_options['fields']['mail']['table'] = 'users';
   $handler->display->display_options['fields']['mail']['field'] = 'mail';
-  /* Veld: User: Link */
+  /* Field: User: Link */
   $handler->display->display_options['fields']['view_user']['id'] = 'view_user';
   $handler->display->display_options['fields']['view_user']['table'] = 'users';
   $handler->display->display_options['fields']['view_user']['field'] = 'view_user';
@@ -4912,7 +4912,7 @@ function beeldfeature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Veld: Bulk operations: User */
+  /* Field: Bulk operations: User */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_user';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -4932,21 +4932,21 @@ function beeldfeature_views_default_views() {
       ),
     ),
   );
-  /* Veld: Field: Voornaam */
+  /* Field: Field: Voornaam */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Veld: Field: Achternaam */
+  /* Field: Field: Achternaam */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['label'] = '';
   $handler->display->display_options['fields']['field_achternaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['element_label_colon'] = FALSE;
-  /* Veld: Global: Custom text */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -4954,13 +4954,13 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_achternaam], [field_voornaam]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Veld: User: Uid */
+  /* Field: User: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
-  /* Veld: User: Name */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -4971,21 +4971,21 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
-  /* Veld: User: E-mail */
+  /* Field: User: E-mail */
   $handler->display->display_options['fields']['mail']['id'] = 'mail';
   $handler->display->display_options['fields']['mail']['table'] = 'users';
   $handler->display->display_options['fields']['mail']['field'] = 'mail';
   $handler->display->display_options['fields']['mail']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['mail']['alter']['text'] = '<a href="/beelduitwisselaar/sendmail/[uid]/3">[mail]</a>';
   $handler->display->display_options['fields']['mail']['link_to_user'] = '0';
-  /* Veld: User: Specialisatie */
+  /* Field: Gebruiker: Specialisatie */
   $handler->display->display_options['fields']['field_specialisatie']['id'] = 'field_specialisatie';
   $handler->display->display_options['fields']['field_specialisatie']['table'] = 'field_data_field_specialisatie';
   $handler->display->display_options['fields']['field_specialisatie']['field'] = 'field_specialisatie';
   $handler->display->display_options['fields']['field_specialisatie']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_specialisatie']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_specialisatie']['delta_offset'] = '0';
-  /* Veld: Global: PHP */
+  /* Field: Global: PHP */
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
@@ -5088,7 +5088,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Veld: User: Name */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -5171,7 +5171,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['pager']['options']['items_per_page'] = '100';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Kop: Global: PHP */
+  /* Header: Global: PHP */
   $handler->display->display_options['header']['php']['id'] = 'php';
   $handler->display->display_options['header']['php']['table'] = 'views';
   $handler->display->display_options['header']['php']['field'] = 'php';
@@ -5180,7 +5180,7 @@ echo db_query( $sql )->fetchField();
 <h2>Soortgroepen</h2>
 
 ';
-  /* Veld: Taxonomy term: Term ID */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
@@ -5188,7 +5188,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Veld: Global: PHP */
+  /* Field: Global: PHP */
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
@@ -5199,7 +5199,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['php']['php_value'] = 'return  "/beelduitwisselaar/selectexpert?nids=" . arg(2) . "&tid=" . $row->tid;';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
-  /* Veld: Taxonomy term: Name */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -5264,14 +5264,14 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Veld: Field: Achternaam */
+  /* Field: Field: Achternaam */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['label'] = '';
   $handler->display->display_options['fields']['field_achternaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['element_label_colon'] = FALSE;
-  /* Veld: Field: Voornaam */
+  /* Field: Field: Voornaam */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -5279,7 +5279,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['field_voornaam']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['alter']['text'] = '[field_achternaam], [field_voornaam]';
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Veld: User: Specialisatie */
+  /* Field: Gebruiker: Specialisatie */
   $handler->display->display_options['fields']['field_specialisatie']['id'] = 'field_specialisatie';
   $handler->display->display_options['fields']['field_specialisatie']['table'] = 'field_data_field_specialisatie';
   $handler->display->display_options['fields']['field_specialisatie']['field'] = 'field_specialisatie';
@@ -5287,7 +5287,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['field_specialisatie']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_specialisatie']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_specialisatie']['delta_offset'] = '0';
-  /* Veld: User: Name */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -5299,7 +5299,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['sorts']['field_achternaam_value']['id'] = 'field_achternaam_value';
   $handler->display->display_options['sorts']['field_achternaam_value']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['sorts']['field_achternaam_value']['field'] = 'field_achternaam_value';
-  /* Sort criterion: User: Specialisatie (field_specialisatie) */
+  /* Sort criterion: Gebruiker: Specialisatie (field_specialisatie) */
   $handler->display->display_options['sorts']['field_specialisatie_tid']['id'] = 'field_specialisatie_tid';
   $handler->display->display_options['sorts']['field_specialisatie_tid']['table'] = 'field_data_field_specialisatie';
   $handler->display->display_options['sorts']['field_specialisatie_tid']['field'] = 'field_specialisatie_tid';
@@ -5387,7 +5387,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -5397,7 +5397,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -5408,7 +5408,7 @@ echo db_query( $sql )->fetchField();
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -5522,7 +5522,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -5532,7 +5532,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -5544,7 +5544,7 @@ echo db_query( $sql )->fetchField();
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage_1']['id'] = 'field_newimage_1';
   $handler->display->display_options['fields']['field_newimage_1']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage_1']['field'] = 'field_newimage';
@@ -5556,13 +5556,13 @@ echo db_query( $sql )->fetchField();
     'image_style' => '',
     'image_link' => '',
   );
-  /* Veld: Broken/missing handler */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['lightbox2']['id'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['table'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['field'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['label'] = '';
   $handler->display->display_options['fields']['lightbox2']['element_label_colon'] = FALSE;
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -5595,7 +5595,7 @@ echo db_query( $sql )->fetchField();
       ),
     ),
   );
-  /* Veld: Field collection item: status */
+  /* Field: Field collection item: status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -5677,7 +5677,7 @@ echo db_query( $sql )->fetchField();
   );
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -5687,7 +5687,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: URL */
+  /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url']['id'] = 'url';
   $handler->display->display_options['fields']['url']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url']['field'] = 'url';
@@ -5698,7 +5698,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage_1']['id'] = 'field_newimage_1';
   $handler->display->display_options['fields']['field_newimage_1']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage_1']['field'] = 'field_newimage';
@@ -5711,7 +5711,7 @@ echo db_query( $sql )->fetchField();
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -5733,7 +5733,7 @@ echo db_query( $sql )->fetchField();
       ),
     ),
   );
-  /* Veld: Field collection item: status */
+  /* Field: Field collection item: status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -5811,7 +5811,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -5821,7 +5821,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -5833,7 +5833,7 @@ echo db_query( $sql )->fetchField();
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage_1']['id'] = 'field_newimage_1';
   $handler->display->display_options['fields']['field_newimage_1']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage_1']['field'] = 'field_newimage';
@@ -5845,13 +5845,13 @@ echo db_query( $sql )->fetchField();
     'image_style' => '',
     'image_link' => '',
   );
-  /* Veld: Broken/missing handler */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['lightbox2']['id'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['table'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['field'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['label'] = '';
   $handler->display->display_options['fields']['lightbox2']['element_label_colon'] = FALSE;
-  /* Veld: Field collection item: URL */
+  /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url']['id'] = 'url';
   $handler->display->display_options['fields']['url']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url']['field'] = 'url';
@@ -5939,13 +5939,13 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-expert-all">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-expert-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -5956,7 +5956,7 @@ echo db_query( $sql )->fetchField();
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -6056,7 +6056,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -6066,7 +6066,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -6078,7 +6078,7 @@ echo db_query( $sql )->fetchField();
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage_1']['id'] = 'field_newimage_1';
   $handler->display->display_options['fields']['field_newimage_1']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage_1']['field'] = 'field_newimage';
@@ -6090,7 +6090,7 @@ echo db_query( $sql )->fetchField();
     'image_style' => '',
     'image_link' => '',
   );
-  /* Veld: Broken/missing handler */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['lightbox2']['id'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['table'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['field'] = 'lightbox2';
@@ -6162,7 +6162,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -6172,7 +6172,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['field'] = 'field_afbeeldingen_node';
-  /* Veld: Field collection item: URL */
+  /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url']['id'] = 'url';
   $handler->display->display_options['fields']['url']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url']['field'] = 'url';
@@ -6183,7 +6183,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage_1']['id'] = 'field_newimage_1';
   $handler->display->display_options['fields']['field_newimage_1']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage_1']['field'] = 'field_newimage';
@@ -6196,7 +6196,7 @@ echo db_query( $sql )->fetchField();
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -6218,7 +6218,7 @@ echo db_query( $sql )->fetchField();
       ),
     ),
   );
-  /* Veld: Field collection item: status */
+  /* Field: Field collection item: status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -6319,11 +6319,11 @@ echo db_query( $sql )->fetchField();
       'empty_column' => 0,
     ),
   );
-  /* Veld: Field collection item: Field collection item ID */
+  /* Field: Field collection item: Field collection item ID */
   $handler->display->display_options['fields']['item_id']['id'] = 'item_id';
   $handler->display->display_options['fields']['item_id']['table'] = 'field_collection_item';
   $handler->display->display_options['fields']['item_id']['field'] = 'item_id';
-  /* Veld: Field collection item: Beeld */
+  /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
   $handler->display->display_options['fields']['field_newimage']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['fields']['field_newimage']['field'] = 'field_newimage';
@@ -6332,7 +6332,7 @@ echo db_query( $sql )->fetchField();
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Veld: Field collection item: status */
+  /* Field: Field collection item: status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -6397,7 +6397,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Kop: Global: Unfiltered text */
+  /* Header: Global: Unfiltered text */
   $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
@@ -6407,7 +6407,7 @@ echo db_query( $sql )->fetchField();
 <li>%%expertnaam%% - naam van betreffende validator</li>
 <li>%%expert_link%% - link naar overzicht nieuwe beelden voor validator (validator dient hiervoor ingelogd te zijn)</li>
 <li>%%nsr_link%% - link naar betreffend taxon op het Nederlands Soortenregister</li></ul><br />';
-  /* Veld: Content: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -6417,7 +6417,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Veld: Content: Edit link */
+  /* Field: Content: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
@@ -6527,19 +6527,19 @@ echo db_query( $sql )->fetchField();
       'empty_column' => 0,
     ),
   );
-  /* Kop: Global: Text area */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'NB. Getoond tijdstip is de tijd van de webserver. Deze kan afwijken van de daadwerkelijke tijd van versturen.';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
-  /* Veld: Watchdog: Timestamp */
+  /* Field: Watchdog: Timestamp */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'watchdog';
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['date_format'] = 'superkort';
   $handler->display->display_options['fields']['timestamp']['second_date_format'] = 'long';
-  /* Veld: Watchdog: Message */
+  /* Field: Watchdog: Message */
   $handler->display->display_options['fields']['message']['id'] = 'message';
   $handler->display->display_options['fields']['message']['table'] = 'watchdog';
   $handler->display->display_options['fields']['message']['field'] = 'message';
@@ -6627,7 +6627,7 @@ echo db_query( $sql )->fetchField();
       'empty_column' => 0,
     ),
   );
-  /* Kop: Global: Result summary */
+  /* Header: Global: Result summary */
   $handler->display->display_options['header']['result']['id'] = 'result';
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
@@ -6635,7 +6635,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['relationships']['field_newimage_fid']['id'] = 'field_newimage_fid';
   $handler->display->display_options['relationships']['field_newimage_fid']['table'] = 'field_data_field_newimage';
   $handler->display->display_options['relationships']['field_newimage_fid']['field'] = 'field_newimage_fid';
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -6653,22 +6653,22 @@ echo db_query( $sql )->fetchField();
       'label' => '',
     ),
   );
-  /* Veld: Field collection item: Fotograaf */
+  /* Field: Field collection item: Fotograaf */
   $handler->display->display_options['fields']['field_fotograaf']['id'] = 'field_fotograaf';
   $handler->display->display_options['fields']['field_fotograaf']['table'] = 'field_data_field_fotograaf';
   $handler->display->display_options['fields']['field_fotograaf']['field'] = 'field_fotograaf';
   $handler->display->display_options['fields']['field_fotograaf']['settings'] = array(
     'link' => 0,
   );
-  /* Veld: Field collection item: Soort/taxon */
+  /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['table'] = 'field_data_field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
-  /* Veld: Field collection item: Soortnaam en opmerkingen */
+  /* Field: Field collection item: Soortnaam en opmerkingen */
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'field_data_field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
-  /* Veld: Field collection item: Datum van opname */
+  /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
@@ -6679,11 +6679,11 @@ echo db_query( $sql )->fetchField();
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Field collection item: Locatie */
+  /* Field: Field collection item: Locatie */
   $handler->display->display_options['fields']['field_locatie']['id'] = 'field_locatie';
   $handler->display->display_options['fields']['field_locatie']['table'] = 'field_data_field_locatie';
   $handler->display->display_options['fields']['field_locatie']['field'] = 'field_locatie';
-  /* Veld: File: Name */
+  /* Field: File: Name */
   $handler->display->display_options['fields']['filename']['id'] = 'filename';
   $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
   $handler->display->display_options['fields']['filename']['field'] = 'filename';
@@ -6733,7 +6733,7 @@ echo db_query( $sql )->fetchField();
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Zoekresultaten';
+  $handler->display->display_options['title'] = 'Search results';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -6845,7 +6845,7 @@ echo db_query( $sql )->fetchField();
       'empty_column' => 0,
     ),
   );
-  /* Kop: Global: Result summary */
+  /* Header: Global: Result summary */
   $handler->display->display_options['header']['result']['id'] = 'result';
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
@@ -6857,7 +6857,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'Geen beelden gevonden.';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
-  /* Veld: Bulk operations: Field collection item */
+  /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -6881,20 +6881,20 @@ echo db_query( $sql )->fetchField();
       ),
     ),
   );
-  /* Veld: Beeld » The image file.: File name (indexed) */
+  /* Field: Beeld » The image file.: File name (indexed) */
   $handler->display->display_options['fields']['field_newimage_file_name']['id'] = 'field_newimage_file_name';
   $handler->display->display_options['fields']['field_newimage_file_name']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_newimage_file_name']['field'] = 'field_newimage_file_name';
   $handler->display->display_options['fields']['field_newimage_file_name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_newimage_file_name']['link_to_entity'] = 0;
-  /* Veld: Indexed Field collection item: Field collection item ID */
+  /* Field: Indexed Field collection item: Field collection item ID */
   $handler->display->display_options['fields']['item_id']['id'] = 'item_id';
   $handler->display->display_options['fields']['item_id']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['item_id']['field'] = 'item_id';
   $handler->display->display_options['fields']['item_id']['exclude'] = TRUE;
   $handler->display->display_options['fields']['item_id']['separator'] = '';
   $handler->display->display_options['fields']['item_id']['link_to_entity'] = 0;
-  /* Veld: Beeld: The image file. (indexed) */
+  /* Field: Beeld: The image file. (indexed) */
   $handler->display->display_options['fields']['field_newimage_file']['id'] = 'field_newimage_file';
   $handler->display->display_options['fields']['field_newimage_file']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_newimage_file']['field'] = 'field_newimage_file';
@@ -6904,7 +6904,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['field_newimage_file']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_newimage_file']['display'] = 'id';
   $handler->display->display_options['fields']['field_newimage_file']['bypass_access'] = 0;
-  /* Veld: Indexed Field collection item: Datum insturen */
+  /* Field: Indexed Field collection item: Datum insturen */
   $handler->display->display_options['fields']['field_created']['id'] = 'field_created';
   $handler->display->display_options['fields']['field_created']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_created']['field'] = 'field_created';
@@ -6915,7 +6915,7 @@ echo db_query( $sql )->fetchField();
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Veld: Indexed Field collection item: Fotograaf */
+  /* Field: Indexed Field collection item: Fotograaf */
   $handler->display->display_options['fields']['field_fotograaf']['id'] = 'field_fotograaf';
   $handler->display->display_options['fields']['field_fotograaf']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_fotograaf']['field'] = 'field_fotograaf';
@@ -6924,43 +6924,43 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['field_fotograaf']['display'] = 'id';
   $handler->display->display_options['fields']['field_fotograaf']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_fotograaf']['bypass_access'] = 0;
-  /* Veld: Fotograaf: Voornaam (indexed) */
+  /* Field: Fotograaf: Voornaam (indexed) */
   $handler->display->display_options['fields']['field_fotograaf_field_voornaam']['id'] = 'field_fotograaf_field_voornaam';
   $handler->display->display_options['fields']['field_fotograaf_field_voornaam']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_fotograaf_field_voornaam']['field'] = 'field_fotograaf_field_voornaam';
   $handler->display->display_options['fields']['field_fotograaf_field_voornaam']['exclude'] = TRUE;
-  /* Veld: Fotograaf: Achternaam (indexed) */
+  /* Field: Fotograaf: Achternaam (indexed) */
   $handler->display->display_options['fields']['field_fotograaf_field_achternaam']['id'] = 'field_fotograaf_field_achternaam';
   $handler->display->display_options['fields']['field_fotograaf_field_achternaam']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_fotograaf_field_achternaam']['field'] = 'field_fotograaf_field_achternaam';
   $handler->display->display_options['fields']['field_fotograaf_field_achternaam']['label'] = 'Fotograaf';
   $handler->display->display_options['fields']['field_fotograaf_field_achternaam']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_fotograaf_field_achternaam']['alter']['text'] = '<a href="/search/node/[field_fotograaf_field_achternaam] [field_fotograaf_field_voornaam]">[field_fotograaf_field_achternaam], [field_fotograaf_field_voornaam]</a>';
-  /* Veld: Validator: User ID (indexed) */
+  /* Field: Validator: User ID (indexed) */
   $handler->display->display_options['fields']['field_beeldexpert_uid']['id'] = 'field_beeldexpert_uid';
   $handler->display->display_options['fields']['field_beeldexpert_uid']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_beeldexpert_uid']['field'] = 'field_beeldexpert_uid';
   $handler->display->display_options['fields']['field_beeldexpert_uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_beeldexpert_uid']['separator'] = '';
   $handler->display->display_options['fields']['field_beeldexpert_uid']['link_to_entity'] = 0;
-  /* Veld: Validator: Voornaam (indexed) */
+  /* Field: Validator: Voornaam (indexed) */
   $handler->display->display_options['fields']['field_beeldexpert_field_voornaam']['id'] = 'field_beeldexpert_field_voornaam';
   $handler->display->display_options['fields']['field_beeldexpert_field_voornaam']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_beeldexpert_field_voornaam']['field'] = 'field_beeldexpert_field_voornaam';
   $handler->display->display_options['fields']['field_beeldexpert_field_voornaam']['exclude'] = TRUE;
-  /* Veld: Validator: Achternaam (indexed) */
+  /* Field: Validator: Achternaam (indexed) */
   $handler->display->display_options['fields']['field_beeldexpert_field_achternaam']['id'] = 'field_beeldexpert_field_achternaam';
   $handler->display->display_options['fields']['field_beeldexpert_field_achternaam']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_beeldexpert_field_achternaam']['field'] = 'field_beeldexpert_field_achternaam';
   $handler->display->display_options['fields']['field_beeldexpert_field_achternaam']['label'] = 'Validator';
   $handler->display->display_options['fields']['field_beeldexpert_field_achternaam']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_beeldexpert_field_achternaam']['alter']['text'] = '<a href="/search/node/[field_beeldexpert_field_achternaam] [field_beeldexpert_field_voornaam]">[field_beeldexpert_field_achternaam], [field_beeldexpert_field_voornaam]</a>';
-  /* Veld: Indexed Field collection item: Soortnaam en opmerkingen */
+  /* Field: Indexed Field collection item: Soortnaam en opmerkingen */
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Opmerkingen fotograaf';
-  /* Veld: Indexed Field collection item: Soortgroep */
+  /* Field: Indexed Field collection item: Soortgroep */
   $handler->display->display_options['fields']['field_groep']['id'] = 'field_groep';
   $handler->display->display_options['fields']['field_groep']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_groep']['field'] = 'field_groep';
@@ -6969,7 +6969,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['field_groep']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_groep']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_groep']['bypass_access'] = 0;
-  /* Veld: Indexed Field collection item: status */
+  /* Field: Indexed Field collection item: status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -7026,7 +7026,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['path'] = 'search/node/%';
   $translatables['search_results'] = array(
     t('Master'),
-    t('Zoekresultaten'),
+    t('Search results'),
     t('more'),
     t('Zoek'),
     t('Opnieuw instellen'),
@@ -7093,27 +7093,27 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Veld: Indexed Node: Node ID */
+  /* Field: Indexed Node: Node ID */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_localindex';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  /* Veld: Afbeeldingen » Fotograaf: Achternaam (indexed) */
+  /* Field: Afbeeldingen » Fotograaf: Achternaam (indexed) */
   $handler->display->display_options['fields']['field_afbeeldingen_field_fotograaf_field_achternaam']['id'] = 'field_afbeeldingen_field_fotograaf_field_achternaam';
   $handler->display->display_options['fields']['field_afbeeldingen_field_fotograaf_field_achternaam']['table'] = 'search_api_index_localindex';
   $handler->display->display_options['fields']['field_afbeeldingen_field_fotograaf_field_achternaam']['field'] = 'field_afbeeldingen_field_fotograaf_field_achternaam';
-  /* Veld: Afbeeldingen » Fotograaf: Voornaam (indexed) */
+  /* Field: Afbeeldingen » Fotograaf: Voornaam (indexed) */
   $handler->display->display_options['fields']['field_afbeeldingen_field_fotograaf_field_voornaam']['id'] = 'field_afbeeldingen_field_fotograaf_field_voornaam';
   $handler->display->display_options['fields']['field_afbeeldingen_field_fotograaf_field_voornaam']['table'] = 'search_api_index_localindex';
   $handler->display->display_options['fields']['field_afbeeldingen_field_fotograaf_field_voornaam']['field'] = 'field_afbeeldingen_field_fotograaf_field_voornaam';
-  /* Veld: Afbeeldingen » Validator: Achternaam (indexed) */
+  /* Field: Afbeeldingen » Validator: Achternaam (indexed) */
   $handler->display->display_options['fields']['field_afbeeldingen_field_beeldexpert_field_achternaam']['id'] = 'field_afbeeldingen_field_beeldexpert_field_achternaam';
   $handler->display->display_options['fields']['field_afbeeldingen_field_beeldexpert_field_achternaam']['table'] = 'search_api_index_localindex';
   $handler->display->display_options['fields']['field_afbeeldingen_field_beeldexpert_field_achternaam']['field'] = 'field_afbeeldingen_field_beeldexpert_field_achternaam';
-  /* Veld: Afbeeldingen » Validator: Voornaam (indexed) */
+  /* Field: Afbeeldingen » Validator: Voornaam (indexed) */
   $handler->display->display_options['fields']['field_afbeeldingen_field_beeldexpert_field_voornaam']['id'] = 'field_afbeeldingen_field_beeldexpert_field_voornaam';
   $handler->display->display_options['fields']['field_afbeeldingen_field_beeldexpert_field_voornaam']['table'] = 'search_api_index_localindex';
   $handler->display->display_options['fields']['field_afbeeldingen_field_beeldexpert_field_voornaam']['field'] = 'field_afbeeldingen_field_beeldexpert_field_voornaam';
-  /* Veld: Indexed Node: Image */
+  /* Field: Indexed Node: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'search_api_index_localindex';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -7207,14 +7207,14 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Veld: Content: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Veld: Global: PHP */
+  /* Field: Global: PHP */
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
@@ -7227,7 +7227,7 @@ return urldecode($myurl[3]);
 ';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
-  /* Veld: Content: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -7298,7 +7298,7 @@ return urldecode($myurl[3]);
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Veld: Content: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
