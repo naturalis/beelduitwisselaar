@@ -51,7 +51,7 @@
     </div>
   <?php endif; ?>
 
-    <?php if (($pager) && user_access('administer')): ?>
+    <?php if ($pager): ?>
         <?php print $pager; ?>
     <?php endif; ?>
 
