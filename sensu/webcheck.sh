@@ -4,16 +4,10 @@
 # this is just to check if the site still works and returns a 200 code on each
 # of the routes
 #
-urlfile="$1"
+urlfile="routes.txt"
 TIMEOUT=10
 ERRORLEVEL=0
 
-if [ ! $urlfile ]
-then
-    echo "Mandatory filename is missing"
-    echo "$0 routes.txt"
-    exit 1
-fi
 if [ ! -f $urlfile ]
 then
     echo "$urlfile not found"

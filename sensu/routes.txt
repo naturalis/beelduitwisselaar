@@ -1,4 +1,4 @@
-http://127.0.0.1
-https://natuurinbeeld.nederlandsesoorten.nl
+http://127.0.0.1/
+https://natuurinbeeld.nederlandsesoorten.nl/
 https://natuurinbeeld.nederlandsesoorten.nl/user/login
 https://natuurinbeeld.nederlandsesoorten.nl/user/register
