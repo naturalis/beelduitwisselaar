@@ -19,7 +19,7 @@
 
 <!-- Region menu container -->
 <div class="topMenuContainer">
-  <form id="inlineformsearch" name="inlineformsearch" action="http://www.nederlandsesoorten.nl/linnaeus_ng/app/views/search/nsr_search.php" method="get">
+  <form id="inlineformsearch" name="inlineformsearch" action="//www.nederlandsesoorten.nl/linnaeus_ng/app/views/search/nsr_search.php" method="get">
     <div class="searchInputHolder">
       <input id="name" name="search" type="text" placeholder="Snel zoeken op soort/taxon..." class="searchString" title="Zoek op naam" value="" autocomplete="off">
       <a href="javascript:void(0)" class="close-suggestion-list close-suggestion-list-js">
