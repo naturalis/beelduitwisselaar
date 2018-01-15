@@ -710,13 +710,13 @@ jQuery(document).ready(function(){
 
                 $tmpnode = entity_load_single("field_collection_item", $nodeid);
                 $datefield = $tmpnode->field_datum['und'][0];
+                $block['content'] .= "<br /><b>Datum van opname</b>: " .  date("d-m-Y", strtotime($datefield['value'])) .  "<br />";
                 $myterm = taxonomy_term_load($tmpnode->field_license['und'][0]['tid']);
                 if (is_object($myterm)) {
                     $block['content'] .= "<b>Licentie</b>: " . $myterm->name . "<br />";
                 }
 
                 $block['content'] .= "<br /><b>Status</b>: <img class='status' width='24px' src='/sites/all/modules/beelduitwisselaar/img/$bldstatus.png' title='(Status: " . beelduitwisselaar_statustext($bldstatus) . ")' /> " . beelduitwisselaar_statustext($bldstatus) . "<br />";
-                $block['content'] .= "<br /><b>Datum van opname</b>: " .  date("d-m-Y", strtotime($datefield['value'])) .  "<br />";
 
                 $myroles = array('admin', 'administrator');
                 $checkadmin = array_intersect($myroles, array_values($user->roles));
