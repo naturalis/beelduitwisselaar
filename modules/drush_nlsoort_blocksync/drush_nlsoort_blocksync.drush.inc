@@ -3,8 +3,8 @@ require "vendor/autoload.php";
 use PHPHtmlParser\Dom;
 
 define(NLSOORT_URL, 'http://www.nederlandsesoorten.nl/content/footer-only-lng');
-define(BLOCK_FOOTER_ID, 10);
-define(BLOCK_MENU_ID, 11);
+define(BLOCK_MENU_ID, 10);
+define(BLOCK_FOOTER_ID, 11);
 
 /**
  * Implements hook_drush_command().
@@ -36,7 +36,7 @@ function drush_nlsoort_blocksync_drush_command()
  * Drush command logic.
  * drush_[COMMAND_NAME]().
  */
-function drush_drush_nlsoort_blocksync_nlsoort_blocksync($footer_block_id = BLOCK_FOOTER_ID, $menu_block_id = BLOCK_MENU_ID)
+function drush_drush_nlsoort_blocksync_nlsoort_blocksync($menu_block_id = BLOCK_MENU_ID, $footer_block_id = BLOCK_FOOTER_ID)
 {
 
     $defaultUrl = NLSOORT_URL;
