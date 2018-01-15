@@ -698,19 +698,27 @@ function beelduitwisselaar_block_view($delta = '')
                 //dpm($bldfotograaf->field_voornaam['und'][0]['value']);
                 //dpm($bldfotograaf->field_achternaam['und'][0]['value']);
                 //$block['content'] .= "<style>div.form-item-field-newimage-und-0 {display:none;}</style>";
-                $block['content'] .= "<script type='text/javascript'>
+                $block['content'] .= "
+<script type='text/javascript'>
 jQuery(document).ready(function(){
-	document.getElementById('edit-field-opmerkingen-und-0-value').style.height = document.getElementById('edit-field-opmerkingen-und-0-value').scrollHeight + 'px';
-	document.getElementById('edit-field-beeldevaluatie-und-0-value').style.height = document.getElementById('edit-field-beeldevaluatie-und-0-value').scrollHeight + 'px';
-	  }
+        document.getElementById('edit-field-opmerkingen-und-0-value').style.height = document.getElementById('edit-field-opmerkingen-und-0-value').scrollHeight + 'px';
+        document.getElementById('edit-field-beeldevaluatie-und-0-value').style.height = document.getElementById('edit-field-beeldevaluatie-und-0-value').scrollHeight + 'px';
+          }
 );
 </script>
-<b>Beeld</b><br /><a href='/sites/default/files/$bldfilename' class='colorbox' rel=''><img src='/sites/default/files/$bldfilename' width='220px' class='colorbox' style='float:left;margin-right:10px;margin-bottom:10px;' /></a><b>Bestand</b>: <a href='/sites/default/files/$bldfilename' target='_blank' rel=''><img class='file-icon' alt='' title='image/jpeg' src='/modules/file/icons/image-x-generic.png' /> " . $bldfilename . "</a><br /><span style='font-size: 10px;margin-left: 75px;'>(klik op de bestandsnaam om beeld op volledige grootte te bekijken)</span><br /><br />";
-                $block['content'] .= "<b>Fotograaf</b>: " . $bldfotograaf->field_voornaam['und'][0]['value'] . " " . $bldfotograaf->field_achternaam['und'][0]['value'] . "<br />";
+<b>Beeld</b><br /><a href='/sites/default/files/$bldfilename' class='colorbox' rel=''><img src='/sites/default/files/$bldfilename' width='220px' class='colorbox' style='float:left;margin-right:10px;margin-bottom:10px;' /></a>
+<b>Bestand</b>: <a href='/sites/default/files/$bldfilename' target='_blank' rel=''><img class='file-icon' alt='' title='image/jpeg' src='/modules/file/icons/image-x-generic.png' /> " . $bldfilename . "</a><br />
+<span style='font-size: 10px;margin-left: 75px;'>(klik op de bestandsnaam om beeld op volledige grootte te bekijken)</span><br /><br />";
+                $block['content'] .= "
+<b>Fotograaf</b>: " . $bldfotograaf->field_voornaam['und'][0]['value'] . " " . $bldfotograaf->field_achternaam['und'][0]['value'] . "<br />
+                ";
 
                 $tmpnode = entity_load_single("field_collection_item", $nodeid);
                 $datefield = $tmpnode->field_datum['und'][0];
-                $block['content'] .= "<br /><b>Datum van opname</b>: " .  date("d-m-Y", strtotime($datefield['value'])) .  "<br />";
+                $nicedate = date("d-m-Y", strtotime($datefield['value']));
+                $block['content'] .= "
+<br /><b>Datum van opname</b>: $nicedate<br />
+";
                 $myterm = taxonomy_term_load($tmpnode->field_license['und'][0]['tid']);
                 if (is_object($myterm)) {
                     $block['content'] .= "<b>Licentie</b>: " . $myterm->name . "<br />";
@@ -772,12 +780,6 @@ function undo() {
   document.getElementById(\'group\').value=\'\';
   document.getElementById("edit-field-nlsr-und-0-value").value = \'\';
   document.getElementById("edit-field-soort-taxon-und-0-value").value = \'\';
-  ' .
-//  document.getElementById("edit-goedgekeurd").style.visibility="hidden";
-//  document.getElementById("edit-afgekeurd").style.visibility="hidden";
-//  document.getElementById("edit-wacht").style.visibility="hidden";
-//  document.getElementById("edit-opslaan").style.visibility="visible";
-                ' 
   document.getElementById("validated").style.visibility="hidden";
   document.getElementById(\'group\').focus();  
 }
@@ -785,7 +787,6 @@ function undo() {
 function setSuggestionId(ele) {
   oFormObject = document.forms[\'formSearchFacetsSpecies\'];
   if(oFormObject.elements["group"].value.length > 2) {
-//    jQuery( oFormObject.elements["group"].value ).appendTo( "#selectlijst" );
 
 jQuery.getJSON("//' . variable_get('beelduitwisselaar_block_string', "www.nederlandsesoorten.nl/linnaeus_ng/app/views/webservices/search.php") . "?pid=1&text=\" + oFormObject.elements[\"group\"].value + \"&max=1000&callback=?\",
   {
