@@ -722,9 +722,13 @@ jQuery(document).ready(function(){
         " <i class='ion-email'></i></a><br />";
 	
 	$tmpnode = entity_load_single("field_collection_item", $nodeid);
+
+    $datefield = $tmpnode->field_created['und'][0];
+    $nicedate = date("d-m-Y", $datefield['value']);
+    $block['content'] .= "<br /><b>Datum van inzenden</b>: $nicedate<br />";
     $datefield = $tmpnode->field_datum['und'][0];
     $nicedate = date("d-m-Y", strtotime($datefield['value']));
-    $block['content'] .= "<br /><b>Datum van opname</b>: $nicedate<br />";
+    $block['content'] .= "<b>Datum van opname</b>: $nicedate<br />";
 
           $myterm = taxonomy_term_load( $tmpnode->field_license['und'][0]['tid']);
         if(is_object($myterm)) {
