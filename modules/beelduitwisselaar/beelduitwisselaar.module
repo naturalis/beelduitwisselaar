@@ -714,7 +714,12 @@ jQuery(document).ready(function(){
 );
 </script>
 <b>Beeld</b><br /><a href='/sites/default/files/$bldfilename' class='colorbox' rel=''><img src='/sites/default/files/$bldfilename' width='220px' class='colorbox' style='float:left;margin-right:10px;margin-bottom:10px;' /></a><b>Bestand</b>: <a href='/sites/default/files/$bldfilename' target='_blank' rel=''><img class='file-icon' alt='' title='image/jpeg' src='/modules/file/icons/image-x-generic.png' /> " . $bldfilename . "</a><br /><span style='font-size: 10px;margin-left: 75px;'>(klik op de bestandsnaam om beeld op volledige grootte te bekijken)</span><br /><br />";
-	$block['content'] .= "<b>Fotograaf</b>: " . $bldfotograaf->field_voornaam['und'][0]['value'] . " " . $bldfotograaf->field_achternaam['und'][0]['value'] . "<br />";
+	$block['content'] .=
+        "<b>Fotograaf</b>: " .
+        "<a href='mailto:" .  $bldfotograaf->mail . "'>" .
+        $bldfotograaf->field_voornaam['und'][0]['value'] .
+        " " . $bldfotograaf->field_achternaam['und'][0]['value'] .
+        " <i class='ion-email'></i></a><br />";
 	
 	$tmpnode = entity_load_single("field_collection_item", $nodeid);
     $datefield = $tmpnode->field_datum['und'][0];
