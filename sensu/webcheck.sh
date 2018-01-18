@@ -4,9 +4,11 @@
 # this is just to check if the site still works and returns a 200 code on each
 # of the routes
 #
-urlfile="routes.txt"
+urlfile="/opt/repo/scripts/routes.txt"
 TIMEOUT=10
 ERRORLEVEL=0
+WARNING_COUNT=0
+ERROR_COUNT=0
 
 if [ ! -f $urlfile ]
 then
@@ -21,16 +23,21 @@ do
     then
         if [ "$status_code" -gt 404 ]
         then 
-            echo "ERROR: $status_code on $url"
-            ERRORLEVEL=2
+            ERROR_COUNT=$((ERROR_COUNT+1))
         elif [ "$status_code" -eq 0 ]
         then
-            echo "ERROR: NO RESULT on $url"
-            ERRORLEVEL=2
+            ERROR_COUNT=$((ERROR_COUNT+1))
         else
-            echo "WARNING: $status_code on $url"
-            ERRORLEVEL=1
+            WARNING_COUNT=$((WARNING_COUNT+1))
         fi
   fi
 done < $urlfile
-exit $ERRORLEVEL
+echo "URL check: $ERROR_COUNT errors, $WARNING_COUNT warning"
+if [ $ERROR_COUNT -gt 0 ]
+then
+    exit 2
+elif [ $WARNING_COUNT -gt 0 ]
+then
+    exit 1
+fi
+exit 0
