@@ -6,7 +6,6 @@
 #
 urlfile="/opt/repo/scripts/routes.txt"
 TIMEOUT=10
-ERRORLEVEL=0
 WARNING_COUNT=0
 ERROR_COUNT=0
 
