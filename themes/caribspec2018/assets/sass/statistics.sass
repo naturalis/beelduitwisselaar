@@ -1,0 +1,127 @@
+
+.statisticsList
+	padding: 15px
+	background-color: #fff
+	ul
+		display: table
+	li
+		font-size: 13px
+		display: table-row
+		@media screen and (max-width: 994px)
+			display: inline-block
+			width: 50%
+		@media screen and (max-width: 640px)
+			width: 100%
+		div
+			padding-bottom: 27px
+			display: table-cell
+			vertical-align: middle
+			padding: 15px
+	.bold
+		margin-bottom: 3px
+		display: block
+		font-size: 16px
+		display: block
+		font-weight: bold
+	img
+		width: 30px
+		display: block
+	.image
+		padding-right: 30px
+
+.container.statistics
+	@media screen and (max-width: 994px)
+		padding-top: 30px
+		background-color: $blue
+
+		margin-bottom: 30px
+		h1
+			color: #fff
+			padding-left: 30px
+
+.statisticsHeader
+	background-color: #009ee0
+	color: #fff
+	padding: 30px
+	@media screen and (max-width: 994px)
+		padding-top: 0
+	.number
+		font-size: 30px
+		font-weight: bold
+		display: block
+		margin-bottom: 20px
+
+
+.container.newestPhoto
+	padding-bottom: 25px
+	@media screen and (max-width: 994px)
+		background-color: #fff
+		padding-top: 30px
+		margin-bottom: 30px
+
+		h1
+			padding-left: 30px
+	@media screen and (max-width: 640px)
+		padding-bottom: 0
+	img
+		width: 100%
+		display: block
+	.image
+		position: relative
+	.details
+		overflow: hidden
+		padding: 30px
+		position: relative
+		background-color: #fff
+	.newestPhotoLinks
+		position: absolute
+		bottom: 30px
+		right: 30px
+		@media screen and (max-width: 640px)
+			position: initial
+			display: inline-block
+			margin: 0 auto
+	.more
+		display: block
+	.title
+		display: block
+		font-weight: bold
+		margin-bottom: 3px
+	ul
+		width: 370px
+		overflow: hidden
+		@media screen and (max-width: 640px)
+			width: 100%
+	li
+		margin-bottom: 30px
+		width: 50%
+		display: inline-block
+		float: left
+		&:last-child, &:nth-last-child(2)
+			margin-bottom: 0
+
+.container.sendInPhoto
+	padding-left: 341px
+	position: relative
+	@media screen and (max-width: 640px)
+		padding-left: 0
+		overflow: hidden
+	img
+		left: 0
+		width: 341px
+		display: inline-block
+		position: absolute
+		@media screen and (max-width: 640px)
+			width: 100%
+	.description
+		background-color: #fff
+		height: 204px
+		padding: 30px
+		position: relative
+		z-index: 10
+		@media screen and (max-width: 640px)
+			background-color: transparent
+	.more
+		position: absolute
+		right: 30px
+		bottom: 30px

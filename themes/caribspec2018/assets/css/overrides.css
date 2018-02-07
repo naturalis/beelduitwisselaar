@@ -1,0 +1,375 @@
+.admin-menu .menuContainer {
+    top: 29px;
+}
+
+#search-form {
+    display: none;
+}
+
+.contentContainer .content.subpage .left .quicksearch input.moreSearchOptions {
+    height: auto !important;
+    background-color: #fff;
+}
+
+h2 a {
+    color: #009EE0;
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: block;
+    line-height: 1.3;
+    text-decoration: none;
+}
+
+.search-info a.username,
+ul.pager li a {
+    color: #009EE0;
+    text-decoration: none;
+}
+a {
+    color : #009EE0;
+}
+ul.pager li a {
+    color : #009EE0;
+}
+table.views-table th, table.views-table td {
+    font-size : 14px;
+}
+ul.pager li {
+    font-size : 14px;
+}
+
+.admin-menu .menu > li > a {
+    height: auto;
+}
+
+/* Override for drupal menu styling */
+#block-nlsoort-components-nlsoort-components-main-menu ul.menu li {
+    margin: 0;
+}
+
+ul.sideMenu li.leaf {
+    list-style: none none;
+}
+
+/* Addition for fixing ratio */
+.container.news img {
+    height: auto;
+}
+
+@media screen and (min-width: 1455px) {
+    .header .flexslider img {
+        height: auto;
+    }
+}
+
+/* Fixes for sidemenu */
+.sideMenu .menu {
+    display: inline-block;
+}
+
+.sideMenu .menu li {
+    background-color: transparent;
+    border: 0;
+}
+.contentContainer .content.subpage {
+    padding : 15px;
+}
+
+.contentContainer .content.subpage .left .sideMenu .menu li a {
+    height: auto;
+    line-height: 1.2em;
+}
+
+.contentContainer .content.subpage .left .sideMenu .menu li a:hover {
+    background-color: #fff;
+}
+
+.contentContainer .content.subpage .left .sideMenu .menu li:first-child a {
+    margin-top: 1em;
+}
+
+li.expanded,
+li.collapsed,
+li.leaf {
+    padding: 0;
+    margin: 0;
+}
+
+.left .addon {
+    padding : 0 !important;
+}
+
+
+.left .block,
+.region-left-sidebar .block {
+    padding: 0;
+    width : 220px;
+    margin-right : 20px;
+}
+
+.left .block label,
+.region-left-sidebar .block label {
+    display: block;
+    background-color: #009EE0;
+    color: #fff;
+    min-height: 50px;
+    padding: 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+.left .block label i,
+.region-left-sidebar .block label i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.left .block .filter,
+.region-left-sidebar .block .filter {
+    background-color : #ffffff;
+    padding : 15px;
+}
+
+.left .block a,
+.region-left-sidebar .block a {
+    text-decoration : none;
+    font-size: 14px;
+    color: #000;
+}
+
+.left .block .count,
+.region-left-sidebar .block .count {
+    text-decoration : none;
+    font-size: 14px;
+    color: #666666;
+}
+.form-wrapper {
+    padding : 0;
+}
+.form-item label {
+    padding : 5px 0;
+    font-weight : bold;
+}
+.form-item .description {
+    margin : 15px 0;
+    line-height : 120%;
+    padding-left : 10px;
+    font-size : 12px;
+    color : #666666;
+}
+.clearfix {
+    clear :both;
+}
+div#block-search-form input.form-text {
+    width : 120px;
+    font-family : arial, helvetica, sans-serif;
+}
+div#block-search-form input.form-submit {
+    display : inline-block !important;
+}
+.components td.component {
+    padding : 5px 0 10px 20px;
+}
+.features-component-list {
+    line-height : 150%;
+}
+.features-component-list .features-source {
+    background-color : #eeeeee;
+    padding : 1px;
+    border-radius : 2px;
+}
+.gridright {
+    padding-top : 5px;
+    float : right;
+}
+
+.views-exposed-form {
+    display : table;
+    margin-bottom : 10px;
+}
+.views-exposed-widgets {
+    display : table-row;
+}
+.views-exposed-widgets label {
+    display : table-cell;
+}
+.views-exposed-widgets .views-widget {
+    display : table-cell;
+}
+.view-content span.fieldset-legend { display : none;}
+/* form */
+
+/* table */
+.field-multiple-table .odd, .field-multiple-table .even {
+    background : #fcfcfc;
+    border : solid 1px #cccccc;
+}
+.field-multiple-table .odd td, .field-multiple-table .even td {
+    padding : 10px;
+}
+tr.odd div.form-item, tr.even div.form-item {
+   margin-bottom : 0;
+}
+
+
+/* buttons and inputs */
+input[type=button], input[type=submit] {
+    height: 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size : 14px;
+    background : #cccccc;
+    cursor: pointer;
+    border: 0;
+}
+.node-beelduitwisselaar-form #edit-submit {
+    margin-right : 5px;
+    padding : 5px 15px;
+    height : 30px !important;
+    color : #666666 !important;
+    font-weight : bold;
+}
+#search-block-form #edit-submit {
+    margin-right : 0px;
+}
+
+.node-beelduitwisselaar-form div.field-name-field-soort-taxon {
+    display : none;
+}
+
+input[type=text] {
+    font-family : arial, helvetica, sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    border: solid #cccccc 1px;
+    outline-width: 1px;
+    height: 20px;
+}
+textarea {
+    font-family : arial, helvetica, sans-serif;
+    font-size: 14px;
+}
+textarea[disabled='1'] {
+    color : #666666;
+    background-color : #eeeeee;
+}
+
+
+.item-list .pager li {
+    padding : 0;
+}
+
+select.form-select {
+    font-size: 14px;
+    height: 20px;
+    width: auto;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 0;
+    outline-width: 1px;
+    padding-left: 14px;
+    background-color: #eeede9;
+    border-radius: 0;
+    background-image: url("../img/arrow-down-b.png");
+    background-position: center right 8px;
+    padding-right: 35px;
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+
+#edit-actions .form-submit, #edit-actions .button-user {
+    height: 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size : 14px;
+    background : #cccccc;
+    cursor: pointer;
+    margin-right : 5px;
+}
+#edit-goedgekeurd {
+    background-color : green !important;
+    color : #000000;
+    font-weight : bold;
+}
+#edit-afgekeurd {
+    background-color : red !important;
+    color : #000000;
+    font-weight : bold;
+}
+input[id*="remove-button"] {
+    margin-right : 5px;
+    padding : 5px 15px;
+    height : 30px;
+    background-color : red;
+    font-weight : bold;
+}
+input.field-add-more-submit {
+    margin-right : 5px;
+    padding : 5px 15px;
+    height : 30px;
+    background-color : #1cc7ff;
+    font-weight : bold;
+}
+
+body.page-node-add-beelduitwisselaar div.vertical-tabs, body.page-node-add-beelduitwisselaar div.vertical-tabs {
+    border : none !important;
+}
+body.page-node-add-beelduitwisselaar div.vertical-tabs ul.vertical-tabs-list, body.page-node-add-beelduitwisselaar div.vertical-tabs div.vertical-tabs-panes {
+    display : none;
+}
+
+legend .fieldset-legend {
+    font-weight : bold;
+}
+.fieldset-wrapper {
+    margin-top : 10px;
+}
+fieldset .fieldset-description {
+    margin : 15px 0;
+    line-height : 120%;
+    padding-left : 10px;
+    font-size : 12px;
+    color : #666666;
+}
+
+th.field-label label {
+    margin-bottom : 10px;
+    font-size : 18px;
+    font-weight : normal;
+    color : #009EE0;
+}
+.container-inline-date .form-item {
+    margin-right : 5px;
+}
+.field-name-field-opmerkingen {
+    margin-top : 10px;
+}
+#selectlijst {
+    z-index : 1000;
+    background-color : transparent;
+    max-height : 300px;
+    line-height : 150%;
+    overflow-y : scroll;
+}
+#selectlijst div.oneven {
+    background-color : #efefef;
+}
+#selectlijst div.even {
+    background-color : #fcfcfc;
+}
+.vbo-select-all-markup .form-item label {
+    font-weight : normal;
+    font-size : 12px;
+}
+.vbo-select-all-markup em {
+    display : none;
+}
+table td[class*="col-"] {
+    vertical-align : middle;
+    text-align : center;
+}
+

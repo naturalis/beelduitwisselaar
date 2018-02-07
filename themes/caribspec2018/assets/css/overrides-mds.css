@@ -1,0 +1,69 @@
+.field ol, ul {
+    margin: 0.5em 0 0.5em 0;
+}
+
+.field ol li, ul li {
+    line-height: 21px;
+    list-style-position: outside;
+}
+
+.field ol li {
+    list-style-type: decimal;
+    margin-left: 35px;
+}
+
+.field ul li {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.field a {
+    display: inline-block;
+    color: #e3004a;
+    text-decoration: none;
+    /*
+        font-size: 12px;
+        font-weight: bold;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-image: url(/sites/all/themes/nlsoort2016/assets/img/icons/arrow-right.svg);
+        padding-left: 25px;
+    */
+}
+
+.field p {
+    margin-bottom: 10px;
+}
+
+.field strong, b {
+    font-weight: bold;
+}
+
+.field em, i {
+    font-style: italic;
+}
+
+.imageText {
+    text-shadow: 1px 1px 1px #555;
+}
+
+.container.news .row {
+    padding-bottom: 0;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 640px) {
+    .container.news .description {
+        border-bottom: 1px solid #ddd;
+        padding: 15px;
+    }
+}
+
+
+
+
+
+
