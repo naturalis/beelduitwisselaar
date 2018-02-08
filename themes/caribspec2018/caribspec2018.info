@@ -23,5 +23,9 @@ regions[below_content_left]      = Below main content left
 regions[below_content_right]     = Below main content right
 regions[footer]                  = Footer
 
-settings[nlsoorttheme_id_prefix] = "http://www.dutchcaribbeanspecies.org"
-settings[nlsoorttheme_id_suffix] = "/?"
+settings[theme_id_prefix] = "http://www.dutchcaribbeanspecies.org"
+settings[theme_id_suffix] = "/?"
+settings[iconic_icons] = "//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+settings[linnaeus_search] = "//www.dutchcaribbeanspecies.org/linnaeus_ng/app/views/search/nsr_search.php"
+settings[naturalis_logo] = "/sites/all/themes/caribspec2018/assets/img/logo-small-pink.png"
+

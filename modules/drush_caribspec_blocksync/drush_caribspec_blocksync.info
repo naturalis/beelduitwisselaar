@@ -1,0 +1,3 @@
+name = Drush Dutch Caribbean Species header and footer downloader
+description = Drupal 7 custom drush command
+core = 7.x

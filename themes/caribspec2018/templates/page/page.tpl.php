@@ -9,19 +9,19 @@
 <!-- Logo container-->
 <div class="logoContainer">
     <div class="container" style="cursor:pointer;" onClick="window.open('/','_top')">
-        <img src="/sites/all/themes/nlsoort2016/assets/img/logo-small-pink.png" class="logo">
+        <img src="<?= $logo ?>" class="logo">
         <div class="siteTitle">
-            <h1>Nederlands Soortenregister</h1>
-            <h2>Overzicht van de Nederlandse biodiversiteit</h2>
+            <h1><?= $site_title ?></h1>
+            <h2><?= $site_slogan ?></h2>
         </div>
     </div>
 </div>
 
 <!-- Region menu container -->
 <div class="topMenuContainer">
-  <form id="inlineformsearch" name="inlineformsearch" action="//www.nederlandsesoorten.nl/linnaeus_ng/app/views/search/nsr_search.php" method="get">
+  <form id="inlineformsearch" name="inlineformsearch" action="<?= $search_url ?>" method="get">
     <div class="searchInputHolder">
-      <input id="name" name="search" type="text" placeholder="Snel zoeken op soort/taxon..." class="searchString" title="Zoek op naam" value="" autocomplete="off">
+      <input id="name" name="search" type="text" placeholder="<?= t('Snel zoeken op soort/taxon...') ?>" class="searchString" title="<?= t('Zoek op naam') ?>" value="" autocomplete="off">
       <a href="javascript:void(0)" class="close-suggestion-list close-suggestion-list-js">
         <i class="ion-close-round"></i>
       </a>
