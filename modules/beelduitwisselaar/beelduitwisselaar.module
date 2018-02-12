@@ -19,10 +19,10 @@ define('LINNAEUS_SEARCH','http://www.nederlandsesoorten.nl/linnaeus_ng/app/views
  * Global variables, specify nodeids of the predefined email templates
  */
 define('MAILNEWSUBMISSION', "1");
-define('MAILACCEPTSUBMISSION', "4");
 define("MAILDECLINESUBMISSION", "2");
-define("MAILWAITSUBMISSION", "5");
 define("MAILASSIGNSUBMISSION", "3");
+define('MAILACCEPTSUBMISSION', "4");
+define("MAILWAITSUBMISSION", "5");
 
 /**
  * Global variables, define states of images
@@ -34,6 +34,15 @@ define("STATUSNEGATIVE", 3); //evaluatienegatief
 define("STATUSWAIT", 4); //evaluatiewacht
 define("STATUSDONE", 5); //afgerond
 define("STATUSDELETED", 6); //verwijderd
+
+/**
+ * The http routes
+ */
+define('ROUTE_DETAIL', "/beelddetail/");
+define('ROUTE_AFBEELDINGEN', "/afbeeldingen");
+define('ROUTE_USER', "/afbeeldingen-user");
+define('ROUTE_EXPERT', "/afbeeldingen-expert");
+define('ROUTE_CREATEMAIL', "/beelduitwisselaar/createmail/");
 
 /**
  * Implements hook_init()
@@ -171,8 +180,8 @@ function beelduitwisselaar_menu()
     $items['beelduitwisselaar/createmail/%/%/%'] = array(
         'title' => t('Mail aanpassen'),
         'page callback' => 'beelduitwisselaar_createmail_callback',
-        'page arguments' => array(1, 2, 3),
-        'access arguments' => array('access content'),
+        'page arguments' => [1, 2, 3],
+        'access arguments' => ['access content'],
         'type' => MENU_CALLBACK,
     );
 
@@ -426,7 +435,7 @@ function beelduitwisselaar_mail_form_submit($form, &$form_state)
                 "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $tempuser->name . "</a>"
             ], $mymail);
 
-        $subject = (empty($form['mailsubject']['#value'])) ? $mymail->title ? $form['mailsubject']['#value'];
+        $subject = (empty($form['mailsubject']['#value'])) ? $mymail->title : $form['mailsubject']['#value'];
 
         if ($tempuser->field_notificatie['und'][0]['value'] != 0) {
             try {
@@ -552,7 +561,7 @@ function beelduitwisselaar_kiesexpert_callback()
 {
     watchdog('beelduitwisselaar', "User " . $_GET['uid'] . " assigned " . $_GET['nids'] . " taxonomie: " . $_GET['tid']);
 
-    $validator = db_query('SELECT name FROM {users} WHERE uid = :uid', [':uid' => $_GET['uid']])->FetchField();
+    $validator = db_query('SELECT name FROM {users} WHERE uid = :uid', [':uid' => $_GET['uid']])->fetchField();
     drupal_set_message(t('Beeld(en) toegekend aan de validator @validator'), ['@validator' => $validator]);
 
     $myimages = explode(',', $_GET['nids']);
@@ -731,7 +740,8 @@ function beelduitwisselaar_block_info()
     return $blocks;
 }
 
-function beelduitwisselaar_block_imgblock() {
+function beelduitwisselaar_block_imgblock()
+{
     global $user;
 
     $block = [];
@@ -784,7 +794,7 @@ JS1;
 
     $block['content'] .= "<b>" . t('Datum van inzenden') .  "</b>: $datecreated<br>";
     $block['content'] .= "<b>" . t('Datum van opname') . "</b>: $datesubmit<br>";
-    $block['content'] .= (is_object($licenseTerm) ? "<b>" . t('Licentie') . "</b>: " . $licenseTerm->name . "<br>" : '';
+    $block['content'] .= is_object($licenseTerm) ? ("<b>" . t('Licentie') . "</b>: " . $licenseTerm->name . "<br>") : '';
     $block['content'] .= "<br><b>" . t('Status') . "</b>: <img class='status' width='24px' src='/sites/all/modules/beelduitwisselaar/img/$bldstatus.png' title='(Status: " . beelduitwisselaar_statustext($bldstatus) . ")' /> " . beelduitwisselaar_statustext($bldstatus) . "<br>";
 
     if (array_intersect(['admin', 'administrator'], array_values($user->roles)) && !empty($tmpnode->field_beeldexpert['und'][0]['target_id'])) {
@@ -799,7 +809,8 @@ JS1;
 /**
  * @return array
  */
-function beelduitwisselaar_block_block() {
+function beelduitwisselaar_block_block()
+{
     global $user;
 
     $block = [];
@@ -852,7 +863,7 @@ function undo() {
 }
 
 function setSuggestionId(ele) {
-    oFormObject = document.forms['formSearchFacetsSpecies'];
+    var oFormObject = document.forms['formSearchFacetsSpecies'];
     if(oFormObject.elements["group"].value.length > 2) {
         jQuery.getJSON(
         '//{$searchurl}?pid=1&text=' + oFormObject.elements["group"].value + '&max=1000&callback=',
@@ -867,7 +878,7 @@ function setSuggestionId(ele) {
         }
         );
     }
-};
+}
 
 </script>
 <form method="get" action="" id="formSearchFacetsSpecies" name="formSearchFacetsSpecies" style="clear:both;">
@@ -884,6 +895,9 @@ JAVASCRIPT;
 
 /**
  * Implements hook_block_view().
+ *
+ * @param string $delta
+ * @return array
  */
 function beelduitwisselaar_block_view($delta = '')
 {
@@ -1017,12 +1031,12 @@ function beelduitwisselaar_beeldplaatswacht_action(&$entity, $context = array())
  * @param array $context
  * @throws Exception
  */
-function beelduitwisselaar_publish_action(&$entity, $context = array(), [], WATCHDOG_DEBUG)
+function beelduitwisselaar_publish_action(&$entity, $context = array())
 {
     global $user;
     global $base_url;
 
-    watchdog('beelduitwisselaar', 'beelduitwisselaar_publish_action fired');
+    watchdog('beelduitwisselaar', 'beelduitwisselaar_publish_action fired', [], WATCHDOG_DEBUG);
     if (!empty($context['field_collection_item'])) {
 
         $myentity = entity_load_single("field_collection_item", $entity->item_id);
@@ -1113,7 +1127,6 @@ function beelduitwisselaar_maillijst_action(&$entity, $context = array())
     }
 }
 
-
 /**
  * Implements hook_selectexpert_action
  * @param $entity
@@ -1174,7 +1187,7 @@ function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
             break;
         case 'field_collection_item_form':
             if ($form['field_status']['und']['#default_value'][0] === STATUSDONE) {
-                drupal_goto("/beelddetail/" . $form['#entity']->item_id);
+                drupal_goto(ROUTE_DETAIL . $form['#entity']->item_id);
             }
             drupal_set_title(t("Valideer beeld"));
 
@@ -1394,22 +1407,22 @@ function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
                 //set default values based on user profile
                 $myid = $user->uid;
                 $sqlvoornaam = "SELECT v.field_voornaam_value voornaam FROM {field_data_field_voornaam} v WHERE v.entity_type = 'user' AND v.entity_id = :entity LIMIT 1";
-                $form['field_voornaam']['und'][0]['value']['#default_value'] = db_query($sqlvoornaam, [':entity' => $myid])->FetchField();
+                $form['field_voornaam']['und'][0]['value']['#default_value'] = db_query($sqlvoornaam, [':entity' => $myid])->fetchField();
 
                 $sqlachternaam = "SELECT  a.field_achternaam_value achternaam FROM {field_data_field_achternaam} a WHERE a.entity_type = 'user' AND a.entity_id = :entity LIMIT 1";
-                $form['field_achternaam']['und'][0]['value']['#default_value'] = db_query($sqlachternaam, [':entity' => $myid])->FetchField();
+                $form['field_achternaam']['und'][0]['value']['#default_value'] = db_query($sqlachternaam, [':entity' => $myid])->fetchField();
 
                 $sqlwoonplaats = "SELECT  w.field_woonplaats_value woonplaats FROM {field_data_field_woonplaats} w WHERE w.entity_type = 'user' AND w.entity_id = :entity LIMIT 1";
-                $form['field_woonplaats']['und'][0]['value']['#default_value'] = db_query($sqlwoonplaats, [':entity' => $myid])->FetchField();
+                $form['field_woonplaats']['und'][0]['value']['#default_value'] = db_query($sqlwoonplaats, [':entity' => $myid])->fetchField();
 
                 $sqlland = "SELECT l.field_land_value land FROM {field_data_field_land} l WHERE l.entity_type = 'user' AND l.entity_id = :entity LIMIT 1";
-                $form['field_land']['und'][0]['value']['#default_value'] = db_query($sqlland, [':entity' => $myid])->FetchField();
+                $form['field_land']['und'][0]['value']['#default_value'] = db_query($sqlland, [':entity' => $myid])->fetchField();
 
                 $sqlemail = "SELECT mail FROM {users} WHERE uid = :entity LIMIT 1";
-                $form['field_email']['und'][0]['email']['#default_value'] = db_query($sqlemail, [':entity' => $myid])->FetchField();
+                $form['field_email']['und'][0]['email']['#default_value'] = db_query($sqlemail, [':entity' => $myid])->fetchField();
 
                 $sqlcontact = "SELECT c.field_contact_value contact FROM {field_data_field_contact} c WHERE c.entity_type = 'user' AND c.entity_id = :entity LIMIT 1";
-                $form['field_contact']['und'][0]['value']['#default_value'] = db_query($sqlcontact, [':entity' => $myid])->FetchField();
+                $form['field_contact']['und'][0]['value']['#default_value'] = db_query($sqlcontact, [':entity' => $myid])->fetchField();
             }
             break;
 
@@ -1421,7 +1434,7 @@ function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
                     $users[] = $form['views_bulk_operations'][$myid]['#return_value'];
                     $uid = $form['views_bulk_operations'][$myid]['#return_value'];
                     $mailsql = 'SELECT mail FROM {users} WHERE uid = :uid LIMIT 1';
-                    $mails[] = db_query($mailsql, [':uid' => $uid])->FetchField();
+                    $mails[] = db_query($mailsql, [':uid' => $uid])->fetchField();
                     $myid = $myid + 1;
                     $_SESSION['mymail'] = implode(",", $mails);
                 }
@@ -1437,6 +1450,7 @@ function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
 
 /**
  * Implements hook_node_presave().
+ * @param $node
  */
 function beelduitwisselaar_node_presave($node)
 {
@@ -1533,7 +1547,7 @@ function beelduitwisselaar_node_insert($node)
         }
     }
 
-    drupal_goto("/afbeeldingen-user");
+    drupal_goto(ROUTE_USER);
 }
 
 
@@ -1558,7 +1572,7 @@ function beelduitwisselaar_entity_update($entity, $type)
             beelduitwisselaar_goto_lastview();
         }
         if (array_intersect(['expert', 'validator'], array_values($user->roles))) {
-            drupal_goto('/afbeeldingen-expert');
+            drupal_goto(ROUTE_EXPERT);
         }
     }
 }
@@ -1646,7 +1660,7 @@ function beelduitwisselaar_afgekeurd(&$form, &$form_state)
     $nodeid = arg(2);
     variable_set("beelduitwisselaar_entityid", $nodeid);
 
-    drupal_goto("/beelduitwisselaar/createmail/" . $fotograafid . "/" .  MAILDECLINESUBMISSION . "/" . $nodeid);
+    drupal_goto(ROUTE_CREATEMAIL . $fotograafid . "/" .  MAILDECLINESUBMISSION . "/" . $nodeid);
 }
 
 
@@ -1705,6 +1719,7 @@ function beelduitwisselaar_adminsave(&$form, &$form_state)
     $myentity->field_beeldevaluatie['und'][0]['value'] = $beeldevaluatie;
     if (!empty($form['field_soort_taxon']['und'][0]['value'])) {
         $myentity->field_soort_taxon['und'][0]['value'] = $form['field_soort_taxon']['und'][0]['value']['#value'];
+    }
 
     if (!empty($form['field_opmerkingen']['und'][0]['value'])) {
         $myentity->field_opmerkingen['und'][0]['value'] = $form['field_opmerkingen']['und'][0]['value']['#value'];
@@ -1742,7 +1757,7 @@ function beelduitwisselaar_adminsave(&$form, &$form_state)
     } else {
         $myentity->save();
     }
-    drupal_goto("/afbeeldingen-expert");
+    drupal_goto(ROUTE_EXPERT);
 }
 
 
@@ -1786,7 +1801,7 @@ function beelduitwisselaar_save(&$form, &$form_state)
     } else {
         $myentity->save();
     }
-    drupal_goto("/afbeeldingen-expert");
+    drupal_goto(ROUTE_EXPERT);
 }
 
 /**
@@ -1823,7 +1838,7 @@ function beelduitwisselaar_wacht(&$form, &$form_state)
     db_query($sql,[ STATUSWAIT, $myentity->item_id, $myentity->revision_id ]);
 
 
-    drupal_goto("/beelduitwisselaar/createmail/" . $fotograafid . "/" . MAILWAITSUBMISSION . "/" . $nodeid);
+    drupal_goto(ROUTE_CREATEMAIL . $fotograafid . "/" . MAILWAITSUBMISSION . "/" . $nodeid);
 }
 
 /**
@@ -1922,7 +1937,7 @@ function beelduitwisselaar_verwijderd(&$form, &$form_state)
     $myentity->field_status['und'][0]['value'] = STATUSDELETED;
     $myentity->save();
 
-    drupal_goto("/afbeeldingen");
+    drupal_goto(ROUTE_AFBEELDINGEN);
 }
 
 /**
