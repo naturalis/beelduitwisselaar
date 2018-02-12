@@ -3,7 +3,6 @@ global $lastview;
 global $nohook;
 $nohook = 0;
 
-
 /**
  * Defaults.
  */
@@ -12,6 +11,9 @@ define('IMAGEIMPORTFOLDER', '/var/www/drupal/import/');
 
 define('BEELDUITWISSELAARLICENSETERMID', 75);
 define('NATUURNLLICENSETERMID', 76);
+
+define('NSR_LINK', 'http://www.nederlandsesoorten.nl/nsr/concept/');
+define('LINNAEUS_SEARCH','http://www.nederlandsesoorten.nl/linnaeus_ng/app/views/webservices/search.php');
 
 /**
  * Global variables, specify nodeids of the predefined email templates
@@ -34,14 +36,15 @@ define("STATUSDONE", 5); //afgerond
 define("STATUSDELETED", 6); //verwijderd
 
 /**
- * Implements hook_init().
+ * Implements hook_init()
+ *
+ * Retrieves variables
+ * Sets the lastview variable
+ *
  */
 function beelduitwisselaar_init()
 {
     global $lastview;
-
-    $action = variable_get("beelduitwisselaar_action", NULL);
-    $entityid = variable_get("beelduitwisselaar_entityid", NULL);
 
     drupal_add_css(drupal_get_path('module', 'beelduitwisselaar') . '/css/buit.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
 
@@ -49,33 +52,34 @@ function beelduitwisselaar_init()
         //Handle pending action
         if ((variable_get("beelduitwisselaar_mailrequired") && variable_get("beelduitwisselaar_mailsend")) || !variable_get("beelduitwisselaar_mailrequired")) {
 
-            switch ($action) {
-                case 2:
-                    //dpm("delete entity: " . $entityid);
-                    entity_delete("field_collection_item", $entityid);
-                    variable_del("beelduitwisselaar_action");
-                    variable_del("beelduitwisselaar_entityid");
-                    variable_del("beelduitwisselaar_mailrequired");
-                    variable_del("beelduitwisselaar_mailsend");
-                    break;
-            }
+            $action = variable_get("beelduitwisselaar_action", NULL);
+            $entityid = variable_get("beelduitwisselaar_entityid", NULL);
 
+            if ($action === MAILDECLINESUBMISSION) {
+                entity_delete("field_collection_item", $entityid);
+                variable_del("beelduitwisselaar_action");
+                variable_del("beelduitwisselaar_entityid");
+                variable_del("beelduitwisselaar_mailrequired");
+                variable_del("beelduitwisselaar_mailsend");
+            }
         }
     }
 
     if (empty($lastview)) {
-        $lastview = variable_get("beelduitwisselaar_lastview");
+        $lastview = variable_get("beelduitwisselaar_lastview", '');
     }
-    if ((current_path() === "afbeeldingen-expert-all") ||
-        (current_path() === "afbeeldingen") ||
-        (current_path() === "afbeeldingen-geevalueerd-all") ||
-        (current_path() === "afbeeldingen-wachtrij")) {
+
+    $beelduitwisselaar_paths = ['afbeeldingen-expert-all', 'afbeeldingen', 'afbeeldingen-geevalueerd-all', 'afbeeldingen-wachtrij'];
+    if (in_array(strtolower(current_path()), $beelduitwisselaar_paths, true)) {
         $lastview = current_path();
 
-        variable_set("beelduitwisselaar_lastview", $lastview);
+        variable_set('beelduitwisselaar_lastview', $lastview);
     }
 }
 
+/**
+ * Returns the user to the previous view.
+ */
 function beelduitwisselaar_goto_lastview() {
     global $lastview;
 
@@ -83,28 +87,28 @@ function beelduitwisselaar_goto_lastview() {
 }
 
 
+/**
+ * Displays the statustext corresponding to statuscode
+ */
 function beelduitwisselaar_statustext($statuscode)
 {
-    switch ($statuscode) {
-        case STATUSNEW:
-            return t("Nieuw");
-        case STATUSEXPERT:
-            return t("In behandeling bij validator");
-        case STATUSPOSITIVE:
-            return t("Gevalideerd");
-        case STATUSNEGATIVE:
-            return t("Afgekeurd");
-        case STATUSWAIT:
-            return t("In de wachtrij");
-        case STATUSDONE:
-            return t("Goedgekeurd en gepubliceerd");
-        case STATUSDELETED:
-            return t("Verwijderd");
-    }
+    $status_texts = [
+        STATUSNEW => t('Nieuw'),
+        STATUSEXPERT => t('In behandeling bij validator'),
+        STATUSPOSITIVE => t('Gevalideerd'),
+        STATUSNEGATIVE => t('Afgekeurd'),
+        STATUSWAIT => t('In de wachtrij'),
+        STATUSDONE => t('Goedgekeurd en gepubliceerd'),
+        STATUSDELETED => t('Verwijderd')
+    ];
+
+    return $status_texts[$statuscode];
 }
 
 /**
+ * implementation of hook_menu()
  *
+ * Used for configuring the beelduitwisselaar
  *
  */
 function beelduitwisselaar_menu()
@@ -178,6 +182,7 @@ function beelduitwisselaar_menu()
 
 /**
  * Form used to configure the beelduitwisselaar module.
+ *
  * @param $form
  * @param $form_state
  * @return mixed
@@ -207,34 +212,43 @@ function beelduitwisselaar_config_form($form, &$form_state)
  */
 function beelduitwisselaar_kiesmail_callback()
 {
-    $result .= t("Kies hier een bestaand mailtemplate om naar de geselecteerde gebruikers te sturen. De gebruikers ontvangen alleen een mail als ze de optie om mail te ontvangen van het systeem aan hebben staan. Dit kan iedere gebruiker in zijn eigen profiel configureren. <a href='/node/add/mail'>Nieuwe mail templates</a> kunnen door de admin user worden aangemaakt, en verschijnen dan automatisch in het lijstje hieronder.<br />&nbsp;<br /><b>Let op</b>: Onderstaande mails worden ook automatisch verstuurd! Alleen versturen ter herinnering of als u de inhoud van de mail wilt aanpassen.<br />&nbsp;<br />Beschikbare variabelen (afhankelijk van de context van de mail) zijn: %%beeldnaam%%, %%expertnaam%%, %%expert_link%%, %%nsr_link%%, %%bestandsnamen%%");
+    $result = t("Kies hier een bestaand mailtemplate om naar de geselecteerde gebruikers te sturen. De gebruikers ontvangen alleen een mail als ze de optie om mail te ontvangen van het systeem aan hebben staan. Dit kan iedere gebruiker in zijn eigen profiel configureren. <a href='/node/add/mail'>Nieuwe mail templates</a> kunnen door de admin user worden aangemaakt, en verschijnen dan automatisch in het lijstje hieronder.<br />&nbsp;<br /><b>Let op</b>: Onderstaande mails worden ook automatisch verstuurd! Alleen versturen ter herinnering of als u de inhoud van de mail wilt aanpassen.<br />&nbsp;<br />Beschikbare variabelen (afhankelijk van de context van de mail) zijn: %%beeldnaam%%, %%expertnaam%%, %%expert_link%%, %%nsr_link%%, %%bestandsnamen%%");
 
     return $result;
 }
 
+/**
+ * @param $argument1
+ * @param $argument2
+ * @param $argument3
+ * @return mixed
+ */
 function beelduitwisselaar_createmail_callback($argument1, $argument2, $argument3)
 {
-    $result = '';
-    $build['content'] = array(
-        'inleidendetekst' => array(
-            '#markup' => $result,
-        ),
+    $build = [];
+
+    $build['content'] = [
+        'inleidendetekst' => [
+            '#markup' => 'beelduitwisselaar createmail callback',
+        ],
         'formulier' => drupal_get_form('beelduitwisselaar_mail_form'),
-    );
+    ];
 
     return $build;
-
 }
 
 
+/**
+ * @return mixed
+ */
 function beelduitwisselaar_sendmail_callback()
 {
-    $build['content'] = array(
-        'inleidendetekst' => array(
-            '#markup' => '',
-        ),
+    $build['content'] = [
+        'inleidendetekst' => [
+            '#markup' => 'beelduitwisselaar_sendmail callback',
+        ],
         'formulier' => drupal_get_form('beelduitwisselaar_mail_form'),
-    );
+    ];
 
     return $build;
 }
@@ -252,45 +266,47 @@ function beelduitwisselaar_mail_form($form, &$form_state)
     $myusers = urldecode($myurl[3]);
     foreach (explode(',', $myusers) as $mailuser) {
         $tempuser = user_load($mailuser);
-        //Add check if user allows mail receipt
+
         $myusermail[] = $tempuser->mail;
     }
 
     $myusermails = implode(',', $myusermail);
 
-    $mymail = node_load($myurl[4]);
+    $nodeid = $myurl[4];
+    $beeldid = $myurl[5];
+    $mailnode = node_load($nodeid);
 
     // @todo: check why form was emptied here?
     // $form = array();
 
     $form['mailto'] = array(
-        '#type' => 'textfield', //you can find a list of available types in the form api
+        '#type' => 'textfield',
         '#title' => t('Versturen naar'),
         '#size' => 60,
         '#maxlength' => 600,
-        '#required' => TRUE, //make this field required
-        '#description' => 'Iedere gebruiker ontvangt een aparte email.',
+        '#required' => TRUE,
+        '#description' => t('Iedere gebruiker ontvangt een aparte email.'),
         '#value' => $myusermails,
         '#disabled' => TRUE,
     );
     $form['mailsubject'] = array(
-        '#type' => 'textfield', //you can find a list of available types in the form api
+        '#type' => 'textfield',
         '#title' => t('Onderwerp'),
         '#size' => 60,
         '#maxlength' => 600,
-        '#required' => TRUE, //make this field required
-        '#value' => $mymail->title,
+        '#required' => TRUE,
+        '#value' => $mailnode->title,
         '#disabled' => TRUE,
     );
     $form['mailbericht'] = array(
-        '#type' => 'textarea', //you can find a list of available types in the form api
+        '#type' => 'textarea',
         '#title' => t('Bericht'),
         '#size' => 60,
         '#rows' => 32,
         '#wysiwyg' => false,
         '#maxlength' => 600,
-        '#required' => TRUE, //make this field required
-        '#value' => makemail($myurl[3], $myurl[4], $myurl[5]),
+        '#required' => TRUE,
+        '#value' => makemail($myusers[0], $nodeid, $beeldid),
     );
     $form['submit'] = array(
         '#type' => 'submit',
@@ -299,25 +315,44 @@ function beelduitwisselaar_mail_form($form, &$form_state)
     return $form;
 }
 
-function makemail($userid, $mailnodeid, $aboutnodeid)
+/**
+ * Makemail creates the mail
+ *
+ * @param $userid
+ * @param $mailnodeid
+ * @param $beeldid
+ * @return mixed
+ */
+function makemail($userid, $mailnodeid, $beeldid)
 {
-    $mynode = node_load($mailnodeid);
-    $mymail = $mynode->body['und'][0]['value'];
+    $node = node_load($mailnodeid);
+    $mailbody = $node->body['und'][0]['value'];
 
-    $tempuser = user_load($userid);
-    $myentity = entity_load_single("field_collection_item", $aboutnodeid);
-    //Add check if user allows mail receipt
-    $myusermail[] = $tempuser->mail;
-    if (empty($myentity->field_newimage['und'][0]['filename'])) {
-        dpm($myentity);
-        $mymail = str_replace("%%beeldnaam%%", $myentity->field_newimage['und'][0]['origname'], $mymail);
-    } else {
-        $mymail = str_replace("%%beeldnaam%%", $myentity->field_newimage['und'][0]['filename'], $mymail);
+    $user = user_load($userid);
+    $beeldnode = entity_load_single('field_collection_item', $beeldid);
+
+    $filename = '';
+    if (!empty($beeldnode->field_newimage['und'][0])) {
+        $filename = empty($beeldnode->field_newimage['und'][0]['filename']) ? $beeldnode->field_newimage['und'][0]['origname'] : $beeldnode->field_newimage['und'][0]['filename'];
     }
-    $mymail = str_replace("%%nsr_link%%", "<a href='http://www.nederlandsesoorten.nl/nsr/concept/" . $myentity->field_nlsr['und'][0]['value']['#value'] . "'>" . $myentity->field_soort_taxon['und'][0]['value']['#value'] . "</a>", $mymail);
-    $mymail = str_replace("%%bestandsnamen%%", $entity->field_newimage['und'][0]['filename'], $mymail);
-    $mymail = str_replace("%%expertnaam%%", $tempuser->name, $mymail);
-    $mymail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $tempuser->name . "</a>", $mymail);
+
+    $mymail = str_replace(
+        [
+            '%%nsr_link%%',
+            '%%bestandsnamen%%',
+            '%%beeldnaam%%',
+            '%%expertnaam%%',
+            '%%expert_link%%'
+        ],
+        [
+            "<a href='" . NSR_LINK . $beeldnode->field_nlsr['und'][0]['value']['#value'] . "'>" . $beeldnode->field_soort_taxon['und'][0]['value']['#value'] . "</a>",
+            $beeldnode->field_newimage['und'][0]['filename'],
+            $filename,
+            $user->name,
+            "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>"
+        ],
+        $mailbody
+    );
 
     return $mymail;
 }
@@ -342,19 +377,27 @@ function beelduitwisselaar_sendmail($to, $subject, $mail)
 
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
     $message['subject'] = $subject;
-    $message['body'] = array();
+    $message['body'] = [];
     $message['body'][] = $mail;
 
-    $system = drupal_mail_system($module, $key);
-    $message = $system->format($message);
-    $result = $system->mail($message);
+    try {
+        $system = drupal_mail_system($module, $key);
+        $message = $system->format($message);
+        $result = $system->mail($message);
+        watchdog("beelduitwisselaar", "Send mail to $to ($subject)");
+        variable_set("beelduitwisselaar_mailsend", 1);
 
-    watchdog("beelduitwisselaar", "Send mail to $to ($subject)");
-    variable_set("beelduitwisselaar_mailsend", 1);
-
-    return $result;
+        return $result;
+    } catch (Exception $e) {
+        watchdog("beelduitwisselaar", "Send mail to $to ($subject) - failed",['msg' => $e->getMessage()], WATCHDOG_DEBUG);
+    }
 }
 
+/**
+ * @param $form
+ * @param $form_state
+ * @throws Exception
+ */
 function beelduitwisselaar_mail_form_submit($form, &$form_state)
 {
     global $base_url;
@@ -368,15 +411,31 @@ function beelduitwisselaar_mail_form_submit($form, &$form_state)
         //Add check if user allows mail receipt
         $myusermail[] = $tempuser->mail;
         $mymail = str_replace(
-            ['%%beeldnaam%%', '%%nsr_link%%', '%%bestandsnamen%%', '%%expertnaam%%', '%%expert_link%%'],
-            ['', '', '', $tempuser->name, "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $tempuser->name . "</a>"
+            [
+                '%%beeldnaam%%',
+                '%%nsr_link%%',
+                '%%bestandsnamen%%',
+                '%%expertnaam%%',
+                '%%expert_link%%'
+            ],
+            [
+                '',
+                '',
+                '',
+                $tempuser->name,
+                "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $tempuser->name . "</a>"
             ], $mymail);
-        //$to = $user->mail;
-        $subject = $mymail->title;
+
+        $subject = (empty($form['mailsubject']['#value'])) ? $mymail->title ? $form['mailsubject']['#value'];
 
         if ($tempuser->field_notificatie['und'][0]['value'] != 0) {
-            beelduitwisselaar_sendmail($tempuser->mail, $form['mailsubject']['#value'], $mymail);
-            drupal_set_message(t("Mail verstuurd naar: @mail", ['@mail' => $tempuser->mail]));
+            try {
+                beelduitwisselaar_sendmail($tempuser->mail, $subject, $mymail);
+                drupal_set_message(t("Mail verstuurd naar: @mail", ['@mail' => $tempuser->mail]));
+            } catch (Exception $e) {
+                drupal_set_message(t("Mail niet verstuurd naar: @mail<br>@message", ['@mail' => $tempuser->mail, $e->getMessage()]), 'error');
+                watchdog("beelduitwisselaar - beelduitwisselaar mail form submit", "Send mail to $to ($subject) - failed",['msg' => $e->getMessage()], WATCHDOG_DEBUG);
+            }
         } else {
             drupal_set_message(t('Mail <b>niet</b> verstuurd naar: @mail (vanwege gebruikersinstelling)', ['@mail' => $tempuser->mail]));
         }
@@ -393,17 +452,23 @@ function beelduitwisselaar_mail_form_submit($form, &$form_state)
  */
 function beelduitwisselaar_selectexpertise_callback()
 {
+    watchdog("beelduitwisselaar", "Select expertise callback",['backtrace' => debug_backtrace() ], WATCHDOG_DEBUG);
     return '';
 }
 
+/**
+ *
+ * @return string
+ */
 function beelduitwisselaar_selectexpert_callback()
 {
-    $sqlspecialisatie = "SELECT name FROM {taxonomy_term_data} WHERE tid = " . $_GET['tid'];
-    $resultspecialisatie = db_query($sqlspecialisatie)->fetchField();
     $result = '';
+
+    $resultspecialisatie = db_query("SELECT name FROM {taxonomy_term_data} WHERE tid = :tid", [':tid' => $_GET['tid']])->fetchField();
+
     $result .= "<div class='experts'><div class=taxonomy'><h2>Wachtrij</h2><a href='/beelduitwisselaar/wachtrij" . "?nids=" . $_GET['nids'] . "'>Plaats beeld in de wachtrij</a><br /><br /><h2>Validatoren $resultspecialisatie</h2></div>Klik op een naam om beeld(en) aan deze validator toe te kennen.<br /><br />";
-    $sqlusers = "SELECT * FROM {users} WHERE uid IN (SELECT entity_id FROM {field_data_field_specialisatie} WHERE field_specialisatie_tid = " . $_GET['tid'] . ")";
-    $resultusers = db_query($sqlusers);
+
+    $resultusers = db_query("SELECT * FROM {users} WHERE uid IN (SELECT entity_id FROM {field_data_field_specialisatie} WHERE field_specialisatie_tid = :tid", [':tid' => $_GET['tid']]);
 
     $aantal = $resultusers->rowCount();
     if ($resultusers->rowCount() == 0) {
@@ -418,16 +483,21 @@ function beelduitwisselaar_selectexpert_callback()
     return $result;
 }
 
-/* wachtrij is now integrated with the expert selection screen. This way we avoid the action system
- * which was causing problems */
+/**
+ * wachtrij is now integrated with the expert selection screen. This way we avoid the action system
+ * which was causing problems
+ * @throws Exception
+ */
 function beelduitwisselaar_wachtrij_callback()
 {
     global $nohook;
+
     $nohook = 1;
 
     $mymail = node_load(MAILWAITSUBMISSION);
     drupal_set_message(t('Beeld(en) in de wachtrij gezet'));
-    $myimages = explode(",", $_GET['nids']);
+
+    $myimages = explode(',', $_GET['nids']);
     $entities = entity_load('field_collection_item', $myimages);
     foreach ($entities as $entity) {
         $entity->field_status['und'][0]['value'] = STATUSWAIT;
@@ -439,23 +509,34 @@ function beelduitwisselaar_wachtrij_callback()
 
         $mail = $mymail->body['und'][0]['value'];
         $mail = str_replace(
-            array('%%beeldnaam%%', '%%expertnaam%%', '%%expert_link%%'),
-            array($entity->field_newimage['und'][0]['filename'], $user->name, "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>"),
+            [
+                '%%beeldnaam%%',
+                '%%expertnaam%%',
+                '%%expert_link%%',
+                '%%bestandsnamen%%',
+                '%%nsr_link%%'
+            ],
+            [
+                $entity->field_newimage['und'][0]['filename'],
+                $user->name,
+                "<a href='" . $base_url . "/afbeeldingen-expert'>" . $user->name . "</a>",
+                $entity->field_newimage['und'][0]['filename'],
+                $nsr_link
+            ],
             $mail
         );
-        if (!empty($entity->field_nlsr)) {
-            // @todo: link naar nederlandse soorten in parameter of lokale variabele stoppen?
-            $mail = str_replace('%%nsr_link%%', "<a href='http://www.nederlandsesoorten.nl/nsr/concept/" . $entity->field_nlsr['und'][0]['value']['#value'] . "'>" . $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>", $mail);
-        } else {
-            $mail = str_replace("%%nsr_link%%", "", $mail);
-        }
-        $mail = str_replace("%%bestandsnamen%%", $entity->field_newimage['und'][0]['filename'], $mail);
+
         $fotograafid = $entity->field_fotograaf['und'][0]['target_id'];
         $defotograaf = user_load($fotograafid);
         $to = $defotograaf->mail;
         $subject = $mymail->title;
 
-        beelduitwisselaar_sendmail($to, $subject, $mail);
+        try {
+            beelduitwisselaar_sendmail($to, $subject, $mail);
+        } catch (Exception $e) {
+            watchdog("beelduitwisselaar - beelduitwisselaar wachtrij callback", "Send mail to $to ($subject) - failed",['msg' => $e->getMessage()], WATCHDOG_DEBUG);
+            drupal_set_message(t("Mail niet verstuurd naar: @mail<br>@message", ['@mail' => $tempuser->mail, $e->getMessage()]), 'error');
+        }
     }
 
     drupal_flush_all_caches();
@@ -464,14 +545,16 @@ function beelduitwisselaar_wachtrij_callback()
     beelduitwisselaar_goto_lastview();
 }
 
+/**
+ *
+ */
 function beelduitwisselaar_kiesexpert_callback()
 {
     watchdog('beelduitwisselaar', "User " . $_GET['uid'] . " assigned " . $_GET['nids'] . " taxonomie: " . $_GET['tid']);
 
-    $expertsql = "SELECT name FROM {users} WHERE uid = " . $_GET['uid'];
+    $validator = db_query('SELECT name FROM {users} WHERE uid = :uid', [':uid' => $_GET['uid']])->FetchField();
+    drupal_set_message(t('Beeld(en) toegekend aan de validator @validator'), ['@validator' => $validator]);
 
-    $validator = db_query($expertsql)->FetchField();
-    drupal_set_message(t('Beeld(en) toegekend aan de validator ') .  $validator);
     $myimages = explode(',', $_GET['nids']);
     $entities = entity_load('field_collection_item', $myimages);
     foreach ($entities as $entity) {
@@ -502,7 +585,7 @@ function beelduitwisselaar_newimages_callback()
     global $base_path, $base_root;
 
     // check if there's a date and of the right format
-    if (!isset ($_GET['date']) || strlen($_GET['date']) < 5) {
+    if (!isset($_GET['date']) || strlen($_GET['date']) < 5) {
         $error[] = array(
             'required' => 'date',
             'format' => 'yyyymmddhhmmss',
@@ -536,26 +619,25 @@ function beelduitwisselaar_newimages_callback()
         echo json_encode($error);
         return;
     }
-    $mydate = (int)$_GET['date'];
+    $mydate = $_GET['date'];
     $mystart = (isset($_GET['start'])) ? (int)$_GET['start'] : 0;
     $myaantal = (isset($_GET['limit'])) ? (int)$_GET['limit'] : 100;
 
-    $myyear = substr($mydate, 0, 4);
-    $mymonth = substr($mydate, 4, 2);
-    $myday = substr($mydate, 6, 2);
-    $myhour = substr($mydate, 8, 2);
-    $myminute = substr($mydate, 10, 2);
-    $mysecond = substr($mydate, 12, 2);
-    $mydate = mktime($myhour, $myminute, $mysecond, $mymonth, $myday, $myyear);
-    $sql = "SELECT a.entity_id AS nid FROM field_data_field_afbeeldingen a, field_collection_item c, field_data_field_status s, field_data_field_datum d, field_data_field_datum_publicatie p WHERE p.entity_id = s.entity_id AND (FROM_UNIXTIME(p.field_datum_publicatie_value)) > ('" . date("Y-m-d H:i:s", $mydate) . "') AND d.entity_id = s.entity_id AND c.item_id = s.entity_id AND a.field_afbeeldingen_value = s.entity_id AND s.entity_type = 'field_collection_item' AND s.field_status_value IN (" . STATUSDONE . ") LIMIT " . $mystart . "," . $myaantal;
+    $sql = "SELECT a.entity_id AS nid FROM field_data_field_afbeeldingen a, field_collection_item c, field_data_field_status s, field_data_field_datum d, field_data_field_datum_publicatie p WHERE p.entity_id = s.entity_id AND (FROM_UNIXTIME(p.field_datum_publicatie_value)) > (:pubdate) AND d.entity_id = s.entity_id AND c.item_id = s.entity_id AND a.field_afbeeldingen_value = s.entity_id AND s.entity_type = 'field_collection_item' AND s.field_status_value IN (:status) LIMIT :start,:aantal";
 
-    $myresult = db_query($sql);
+    $myresult = db_query($sql, [
+        ':pubdate' => date("Y-m-d H:i:s", strtotime($mydate)),
+        ':status' => STATUSDONE,
+        ':start' => $mystart,
+        ':aantal' => $myaantal
+        ]
+    );
     foreach ($myresult as $item) {
         $mynodes[] = $item->nid;
     }
     if (empty($mynodes)) {
         $xarray = array(
-            'requested_date' => date("Y-m-d H:i:s", $mydate),
+            'requested_date' => date("Y-m-d H:i:s", strtotime($mydate)),
             'exported' => date("Y-m-d H:i:s"),
             'count' => 0,
             'start' => $mystart,
@@ -573,24 +655,26 @@ function beelduitwisselaar_newimages_callback()
         $mycount = 0;
 
         foreach ($entity as $beeld) {
-            if ($beeld->field_status['und'][0]['value'] == STATUSDONE) {
+            if ($beeld->field_status['und'][0]['value'] === STATUSDONE) {
                 $mycount++;
+
+                $myfotograaf = user_load($beeld->field_fotograaf['und'][0]['target_id']);
+                $license = taxonomy_term_load($beeld->field_license['und'][0]['tid']);
+                $myexpert = user_load($beeld->field_beeldexpert['und'][0]['target_id']);
+
+                $beeldarray["dateCreated"] = date("Y-m-d H:i:s", $beeld->field_created['und'][0]['value']);
+                $beeldarray["datePublished"] = date("Y-m-d H:i:s", $beeld->field_datum_publicatie['und'][0]['value']);
+
                 $beeldarray["filename"] = $beeld->field_newimage['und'][0]['filename'];
                 $beeldarray["url"] = $base_root . $base_path . "sites/default/files/" . $beeld->field_newimage['und'][0]['filename'];
                 $beeldarray["nsrId"] = $beeld->field_nlsr['und'][0]['value'];
                 $beeldarray["datePhoto"] = $beeld->field_datum['und'][0]['value'];
                 $beeldarray["locationPhoto"] = $beeld->field_locatie['und'][0]['value'];
                 $beeldarray["description"] = $beeld->field_textsoortenregister['und'][0]['value'];
-                $beeldarray["dateCreated"] = date("Y-m-d H:i:s", $beeld->field_created['und'][0]['value']);
-                $beeldarray["datePublished"] = date("Y-m-d H:i:s", $beeld->field_datum_publicatie['und'][0]['value']);
-                $myfotograaf = user_load($beeld->field_fotograaf['und'][0]['target_id']); //$noderesult->field_fotograaf_target_id);
                 $beeldarray["photographer"] = $myfotograaf->field_voornaam['und'][0]['value'] . " " . $myfotograaf->field_achternaam['und'][0]['value'];
                 $beeldarray["photographerid"] = $beeld->field_fotograaf['und'][0]['target_id'];
                 $beeldarray["photographerContact"] = $myfotograaf->field_contact['und'][0]['value'];
-                $license = taxonomy_term_load($beeld->field_license['und'][0]['tid']);
                 $beeldarray["copyrightPhoto"] = $license->name;
-
-                $myexpert = user_load($beeld->field_beeldexpert['und'][0]['target_id']);
                 $beeldarray["validator"] = $myexpert->field_voornaam['und'][0]['value'] . " " . $myexpert->field_achternaam['und'][0]['value'];
                 $beeldarray["validatorid"] = $beeld->field_beeldexpert['und'][0]['target_id'];
 
@@ -607,6 +691,7 @@ function beelduitwisselaar_newimages_callback()
             "images" => $ximages,
         );
     }
+
     header('Content-Type: application/json');
     if (isset ($_GET['callback'])) {
         print($_GET['callback'] . '(' . json_encode($xarray) . ')');
@@ -620,37 +705,181 @@ function beelduitwisselaar_newimages_callback()
  */
 function beelduitwisselaar_block_info()
 {
+
     $blocks['beelduitwisselaar_imgblock'] = array(
         'info' => t('Beelduitwisselaar: Image block'),
     );
 
     $blocks['beelduitwisselaar_block'] = array(
         'info' => t('Beelduitwisselaar: Soortenregister lookup'),
-        '#attached' => array(
-            'css' => array(
+        '#attached' => [
+            'css' => [
                 drupal_get_path('module', 'beelduitwisselaar') . '/css/modal-message.css',
-            ),
-            'js' => array(
-                drupal_get_path('module', 'beelduitwisselaar') . '/js/jquery.js',
-                drupal_get_path('module', 'beelduitwisselaar') . '/js/jquery.once.js',
-            ),
-        ),
+            ],
+        ],
     );
 
     $blocks['beelduitwisselaar_userblock'] = array(
         'info' => t('Beelduitwisselaar: Soortenregister user lookup'),
-        '#attached' => array(
-            'css' => array(
+        '#attached' => [
+            'css' => [
                 drupal_get_path('module', 'beelduitwisselaar') . '/css/modal-message.css',
-            ),
-            'js' => array(
-                drupal_get_path('module', 'beelduitwisselaar') . '/js/jquery.js',
-                drupal_get_path('module', 'beelduitwisselaar') . '/js/jquery.once.js',
-            ),
-        ),
+            ],
+        ],
     );
 
     return $blocks;
+}
+
+function beelduitwisselaar_block_imgblock() {
+    global $user;
+
+    $block = [];
+
+    $block['content'] = '';
+    $nodeid = 0;
+    if ((arg(0) === 'field-collecion') && arg(1) === 'field-afbeeldingen') {
+        $nodeid = is_numeric(arg(2)) ? arg(2) : $nodeid;
+    }
+    if (arg(0) === 'beelddetail') {
+        $nodeid = is_numeric(arg(1)) ? arg(1) : $nodeid;
+    }
+
+    $bldfilename = db_query(
+        'SELECT filename FROM {file_managed} f, {field_data_field_newimage} i WHERE i.entity_id = :nodeid AND i.field_newimage_fid = f.fid ',
+        [':nodeid' => $nodeid]
+    )->fetchField();
+
+    $bldstatus = db_query(
+        'SELECT field_status_value FROM {field_data_field_status} s WHERE s.entity_id = :nodeid',
+        [':nodeid' => $nodeid]
+    )->fetchField();
+
+    $fotograaf = db_query(
+       'SELECT field_fotograaf_target_id  from field_data_field_fotograaf WHERE entity_id = :nodeid',
+        [':nodeid' => $nodeid]
+    )->fetchField();
+    $bldfotograaf = user_load($fotograaf);
+
+    $collectionItem = entity_load_single("field_collection_item", $nodeid);
+
+    $datecreated = date('d-m-Y',$collectionItem->field_created['und'][0]['value']);
+    $datesubmit = date('d-m-Y',$collectionItem->field_datum['und'][0]['value']);
+    $licenseTerm = taxonomy_term_load($collectionItem->field_license['und'][0]['tid']);
+
+    $afbeeldcomment = t('(klik op de bestandsnaam om beeld op volledige grootte te bekijken)');
+    $block['content'] .= <<<JS1
+<script type='text/javascript'>
+jQuery(document).ready(
+    function () {
+        document.getElementById('edit-field-opmerkingen-und-0-value').style.height = document.getElementById('edit-field-opmerkingen-und-0-value').scrollHeight + 'px';
+        document.getElementById('edit-field-beeldevaluatie-und-0-value').style.height = document.getElementById('edit-field-beeldevaluatie-und-0-value').scrollHeight + 'px';
+	}
+);
+</script>
+<b>Beeld</b><br /><a href='/sites/default/files/$bldfilename' class='colorbox' rel=''><img src='/sites/default/files/$bldfilename' width='220px' class='colorbox' style='float:left;margin-right:10px;margin-bottom:10px;' /></a><b>Bestand</b>: <a href='/sites/default/files/$bldfilename' target='_blank' rel=''><img class='file-icon' alt='' title='image/jpeg' src='/modules/file/icons/image-x-generic.png' /> " . $bldfilename . "</a><br /><span style='font-size: 10px;margin-left: 75px;'>${$afbeeldcomment}</span><br /><br />";
+<b>Fotograaf</b>: 
+<a href='mailto:{$bldfotograaf->mail}'>{$bldfotograaf->field_voornaam['und'][0]['value']} {$bldfotograaf->field_achternaam['und'][0]['value']} <i class='ion-email'></i></a><br><br>
+JS1;
+
+    $block['content'] .= "<b>" . t('Datum van inzenden') .  "</b>: $datecreated<br>";
+    $block['content'] .= "<b>" . t('Datum van opname') . "</b>: $datesubmit<br>";
+    $block['content'] .= (is_object($licenseTerm) ? "<b>" . t('Licentie') . "</b>: " . $licenseTerm->name . "<br>" : '';
+    $block['content'] .= "<br><b>" . t('Status') . "</b>: <img class='status' width='24px' src='/sites/all/modules/beelduitwisselaar/img/$bldstatus.png' title='(Status: " . beelduitwisselaar_statustext($bldstatus) . ")' /> " . beelduitwisselaar_statustext($bldstatus) . "<br>";
+
+    if (array_intersect(['admin', 'administrator'], array_values($user->roles)) && !empty($tmpnode->field_beeldexpert['und'][0]['target_id'])) {
+        $tmpuser = user_load($tmpnode->field_beeldexpert['und'][0]['target_id']);
+        $block['content'] .= "<b>" . t('Validator') . "</b>: " . $tmpuser->name . "<br>";
+    }
+    $block['content'] .= "<br style='clear:both;' clear='all' />";
+
+    return $block;
+}
+
+/**
+ * @return array
+ */
+function beelduitwisselaar_block_block() {
+    global $user;
+
+    $block = [];
+    if (arg(0) === 'field-collection' && arg(1) === 'field-afbeeldingen' && is_numeric(arg(2))) {
+        $nodeid = arg(2);
+        $tmpnode = entity_load_single("field_collection_item", $nodeid);
+        $myname = $tmpnode->field_soort_taxon['und'][0]['value'];
+    }
+    $searchcomment = t('Zoek en selecteer een naam uit het Nederlands Soortenregister. <b>Let op</b>: Dit veld is verplicht. Als je de naam van de soort niet weet, dan graag de naam van het hogere taxon opgeven (genus, familie, enz.).<br>Indien onjuist: <a href="#" onclick="undo();">Nieuwe/andere naam selecteren.</a>');
+    $searchurl = variable_get('beelduitwisselaar_block_string', 'www.nederlandsesoorten.nl/linnaeus_ng/app/views/webservices/search.php');
+    $block['content'] = <<<JAVASCRIPT
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  jQuery('#validated').style.visibility="hidden";
+  if(jQuery('#edit-field-soort-taxon-und-0-value').value.length > 2) {
+    jQuery('#group').setAttribute("disabled","disabled");
+    jQuery('#edit-opslaan').style.visibility="hidden";
+    jQuery('#validated').style.visibility="visible";
+  }
+  jQuery('#group').value = jQuery('#edit-field-soort-taxon-und-0-value').value;
+});
+
+function setId(ele) {
+  jQuery('#edit-field-nlsr-und-0-value').value=ele;
+  jQuery('#validated').style.visibility="visible";
+  clear();
+}
+
+function setName(ele) {
+  jQuery('#edit-field-soort-taxon-und-0-value').value=ele;
+  jQuery('#group').val(ele);
+  clear();
+  jQuery('selectlijst').innerHTML={$searchcomment};
+  jQuery('#validated').style.visibility="visible";
+  jQuery('#group').setAttribute("disabled","disabled");  
+}
+
+function clear() {
+  jQuery('#selectlijst').innerHTML='';
+  jQuery('#validated').style.visibility="hidden";
+}
+
+function undo() {
+  jQuery('#group').removeAttribute('disabled');
+  jQuery('#group').value='';
+  jQuery('#edit-field-nlsr-und-0-value').value = '';
+  jQuery('#edit-field-soort-taxon-und-0-value').value = '';
+  jQuery('#validated').style.visibility="hidden";
+  jQuery('#group').focus();  
+}
+
+function setSuggestionId(ele) {
+    oFormObject = document.forms['formSearchFacetsSpecies'];
+    if(oFormObject.elements["group"].value.length > 2) {
+        jQuery.getJSON(
+        '//{$searchurl}?pid=1&text=' + oFormObject.elements["group"].value + '&max=1000&callback=',
+        {tagmode: "any", format: "json"},
+        function(data) {
+            clear();
+            jQuery.each(data.results, function(i,item){
+              var divclass = (i%2) ? "even" : "oneven";
+              jQuery('<div class="' +  divclass + '"><a href="#" onclick="setId(\'' + item.nsr_id + '\');setName(\'' + item.name + '\');document.getElementById(\'validated\').style.visibility=\'visible\';">' + item.label + '</a></div>').appendTo('#selectlijst');
+              if ( i == 50 ) return false;
+            });
+        }
+        );
+    }
+};
+
+</script>
+<form method="get" action="" id="formSearchFacetsSpecies" name="formSearchFacetsSpecies" style="clear:both;">
+<b>Soort/taxon</b><br />
+<input size="83" class="field" id="group" name="group" autocomplete="off" value="{$myname}" type="text" onClick="setSuggestionId();" onKeyup="setSuggestionId();">
+<img id="validated" style="float:right;margin:5px;" src="/sites/all/modules/beelduitwisselaar/img/2.png" alt="Gevalideerd" />
+</form>
+
+<div style="font-size: 0.85em;" id="selectlijst">{$searchcomment}</div>
+JAVASCRIPT;
+
+    return $block;
 }
 
 /**
@@ -661,160 +890,32 @@ function beelduitwisselaar_block_view($delta = '')
     global $user;
     $block = array();
 
-    switch ($delta) {
-        case 'beelduitwisselaar_imgblock':
-            $block['content'] = '';
-            if ((arg(0) == 'field-collection' && arg(1) == 'field-afbeeldingen' && is_numeric(arg(2))) ||
-                ((arg(0) == 'beelddetail' && is_numeric(arg(1))))) {
-                if (arg(0) == 'field-collection') $nodeid = arg(2);
-                if (arg(0) == 'beelddetail') $nodeid = arg(1);
-                $bldsql = "SELECT filename FROM {file_managed} f, {field_data_field_newimage} i WHERE i.entity_id = $nodeid AND i.field_newimage_fid = f.fid ";
-                $bldfilename = db_query($bldsql)->fetchField();
-                $bldstatussql = "SELECT field_status_value FROM {field_data_field_status} s WHERE s.entity_id = $nodeid";
-                $bldstatus = db_query($bldstatussql)->fetchField();
-                $fotograafsql = "SELECT field_fotograaf_target_id  from field_data_field_fotograaf WHERE entity_id = $nodeid";
-                $bldfotograaf = user_load(db_query($fotograafsql)->fetchField());
-                $afbeeldcomment = t('(klik op de bestandsnaam om beeld op volledige grootte te bekijken)');
-                $block['content'] .= <<<JS1
-<script type='text/javascript'>
-jQuery(document).ready(
-    function () {
-        document.getElementById('edit-field-opmerkingen-und-0-value').style.height = document.getElementById('edit-field-opmerkingen-und-0-value').scrollHeight + 'px';
-        document.getElementById('edit-field-beeldevaluatie-und-0-value').style.height = document.getElementById('edit-field-beeldevaluatie-und-0-value').scrollHeight + 'px';
-	}
-);
-</script>
-<b>Beeld</b><br /><a href='/sites/default/files/$bldfilename' class='colorbox' rel=''><img src='/sites/default/files/$bldfilename' width='220px' class='colorbox' style='float:left;margin-right:10px;margin-bottom:10px;' /></a><b>Bestand</b>: <a href='/sites/default/files/$bldfilename' target='_blank' rel=''><img class='file-icon' alt='' title='image/jpeg' src='/modules/file/icons/image-x-generic.png' /> " . $bldfilename . "</a><br /><span style='font-size: 10px;margin-left: 75px;'>${$afbeeldcomment}</span><br /><br />";
-JS1;
-                $block['content'] .= <<<FOTOGRAAF
-<b>Fotograaf</b>: 
-<a href='mailto:{$bldfotograaf->mail}'>{$bldfotograaf->field_voornaam['und'][0]['value']} {$bldfotograaf->field_achternaam['und'][0]['value']} <i class='ion-email'></i></a><br>
-FOTOGRAAF;
-
-                $tmpnode = entity_load_single("field_collection_item", $nodeid);
-
-                $datefield = $tmpnode->field_created['und'][0];
-                $nicedate = date("d-m-Y", $datefield['value']);
-                $block['content'] .= "<br /><b>" . t('Datum van inzenden') .  "</b>: $nicedate<br />";
-                $datefield = $tmpnode->field_datum['und'][0];
-                $nicedate = date("d-m-Y", strtotime($datefield['value']));
-                $block['content'] .= "<b>" . t('Datum van opname') . "</b>: $nicedate<br />";
-
-                $myterm = taxonomy_term_load($tmpnode->field_license['und'][0]['tid']);
-                if (is_object($myterm)) {
-                    $block['content'] .= "<b>" . t('Licentie') . "</b>: " . $myterm->name . "<br />";
-                }
-
-                $block['content'] .= "<br /><b>" . t('Status') . "</b>: <img class='status' width='24px' src='/sites/all/modules/beelduitwisselaar/img/$bldstatus.png' title='(Status: " . beelduitwisselaar_statustext($bldstatus) . ")' /> " . beelduitwisselaar_statustext($bldstatus) . "<br>";
-
-                $myroles = array('admin', 'administrator');
-                $checkadmin = array_intersect($myroles, array_values($user->roles));
-                if ($checkadmin) {
-                    if (!empty($tmpnode->field_beeldexpert['und'][0]['target_id'])) {
-                        $tmpuser = user_load($tmpnode->field_beeldexpert['und'][0]['target_id']);
-                        $block['content'] .= "<b>" . t('Validator') . "</b>: " . $tmpuser->name . "<br />";
-                    }
-                }
-                $block['content'] .= "<br style='clear:both;' clear='all' />";
-
-
-            }
-            break;
-        case 'beelduitwisselaar_block':
-            if (arg(0) == 'field-collection' && arg(1) == 'field-afbeeldingen' && is_numeric(arg(2))) {
-                $nodeid = arg(2);
-                $tmpnode = entity_load_single("field_collection_item", $nodeid);
-                $myname = $tmpnode->field_soort_taxon['und'][0]['value'];
-            }
-            $searchcomment = t('Zoek en selecteer een naam uit het Nederlands Soortenregister. <b>Let op</b>: Dit veld is verplicht. Als je de naam van de soort niet weet, dan graag de naam van het hogere taxon opgeven (genus, familie, enz.).<br>Indien onjuist: <a href="#" onclick="undo();">Nieuwe/andere naam selecteren.</a>');
-            $searchurl = variable_get('beelduitwisselaar_block_string', 'www.nederlandsesoorten.nl/linnaeus_ng/app/views/webservices/search.php');
-            $block['content'] = <<<JAVASCRIPT
-<script type="text/javascript">
-jQuery(document).ready(function(){
-  document.getElementById("validated").style.visibility="hidden";
-  if(document.getElementById("edit-field-soort-taxon-und-0-value").value.length > 2) {
-    document.getElementById("group").setAttribute("disabled","disabled");
-    document.getElementById("edit-opslaan").style.visibility="hidden";
-    document.getElementById("validated").style.visibility="visible";
-  }
-  document.getElementById("group").value = document.getElementById("edit-field-soort-taxon-und-0-value").value;
-});
-function setId(ele) {
-  document.getElementById("edit-field-nlsr-und-0-value").value=ele;
-  document.getElementById("validated").style.visibility="visible";
-  clear();
-}
-function setName(ele) {
-  document.getElementById("edit-field-soort-taxon-und-0-value").value=ele;
-  jQuery("#group").val(ele);
-  clear();
-  document.getElementById('selectlijst').innerHTML={$searchcomment};
-  document.getElementById("validated").style.visibility="visible";
-  document.getElementById("group").setAttribute("disabled","disabled");  
-}
-
-function clear() {
-  document.getElementById('selectlijst').innerHTML='';
-  document.getElementById("validated").style.visibility="hidden";
-}
-
-function undo() {
-  document.getElementById('group').removeAttribute('disabled');
-  document.getElementById('group').value='';
-  document.getElementById("edit-field-nlsr-und-0-value").value = '';
-  document.getElementById("edit-field-soort-taxon-und-0-value").value = '';
-  document.getElementById("validated").style.visibility="hidden";
-  document.getElementById('group').focus();  
-}
-
-function setSuggestionId(ele) {
-  oFormObject = document.forms['formSearchFacetsSpecies'];
-  if(oFormObject.elements["group"].value.length > 2) {
-
-jQuery.getJSON(
-    '//{$searchurl}?pid=1&text=' + oFormObject.elements["group"].value + '&max=1000&callback=',
-    {tagmode: "any", format: "json"},
-function(data) {
-    clear();
-    jQuery.each(data.results, function(i,item){
-      var divclass = (i%2) ? "even" : "oneven";
-      jQuery('<div class="' +  divclass + '"><a href="#" onclick="setId(\'' + item.nsr_id + '\');setName(\'' + item.name + '\');document.getElementById(\'validated\').style.visibility=\'visible\';">' + item.label + '</a></div>').appendTo('#selectlijst');
-      if ( i == 50 ) return false;
-    });
-  });
-  }
-};
-</script>
-<form method="get" action="" id="formSearchFacetsSpecies" name="formSearchFacetsSpecies" style="clear:both;">
-<b>Soort/taxon</b><br />
-<input size="83" class="field" id="group" name="group" autocomplete="off" value="{$myname}" type="text" onClick="setSuggestionId();" onKeyup="setSuggestionId();">
-<img id="validated" style="float:right;margin:5px;" src="/sites/all/modules/beelduitwisselaar/img/2.png" alt="Gevalideerd" />
-</form>
-
-<div style="font-size: 0.85em;" id="selectlijst">${searchcomment}</div>
-JAVASCRIPT;
-            break;
+    if ($delta === 'beelduitwisselaar_imgblock') {
+        $block = beelduitwisselaar_block_imgblock();
+    }
+    if ($delta === 'beelduitwisselaar_block') {
+        $block = beelduitwisselaar_block_block();
     }
 
     return $block;
 }
 
+/**
+ * Implements hook_block_configure
+ *
+ * @param string $delta
+ * @return array
+ */
 function beelduitwisselaar_block_configure($delta = '')
 {
     $form = array();
-    // The $delta parameter tells us which block is being configured.
-    // In this example, we'll allow the administrator to customize
-    // the text of the 'configurable text string' block defined in this module.
     if ($delta == 'beelduitwisselaar_block') {
-        // All we need to provide is the specific configuration options for our
-        // block. Drupal will take care of the standard block configuration options
-        // (block title, page visibility, etc.) and the save button.
         $form['beelduitwisselaar_block_string'] = array(
             '#type' => 'textfield',
             '#title' => t('Service URL'),
             '#size' => 80,
             '#description' => t('De URL naar de soortenregister webservice.') . "<br>" . t('Bijvoorbeeld') . ': www.nederlandsesoorten.nl/linnaeus_ng/app/views/webservices/search.php?pid=1&start=10&text=zandhagedis&max=1000&callback=callMeBack',
-            '#default_value' => variable_get('beelduitwisselaar_block_string', t('www.nederlandsesoorten.nl/linnaeus_ng/app/views/webservices/search.php')),
+            '#default_value' => variable_get('beelduitwisselaar_block_string', LINNAEUS_SEARCH),
         );
     }
     return $form;
@@ -822,6 +923,8 @@ function beelduitwisselaar_block_configure($delta = '')
 
 
 /**
+ *
+ * Implements hook_action_info
  *
  */
 function beelduitwisselaar_action_info()
@@ -889,34 +992,36 @@ function beelduitwisselaar_action_info()
             'type' => 'system',
             'label' => t('Beelduitwisselaar: Mail list of images and status to user'),
             'configurable' => FALSE,
-            'triggers' => array(
-                'any',
-            ),
+            'triggers' => array('any'),
         ),
         'beelduitwisselaar_selectexpert_action' => array(
             'type' => 'node',
             'label' => t('Beelduitwisselaar: Select validator'),
             'configurable' => FALSE,
-            'triggers' => array(
-                'any',
-            ),
+            'triggers' => array('any'),
             'aggregate' => TRUE,
         ),
     );
 }
 
-
+// @todo: kan weg?
 function beelduitwisselaar_beeldplaatswacht_action(&$entity, $context = array())
 {
-    // @todo: is this a function that can be removed?
+    watchdog('beelduitwisselaar', 'beelduitwisselaar_beeldplaatswacht_action fired', [], WATCHDOG_DEBUG);
 }
 
-function beelduitwisselaar_publish_action(&$entity, $context = array())
+/**
+ * Implements hook_publish_action
+ *
+ * @param $entity
+ * @param array $context
+ * @throws Exception
+ */
+function beelduitwisselaar_publish_action(&$entity, $context = array(), [], WATCHDOG_DEBUG)
 {
-    // In this case we are ignoring the entity and the context. This case of
-    // action is useful when your action does not depend on the context, and
-    // the function must do something regardless the scope of the trigger.
-    // Simply announces that the action was executed using a message.
+    global $user;
+    global $base_url;
+
     watchdog('beelduitwisselaar', 'beelduitwisselaar_publish_action fired');
     if (!empty($context['field_collection_item'])) {
 
@@ -925,55 +1030,83 @@ function beelduitwisselaar_publish_action(&$entity, $context = array())
         $myentity->save();
 
         //Stuur mail wacht
-        global $user;
-        global $base_url;
         $mymail = node_load(MAILACCEPTSUBMISSION);
         $mail = $mymail->body['und'][0]['value'];
-        $mail = str_replace("%%beeldnaam%%", $entity->field_newimage['und'][0]['filename'], $mail);
-        $mail = str_replace("%%expertnaam%%", $user->name, $mail);
-        $mail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>", $mail);
-        $mail = str_replace("%%nsr_link%%", "<a href='http://www.nederlandsesoorten.nl/nsr/concept/" . $entity->field_nlsr['und'][0]['value']['#value'] . "'>" . $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>", $mail);
-        $mail = str_replace("%%bestandsnamen%%", $entity->field_newimage['und'][0]['filename'], $mail);
+        $mail = str_replace(
+            [
+                "%%beeldnaam%%",
+                "%%expertnaam%%",
+                "%%expert_link%%",
+                "%%nsr_link%%",
+                "%%bestandsnamen%%"
+            ],
+            [
+                $entity->field_newimage['und'][0]['filename'],
+                $user->name,
+                "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>",
+                "<a href='" . NSR_LINK . $entity->field_nlsr['und'][0]['value']['#value'] . "'>" . $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>",
+                $entity->field_newimage['und'][0]['filename']
+            ],
+            $mail
+        );
 
         $fotograafid = $entity->field_fotograaf['und'][0]['target_id'];
         $defotograaf = user_load($fotograafid);
+
         $to = $defotograaf->mail;
         $subject = $mymail->title;
 
-        //drupal_set_message("Publish: $to, $subject, $mail");
-        beelduitwisselaar_sendmail($to, $subject, $mail);
-
+        try {
+            beelduitwisselaar_sendmail($to, $subject, $mail);
+        } catch (Exception $e) {
+            watchdog("beelduitwisselaar - beelduitwisselaar publish action", "Send mail to $to ($subject) - failed",['msg' => $e->getMessage()], WATCHDOG_DEBUG);
+        }
     }
 }
 
+/**
+ * Implements hook_general_action
+ * @param $entity
+ * @param array $context
+ */
 function beelduitwisselaar_general_action(&$entity, $context = array())
 {
-    // In this case we are ignoring the entity and the context. This case of
-    // action is useful when your action does not depend on the context, and
-    // the function must do something regardless the scope of the trigger.
-    // Simply announces that the action was executed using a message
-    //actions_synchronize(actions_list(), TRUE);
+    watchdog('beelduitwisselaar', 'beelduitwisselaar_general_action fired.', [], WATCHDOG_DEBUG);
     if (!empty($context['field_collection_item'])) {
         drupal_set_message(t('beelduitwisselaar_general_action fired'));
-        watchdog('beelduitwisselaar', 'beelduitwisselaar_general_action fired.');
     }
 }
 
+/**
+ * Implements hook_createuser_action
+ * @param $entity
+ * @param array $context
+ */
 function beelduitwisselaar_createuser_action(&$entity, $context = array())
 {
+    watchdog('beelduitwisselaar', 'beelduitwisselaar_createuser_action fired.', [], WATCHDOG_DEBUG);
     // @todo: is this a function which can be removed?
 }
 
+/**
+ * Implements hook_form2node_action
+ * @param $entity
+ * @param array $context
+ */
 function beelduitwisselaar_form2node_action(&$entity, $context = array())
 {
+    watchdog('beelduitwisselaar', 'beelduitwisselaar_form2node_action fired.', [], WATCHDOG_DEBUG);
     // @todo: is this a function which can be removed?
 }
 
-//Roles: 
-//4 : author
-//5 : expert
+/**
+ * Implements hook_maillijst_action
+ * @param $entity
+ * @param array $context
+ */
 function beelduitwisselaar_maillijst_action(&$entity, $context = array())
 {
+    watchdog('beelduitwisselaar', 'beelduitwisselaar_maillijst_action fired.', [], WATCHDOG_DEBUG);
     // @todo: is this a function which can be removed?
     if (!empty($entity->roles[5])) {
         drupal_set_message(t('beelduitwisselaar_maillijst_action fired for ') . $entity->name);
@@ -981,15 +1114,23 @@ function beelduitwisselaar_maillijst_action(&$entity, $context = array())
 }
 
 
+/**
+ * Implements hook_selectexpert_action
+ * @param $entity
+ * @param array $context
+ */
 function beelduitwisselaar_selectexpert_action(&$entity, $context = array())
 {
-    watchdog('beelduitwisselaar', 'beelduitwisselaar_selectexpert_action fired.');
+    watchdog('beelduitwisselaar', 'beelduitwisselaar_selectexpert_action fired.', [], WATCHDOG_DEBUG);
+
     $_SESSION['entity'] = $entity;
     $_GET['destination'] = 'beelduitwisselaar/selectexpertise';
 }
 
 
 /**
+ * Implements hook_form_alter
+ *
  * Status values (defined in content type):
  * 0|nieuw
  * 1|naarexpert
@@ -1001,45 +1142,41 @@ function beelduitwisselaar_selectexpert_action(&$entity, $context = array())
  */
 function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
 {
-    //drupal_set_message("Form ID is : " . $form_id);
     global $user;
 
     switch ($form_id) {
         case 'user_login':
-            drupal_set_title(t('Inloggen');
+            drupal_set_title(t('Inloggen'));
             break;
         case 'user_register_form':
-            drupal_set_title(t('Registreren');
-            unset($form['field_standaard_licentie']['und']['#options']['_none']);
-            unset($form['field_standaard_licentie']['und']['#options'][BEELDUITWISSELAARLICENSETERMID]);
+            drupal_set_title(t('Registreren'));
+            unset($form['field_standaard_licentie']['und']['#options']['_none'], $form['field_standaard_licentie']['und']['#options'][BEELDUITWISSELAARLICENSETERMID]);
             break;
         case 'user_profile_form':
             drupal_set_title(t('Profiel aanpassen'));
-            unset($form['field_standaard_licentie']['und']['#options']['_none']);
-            unset($form['field_standaard_licentie']['und']['#options'][BEELDUITWISSELAARLICENSETERMID]);
+            unset($form['field_standaard_licentie']['und']['#options']['_none'], $form['field_standaard_licentie']['und']['#options'][BEELDUITWISSELAARLICENSETERMID]);
             //unset($form['field_standaard_licentie']['und']['#options'][NATUURNLLICENSETERMID]);
             $myroles = array('admin', 'administrator');
             $checkadmin = array_intersect($myroles, array_values($user->roles));
             $myroles = array('author', 'fotograaf');
             $check = array_intersect($myroles, array_values($user->roles));
             if ($check && !$checkadmin) {
-                unset($form['field_specialisatie']);
-                unset($form['field_originalid']);
+                unset($form['field_specialisatie'], $form['field_originalid']);
             }
             break;
         case 'user_pass':
             drupal_set_title(t('Wachtwoord aanvragen'));
             break;
         case 'search_block_form':
-            if (drupal_get_title() == "Beelduitwisselaar aanmaken") {
-                drupal_set_title("Beelden toevoegen");
+            if (drupal_get_title() === "Beelduitwisselaar aanmaken") {
+                drupal_set_title(t("Beelden toevoegen"));
             }
             break;
         case 'field_collection_item_form':
-            if ($form['field_status']['und']['#default_value'][0] == STATUSDONE) {
+            if ($form['field_status']['und']['#default_value'][0] === STATUSDONE) {
                 drupal_goto("/beelddetail/" . $form['#entity']->item_id);
             }
-            drupal_set_title("Valideer beeld");
+            drupal_set_title(t("Valideer beeld"));
 
             $form['field_opmerkingen']['und'][0]['value']['#title'] = t("Opmerkingen fotograaf");
             $form['field_status']['und']['#access'] = 0;
@@ -1048,6 +1185,7 @@ function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
             $form['field_newimage']['und']['#suffix'] = "<b>" . $form['field_datum']['und'][0]['#title'] . "</b>: " . substr($form['field_datum']['und']['0']['#default_value']['value'], 8, 2) . "-" . substr($form['field_datum']['und']['0']['#default_value']['value'], 5, 2) . "-" . substr($form['field_datum']['und']['0']['#default_value']['value'], 0, 4) . "<br />";
             $form['field_datum']['und']['0']['value']['#attributes']['disabled'] = TRUE;
             $form['field_datum']['und']['#access'] = 0;
+
             //$form['field_copyright']['und']['#access'] = 0;
             //BUIT-251
             $form['field_license']['und']['#attributes']['disabled'] = FALSE;
@@ -1059,27 +1197,22 @@ function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
             $form['field_created']['und']['#attributes']['disabled'] = TRUE;
             $form['field_created']['und']['#access'] = 0;
 
-            $myroles = array('admin', 'administrator');
-            $checkadmin = array_intersect($myroles, array_values($user->roles));
+            $checkadmin = array_intersect(['admin', 'administrator'], array_values($user->roles));
             if (!$checkadmin) {
                 $form['field_groep']['und']['#attributes']['disabled'] = TRUE;
                 $form['field_groep']['und']['#access'] = 0;
             }
 
-            $myroles = array('author', 'fotograaf');
-            $check = array_intersect($myroles, array_values($user->roles));
-            if ($check && !$checkadmin) {
+            if (array_intersect(['author', 'fotograaf'], array_values($user->roles)) && !$checkadmin) {
                 $form['field_textsoortenregister']['und']['0']['value']['#attributes']['disabled'] = TRUE;
                 $form['field_textsoortenregister']['und']['#access'] = 0;
             }
 
-            $myroles = array('expert', 'validator', 'admin'); /* Admin toegevoegd (BUIT-230) */
-            $check = array_intersect($myroles, array_values($user->roles));
-
-            if ($check &&
+            if (array_intersect(['expert', 'validator', 'admin'], array_values($user->roles)) &&
                 (!empty($form['field_beeldexpert']['und']['#default_value'][0])) &&
                 ($form['field_beeldexpert']['und']['#default_value'][0] == $user->uid)) {
-                if ($form['field_status']['und']['#default_value'][0] != STATUSPOSITIVE) {
+
+                if ($form['field_status']['und']['#default_value'][0] !== STATUSPOSITIVE) {
                     $form['field_textsoortenregister']['und']['0']['value']['#attributes']['disabled'] = TRUE;
                     $form['field_textsoortenregister']['und']['#access'] = 0;
                 }
@@ -1095,11 +1228,10 @@ function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
                     '#markup' => "<input type='button' class='button-user' value='Annuleren' onclick='window.history.go(-1)'/>",
                     '#weight' => $form['actions']['submit']['#weight'] + 1,
                 );
-                if ($form['field_status']['und']['#default_value'][0] != STATUSPOSITIVE) {
-                    $form['field_locatie']['und']['0']['value']['#attributes']['disabled'] = TRUE;
-                }
-                if ($form['field_status']['und']['#default_value'][0] == STATUSPOSITIVE) {
+                if ($form['field_status']['und']['#default_value'][0] === STATUSPOSITIVE) {
                     $form['field_beeldevaluatie']['und']['0']['value']['#attributes']['disabled'] = TRUE;
+                } else {
+                    $form['field_locatie']['und']['0']['value']['#attributes']['disabled'] = TRUE;
                 }
             } else {
                 //echo "noexpert";
@@ -1116,6 +1248,7 @@ function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
             $form['field_opmerkingen']['und']['0']['value']['#attributes']['disabled'] = TRUE;
 
             if (in_array('administrator', $user->roles, false)) {
+
                 if (($form['field_status']['und']['#default_value'][0] === STATUSNEW) ||
                     ($form['field_status']['und']['#default_value'][0] === STATUSEXPERT)) {
                     $form['actions']['submit'] = array(
@@ -1155,7 +1288,7 @@ function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
                 if ($form['field_status']['und']['#default_value'][0] === STATUSPOSITIVE) {
                     $form['actions']['opslaan'] = array(
                         '#type' => 'submit',
-                        '#value' => 'Opslaan',
+                        '#value' => t('Opslaan'),
                         '#weight' => $form['actions']['submit']['#weight'] + 7,
                         '#submit' => array(
                             'beelduitwisselaar_reset',
@@ -1163,7 +1296,7 @@ function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
                     );
                     $form['actions']['goedgekeurd'] = array(
                         '#type' => 'submit',
-                        '#value' => 'Publiceren',
+                        '#value' => t('Publiceren'),
                         '#weight' => $form['actions']['submit']['#weight'] + 3,
                         '#submit' => array(
                             'beelduitwisselaar_afronden',
@@ -1171,7 +1304,7 @@ function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
                     );
                     $form['actions']['afgekeurd'] = array(
                         '#type' => 'submit',
-                        '#value' => 'Afwijzen',
+                        '#value' => t('Afwijzen'),
                         '#weight' => $form['actions']['submit']['#weight'] + 4,
                         '#submit' => array(
                             'beelduitwisselaar_afgekeurd',
@@ -1179,46 +1312,46 @@ function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
                     );
                     $form['actions']['wacht'] = array(
                         '#type' => 'submit',
-                        '#value' => 'In wachtrij plaatsen',
+                        '#value' => t('In wachtrij plaatsen'),
                         '#weight' => $form['actions']['submit']['#weight'] + 6,
                         '#submit' => array(
                             'beelduitwisselaar_wacht',
                         ),
                     );
-                    if (in_array('administrator', $user->roles, false)) {
-                        drupal_set_title(t('Gevalideerd beeld'));
+                    drupal_set_title(t('Gevalideerd beeld'));
 
-                        //Node has been accepted or denied. Convert to medialib entry if accepted.
-                        $form['actions']['back'] = array(
-                            '#markup' => "<input type='button' class='button-user' value=" . t('Annuleren') . " onclick='window.history.go(-1)'/>",
-                            '#weight' => $form['actions']['submit']['#weight'] + 1,
-                        );
-                        unset($form['actions']['submit']);
-                    }
+                    //Node has been accepted or denied. Convert to medialib entry if accepted.
+                    $form['actions']['back'] = array(
+                        '#markup' => "<input type='button' class='button-user' value=" . t('Annuleren') . " onclick='window.history.go(-1)'/>",
+                        '#weight' => $form['actions']['submit']['#weight'] + 1,
+                    );
+                    unset($form['actions']['submit']);
                 }
-            }
-            if (($form['field_status']['und']['#default_value'][0] === STATUSWAIT || $form['field_status']['und']['#default_value'][0] === STATUSPOSITIVE) && in_array('administrator', $user->roles, false)) {
-                $form['actions']['submit'] = array(
-                    '#type' => 'submit',
-                    '#value' => 'Opslaan',
-                    '#weight' => $form['actions']['submit']['#weight'] + 7,
-                    '#submit' => array(
-                        'beelduitwisselaar_adminsave',
-                    ),
-                );
-                $form['actions']['afgekeurd'] = array(
-                    '#type' => 'submit',
-                    '#value' => t('Afwijzen'),
-                    '#weight' => $form['actions']['submit']['#weight'] + 4,
-                    '#submit' => array(
-                        'beelduitwisselaar_afgekeurd',
-                    ),
-                );
-            }
 
+                if ($form['field_status']['und']['#default_value'][0] === STATUSWAIT ||
+                    $form['field_status']['und']['#default_value'][0] === STATUSPOSITIVE) {
+
+                    $form['actions']['submit'] = array(
+                        '#type' => 'submit',
+                        '#value' => t('Opslaan'),
+                        '#weight' => $form['actions']['submit']['#weight'] + 7,
+                        '#submit' => array(
+                            'beelduitwisselaar_adminsave',
+                        ),
+                    );
+                    $form['actions']['afgekeurd'] = array(
+                        '#type' => 'submit',
+                        '#value' => t('Afwijzen'),
+                        '#weight' => $form['actions']['submit']['#weight'] + 4,
+                        '#submit' => array(
+                            'beelduitwisselaar_afgekeurd',
+                        ),
+                    );
+                }
+
+            }
             break;
         case 'beelduitwisselaar_node_form':
-            global $user;
             drupal_set_title(t('Beelden toevoegen'));
             $form['introduction']['#markup'] = '<p>' . t('Via dit formulier kunt u een of meerdere nieuwe beelden insturen. Velden die verplicht ingevuld moeten worden zijn aangegeven met een rood sterretje. Let op: de voorwaarden voor insturen van nieuwe beelden zijn gewijzigd. Lees <a href="/licentie" target="_blank">hier meer informatie</a> over de beschikbare licenties.') . '</p>';
 
@@ -1228,7 +1361,6 @@ function beelduitwisselaar_form_alter(&$form, $form_state, $form_id)
             $form['field_akkoord']['und']['#title'] = t("<b>Ik ga akkoord met de <a href='/voorwaarden' target='_blank'>voorwaarden</a>.</b>");
             $form['actions']['submit']['#value'] = t('Verstuur beeld(en)');
             $form['field_afbeeldingen']['und']['add_more']['#value'] = t('+ Nog een beeld toevoegen');
-
 
             $hideid = 0;
             while (!empty($form['field_afbeeldingen']['und'][$hideid])) {
@@ -1325,8 +1457,6 @@ function beelduitwisselaar_node_insert($node)
 {
     global $user, $base_url;
 
-    $imageowner = variable_get('beelduitwisselaar_imageowner', IMAGEOWNER);
-
     if (!empty($node->nid) && $node->type === 'beelduitwisselaar') {
         drupal_set_title(t('Beelden toevoegen'));
         $email = $node->field_email['und'][0]['email'];
@@ -1339,8 +1469,8 @@ function beelduitwisselaar_node_insert($node)
                 'init' => $email,
                 'pass' => 'password',
                 'status' => 1,
-                'field_voornaam' => array(LANGUAGE_NONE => array(array('value' => $node->field_voornaam['und'][0]['value']))),
-                'field_achternaam' => array(LANGUAGE_NONE => array(array('value' => $node->field_achternaam['und'][0]['value']))),
+                'field_voornaam' => array(LANGUAGE_NONE => [['value' => $node->field_voornaam['und'][0]['value']]]),
+                'field_achternaam' => array(LANGUAGE_NONE => [['value' => $node->field_achternaam['und'][0]['value']]]),
                 'access' => REQUEST_TIME,
                 'roles' => array(), // No other roles than Authenticated
             );
@@ -1363,7 +1493,6 @@ function beelduitwisselaar_node_insert($node)
             $beeldnamen .= $myentity->field_newimage['und'][0]['filename'] . '<br>';
         }
     }
-    $fotograafnaam = $user->name;
     $mymail = node_load(MAILNEWSUBMISSION);
     $mail = $mymail->body['und'][0]['value'];
     $mail = str_replace(
@@ -1384,7 +1513,11 @@ function beelduitwisselaar_node_insert($node)
         $mail);
     $to = $user->mail;
     $subject = $mymail->title;
-    beelduitwisselaar_sendmail($to, $subject, $mail);
+    try {
+        beelduitwisselaar_sendmail($to, $subject, $mail);
+    } catch (Exception $e) {
+        watchdog("beelduitwisselaar", "Send mail to $to ($subject) - failed",['msg' => $e->getMessage()], WATCHDOG_DEBUG);
+    }
 
     global $nohook;
     $nohook = 1;
@@ -1421,15 +1554,10 @@ function beelduitwisselaar_entity_update($entity, $type)
         }
 
         //If admin
-        $myroles = array('admin', 'administrator');
-        $check = array_intersect($myroles, array_values($user->roles));
-        if ($check) {
+        if (array_intersect(['admin', 'administrator'], array_values($user->roles))) {
             beelduitwisselaar_goto_lastview();
         }
-        //If expert
-        $myroles = array('expert', 'validator');
-        $check = array_intersect($myroles, array_values($user->roles));
-        if ($check) {
+        if (array_intersect(['expert', 'validator'], array_values($user->roles))) {
             drupal_goto('/afbeeldingen-expert');
         }
     }
@@ -1479,6 +1607,7 @@ function beelduitwisselaar_goedgekeurd(&$form, &$form_state)
 /**
  * @param $form
  * @param $form_state
+ * @throws Exception
  */
 function beelduitwisselaar_afgekeurd(&$form, &$form_state)
 {
@@ -1496,7 +1625,7 @@ function beelduitwisselaar_afgekeurd(&$form, &$form_state)
     $myentity->field_textsoortenregister['und'][0]['value'] = $form['field_textsoortenregister']['und'][0]['value']['#value'];
 
     $mymail = node_load(MAILDECLINESUBMISSION);
-    $mail = $mymail->body['und'][0]['value'];
+    $mailbody = $mymail->body['und'][0]['value'];
     $mail = str_replace(
         [
             '%%beeldnaam%%',
@@ -1512,26 +1641,12 @@ function beelduitwisselaar_afgekeurd(&$form, &$form_state)
             "<a href='http://www.nederlandsesoorten.nl/nsr/concept/{$form['field_nlsr']['und'][0]['value']['#value']}>{$form['field_soort_taxon']['und'][0]['value']['#value']}</a>",
             $form['#entity']->item_id
         ],
-        $mail);
+        $mailbody);
 
     $nodeid = arg(2);
-    if ($nodeid) {
-        $sql = "SELECT entity_id FROM {field_data_field_afbeeldingen} WHERE field_afbeeldingen_value = :nodeid";
-        $parentnode = db_query($sql, [':nodeid' => $nodeid])->fetchField();
-        $parent = node_load($parentnode);
-
-        $fotograafnaam = $parent->title;
-        $fotograafid = $myentity->field_fotograaf['und'][0]['target_id'];;
-        $defotograaf = user_load($fotograafid);
-        $to = $defotograaf->mail;
-        $subject = $mymail->title;
-        if (0) {
-              beelduitwisselaar_sendmail($to, $subject, $mail);
-        }
-    }
     variable_set("beelduitwisselaar_entityid", $nodeid);
 
-    drupal_goto("/beelduitwisselaar/createmail/" . $fotograafid . "/2/" . $nodeid);
+    drupal_goto("/beelduitwisselaar/createmail/" . $fotograafid . "/" .  MAILDECLINESUBMISSION . "/" . $nodeid);
 }
 
 
@@ -1543,7 +1658,7 @@ function beelduitwisselaar_reset(&$form, &$form_state)
 {
     global $user;
 
-    drupal_set_message("Beeld gereset");
+    drupal_set_message(t("Beeld gereset"));
     $myentity = entity_load_single("field_collection_item", $form["#entity"]->item_id);
     $myentity->field_status['und'][0]['value'] = $form['field_status']['und'][0]['value']['#value'];
     $myentity->field_nlsr['und'][0]['value'] = $form['field_nlsr']['und'][0]['value']['#value'];
@@ -1573,7 +1688,6 @@ function beelduitwisselaar_reset(&$form, &$form_state)
  */
 function beelduitwisselaar_adminsave(&$form, &$form_state)
 {
-
     $beeldevaluatie = $form['field_beeldevaluatie']['und'][0]['value']['#value'];
     if (empty($beeldevaluatie)) {
         $beeldevaluatie = $form['field_beeldevaluatie']['und'][0]['value']['#default_value'];
@@ -1591,7 +1705,7 @@ function beelduitwisselaar_adminsave(&$form, &$form_state)
     $myentity->field_beeldevaluatie['und'][0]['value'] = $beeldevaluatie;
     if (!empty($form['field_soort_taxon']['und'][0]['value'])) {
         $myentity->field_soort_taxon['und'][0]['value'] = $form['field_soort_taxon']['und'][0]['value']['#value'];
-    }
+
     if (!empty($form['field_opmerkingen']['und'][0]['value'])) {
         $myentity->field_opmerkingen['und'][0]['value'] = $form['field_opmerkingen']['und'][0]['value']['#value'];
     }
@@ -1632,6 +1746,11 @@ function beelduitwisselaar_adminsave(&$form, &$form_state)
 }
 
 
+/**
+ * Save the image after editing
+ * @param $form
+ * @param $form_state
+ */
 function beelduitwisselaar_save(&$form, &$form_state)
 {
     if (empty($form['field_soort_taxon']['und'][0]['value']['#value'])) {
@@ -1670,11 +1789,17 @@ function beelduitwisselaar_save(&$form, &$form_state)
     drupal_goto("/afbeeldingen-expert");
 }
 
+/**
+ * Puts the image in the waiting queue
+ * @param $form
+ * @param $form_state
+ * @throws Exception
+ */
 function beelduitwisselaar_wacht(&$form, &$form_state)
 {
     global $user, $base_url;
 
-    drupal_set_message("Beeld is in de wachtrij geplaatst.");
+    drupal_set_message(t("Beeld is in de wachtrij geplaatst."));
 
     $myentity = entity_load_single("field_collection_item", $form["#entity"]->item_id);
     $myentity->field_status['und'][0]['value'] = STATUSWAIT;
@@ -1691,9 +1816,6 @@ function beelduitwisselaar_wacht(&$form, &$form_state)
     $myentity->field_textsoortenregister['und'][0]['value'] = $form['field_textsoortenregister']['und'][0]['value']['#value'];
 
     $nodeid = arg(2);
-    $sql = "SELECT entity_id FROM {field_data_field_afbeeldingen} WHERE field_afbeeldingen_value = " . $nodeid;
-    $parentnode = db_query($sql)->fetchField();
-    $parent = node_load($parentnode);
 
     $fotograafid = $myentity->field_fotograaf['und'][0]['target_id'];
 
@@ -1701,13 +1823,14 @@ function beelduitwisselaar_wacht(&$form, &$form_state)
     db_query($sql,[ STATUSWAIT, $myentity->item_id, $myentity->revision_id ]);
 
 
-    if (0) {
-        beelduitwisselaar_sendmail($to, $subject, $mail);
-    }
-
-    drupal_goto("/beelduitwisselaar/createmail/" . $fotograafid . "/5/" . $nodeid);
+    drupal_goto("/beelduitwisselaar/createmail/" . $fotograafid . "/" . MAILWAITSUBMISSION . "/" . $nodeid);
 }
 
+/**
+ * @param $form
+ * @param $form_state
+ * @throws Exception
+ */
 function beelduitwisselaar_afronden(&$form, &$form_state)
 {
     global $user, $base_url;
@@ -1743,7 +1866,8 @@ function beelduitwisselaar_afronden(&$form, &$form_state)
     //Send to medialib
     //Stuur mail goedgekeurd
     $mymail = node_load(MAILACCEPTSUBMISSION);
-    $mail = $mymail->body['und'][0]['value'];
+    $mailbody = $mymail->body['und'][0]['value'];
+
     $mail = str_replace(
         [
             '%%beeldnaam%%',
@@ -1755,11 +1879,11 @@ function beelduitwisselaar_afronden(&$form, &$form_state)
         [
             $form['field_newimage']['und'][0]['#file']->filename,
             $user->name,
-            "<a href=\"$base_url/?q=afbeeldingen-expert\">$user->name</a>",
-            "<a href=\"http://www.nederlandsesoorten.nl/nsr/concept/{$form['field_nlsr']['und'][0]['value']['#value']}\">{$form['field_soort_taxon']['und'][0]['value']['#value']}</a>",
+            '<a href="' . $base_url . '/?q=afbeeldingen-expert">' . $user->name . '</a>',
+            '<a href="' . NSR_LINK . $form['field_nlsr']['und'][0]['value']['#value'] . '">' . $form['field_soort_taxon']['und'][0]['value']['#value'] . '</a>',
             $form["#entity"]->item_id
         ],
-        $mail
+        $mailbody
     );
 
     $fotograafid = $myentity->field_fotograaf['und'][0]['target_id'];
@@ -1768,7 +1892,11 @@ function beelduitwisselaar_afronden(&$form, &$form_state)
     $to = $defotograaf->mail;
     $subject = $mymail->title;
 
-    beelduitwisselaar_sendmail($to, $subject, $mail);
+    try {
+        beelduitwisselaar_sendmail($to, $subject, $mail);
+    } catch (Exception $e) {
+        watchdog("beelduitwisselaar", "Send mail to $to ($subject) - failed",['msg' => $e->getMessage()], WATCHDOG_DEBUG);
+    }
 
     if (isset($myentity->item_id)) {
         search_api_track_item_change("field_collection_item", array($myentity->item_id));
@@ -1780,6 +1908,13 @@ function beelduitwisselaar_afronden(&$form, &$form_state)
     beelduitwisselaar_goto_lastview();
 }
 
+
+/**
+ * @todo: this function is probably not called at all!
+ *
+ * @param $form
+ * @param $form_state
+ */
 function beelduitwisselaar_verwijderd(&$form, &$form_state)
 {
     drupal_set_message(t("Afbeelding verwijderd"));
@@ -1790,33 +1925,34 @@ function beelduitwisselaar_verwijderd(&$form, &$form_state)
     drupal_goto("/afbeeldingen");
 }
 
-
-function beelduitwisselaar_entity_delete($entity, $type)
-{
-    // @todo: this function does nothing, can it be removed?
-
-}
-
+/**
+ * implementation of hook_form_submit, saves the expert info in a variable
+ *
+ * @param $form
+ * @param $form_state
+ */
 function beelduitwisselaar_form_submit(&$form, &$form_state)
 {
     variable_set("default-expert", $form_state['values']['expert']);
 }
 
 /**
+ *
  * @param $field_collection_item
  * @param $view_mode
  * @param $langcode
  */
 function beelduitwisselaar_field_collection_item_view($field_collection_item, $view_mode, $langcode)
 {
-    if ($view_mode == "full") {
-        drupal_set_title(t("Ingestuurd beeld"));
+    if ($view_mode === 'full') {
+        drupal_set_title(t('Ingestuurd beeld'));
     }
 }
 
 
 /**
  * Implements hook_search_api_index_items_alter().
+ *
  * @param array $items
  * @param SearchApiIndex $index
  */
@@ -1837,7 +1973,7 @@ function beelduitwisselaar_search_api_index_items_alter(array &$items, SearchApi
  */
 function beelduitwisselaar_date_select_process_alter(&$element, &$form_state, $context)
 {
-    if ($element['#field']['field_name'] == 'field_datum') {
+    if ($element['#field']['field_name'] === 'field_datum') {
         $element['year']['#options'] = array_reverse($element['year']['#options'], true);
     }
     $element['year']['#default_value'] = date('Y');

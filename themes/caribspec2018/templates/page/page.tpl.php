@@ -11,7 +11,7 @@
     <div class="container" style="cursor:pointer;" onClick="window.open('/','_top')">
         <img src="<?= $logo ?>" class="logo">
         <div class="siteTitle">
-            <h1><?= $site_title ?></h1>
+            <h1><?= $site_name ?></h1>
             <h2><?= $site_slogan ?></h2>
         </div>
     </div>
