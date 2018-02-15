@@ -30,6 +30,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -19,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -56,6 +62,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -19,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -81,6 +93,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -19,
       ),
       'seven' => array(
         'region' => '',
@@ -110,6 +128,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => 'left_sidebar',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -24,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -137,6 +161,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => 'left_sidebar',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -22,
       ),
       'seven' => array(
         'region' => '',
@@ -166,6 +196,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => 'left_sidebar',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -19,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -191,6 +227,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => 'left_sidebar',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -20,
       ),
       'seven' => array(
         'region' => '',
@@ -220,6 +262,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => 'left_sidebar',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -23,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -231,10 +279,10 @@ function beeldfeature_default_fe_block_settings() {
     'visibility' => 0,
   );
 
-  $export['block-nlsoorten_menu'] = array(
+  $export['block-caribspec_footer'] = array(
     'cache' => -1,
     'custom' => 0,
-    'machine_name' => 'nlsoorten_menu',
+    'machine_name' => 'caribspec_footer',
     'module' => 'block',
     'node_types' => array(),
     'pages' => '',
@@ -244,6 +292,44 @@ function beeldfeature_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => 'footer',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -8,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['block-caribspecies_menu'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'machine_name' => 'caribspecies_menu',
+    'module' => 'block',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => 'menucontainer',
+        'status' => 1,
+        'theme' => 'caribspec2018',
         'weight' => 0,
       ),
       'seven' => array(
@@ -272,6 +358,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => 0,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -297,6 +389,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => -13,
       ),
       'seven' => array(
         'region' => '',
@@ -324,6 +422,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => -11,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -350,31 +454,11 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
-      'seven' => array(
+      'caribspec2018' => array(
         'region' => '',
         'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 0,
-  );
-
-  $export['diff-inline'] = array(
-    'cache' => 1,
-    'custom' => 0,
-    'delta' => 'inline',
-    'module' => 'diff',
-    'node_types' => array(),
-    'pages' => '',
-    'roles' => array(),
-    'themes' => array(
-      'bartik' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'bartik',
-        'weight' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => 5,
       ),
       'seven' => array(
         'region' => '',
@@ -402,6 +486,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => 8,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -427,6 +517,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => 1,
       ),
       'seven' => array(
         'region' => '',
@@ -454,6 +550,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => -9,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -478,6 +580,12 @@ function beeldfeature_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
         'weight' => 0,
       ),
       'seven' => array(
@@ -506,6 +614,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => 3,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -531,6 +645,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => -3,
       ),
       'seven' => array(
         'region' => '',
@@ -558,6 +678,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => 4,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -583,6 +709,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => 2,
       ),
       'seven' => array(
         'region' => '',
@@ -610,6 +742,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => 'dashboard_inactive',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -16,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -635,6 +773,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => 6,
       ),
       'seven' => array(
         'region' => '',
@@ -664,6 +808,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => -1,
       ),
+      'caribspec2018' => array(
+        'region' => 'left_sidebar',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -21,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -671,7 +821,7 @@ function beeldfeature_default_fe_block_settings() {
         'weight' => -10,
       ),
     ),
-    'title' => 'Zoek foto\'s',
+    'title' => 'Search images',
     'visibility' => 0,
   );
 
@@ -689,6 +839,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 1,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => 7,
       ),
       'seven' => array(
         'region' => 'help',
@@ -716,6 +872,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -19,
+      ),
       'seven' => array(
         'region' => 'content',
         'status' => 1,
@@ -741,6 +903,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => -4,
       ),
       'seven' => array(
         'region' => '',
@@ -768,6 +936,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => -2,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -793,6 +967,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 1,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => -1,
       ),
       'seven' => array(
         'region' => '',
@@ -820,6 +1000,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 10,
       ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => -7,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -845,6 +1031,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => 10,
       ),
       'seven' => array(
         'region' => '',
@@ -872,6 +1064,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => -6,
+      ),
       'seven' => array(
         'region' => 'content',
         'status' => 1,
@@ -897,6 +1095,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => 'dashboard_inactive',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -15,
       ),
       'seven' => array(
         'region' => '',
@@ -924,6 +1128,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => 'dashboard_inactive',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -14,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -950,6 +1160,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => 11,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -975,6 +1191,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => -10,
       ),
       'seven' => array(
         'region' => '',
@@ -1007,6 +1229,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -16,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -1036,6 +1264,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => -5,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -1062,6 +1296,12 @@ function beeldfeature_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
         'weight' => 0,
       ),
       'seven' => array(
@@ -1092,6 +1332,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'caribspec2018',
+        'weight' => -18,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -1120,6 +1366,12 @@ function beeldfeature_default_fe_block_settings() {
         'theme' => 'bartik',
         'weight' => 0,
       ),
+      'caribspec2018' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -18,
+      ),
       'seven' => array(
         'region' => '',
         'status' => 0,
@@ -1147,6 +1399,12 @@ function beeldfeature_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'bartik',
         'weight' => 0,
+      ),
+      'caribspec2018' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'caribspec2018',
+        'weight' => -17,
       ),
       'seven' => array(
         'region' => '',

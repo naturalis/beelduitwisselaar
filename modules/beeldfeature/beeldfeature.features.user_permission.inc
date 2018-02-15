@@ -315,6 +315,15 @@ function beeldfeature_user_default_permissions() {
     'module' => 'menutree',
   );
 
+  // Exported permission: 'administer module filter'.
+  $permissions['administer module filter'] = array(
+    'name' => 'administer module filter',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'module_filter',
+  );
+
   // Exported permission: 'administer modules'.
   $permissions['administer modules'] = array(
     'name' => 'administer modules',
@@ -749,17 +758,6 @@ function beeldfeature_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'diff view changes'.
-  $permissions['diff view changes'] = array(
-    'name' => 'diff view changes',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'diff',
   );
 
   // Exported permission: 'display drupal links'.

@@ -13,7 +13,7 @@ function beeldfeature_menu_default_menu_custom() {
   // Exported menu: devel.
   $menus['devel'] = array(
     'menu_name' => 'devel',
-    'title' => 'Ontwikkeling',
+    'title' => 'Development',
     'description' => 'Development link',
   );
   // Exported menu: features.
@@ -48,13 +48,13 @@ function beeldfeature_menu_default_menu_custom() {
   );
   // Translatables
   // Included for use with string extractors like potx.
+  t('Development');
   t('Development link');
   t('Features');
   t('Main menu');
   t('Management');
   t('Menu items for any enabled features.');
   t('Navigation');
-  t('Ontwikkeling');
   t('The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.');
   t('The <em>Management</em> menu contains links for administrative tasks.');
   t('The <em>Navigation</em> menu contains links intended for site visitors. Links are added to the <em>Navigation</em> menu automatically by some modules.');

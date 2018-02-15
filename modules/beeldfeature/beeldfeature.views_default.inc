@@ -22,7 +22,7 @@ function beeldfeature_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Nieuwe beelden';
+  $handler->display->display_options['title'] = 'New images';
   $handler->display->display_options['css_class'] = 'table';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
@@ -33,17 +33,17 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filter';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'url_1' => 'url_1',
@@ -136,7 +136,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen">Grid</a>: <a href="/?q=grid-afbeeldingen"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -170,13 +170,13 @@ function beeldfeature_views_default_views() {
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Verwijder geselecteerde beelden',
+      'label' => 'Remove selected images',
     ),
     'action::views_bulk_operations_argument_selector_action' => array(
       'selected' => 1,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Beeld(en) toekennen aan validator / wachtrij',
+      'label' => 'Image(s) to validator / queue',
       'settings' => array(
         'url' => 'beelduitwisselaar/selectexpertise',
       ),
@@ -227,7 +227,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Field: Voornaam */
+  /* Field: Field: First name */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -235,7 +235,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Field: Field: Achternaam */
+  /* Field: Field: family name */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -287,7 +287,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['filters']['combine']['operator'] = 'contains';
   $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
   $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
-  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter resultaten:';
+  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter results:';
   $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
   $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
   $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
@@ -307,41 +307,41 @@ function beeldfeature_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Nieuwe beelden';
+  $handler->display->display_options['title'] = 'New images';
   $handler->display->display_options['path'] = 'afbeeldingen';
   $translatables['afbeeldingen'] = array(
     t('Master'),
-    t('Nieuwe beelden'),
+    t('New images'),
     t('more'),
     t('Filter'),
-    t('Opnieuw instellen'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('<div class="gridright"><a href="/?q=grid-afbeeldingen">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('<div class="gridright"><a href="/?q=grid-afbeeldingen">Grid</a>: <a href="/?q=grid-afbeeldingen"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
     t('[url_1]/edit'),
     t('- Choose an operation -'),
-    t('Verwijder geselecteerde beelden'),
-    t('Beeld(en) toekennen aan validator / wachtrij'),
-    t('Beeld'),
+    t('Remove selected images'),
+    t('Image(s) to validator / queue'),
+    t('Image'),
     t('<a href="[url_1]">[field_newimage]</a>'),
-    t('Datum insturen'),
-    t('Datum opname'),
-    t('Fotograaf'),
+    t('Date uploaded'),
+    t('Date published'),
+    t('Photographer'),
     t('<a href="/search/node/[field_achternaam] [field_voornaam]">[field_achternaam], [field_voornaam]</a>'),
-    t('Locatie'),
-    t('Opmerking fotograaf'),
-    t('Bewerken'),
+    t('Location'),
+    t('Comment photographer'),
+    t('Edit'),
     t('<a href="[url]/edit"><img src="/sites/all/files/icon/edit.png" class="gridicon" border="no" /></a>'),
-    t('Filter resultaten:'),
+    t('Filter results:'),
     t('Page'),
   );
   $export['afbeeldingen'] = $view;
@@ -351,30 +351,30 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'Afbeeldingen afgekeurd';
+  $view->human_name = 'Images denied';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Afgekeurde beelden';
+  $handler->display->display_options['title'] = 'Denied images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_datum' => 'field_datum',
@@ -439,7 +439,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-afgekeurd">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-afgekeurd"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-afgekeurd">Grid</a>: <a href="/?q=grid-afbeeldingen-afgekeurd"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -461,14 +461,14 @@ function beeldfeature_views_default_views() {
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 1,
-      'label' => 'Verwijder geselecteerde beelden',
+      'label' => 'Remove selected images',
     ),
     'action::system_send_email_action' => array(
       'selected' => 1,
       'postpone_processing' => 1,
       'skip_confirmation' => 0,
       'override_label' => 1,
-      'label' => 'Verstuur mail',
+      'label' => 'Send mail',
     ),
   );
   /* Field: Field collection item: Beeld */
@@ -499,7 +499,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['lightbox2']['id'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['table'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['field'] = 'lightbox2';
-  $handler->display->display_options['fields']['lightbox2']['label'] = 'Beeld';
+  $handler->display->display_options['fields']['lightbox2']['label'] = 'Image';
   /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
@@ -512,7 +512,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Field: Voornaam */
+  /* Field: Field: First name */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -520,7 +520,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Field: Field: Achternaam */
+  /* Field: Field: family name */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -532,7 +532,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = 'Fotograaf';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Photographer';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_achternaam], [field_voornaam]';
   /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
@@ -565,30 +565,30 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['path'] = 'afbeeldingen-afgekeurd';
   $translatables['afbeeldingen_afgekeurd'] = array(
     t('Master'),
-    t('Afgekeurde beelden'),
+    t('Denied images'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-afgekeurd">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-afgekeurd"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-afgekeurd">Grid</a>: <a href="/?q=grid-afbeeldingen-afgekeurd"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
     t('- Choose an operation -'),
-    t('Verwijder geselecteerde beelden'),
-    t('Verstuur mail'),
-    t('Beeld'),
-    t('Datum'),
-    t('Fotograaf'),
+    t('Remove selected images'),
+    t('Send mail'),
+    t('Image'),
+    t('Date'),
+    t('Photographer'),
     t('[field_achternaam], [field_voornaam]'),
-    t('Soort/taxon'),
+    t('Species/taxon'),
     t('Expert'),
     t('Status'),
     t('Page'),
@@ -600,30 +600,30 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'Afbeeldingen afgekeurd all';
+  $view->human_name = 'Images denied all';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Afbeeldingen afgekeurd (alles)';
+  $handler->display->display_options['title'] = 'Images denied (all)';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_achternaam' => 'field_achternaam',
@@ -736,14 +736,14 @@ function beeldfeature_views_default_views() {
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 1,
-      'label' => 'Verwijder geselecteerde beelden',
+      'label' => 'Remove selected images',
     ),
     'action::views_bulk_operations_modify_action' => array(
       'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Toekennen aan expert (selectie in volgende scherm)',
+      'label' => 'Send to expert (selection in next screen)',
       'settings' => array(
         'show_all_tokens' => 1,
         'display_values' => array(
@@ -779,29 +779,29 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['path'] = 'afbeeldingen-afgekeurd-all';
   $translatables['afbeeldingen_afgekeurd_all'] = array(
     t('Master'),
-    t('Afbeeldingen afgekeurd (alles)'),
+    t('Images denied (all)'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('Datum van opname'),
-    t('Locatie'),
-    t('Soort/taxon'),
-    t('Beeld'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Date of publication'),
+    t('Location'),
+    t('Species/taxon'),
+    t('Image'),
     t('- Choose an operation -'),
-    t('Verwijder geselecteerde beelden'),
-    t('Toekennen aan expert (selectie in volgende scherm)'),
+    t('Remove selected images'),
+    t('Send to expert (selection in next screen)'),
     t('Expert'),
-    t('Evaluatie'),
+    t('Evaluation'),
     t('Page'),
   );
   $export['afbeeldingen_afgekeurd_all'] = $view;
@@ -818,23 +818,23 @@ function beeldfeature_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Beelden bij deze inzending';
+  $handler->display->display_options['title'] = 'Images connected';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_achternaam' => 'field_achternaam',
@@ -935,14 +935,14 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'field_data_field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
-  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Opmerking fotograaf';
+  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Comment photographer';
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['relationship'] = 'field_afbeeldingen_node';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'All';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
@@ -952,25 +952,25 @@ function beeldfeature_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block_1');
   $translatables['afbeeldingen_bij_node'] = array(
     t('Master'),
-    t('Beelden bij deze inzending'),
+    t('Images connected'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('field_afbeeldingen'),
     t('Beeld'),
     t('Datum van opname'),
     t('Locatie'),
-    t('Opmerking fotograaf'),
+    t('Comment photographer'),
     t('Alle'),
     t('Block'),
   );
@@ -981,14 +981,14 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'Afbeeldingen geevalueerd';
+  $view->human_name = 'Images evaluated';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Gevalideerde beelden';
+  $handler->display->display_options['title'] = 'Validated images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -998,17 +998,17 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'url' => 'url',
@@ -1058,7 +1058,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'Er zijn nog geen beelden die het validatieproces hebben doorlopen.';
+  $handler->display->display_options['empty']['area']['content'] = 'There are no images that have been processed yet.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -1113,7 +1113,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['table'] = 'field_data_field_beeldexpert';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['field'] = 'field_beeldexpert_target_id';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_beeldexpert_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_beeldexpert_target_id']['exception']['title'] = 'All';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['default_argument_type'] = 'current_user';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['summary']['format'] = 'default_summary';
@@ -1154,32 +1154,32 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['path'] = 'afbeeldingen-geevalueerd';
   $translatables['afbeeldingen_geevalueerd'] = array(
     t('Master'),
-    t('Gevalideerde beelden'),
+    t('Validated images'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('Er zijn nog geen beelden die het validatieproces hebben doorlopen.'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('There are no images that have been processed yet.'),
     t('field_afbeeldingen'),
     t('Field collection item ID'),
     t('.'),
     t('[url]/edit'),
-    t('Beeld'),
+    t('Image'),
     t('<a href="/beelddetail/[item_id]">[field_newimage]</a>'),
-    t('Datum insturen'),
-    t('Locatie'),
-    t('Soort/taxon'),
-    t('Alle'),
-    t('Filter resultaten:'),
+    t('Date uploaded'),
+    t('Location'),
+    t('Species/taxon'),
+    t('All'),
+    t('Filter results:'),
     t('Page'),
   );
   $export['afbeeldingen_geevalueerd'] = $view;
@@ -1189,31 +1189,31 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'Afbeeldingen geevalueerd all';
+  $view->human_name = 'Images evaluated all';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Gevalideerde beelden';
+  $handler->display->display_options['title'] = 'Validated images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filter';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'url' => 'url',
@@ -1292,7 +1292,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Grid</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -1351,7 +1351,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Field: Voornaam */
+  /* Field: Field: First name */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -1359,7 +1359,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Field: Field: Achternaam */
+  /* Field: Field: family name */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -1433,34 +1433,34 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['path'] = 'afbeeldingen-geevalueerd-allx';
   $translatables['afbeeldingen_geevalueerd_all'] = array(
     t('Master'),
-    t('Gevalideerde beelden'),
+    t('Validated images'),
     t('more'),
     t('Filter'),
-    t('Opnieuw instellen'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
     t('[url]/edit'),
     t('- Choose an operation -'),
-    t('Verstuur mail'),
-    t('Beeld'),
+    t('Send email'),
+    t('Image'),
     t('<a href="[url]">[field_newimage_1]</a>'),
-    t('Datum insturen'),
-    t('Fotograaf'),
+    t('Date uploaded'),
+    t('Photographer'),
     t('[field_achternaam], [field_voornaam]'),
     t('Validator'),
-    t('Soort/taxon'),
-    t('Opmerking validator'),
-    t('Filter resultaten:'),
+    t('Species/taxon'),
+    t('Comment validator'),
+    t('Filter results:'),
     t('Page'),
   );
   $export['afbeeldingen_geevalueerd_all'] = $view;
@@ -1477,7 +1477,7 @@ function beeldfeature_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Gevalideerde beelden';
+  $handler->display->display_options['title'] = 'Validated images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -1487,17 +1487,17 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filter';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'url_1' => 'url_1',
@@ -1598,7 +1598,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Grid</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -1672,7 +1672,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd M Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Field: Field: Voornaam */
+  /* Field: Field: First name */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -1680,7 +1680,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Field: Field: Achternaam */
+  /* Field: Field: family name */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -1688,13 +1688,13 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['label'] = 'Fotograaf';
   $handler->display->display_options['fields']['field_achternaam']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['alter']['text'] = '<a href="/search/node/[field_achternaam] [field_voornaam]">[field_achternaam], [field_voornaam]</a>';
-  /* Field: Field: Voornaam */
+  /* Field: Field: First name */
   $handler->display->display_options['fields']['field_voornaam_1']['id'] = 'field_voornaam_1';
   $handler->display->display_options['fields']['field_voornaam_1']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam_1']['field'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam_1']['relationship'] = 'field_beeldexpert_target_id';
   $handler->display->display_options['fields']['field_voornaam_1']['exclude'] = TRUE;
-  /* Field: Field: Achternaam */
+  /* Field: Field: family name */
   $handler->display->display_options['fields']['field_achternaam_1']['id'] = 'field_achternaam_1';
   $handler->display->display_options['fields']['field_achternaam_1']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam_1']['field'] = 'field_achternaam';
@@ -1806,39 +1806,39 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['path'] = 'afbeeldingen-geevalueerd-all';
   $translatables['afbeeldingen_gevalideerd_wall'] = array(
     t('Master'),
-    t('Gevalideerde beelden'),
+    t('Validated images'),
     t('more'),
     t('Filter'),
-    t('Opnieuw instellen'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
     t('Gebruiker entity referenced from field_beeldexpert'),
     t('term from field_groep'),
     t('[url_1]/edit'),
     t('- Choose an operation -'),
-    t('Verwijder geselecteerde beelden'),
-    t('Beeld(en) toekennen aan validator / wachtrij'),
-    t('Beeld'),
+    t('Remove selected images'),
+    t('Image to validator / queue'),
+    t('Image'),
     t('<a href="[url_1]">[field_newimage]</a>'),
-    t('Datum insturen'),
-    t('Fotograaf'),
+    t('Date uploaded'),
+    t('Photographer'),
     t('<a href="/search/node/[field_achternaam] [field_voornaam]">[field_achternaam], [field_voornaam]</a>'),
-    t('Voornaam'),
+    t('First name'),
     t('Validator'),
     t('<a href="/search/node/[field_achternaam_1] [field_voornaam_1]">[field_achternaam_1], [field_voornaam_1]</a>'),
     t('Expert'),
-    t('Soort/taxon'),
-    t('Opmerking validator'),
+    t('Species/taxon'),
+    t('Comment validator'),
     t('Edit'),
     t('<a href="[url]/edit"><img src="/sites/all/files/icon/edit.png" class="gridicon" border="no" /></a>'),
     t('<img class="status" width="24px" src="/sites/all/modules/beelduitwisselaar/img/[field_status-value].png" title="[field_status]" />'),
@@ -1852,30 +1852,30 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'Afbeeldingen goedgekeurd';
+  $view->human_name = 'Images approved';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Goedgekeurde beelden';
+  $handler->display->display_options['title'] = 'Approved images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_datum' => 'field_datum',
@@ -1940,7 +1940,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-goedgekeurd">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-goedgekeurd"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-goedgekeurd">Grid</a>: <a href="/?q=grid-afbeeldingen-goedgekeurd"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -2013,7 +2013,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Field: Voornaam */
+  /* Field: Field: First name */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -2021,7 +2021,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Field: Field: Achternaam */
+  /* Field: Field: family name */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -2066,30 +2066,30 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['path'] = 'afbeeldingen-goedgekeurd';
   $translatables['afbeeldingen_goedgekeurd'] = array(
     t('Master'),
-    t('Goedgekeurde beelden'),
+    t('Approved images'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('<div class="gridright"><a href="/?q=grid-afbeeldingen-goedgekeurd">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-goedgekeurd"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
     t('- Choose an operation -'),
-    t('Beeld(en) publiceren'),
-    t('Verstuur mail'),
-    t('Beeld'),
-    t('Datum'),
-    t('Fotograaf'),
+    t('Image(s) publish'),
+    t('Send mail'),
+    t('Image'),
+    t('Date'),
+    t('Photographer'),
     t('[field_achternaam], [field_voornaam]'),
-    t('Soort/taxon'),
+    t('Species/taxon'),
     t('Expert'),
     t('Status'),
     t('Page'),
@@ -2101,30 +2101,30 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'Afbeeldingen goedgekeurd all';
+  $view->human_name = 'Images approved all';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Afbeeldingen goedgekeurd (alles)';
+  $handler->display->display_options['title'] = 'Images approved (all)';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_achternaam' => 'field_achternaam',
@@ -2273,24 +2273,24 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['path'] = 'afbeeldingen-goedgekeurd-all';
   $translatables['afbeeldingen_goedgekeurd_all'] = array(
     t('Master'),
-    t('Afbeeldingen goedgekeurd (alles)'),
+    t('Images approved (all)'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('Datum van opname'),
-    t('Locatie'),
-    t('Soort/taxon'),
-    t('Beeld'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Date of publication'),
+    t('Location'),
+    t('Species/taxon'),
+    t('Image'),
     t('- Choose an operation -'),
     t('Afronden'),
     t('Expert'),
@@ -2304,30 +2304,30 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'Afbeeldingen per auteur';
+  $view->human_name = 'Images per photographer';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Gevalideerde beelden';
+  $handler->display->display_options['title'] = 'Validated images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_achternaam' => 'field_achternaam',
@@ -2435,7 +2435,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
   $handler->display->display_options['arguments']['uid']['relationship'] = 'field_afbeeldingen_node';
   $handler->display->display_options['arguments']['uid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['uid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['uid']['exception']['title'] = 'All';
   $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'user';
   $handler->display->display_options['arguments']['uid']['default_argument_options']['user'] = FALSE;
   $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
@@ -2473,38 +2473,38 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['table'] = 'field_data_field_beeldexpert';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['field'] = 'field_beeldexpert_target_id';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_beeldexpert_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_beeldexpert_target_id']['exception']['title'] = 'All';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['default_argument_type'] = 'user';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['default_argument_options']['user'] = FALSE;
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['block_description'] = 'Gevalideerde beelden (userpage)';
+  $handler->display->display_options['block_description'] = 'Validated images (userpage)';
   $translatables['afbeeldingen_per_auteur'] = array(
     t('Master'),
-    t('Gevalideerde beelden'),
+    t('Validated images'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('field_afbeeldingen'),
     t('Beeld'),
-    t('Datum'),
-    t('Locatie'),
+    t('Date'),
+    t('Location'),
     t('Soort/taxon'),
     t('Alle'),
     t('Page'),
     t('Block'),
-    t('Gevalideerde beelden (userpage)'),
+    t('Validated images (userpage)'),
   );
   $export['afbeeldingen_per_auteur'] = $view;
 
@@ -2513,14 +2513,14 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'Afbeeldingen per expert';
+  $view->human_name = 'Images per expert';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Nieuwe beelden';
+  $handler->display->display_options['title'] = 'New images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -2530,17 +2530,17 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'url' => 'url',
@@ -2606,7 +2606,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'Er zijn momenteel geen beelden ter validatie beschikbaar.';
+  $handler->display->display_options['empty']['area']['content'] = 'There are no images ready for validation.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -2668,7 +2668,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['table'] = 'field_data_field_beeldexpert';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['field'] = 'field_beeldexpert_target_id';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_beeldexpert_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_beeldexpert_target_id']['exception']['title'] = 'All';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['default_argument_type'] = 'current_user';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['summary']['format'] = 'default_summary';
@@ -2759,7 +2759,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['table'] = 'field_data_field_beeldexpert';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['field'] = 'field_beeldexpert_target_id';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_beeldexpert_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_beeldexpert_target_id']['exception']['title'] = 'All';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['default_argument_type'] = 'user';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['default_argument_options']['user'] = FALSE;
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['summary']['number_of_records'] = '0';
@@ -2768,35 +2768,35 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['block_description'] = 'Nieuwe beeld per expert (userpage)';
   $translatables['afbeeldingen_per_expert'] = array(
     t('Master'),
-    t('Nieuwe beelden'),
+    t('New images'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('Er zijn momenteel geen beelden ter validatie beschikbaar.'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('There are no images ready for validation.'),
     t('field_afbeeldingen'),
     t('[url]/edit'),
     t('Beeld'),
     t('<a href="[url]">[field_newimage]</a>'),
-    t('Datum insturen'),
-    t('Datum opname'),
-    t('Locatie'),
-    t('Opmerking fotograaf'),
-    t('Alle'),
-    t('Filter resultaten: '),
+    t('Date uploaded'),
+    t('Date published'),
+    t('Location'),
+    t('Comment photographer'),
+    t('All'),
+    t('Filter results: '),
     t('Page'),
     t('Block'),
     t('Datum'),
-    t('Nieuwe beeld per expert (userpage)'),
+    t('New image per expert (userpage)'),
   );
   $export['afbeeldingen_per_expert'] = $view;
 
@@ -2805,16 +2805,16 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'Afbeeldingen per expert all';
+  $view->human_name = 'Images per expert all';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Beelden bij validator';
+  $handler->display->display_options['title'] = 'Images processed by validator';
   $handler->display->display_options['use_more_always'] = TRUE;
-  $handler->display->display_options['use_more_text'] = 'meer...';
+  $handler->display->display_options['use_more_text'] = 'more...';
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
@@ -2823,17 +2823,17 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filter';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'url' => 'url',
@@ -2920,7 +2920,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-expert-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-expert-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-expert-all">Grid</a>: <a href="/?q=grid-afbeeldingen-expert-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -3008,7 +3008,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Field: Voornaam */
+  /* Field: Field: First name */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -3016,7 +3016,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Field: Field: Achternaam */
+  /* Field: Field: family name */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -3028,13 +3028,13 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['settings'] = array(
     'trim_length' => '1',
   );
-  /* Field: Field: Voornaam */
+  /* Field: Field: First name */
   $handler->display->display_options['fields']['field_voornaam_1']['id'] = 'field_voornaam_1';
   $handler->display->display_options['fields']['field_voornaam_1']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam_1']['field'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam_1']['relationship'] = 'field_beeldexpert_target_id';
   $handler->display->display_options['fields']['field_voornaam_1']['exclude'] = TRUE;
-  /* Field: Field: Achternaam */
+  /* Field: Field: family name */
   $handler->display->display_options['fields']['field_achternaam_1']['id'] = 'field_achternaam_1';
   $handler->display->display_options['fields']['field_achternaam_1']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam_1']['field'] = 'field_achternaam';
@@ -3167,43 +3167,43 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['path'] = 'afbeeldingen-expert-all';
   $translatables['afbeeldingen_per_expert_all'] = array(
     t('Master'),
-    t('Beelden bij validator'),
-    t('meer...'),
+    t('Images processed by validator'),
+    t('more...'),
     t('Filter'),
-    t('Opnieuw instellen'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('<div class="gridright"><a href="/?q=grid-afbeeldingen-expert-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-expert-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
-    t('Gebruiker entity referenced from field_beeldexpert'),
+    t('User entity referenced from field_beeldexpert'),
     t('term from field_groep'),
     t('termgroep'),
     t('[url]/edit'),
     t('- Choose an operation -'),
-    t('Verwijder geselecteerde beelden'),
-    t('Beeld(en) toekennen aan validator / wachtrij'),
-    t('Beeld'),
+    t('Remove selected images'),
+    t('Image(s) to validator / queue'),
+    t('Image'),
     t('<a href="[url]">[field_newimage]</a>'),
-    t('Datum insturen'),
-    t('Fotograaf'),
+    t('Date uploaded'),
+    t('Photographer'),
     t('<a href="/search/node/[field_achternaam] [field_voornaam]">[field_achternaam], [field_voornaam]</a>'),
-    t('Voornaam'),
+    t('First name'),
     t('Validator'),
     t('<a href="/search/node/[field_achternaam_1] [field_voornaam_1]">[field_achternaam_1], [field_voornaam_1]</a>'),
-    t('Soortgroep'),
+    t('Species group'),
     t('<a href="/search/node/[field_groep]">[field_groep]</a>'),
-    t('Opmerking fotograaf'),
+    t('Comment photographer'),
     t('Expert'),
     t('beeldexpert (field_beeldexpert)'),
-    t('Filter resultaten:'),
+    t('Filter results:'),
     t('Combine fields filter'),
     t('Page'),
     t('more'),
@@ -3215,14 +3215,14 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'afbeeldingen per user';
+  $view->human_name = 'images per user';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Beelden in behandeling';
+  $handler->display->display_options['title'] = 'Images being processed';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -3234,17 +3234,17 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'item_id' => 'item_id',
@@ -3304,7 +3304,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'Op dit moment zijn er geen door u ingestuurde beelden in behandeling.';
+  $handler->display->display_options['empty']['area']['content'] = 'No images uploaded by you are being processed.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -3357,7 +3357,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['arguments']['field_fotograaf_target_id']['table'] = 'field_data_field_fotograaf';
   $handler->display->display_options['arguments']['field_fotograaf_target_id']['field'] = 'field_fotograaf_target_id';
   $handler->display->display_options['arguments']['field_fotograaf_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_fotograaf_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_fotograaf_target_id']['exception']['title'] = 'All';
   $handler->display->display_options['arguments']['field_fotograaf_target_id']['default_argument_type'] = 'current_user';
   $handler->display->display_options['arguments']['field_fotograaf_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_fotograaf_target_id']['summary']['format'] = 'default_summary';
@@ -3405,32 +3405,32 @@ function beeldfeature_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block_1');
   $translatables['afbeeldingen_per_user'] = array(
     t('Master'),
-    t('Beelden in behandeling'),
+    t('Images being processed'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('Op dit moment zijn er geen door u ingestuurde beelden in behandeling.'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('No images uploaded by you are being processed.'),
     t('field_afbeeldingen'),
     t('Field collection item ID'),
     t('.'),
-    t('Beeld'),
-    t('Datum insturen'),
-    t('Locatie'),
-    t('Opmerking fotograaf'),
+    t('Image'),
+    t('Date uploaded'),
+    t('Location'),
+    t('Comment photographer'),
     t('Status'),
     t('<img class="status" width="24px" src="/sites/all/modules/beelduitwisselaar/img/[field_status-value].png" title="[field_status]"/>'),
-    t('Alle'),
-    t('Filter resultaten: '),
+    t('All'),
+    t('Filter results: '),
     t('Page'),
     t('Block'),
   );
@@ -3448,23 +3448,23 @@ function beeldfeature_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Goedgekeurde afbeeldingen';
+  $handler->display->display_options['title'] = 'Approved images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_achternaam' => 'field_achternaam',
@@ -3575,7 +3575,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['arguments']['field_fotograaf_target_id']['table'] = 'field_data_field_fotograaf';
   $handler->display->display_options['arguments']['field_fotograaf_target_id']['field'] = 'field_fotograaf_target_id';
   $handler->display->display_options['arguments']['field_fotograaf_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_fotograaf_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_fotograaf_target_id']['exception']['title'] = 'All';
   $handler->display->display_options['arguments']['field_fotograaf_target_id']['default_argument_type'] = 'current_user';
   $handler->display->display_options['arguments']['field_fotograaf_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_fotograaf_target_id']['summary']['format'] = 'default_summary';
@@ -3595,25 +3595,25 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['path'] = 'afbeeldingen-user-compleet';
   $translatables['afbeeldingen_per_user_compleet_'] = array(
     t('Master'),
-    t('Goedgekeurde afbeeldingen'),
+    t('Approved images'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('Datum insturen'),
-    t('Locatie'),
-    t('Soort/taxon'),
-    t('Beeld'),
-    t('Alle'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Date uploaded'),
+    t('Location'),
+    t('Species/taxon'),
+    t('Image'),
+    t('All'),
     t('Page'),
   );
   $export['afbeeldingen_per_user_compleet_'] = $view;
@@ -3623,30 +3623,30 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'Afbeeldingen verwerkt all';
+  $view->human_name = 'Images processed all';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Afbeeldingen verwerkt (alles)';
+  $handler->display->display_options['title'] = 'Images processed (all)';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_achternaam' => 'field_achternaam',
@@ -3765,24 +3765,24 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['path'] = 'afbeeldingen-verwerkt-all';
   $translatables['afbeeldingen_verwerkt_all'] = array(
     t('Master'),
-    t('Afbeeldingen verwerkt (alles)'),
+    t('Images processed (all)'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('Datum van opname'),
-    t('Locatie'),
-    t('Soort/taxon'),
-    t('Beeld'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Date of publication'),
+    t('Location'),
+    t('Species/taxon'),
+    t('Image'),
     t('Expert'),
     t('Page'),
   );
@@ -3793,29 +3793,29 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'Afbeeldingen wacht all';
+  $view->human_name = 'Images queued all';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Afbeeldingen in de wacht (alles)';
+  $handler->display->display_options['title'] = 'Images queued (all)';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_achternaam' => 'field_achternaam',
@@ -3935,7 +3935,7 @@ function beeldfeature_views_default_views() {
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Toekennen aan expert (selectie in volgende scherm)',
+      'label' => 'Image to expert (selection in next screen)',
       'settings' => array(
         'show_all_tokens' => 1,
         'display_values' => array(
@@ -3956,7 +3956,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_beeldevaluatie']['id'] = 'field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['table'] = 'field_data_field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['field'] = 'field_beeldevaluatie';
-  $handler->display->display_options['fields']['field_beeldevaluatie']['label'] = 'Evaluatie';
+  $handler->display->display_options['fields']['field_beeldevaluatie']['label'] = 'Evaluate';
   /* Filter criterion: Field collection item: status (field_status) */
   $handler->display->display_options['filters']['field_status_value']['id'] = 'field_status_value';
   $handler->display->display_options['filters']['field_status_value']['table'] = 'field_data_field_status';
@@ -3971,29 +3971,29 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['path'] = 'afbeeldingen-wacht-all';
   $translatables['afbeeldingen_wacht_all'] = array(
     t('Master'),
-    t('Afbeeldingen in de wacht (alles)'),
+    t('Images queued (all)'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('Datum van opname'),
-    t('Locatie'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Date uploaded'),
+    t('Location'),
     t('Soort/taxon'),
-    t('Beeld'),
+    t('Image'),
     t('- Choose an operation -'),
-    t('Verwijder geselecteerde beelden'),
-    t('Toekennen aan expert (selectie in volgende scherm)'),
+    t('Remove selected images'),
+    t('To expert (selection in next screen)'),
     t('Expert'),
-    t('Evaluatie'),
+    t('Evaluate'),
     t('Page'),
   );
   $export['afbeeldingen_wacht_all'] = $view;
@@ -4003,14 +4003,14 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'Afbeeldingen wachtrij';
+  $view->human_name = 'Images queue';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Beelden in wachtrij';
+  $handler->display->display_options['title'] = 'Images in queue';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -4020,17 +4020,17 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filter';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'url' => 'url',
@@ -4123,7 +4123,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-wachtrij">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-wachtrij"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-wachtrij">Grid</a>: <a href="/?q=grid-afbeeldingen-wachtrij"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -4165,13 +4165,13 @@ function beeldfeature_views_default_views() {
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 1,
-      'label' => 'Verwijder geselecteerde beelden',
+      'label' => 'Remove selected images',
     ),
     'action::views_bulk_operations_argument_selector_action' => array(
       'selected' => 1,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Beeld(en) toekennen aan validator',
+      'label' => 'Image(s) to validator',
       'settings' => array(
         'url' => 'beelduitwisselaar/selectexpertise',
       ),
@@ -4200,7 +4200,7 @@ function beeldfeature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Field: Voornaam */
+  /* Field: Field: First name */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -4208,7 +4208,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Field: Field: Achternaam */
+  /* Field: Field: family name */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -4220,15 +4220,15 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = 'Fotograaf';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Photographer';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="/search/node/[field_achternaam] [field_voornaam]">[field_achternaam], [field_voornaam]</a>';
-  /* Field: Field: Voornaam */
+  /* Field: Field: First name */
   $handler->display->display_options['fields']['field_voornaam_1']['id'] = 'field_voornaam_1';
   $handler->display->display_options['fields']['field_voornaam_1']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam_1']['field'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam_1']['relationship'] = 'field_beeldexpert_target_id';
   $handler->display->display_options['fields']['field_voornaam_1']['exclude'] = TRUE;
-  /* Field: Field: Achternaam */
+  /* Field: Field: family name */
   $handler->display->display_options['fields']['field_achternaam_1']['id'] = 'field_achternaam_1';
   $handler->display->display_options['fields']['field_achternaam_1']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam_1']['field'] = 'field_achternaam';
@@ -4281,7 +4281,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['filters']['combine']['operator'] = 'contains';
   $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
   $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
-  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter resultaten:';
+  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter results:';
   $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
   $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
   $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
@@ -4310,37 +4310,37 @@ function beeldfeature_views_default_views() {
     t('Beelden in wachtrij'),
     t('more'),
     t('Filter'),
-    t('Opnieuw instellen'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('<div class="gridright"><a href="/?q=grid-afbeeldingen-wachtrij">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-wachtrij"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
     t('Gebruiker entity referenced from field_beeldexpert'),
     t('term from field_groep'),
     t('[url]/edit'),
     t('- Choose an operation -'),
-    t('Verwijder geselecteerde beelden'),
-    t('Beeld(en) toekennen aan validator'),
-    t('Beeld'),
+    t('Remove selected images'),
+    t('Images to validator'),
+    t('Image'),
     t('<a href="[url]">[field_newimage_1]</a>'),
-    t('Datum insturen'),
-    t('Fotograaf'),
+    t('Date uploaded'),
+    t('Photographer'),
     t('<a href="/search/node/[field_achternaam] [field_voornaam]">[field_achternaam], [field_voornaam]</a>'),
-    t('Voornaam'),
+    t('First name'),
     t('Validator'),
     t('<a href="/search/node/[field_achternaam_1] [field_voornaam_1]">[field_achternaam_1], [field_voornaam_1]</a>'),
-    t('Soortgroep'),
+    t('Species'),
     t('<a href="/search/node/[field_groep]">[field_groep]</a>'),
-    t('Opmerking validator'),
-    t('Filter resultaten:'),
+    t('Comment validator'),
+    t('Filter results:'),
     t('Page'),
   );
   $export['afbeeldingen_wachtrij'] = $view;
@@ -4357,20 +4357,20 @@ function beeldfeature_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Details beeld';
+  $handler->display->display_options['title'] = 'Image details';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
@@ -4478,36 +4478,36 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['path'] = 'beelddetail/%';
   $translatables['beelddetail'] = array(
     t('Master'),
-    t('Details beeld'),
+    t('Image details'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('field_afbeeldingen'),
     t('Field collection item ID'),
     t('.'),
-    t('Datum insturen'),
-    t('Datum van opname'),
-    t('Fotograaf'),
+    t('Date uploaded'),
+    t('Date published'),
+    t('Photographer'),
     t('<a href="/licentie">[field_license]</a>'),
-    t('Locatie'),
-    t('Land'),
-    t('Opmerkingen fotograaf'),
-    t('Opmerking validator'),
-    t('Nederlands soortenregister'),
-    t('http://www.nederlandsesoorten.nl/nsr/concept/[field_nlsr-value]'),
+    t('Location'),
+    t('Country'),
+    t('Comment photographer'),
+    t('Comment validator'),
+    t('Dutch Caribbean Species register'),
+    t('http://www.dutchcarribeanspecies.org/nsr/concept/[field_nlsr-value]'),
     t('Soort/taxon'),
     t('<a href="[field_nlsr]" target="_blank" >[field_soort_taxon]</a>'),
-    t('<i>Nog niet op naam gebracht</i>'),
+    t('<i>No name yet</i>'),
     t('Alle'),
     t('Page'),
   );
@@ -4518,30 +4518,30 @@ function beeldfeature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'grid-Afbeeldingen goedgekeurd';
+  $view->human_name = 'grid-Images approved';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Goedgekeurde beelden';
+  $handler->display->display_options['title'] = 'Approved images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '70';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -4549,7 +4549,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-goedgekeurd">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-goedgekeurd"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-goedgekeurd">Table</a>: <a href="/?q=afbeeldingen-goedgekeurd"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -4641,23 +4641,23 @@ function beeldfeature_views_default_views() {
     t('Master'),
     t('Goedgekeurde beelden'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('<div class="gridright"><a href="/?q=afbeeldingen-goedgekeurd">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-goedgekeurd"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('<div class="gridright"><a href="/?q=afbeeldingen-goedgekeurd">Table</a>: <a href="/?q=afbeeldingen-goedgekeurd"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
     t('- Choose an operation -'),
-    t('Verstuur mail'),
-    t('Verander expert / Plaats in wachtrij'),
+    t('Send mail'),
+    t('Change expert / Add to queue'),
     t('Page'),
   );
   $export['clone_of_grid_afbeeldingen_goedgekeurd'] = $view;
@@ -4674,24 +4674,24 @@ function beeldfeature_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Lijst fotografen';
+  $handler->display->display_options['title'] = 'List of photographers';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access user profiles';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '90';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'name' => 'name',
@@ -4710,7 +4710,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_user';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
-  $handler->display->display_options['fields']['views_bulk_operations']['label'] = 'E-mailadres';
+  $handler->display->display_options['fields']['views_bulk_operations']['label'] = 'E-mail';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '0';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
@@ -4724,14 +4724,14 @@ function beeldfeature_views_default_views() {
       'label' => '',
     ),
   );
-  /* Field: Field: Voornaam */
+  /* Field: Field: First name */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Field: Field: Achternaam */
+  /* Field: Field: family name */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -4742,7 +4742,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = 'Fotograaf';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Photographer';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_achternaam], [field_voornaam]';
   /* Field: User: E-mail */
   $handler->display->display_options['fields']['mail']['id'] = 'mail';
@@ -4753,11 +4753,11 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['view_user']['table'] = 'users';
   $handler->display->display_options['fields']['view_user']['field'] = 'view_user';
   $handler->display->display_options['fields']['view_user']['label'] = 'Details';
-  /* Sort criterion: Field: Achternaam (field_achternaam) */
+  /* Sort criterion: Field: family name (field_achternaam) */
   $handler->display->display_options['sorts']['field_achternaam_value']['id'] = 'field_achternaam_value';
   $handler->display->display_options['sorts']['field_achternaam_value']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['sorts']['field_achternaam_value']['field'] = 'field_achternaam_value';
-  /* Sort criterion: Field: Voornaam (field_voornaam) */
+  /* Sort criterion: Field: First name (field_voornaam) */
   $handler->display->display_options['sorts']['field_voornaam_value']['id'] = 'field_voornaam_value';
   $handler->display->display_options['sorts']['field_voornaam_value']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['sorts']['field_voornaam_value']['field'] = 'field_voornaam_value';
@@ -4802,23 +4802,23 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['path'] = 'email-fotograaf';
   $translatables['email_fotograaf'] = array(
     t('Master'),
-    t('Lijst fotografen'),
+    t('List photographers'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('E-mailadres'),
     t('- Choose an operation -'),
-    t('Fotograaf'),
+    t('Photographer'),
     t('[field_achternaam], [field_voornaam]'),
     t('E-mail'),
     t('Details'),
@@ -4838,24 +4838,24 @@ function beeldfeature_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'User lijst';
+  $handler->display->display_options['title'] = 'User list';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access user profiles';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '90';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'views_bulk_operations' => 'views_bulk_operations',
@@ -4932,14 +4932,14 @@ function beeldfeature_views_default_views() {
       ),
     ),
   );
-  /* Field: Field: Voornaam */
+  /* Field: Field: First name */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['label'] = '';
   $handler->display->display_options['fields']['field_voornaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_voornaam']['element_label_colon'] = FALSE;
-  /* Field: Field: Achternaam */
+  /* Field: Field: family name */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
@@ -4989,7 +4989,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = 'Beelden in behandeling';
+  $handler->display->display_options['fields']['php']['label'] = 'Images being processed';
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_output'] = '<?php
 $sql = "select count(*) as aantal from field_data_field_status s, field_data_field_beeldexpert e where s.entity_id = e.entity_id and s.field_status_value = 1 and e.field_beeldexpert_target_id = " . $row->uid;
@@ -4998,11 +4998,11 @@ echo db_query( $sql )->fetchField();
  ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '4';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
-  /* Sort criterion: Field: Achternaam (field_achternaam) */
+  /* Sort criterion: Field: family name (field_achternaam) */
   $handler->display->display_options['sorts']['field_achternaam_value']['id'] = 'field_achternaam_value';
   $handler->display->display_options['sorts']['field_achternaam_value']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['sorts']['field_achternaam_value']['field'] = 'field_achternaam_value';
-  /* Sort criterion: Field: Voornaam (field_voornaam) */
+  /* Sort criterion: Field: First name (field_voornaam) */
   $handler->display->display_options['sorts']['field_voornaam_value']['id'] = 'field_voornaam_value';
   $handler->display->display_options['sorts']['field_voornaam_value']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['sorts']['field_voornaam_value']['field'] = 'field_voornaam_value';
@@ -5029,24 +5029,24 @@ echo db_query( $sql )->fetchField();
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Lijst validatoren';
+  $handler->display->display_options['title'] = 'List validators';
   $handler->display->display_options['path'] = 'email-expert';
   $translatables['expert_lijst'] = array(
     t('Master'),
     t('User lijst'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('E-mail'),
     t('- Choose an operation -'),
     t('Verstuur email'),
@@ -5055,10 +5055,10 @@ echo db_query( $sql )->fetchField();
     t('Validator'),
     t('<a href="/user/[uid]">[field_achternaam], [field_voornaam]</a>'),
     t('<a href="/beelduitwisselaar/sendmail/[uid]/3">[mail]</a>'),
-    t('Specialisatie'),
-    t('Beelden in behandeling'),
+    t('Specialisation'),
+    t('Images being processed'),
     t('Page'),
-    t('Lijst validatoren'),
+    t('List validators'),
   );
   $export['expert_lijst'] = $view;
 
@@ -5079,13 +5079,13 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: User: Name */
@@ -5132,18 +5132,18 @@ echo db_query( $sql )->fetchField();
   $translatables['expert_selectie'] = array(
     t('Master'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('Entity Reference'),
   );
   $export['expert_selectie'] = $view;
@@ -5165,8 +5165,8 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '100';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -5175,9 +5175,9 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['php']['id'] = 'php';
   $handler->display->display_options['header']['php']['table'] = 'views';
   $handler->display->display_options['header']['php']['field'] = 'php';
-  $handler->display->display_options['header']['php']['php_output'] = '<h2>Wachtrij</h2>
-<a href="<?php echo ("/beelduitwisselaar/wachtrij?nids=" . arg(2) ); ?>">Plaats beeld in de wachtrij</a><br /><br />
-<h2>Soortgroepen</h2>
+  $handler->display->display_options['header']['php']['php_output'] = '<h2>Queue</h2>
+<a href="<?php echo ("/beelduitwisselaar/wachtrij?nids=" . arg(2) ); ?>">Add image to queue</a><br /><br />
+<h2>Species</h2>
 
 ';
   /* Field: Taxonomy term: Term ID */
@@ -5226,8 +5226,8 @@ echo db_query( $sql )->fetchField();
   $translatables['expertises'] = array(
     t('Master'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -5255,23 +5255,23 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Field: Achternaam */
+  /* Field: Field: family name */
   $handler->display->display_options['fields']['field_achternaam']['id'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['label'] = '';
   $handler->display->display_options['fields']['field_achternaam']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['element_label_colon'] = FALSE;
-  /* Field: Field: Voornaam */
+  /* Field: Field: First name */
   $handler->display->display_options['fields']['field_voornaam']['id'] = 'field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['table'] = 'field_data_field_voornaam';
   $handler->display->display_options['fields']['field_voornaam']['field'] = 'field_voornaam';
@@ -5295,7 +5295,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
-  /* Sort criterion: Field: Achternaam (field_achternaam) */
+  /* Sort criterion: Field: family name (field_achternaam) */
   $handler->display->display_options['sorts']['field_achternaam_value']['id'] = 'field_achternaam_value';
   $handler->display->display_options['sorts']['field_achternaam_value']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['sorts']['field_achternaam_value']['field'] = 'field_achternaam_value';
@@ -5304,7 +5304,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['sorts']['field_specialisatie_tid']['table'] = 'field_data_field_specialisatie';
   $handler->display->display_options['sorts']['field_specialisatie_tid']['field'] = 'field_specialisatie_tid';
   $handler->display->display_options['sorts']['field_specialisatie_tid']['exposed'] = TRUE;
-  $handler->display->display_options['sorts']['field_specialisatie_tid']['expose']['label'] = 'Specialisatie (field_specialisatie)';
+  $handler->display->display_options['sorts']['field_specialisatie_tid']['expose']['label'] = 'Specialisation (field_specialisatie)';
   /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
@@ -5337,20 +5337,20 @@ echo db_query( $sql )->fetchField();
   $translatables['expertusers'] = array(
     t('Master'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('[field_achternaam], [field_voornaam]'),
-    t('Specialisatie (field_specialisatie)'),
+    t('Specialisation (field_specialisatie)'),
     t('Entity Reference'),
   );
   $export['expertusers'] = $view;
@@ -5367,23 +5367,23 @@ echo db_query( $sql )->fetchField();
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Nieuwe beelden';
+  $handler->display->display_options['title'] = 'New images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '70';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -5391,7 +5391,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen">Tabeloverzicht</a>: <a href="/?q=afbeeldingen"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen">Table</a>: <a href="/?q=afbeeldingen"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -5438,7 +5438,7 @@ echo db_query( $sql )->fetchField();
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Toekennen aan expert (selectie in volgende scherm)',
+      'label' => 'Toekennen aan expert (selectie in next scherm)',
       'settings' => array(
         'show_all_tokens' => 0,
         'display_values' => array(
@@ -5466,26 +5466,26 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['path'] = 'grid-afbeeldingen';
   $translatables['grid_afbeeldingen'] = array(
     t('Master'),
-    t('Nieuwe beelden'),
+    t('New Images'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('<div class="gridright"><a href="/?q=afbeeldingen">Tabeloverzicht</a>: <a href="/?q=afbeeldingen"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
     t('- Choose an operation -'),
-    t('Stuur email'),
-    t('Verwijder geselecteerde beelden'),
-    t('Toekennen aan expert (selectie in volgende scherm)'),
+    t('Send email'),
+    t('Remove selected images'),
+    t('Add to expert (selection in next screen)'),
     t('Page'),
   );
   $export['grid_afbeeldingen'] = $view;
@@ -5495,30 +5495,30 @@ echo db_query( $sql )->fetchField();
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'grid-Afbeeldingen afgekeurd';
+  $view->human_name = 'grid-Images denied';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Afgekeurde beelden';
+  $handler->display->display_options['title'] = 'Denied images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '70';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -5526,7 +5526,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-afgekeurd">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-afgekeurd"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-afgekeurd">Table</a>: <a href="/?q=afbeeldingen-afgekeurd"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -5618,23 +5618,23 @@ echo db_query( $sql )->fetchField();
     t('Master'),
     t('Afgekeurde beelden'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('<div class="gridright"><a href="/?q=afbeeldingen-afgekeurd">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-afgekeurd"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
     t('- Choose an operation -'),
-    t('Verstuur mail'),
-    t('Verander expert / Plaats in wachtrij'),
+    t('Send mail'),
+    t('Change expert / Add to queue'),
     t('Page'),
   );
   $export['grid_afbeeldingen_afgekeurd'] = $view;
@@ -5644,29 +5644,29 @@ echo db_query( $sql )->fetchField();
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'grid-Afbeeldingen geevalueerd all';
+  $view->human_name = 'grid-Images processed all';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Gevalideerde beelden';
+  $handler->display->display_options['title'] = 'Validated images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '70';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
@@ -5681,7 +5681,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-geevalueerd-all">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-geevalueerd-all">Table</a>: <a href="/?q=afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -5727,7 +5727,7 @@ echo db_query( $sql )->fetchField();
       'selected' => 1,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Beeld(en) toekennen aan validator / wachtrij',
+      'label' => 'Image(s) to validator / queue',
       'settings' => array(
         'url' => 'beelduitwisselaar/selectexpertise',
       ),
@@ -5755,26 +5755,26 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['path'] = 'grid-afbeeldingen-geevalueerd-all';
   $translatables['grid_afbeeldingen_geevalueerd_all'] = array(
     t('Master'),
-    t('Gevalideerde beelden'),
+    t('Validated images'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('<div class="gridright"><a href="/?q=afbeeldingen-geevalueerd-all">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
     t('[url]/edit'),
     t('<a href="[url]">[field_newimage_1]</a>'),
     t('- Choose an operation -'),
-    t('Beeld(en) toekennen aan validator / wachtrij'),
+    t('Image(s) to validator / queue'),
     t('Page'),
   );
   $export['grid_afbeeldingen_geevalueerd_all'] = $view;
@@ -5784,30 +5784,30 @@ echo db_query( $sql )->fetchField();
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'grid-Afbeeldingen per expert';
+  $view->human_name = 'grid-Images per expert';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Nieuwe beelden';
+  $handler->display->display_options['title'] = 'New images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '70';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -5815,7 +5815,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright" style="margin-top:-20px;"><a href="/?q=afbeeldingen-expert">Tabel overzicht</a>: <a href="/?q=afbeeldingen-expert"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright" style="margin-top:-20px;"><a href="/?q=afbeeldingen-expert">Table</a>: <a href="/?q=afbeeldingen-expert"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -5866,7 +5866,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['table'] = 'field_data_field_beeldexpert';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['field'] = 'field_beeldexpert_target_id';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_beeldexpert_target_id']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_beeldexpert_target_id']['exception']['title'] = 'All';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['default_argument_type'] = 'current_user';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['summary']['format'] = 'default_summary';
@@ -5885,20 +5885,20 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['path'] = 'grid-afbeeldingen-expert';
   $translatables['grid_afbeeldingen_per_expert'] = array(
     t('Master'),
-    t('Nieuwe beelden'),
+    t('New Images'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('<div class="gridright" style="margin-top:-20px;"><a href="/?q=afbeeldingen-expert">Tabel overzicht</a>: <a href="/?q=afbeeldingen-expert"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
     t('<a href="[url]/edit"><img src="/sites/all/files/icon/edit.png" class="gridicon" border="no" /></a>'),
@@ -5919,23 +5919,23 @@ echo db_query( $sql )->fetchField();
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Beelden per expert';
+  $handler->display->display_options['title'] = 'Images per expert';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '70';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -5943,7 +5943,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-expert-all">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-expert-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-expert-all">Table</a>: <a href="/?q=afbeeldingen-expert-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
@@ -5972,14 +5972,14 @@ echo db_query( $sql )->fetchField();
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 1,
-      'label' => 'Verwijder geselecteerde beelden',
+      'label' => 'Remove selected images',
     ),
     'action::views_bulk_operations_modify_action' => array(
       'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Toekennen aan andere expert (selectie in volgende scherm)',
+      'label' => 'Image to expert (selection in next screen)',
       'settings' => array(
         'show_all_tokens' => 1,
         'display_values' => array(
@@ -6004,22 +6004,22 @@ echo db_query( $sql )->fetchField();
     t('Master'),
     t('Beelden per expert'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('<div class="gridright"><a href="/?q=afbeeldingen-expert-all">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-expert-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
     t('- Choose an operation -'),
     t('Verwijder geselecteerde beelden'),
-    t('Toekennen aan andere expert (selectie in volgende scherm)'),
+    t('Toekennen aan andere expert (selectie in next scherm)'),
     t('Page'),
   );
   $export['grid_afbeeldingen_per_expert_all'] = $view;
@@ -6029,30 +6029,30 @@ echo db_query( $sql )->fetchField();
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'grid-Afbeeldingen verwerkt all';
+  $view->human_name = 'grid-Images processed all';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Gepubliceerde beelden';
+  $handler->display->display_options['title'] = 'Published images';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '70';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -6060,7 +6060,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright" style="margin-top: -20px;"><a href="/?q=afbeeldingen-verwerkt-all">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-verwerkt-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright" style="margin-top: -20px;"><a href="/?q=afbeeldingen-verwerkt-all">Table</a>: <a href="/?q=afbeeldingen-verwerkt-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -6113,18 +6113,18 @@ echo db_query( $sql )->fetchField();
     t('Master'),
     t('Gepubliceerde beelden'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('<div class="gridright" style="margin-top: -20px;"><a href="/?q=afbeeldingen-verwerkt-all">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-verwerkt-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
     t('Page'),
@@ -6136,29 +6136,29 @@ echo db_query( $sql )->fetchField();
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'grid-Afbeeldingen wachtrij';
+  $view->human_name = 'grid-Images queued';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Beelden in wachtrij';
+  $handler->display->display_options['title'] = 'Images in queue';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '70';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '7';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -6166,7 +6166,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-wachtrij">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-wachtrij"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-wachtrij">Table</a>: <a href="/?q=afbeeldingen-wachtrij"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -6241,18 +6241,18 @@ echo db_query( $sql )->fetchField();
     t('Master'),
     t('Beelden in wachtrij'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('<div class="gridright"><a href="/?q=afbeeldingen-wachtrij">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-wachtrij"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
     t('field_afbeeldingen'),
     t('[url]/edit'),
@@ -6268,27 +6268,27 @@ echo db_query( $sql )->fetchField();
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'field_collection_item';
-  $view->human_name = 'lijst';
+  $view->human_name = 'list';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'lijst';
+  $handler->display->display_options['title'] = 'list';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'item_id' => 'item_id',
@@ -6349,18 +6349,18 @@ echo db_query( $sql )->fetchField();
     t('Master'),
     t('lijst'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('Field collection item ID'),
     t('.'),
     t(','),
@@ -6382,7 +6382,7 @@ echo db_query( $sql )->fetchField();
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Mailsjablonen';
+  $handler->display->display_options['title'] = 'Mail templates';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -6391,8 +6391,8 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -6401,12 +6401,13 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
-  $handler->display->display_options['header']['area_text_custom']['content'] = 'Bewerk de beschikbare mailsjablonen. Je kunt gebruik maken van de volgende automatische door het systeem toegekende waarden (afhankelijk van de context van de mail):
-<ul><li>%%beeldnaam%% - Soortnaam van de betreffende beeld</li>
-<li>%%bestandsnamen%% - bestandsnamen van de betreffende beelden</li>
-<li>%%expertnaam%% - naam van betreffende validator</li>
-<li>%%expert_link%% - link naar overzicht nieuwe beelden voor validator (validator dient hiervoor ingelogd te zijn)</li>
-<li>%%nsr_link%% - link naar betreffend taxon op het Nederlands Soortenregister</li></ul><br />';
+  $handler->display->display_options['header']['area_text_custom']['content'] = 'Edit the mail templates. 
+You can use the next fields that will be filled by the system automatically:
+<ul><li>%%beeldnaam%% - Naam of the image</li>
+<li>%%bestandsnamen%% - filenames of the images</li>
+<li>%%expertnaam%% - name of the validator</li>
+<li>%%expert_link%% - link to the overview of new images for the validator (the validator needs to login)</li>
+<li>%%nsr_link%% - link to the species register</li></ul><br />';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -6452,17 +6453,18 @@ echo db_query( $sql )->fetchField();
     t('Master'),
     t('Mailsjablonen'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Bewerk de beschikbare mailsjablonen. Je kunt gebruik maken van de volgende automatische door het systeem toegekende waarden (afhankelijk van de context van de mail):
-<ul><li>%%beeldnaam%% - Soortnaam van de betreffende beeld</li>
-<li>%%bestandsnamen%% - bestandsnamen van de betreffende beelden</li>
-<li>%%expertnaam%% - naam van betreffende validator</li>
-<li>%%expert_link%% - link naar overzicht nieuwe beelden voor validator (validator dient hiervoor ingelogd te zijn)</li>
-<li>%%nsr_link%% - link naar betreffend taxon op het Nederlands Soortenregister</li></ul><br />'),
+    t('Edit the mail templates. 
+You can use the next fields that will be filled by the system automatically:
+<ul><li>%%beeldnaam%% - Naam of the image</li>
+<li>%%bestandsnamen%% - filenames of the images</li>
+<li>%%expertnaam%% - name of the validator</li>
+<li>%%expert_link%% - link to the overview of new images for the validator (the validator needs to login)</li>
+<li>%%nsr_link%% - link to the species register</li></ul><br />'),
     t('[title]'),
     t('Page'),
   );
@@ -6473,30 +6475,30 @@ echo db_query( $sql )->fetchField();
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'watchdog';
-  $view->human_name = 'Mails';
+  $view->human_name = 'Sent mails';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Verstuurde mails';
+  $handler->display->display_options['title'] = 'Sent mails';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'wid' => 'wid',
@@ -6531,7 +6533,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'NB. Getoond tijdstip is de tijd van de webserver. Deze kan afwijken van de daadwerkelijke tijd van versturen.';
+  $handler->display->display_options['header']['area']['content'] = 'Time is time of the webserver. This may differ from localtime.';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
   /* Field: Watchdog: Timestamp */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
@@ -6565,19 +6567,19 @@ echo db_query( $sql )->fetchField();
     t('Master'),
     t('Verstuurde mails'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('NB. Getoond tijdstip is de tijd van de webserver. Deze kan afwijken van de daadwerkelijke tijd van versturen.'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Time is time of the webserver. This may differ from localtime.'),
     t('Timestamp'),
     t('Message'),
     t('Page'),
@@ -6739,14 +6741,14 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_newimage_file_name' => 'field_newimage_file_name',
@@ -6849,13 +6851,13 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['result']['id'] = 'result';
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
-  $handler->display->display_options['header']['result']['content'] = 'Resultaten: @start - @end van @total<br />&nbsp;<br />';
+  $handler->display->display_options['header']['result']['content'] = 'Results: @start - @end of @total<br />&nbsp;<br />';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'Geen beelden gevonden.';
+  $handler->display->display_options['empty']['area']['content'] = 'No images found.';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
   /* Field: Bulk operations: Field collection item */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
@@ -6875,7 +6877,7 @@ echo db_query( $sql )->fetchField();
       'skip_confirmation' => 1,
       'skip_permission_check' => 0,
       'override_label' => 1,
-      'label' => 'Verwijder geselecteerde beelden',
+      'label' => 'Remove selected images',
       'settings' => array(
         'log' => 0,
       ),
@@ -6924,16 +6926,16 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['field_fotograaf']['display'] = 'id';
   $handler->display->display_options['fields']['field_fotograaf']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_fotograaf']['bypass_access'] = 0;
-  /* Field: Fotograaf: Voornaam (indexed) */
+  /* Field: Fotograaf: First name (indexed) */
   $handler->display->display_options['fields']['field_fotograaf_field_voornaam']['id'] = 'field_fotograaf_field_voornaam';
   $handler->display->display_options['fields']['field_fotograaf_field_voornaam']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_fotograaf_field_voornaam']['field'] = 'field_fotograaf_field_voornaam';
   $handler->display->display_options['fields']['field_fotograaf_field_voornaam']['exclude'] = TRUE;
-  /* Field: Fotograaf: Achternaam (indexed) */
+  /* Field: Fotograaf: family name (indexed) */
   $handler->display->display_options['fields']['field_fotograaf_field_achternaam']['id'] = 'field_fotograaf_field_achternaam';
   $handler->display->display_options['fields']['field_fotograaf_field_achternaam']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_fotograaf_field_achternaam']['field'] = 'field_fotograaf_field_achternaam';
-  $handler->display->display_options['fields']['field_fotograaf_field_achternaam']['label'] = 'Fotograaf';
+  $handler->display->display_options['fields']['field_fotograaf_field_achternaam']['label'] = 'Photographer';
   $handler->display->display_options['fields']['field_fotograaf_field_achternaam']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_fotograaf_field_achternaam']['alter']['text'] = '<a href="/search/node/[field_fotograaf_field_achternaam] [field_fotograaf_field_voornaam]">[field_fotograaf_field_achternaam], [field_fotograaf_field_voornaam]</a>';
   /* Field: Validator: User ID (indexed) */
@@ -6943,12 +6945,12 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['field_beeldexpert_uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_beeldexpert_uid']['separator'] = '';
   $handler->display->display_options['fields']['field_beeldexpert_uid']['link_to_entity'] = 0;
-  /* Field: Validator: Voornaam (indexed) */
+  /* Field: Validator: First name (indexed) */
   $handler->display->display_options['fields']['field_beeldexpert_field_voornaam']['id'] = 'field_beeldexpert_field_voornaam';
   $handler->display->display_options['fields']['field_beeldexpert_field_voornaam']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_beeldexpert_field_voornaam']['field'] = 'field_beeldexpert_field_voornaam';
   $handler->display->display_options['fields']['field_beeldexpert_field_voornaam']['exclude'] = TRUE;
-  /* Field: Validator: Achternaam (indexed) */
+  /* Field: Validator: family name (indexed) */
   $handler->display->display_options['fields']['field_beeldexpert_field_achternaam']['id'] = 'field_beeldexpert_field_achternaam';
   $handler->display->display_options['fields']['field_beeldexpert_field_achternaam']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_beeldexpert_field_achternaam']['field'] = 'field_beeldexpert_field_achternaam';
@@ -6985,7 +6987,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['arguments']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['arguments']['search_api_views_fulltext']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['arguments']['search_api_views_fulltext']['field'] = 'search_api_views_fulltext';
-  $handler->display->display_options['arguments']['search_api_views_fulltext']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['search_api_views_fulltext']['exception']['title'] = 'All';
   $handler->display->display_options['arguments']['search_api_views_fulltext']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['search_api_views_fulltext']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['search_api_views_fulltext']['specify_validation'] = TRUE;
@@ -7028,30 +7030,30 @@ echo db_query( $sql )->fetchField();
     t('Master'),
     t('Search results'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('Resultaten: @start - @end van @total<br />&nbsp;<br />'),
-    t('Geen beelden gevonden.'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Results: @start - @end of @total<br />&nbsp;<br />'),
+    t('No images found.'),
     t('- Choose an operation -'),
-    t('Verwijder geselecteerde beelden'),
+    t('Remove selected images'),
     t('File name (indexed)'),
     t('Field collection item ID'),
     t('.'),
     t('Beeld'),
     t('<a href="/field-collection/field-afbeeldingen/[item_id]/edit"><img width="100px" src="/sites/default/files/[field_newimage_file_name]" style="max-width:100px;max-height:100px;" /></a>'),
-    t('Datum insturen'),
-    t('Fotograaf'),
-    t('Voornaam (indexed)'),
+    t('Date uploaded'),
+    t('Photographer'),
+    t('First name (indexed)'),
     t('<a href="/search/node/[field_fotograaf_field_achternaam] [field_fotograaf_field_voornaam]">[field_fotograaf_field_achternaam], [field_fotograaf_field_voornaam]</a>'),
     t('User ID (indexed)'),
     t('Validator'),
@@ -7061,7 +7063,7 @@ echo db_query( $sql )->fetchField();
     t('<a href="/search/node/[field_groep]">[field_groep]</a>'),
     t('Status'),
     t('<img class="status" width="24px" src="/sites/all/modules/beelduitwisselaar/img/[field_status-value].png" title="[field_status]"/>'),
-    t('Alle'),
+    t('All'),
     t('Page'),
   );
   $export['search_results'] = $view;
@@ -7084,32 +7086,32 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« first';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'next ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'last »';
   $handler->display->display_options['style_plugin'] = 'table';
   /* Field: Indexed Node: Node ID */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_localindex';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  /* Field: Afbeeldingen » Fotograaf: Achternaam (indexed) */
+  /* Field: Afbeeldingen » Fotograaf: family name (indexed) */
   $handler->display->display_options['fields']['field_afbeeldingen_field_fotograaf_field_achternaam']['id'] = 'field_afbeeldingen_field_fotograaf_field_achternaam';
   $handler->display->display_options['fields']['field_afbeeldingen_field_fotograaf_field_achternaam']['table'] = 'search_api_index_localindex';
   $handler->display->display_options['fields']['field_afbeeldingen_field_fotograaf_field_achternaam']['field'] = 'field_afbeeldingen_field_fotograaf_field_achternaam';
-  /* Field: Afbeeldingen » Fotograaf: Voornaam (indexed) */
+  /* Field: Afbeeldingen » Fotograaf: First name (indexed) */
   $handler->display->display_options['fields']['field_afbeeldingen_field_fotograaf_field_voornaam']['id'] = 'field_afbeeldingen_field_fotograaf_field_voornaam';
   $handler->display->display_options['fields']['field_afbeeldingen_field_fotograaf_field_voornaam']['table'] = 'search_api_index_localindex';
   $handler->display->display_options['fields']['field_afbeeldingen_field_fotograaf_field_voornaam']['field'] = 'field_afbeeldingen_field_fotograaf_field_voornaam';
-  /* Field: Afbeeldingen » Validator: Achternaam (indexed) */
+  /* Field: Afbeeldingen » Validator: family name (indexed) */
   $handler->display->display_options['fields']['field_afbeeldingen_field_beeldexpert_field_achternaam']['id'] = 'field_afbeeldingen_field_beeldexpert_field_achternaam';
   $handler->display->display_options['fields']['field_afbeeldingen_field_beeldexpert_field_achternaam']['table'] = 'search_api_index_localindex';
   $handler->display->display_options['fields']['field_afbeeldingen_field_beeldexpert_field_achternaam']['field'] = 'field_afbeeldingen_field_beeldexpert_field_achternaam';
-  /* Field: Afbeeldingen » Validator: Voornaam (indexed) */
+  /* Field: Afbeeldingen » Validator: First name (indexed) */
   $handler->display->display_options['fields']['field_afbeeldingen_field_beeldexpert_field_voornaam']['id'] = 'field_afbeeldingen_field_beeldexpert_field_voornaam';
   $handler->display->display_options['fields']['field_afbeeldingen_field_beeldexpert_field_voornaam']['table'] = 'search_api_index_localindex';
   $handler->display->display_options['fields']['field_afbeeldingen_field_beeldexpert_field_voornaam']['field'] = 'field_afbeeldingen_field_beeldexpert_field_voornaam';
@@ -7117,7 +7119,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'search_api_index_localindex';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['label'] = 'Afbeelding';
+  $handler->display->display_options['fields']['field_image']['label'] = 'Image';
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
     'image_style' => 'thumbnail',
@@ -7160,24 +7162,24 @@ echo db_query( $sql )->fetchField();
     t('Master'),
     t('Search results main index'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('Node ID'),
     t('.'),
     t(','),
-    t('Achternaam (indexed)'),
-    t('Voornaam (indexed)'),
-    t('Afbeelding'),
+    t('family name (indexed)'),
+    t('First name (indexed)'),
+    t('Image'),
     t('Alle'),
     t('Page'),
   );
@@ -7195,14 +7197,14 @@ echo db_query( $sql )->fetchField();
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Kies een mail, deze kan nog aangepast worden';
+  $handler->display->display_options['title'] = 'Choose mail to edit';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '30';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -7263,10 +7265,10 @@ return urldecode($myurl[3]);
   $handler = $view->new_display('block', 'Block', 'block');
   $translatables['selectmail'] = array(
     t('Master'),
-    t('Kies een mail, deze kan nog aangepast worden'),
+    t('Choose mail to edit'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -7279,21 +7281,21 @@ return urldecode($myurl[3]);
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Verwijzing naar beelduitwisselaar record';
+  $view->human_name = 'image exchange record';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Verwijzing naar beelduitwisselaar record';
+  $handler->display->display_options['title'] = 'image exchange record';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Zoek';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Opnieuw instellen';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -7339,14 +7341,14 @@ return urldecode($myurl[3]);
   $handler = $view->new_display('block', 'Block', 'block');
   $translatables['verwijzing_naar_beelduitwisselaar_record'] = array(
     t('Master'),
-    t('Verwijzing naar beelduitwisselaar record'),
+    t('Image exchange record'),
     t('more'),
-    t('Zoek'),
-    t('Opnieuw instellen'),
+    t('Search'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Alle'),
+    t('All'),
     t('Block'),
   );
   $export['verwijzing_naar_beelduitwisselaar_record'] = $view;

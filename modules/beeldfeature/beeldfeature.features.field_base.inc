@@ -42,6 +42,9 @@ function beeldfeature_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_afbeeldingen',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
@@ -54,7 +57,7 @@ function beeldfeature_field_default_field_bases() {
     'module' => 'field_collection',
     'settings' => array(
       'hide_blank_items' => 1,
-      'hide_initial_item' => FALSE,
+      'hide_initial_item' => 0,
       'path' => '',
     ),
     'translatable' => 0,
@@ -80,8 +83,8 @@ function beeldfeature_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => 'Niet akkoord',
-        1 => 'Akkoord',
+        0 => 0,
+        1 => 1,
       ),
       'allowed_values_function' => '',
       'profile2_private' => FALSE,
@@ -586,7 +589,7 @@ function beeldfeature_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => '',
-        1 => 'Mail notificaties ontvangen',
+        1 => 'Receive mail notifications',
       ),
       'allowed_values_function' => '',
       'profile2_private' => FALSE,
@@ -787,13 +790,13 @@ function beeldfeature_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => 'nieuw',
-        1 => 'in behandeling bij validator',
-        2 => 'gevalideerd',
-        3 => 'afgekeurd',
-        4 => 'in de wachtrij',
-        5 => 'goedgekeurd en gepubliceerd',
-        6 => 'verwijderd',
+        0 => 'new',
+        1 => 'being processed',
+        2 => 'validated',
+        3 => 'denied',
+        4 => 'in queue',
+        5 => 'approved and published',
+        6 => 'removed',
       ),
       'allowed_values_function' => '',
     ),

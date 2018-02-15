@@ -20,7 +20,7 @@ function beeldfeature_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Uw gegevens',
+    'label' => 'Photographer information',
     'weight' => '1',
     'children' => array(
       0 => 'field_achternaam',
@@ -32,9 +32,10 @@ function beeldfeature_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Uw gegevens',
+      'label' => 'Photographer information',
       'instance_settings' => array(
         'required_fields' => 0,
+        'id' => '',
         'classes' => 'group-gegevens field-group-fieldset',
         'description' => '',
       ),
@@ -45,7 +46,7 @@ function beeldfeature_field_group_info() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Uw gegevens');
+  t('Photographer information');
 
   return $field_groups;
 }

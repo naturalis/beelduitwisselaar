@@ -10,7 +10,7 @@
 function beeldfeature_taxonomy_default_vocabularies() {
   return array(
     'groep' => array(
-      'name' => 'Groep',
+      'name' => 'Group',
       'machine_name' => 'groep',
       'description' => '',
       'hierarchy' => 0,
@@ -18,9 +18,9 @@ function beeldfeature_taxonomy_default_vocabularies() {
       'weight' => 0,
     ),
     'licentie' => array(
-      'name' => 'Licentie',
+      'name' => 'License',
       'machine_name' => 'licentie',
-      'description' => 'Licentie',
+      'description' => 'License',
       'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,

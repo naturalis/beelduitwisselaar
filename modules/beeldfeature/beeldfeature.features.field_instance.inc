@@ -16,7 +16,7 @@ function beeldfeature_field_default_field_instances() {
     'bundle' => 'field_afbeeldingen',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Opmerking bedoeld voor redactie Soortenregister.',
+    'description' => 'Comment for editor species register.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -34,7 +34,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_beeldevaluatie',
-    'label' => 'Opmerking validator',
+    'label' => 'Comment validator',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -124,7 +124,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_created',
-    'label' => 'Datum insturen',
+    'label' => 'Date uploaded',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -154,7 +154,7 @@ function beeldfeature_field_default_field_instances() {
   $field_instances['field_collection_item-field_afbeeldingen-field_datum'] = array(
     'bundle' => 'field_afbeeldingen',
     'deleted' => 0,
-    'description' => 'Let op! De datum staat standaard ingevuld op vandaag. Vergeet deze niet aan te passen in de daadwerkelijke datum waarop de foto gemaakt is.',
+    'description' => 'The date is standard the date of today. Please change the date to the exact date you took the picture.',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -172,7 +172,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_datum',
-    'label' => 'Datum van opname',
+    'label' => 'Date uploaded',
     'required' => 1,
     'settings' => array(
       'default_value' => 'now',
@@ -214,7 +214,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_datum_publicatie',
-    'label' => 'Datum publicatie',
+    'label' => 'Date published',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -297,7 +297,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_groep',
-    'label' => 'Soortgroep',
+    'label' => 'Species group',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -321,7 +321,7 @@ function beeldfeature_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'Keuzehulp: <a href="/licentie" target="_blank">welke licentie zal ik selecteren voor mijn beelden?</a>',
+    'description' => '<a href="/licentie" target="_blank">Which license should I choose for my images?</a>',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -352,7 +352,7 @@ function beeldfeature_field_default_field_instances() {
     'bundle' => 'field_afbeeldingen',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Format: van kleinste naar grootste geografische eenheid, gescheiden door komma\'s. Bijvoorbeeld: Bos van Bosman, Leiden',
+    'description' => 'Format: from smallest to biggest geographical unit, comma-separated.  For instance: Willemstad, Curaçao',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -503,7 +503,7 @@ function beeldfeature_field_default_field_instances() {
     'bundle' => 'field_afbeeldingen',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Vermeld indien bekend soort, stadium, geslacht, habitat e.d.',
+    'description' => 'If known please mention species, state, gender, habitat etcetera.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -521,7 +521,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_opmerkingen',
-    'label' => 'Soortnaam en opmerkingen',
+    'label' => 'Species and comments',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -566,7 +566,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_opnameland',
-    'label' => 'Land',
+    'label' => 'Country',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
@@ -607,7 +607,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_soort_taxon',
-    'label' => 'Soort/taxon',
+    'label' => 'Species/taxon',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -672,7 +672,7 @@ function beeldfeature_field_default_field_instances() {
     'bundle' => 'field_afbeeldingen',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Wordt op het Soortenregister gepubliceerd als \'Omschrijving\' in bijschrift van de foto.',
+    'description' => 'Will be published in the species register as \'Description\' next to the image.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -684,7 +684,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_textsoortenregister',
-    'label' => 'Opmerking Soortenregister',
+    'label' => 'Comment for species register',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -843,7 +843,7 @@ function beeldfeature_field_default_field_instances() {
     'bundle' => 'beelduitwisselaar',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '(verplicht veld)',
+    'description' => '(mandatory)',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -868,7 +868,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_achternaam',
-    'label' => 'Achternaam',
+    'label' => 'Family name',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -907,7 +907,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_afbeeldingen',
-    'label' => 'Afbeeldingen',
+    'label' => 'Images',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -955,7 +955,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_akkoord',
-    'label' => 'Ik ga akkoord met de voorwaarden',
+    'label' => 'I agree to the terms',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -976,7 +976,7 @@ function beeldfeature_field_default_field_instances() {
     'bundle' => 'beelduitwisselaar',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Website of e-mailadres. Dit adres wordt vertoond bij elk gepubliceerde beeld op het Nederlands Soortenregister. De standaard waarde voor dit veld kan in uw profiel worden opgegeven.',
+    'description' => 'Website or e-mail address. This will be shown next to every image published on the site. The default value for this can be set in your profile.',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -1001,7 +1001,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_contact',
-    'label' => 'Contactadres voor geïnteresseerden',
+    'label' => 'Contact address',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1079,7 +1079,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_fotograafref',
-    'label' => 'Fotograaf',
+    'label' => 'Fotographer',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -1130,7 +1130,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_land',
-    'label' => 'Land',
+    'label' => 'Country',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1152,7 +1152,7 @@ function beeldfeature_field_default_field_instances() {
     'bundle' => 'beelduitwisselaar',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '(verplicht veld)',
+    'description' => '(mandatory)',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -1177,7 +1177,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_voornaam',
-    'label' => 'Voornaam',
+    'label' => 'First name',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1223,7 +1223,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_woonplaats',
-    'label' => 'Woonplaats',
+    'label' => 'City',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1401,7 +1401,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_achternaam',
-    'label' => 'Achternaam',
+    'label' => 'Lastname',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
@@ -1423,7 +1423,7 @@ function beeldfeature_field_default_field_instances() {
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Deze informatie wordt getoond op de website van het Soortenregister bij gepubliceerde beelden.',
+    'description' => 'This information will be shown next to the images on the species register site.',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -1441,7 +1441,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_contact',
-    'label' => 'Contactadres voor geïnteresseerden',
+    'label' => 'Contact address',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1548,7 +1548,7 @@ function beeldfeature_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'Vink deze optie aan om mailnotificaties te ontvangen. U ontvangt een mail bij het goedkeuren of afkeuren van een beeld, en indien een beeld in de wachtrij geplaatst wordt',
+    'description' => 'Check this option to receive e-mail notifications. You will receive email whenever we approve or deny your image or when your image will be queued.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -1565,7 +1565,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_notificatie',
-    'label' => 'Mailnotificatie',
+    'label' => 'Mail notification',
     'required' => 0,
     'settings' => array(
       'user_register_form' => 1,
@@ -1643,7 +1643,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_specialisatie',
-    'label' => 'Specialisatie',
+    'label' => 'Specialisation',
     'required' => 0,
     'settings' => array(
       'user_register_form' => 0,
@@ -1666,8 +1666,8 @@ function beeldfeature_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'Selecteer de licentievorm die u standaard wenst te gebruiken. Deze kan later per beeld aangepast worden.<br />
-Keuzehulp: <a href="/licentie" target="_blank">welke licentie zal ik selecteren voor mijn beelden?</a>',
+    'description' => 'Select the license you want to use. You can also change this per image after uploading.<br />
+<a href="/licentie" target="_blank">Which license should you choose?</a>',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1679,7 +1679,7 @@ Keuzehulp: <a href="/licentie" target="_blank">welke licentie zal ik selecteren 
     ),
     'entity_type' => 'user',
     'field_name' => 'field_standaard_licentie',
-    'label' => 'Standaard licentie',
+    'label' => 'Default license',
     'required' => 0,
     'settings' => array(
       'user_register_form' => 0,
@@ -1716,7 +1716,7 @@ Keuzehulp: <a href="/licentie" target="_blank">welke licentie zal ik selecteren 
     ),
     'entity_type' => 'user',
     'field_name' => 'field_voornaam',
-    'label' => 'Voornaam',
+    'label' => 'First name',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
@@ -1774,48 +1774,49 @@ Keuzehulp: <a href="/licentie" target="_blank">welke licentie zal ik selecteren 
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('(verplicht veld)');
-  t('Achternaam');
-  t('Afbeeldingen');
-  t('Beeld');
+  t('(mandatory)');
+  t('Image');
   t('Body');
-  t('Contactadres voor geïnteresseerden');
-  t('Datum insturen');
-  t('Datum publicatie');
-  t('Datum van opname');
-  t('Deze informatie wordt getoond op de website van het Soortenregister bij gepubliceerde beelden.');
+  t('City');
+  t('Contact address');
+  t('Country');
+  t('Date published');
+  t('Date published');
+  t('Date uploaded');
+  t('This information will be shown next to the images on the species register site.');
   t('Email');
   t('Enter a comma-separated list of words to describe your content.');
-  t('Format: van kleinste naar grootste geografische eenheid, gescheiden door komma\'s. Bijvoorbeeld: Bos van Bosman, Leiden');
-  t('Fotograaf');
-  t('Ik ga akkoord met de voorwaarden');
-  t('Image');
-  t('Keuzehulp: <a href="/licentie" target="_blank">welke licentie zal ik selecteren voor mijn beelden?</a>');
-  t('Land');
+  t('Family name');
+  t('First name');
+  t('Format: from smallest to biggest geographical unit, comma-separated.  For instance: Willemstad, Curaçao');
+  t('Photographer');
+  t('I agree to the terms');
+  t('Images');
+  t('<a href="/licentie" target="_blank">Which license should I choose for my images?</a>');
+  t('Country');
   t('Let op! De datum staat standaard ingevuld op vandaag. Vergeet deze niet aan te passen in de daadwerkelijke datum waarop de foto gemaakt is.');
-  t('Licentie');
-  t('Locatie');
-  t('Mailnotificatie');
-  t('Opmerking Soortenregister');
-  t('Opmerking bedoeld voor redactie Soortenregister.');
-  t('Opmerking validator');
+  t('License');
+  t('Location');
+  t('Mail notification');
+  t('Comment for species register');
+  t('Comment for editor species register.');
+  t('Comment validator');
   t('Original id');
-  t('Selecteer de licentievorm die u standaard wenst te gebruiken. Deze kan later per beeld aangepast worden.<br />
-Keuzehulp: <a href="/licentie" target="_blank">welke licentie zal ik selecteren voor mijn beelden?</a>');
-  t('Soort/taxon');
-  t('Soortgroep');
-  t('Soortnaam en opmerkingen');
-  t('Specialisatie');
-  t('Standaard licentie');
+  t('Select the license you want to use. You can also change this per image after uploading.<br />
+<a href="/licentie" target="_blank">Which license should you choose?</a>');
+  t('Species/taxon');
+  t('Species group');
+  t('Species and comments');
+  t('Specialisation');
+  t('Default license');
   t('Tags');
   t('Upload an image to go with this article.');
   t('Validator');
-  t('Vermeld indien bekend soort, stadium, geslacht, habitat e.d.');
-  t('Vink deze optie aan om mailnotificaties te ontvangen. U ontvangt een mail bij het goedkeuren of afkeuren van een beeld, en indien een beeld in de wachtrij geplaatst wordt');
-  t('Voornaam');
-  t('Website of e-mailadres. Dit adres wordt vertoond bij elk gepubliceerde beeld op het Nederlands Soortenregister. De standaard waarde voor dit veld kan in uw profiel worden opgegeven.');
-  t('Woonplaats');
-  t('Wordt op het Soortenregister gepubliceerd als \'Omschrijving\' in bijschrift van de foto.');
+  t('If known please mention species, state, gender, habitat etcetera.');
+  t('Check this option to receive e-mail notifications. You will receive email whenever we approve or deny your image or when your image will be queued.');
+  t('Website or e-mail address. This will be shown next to every image published on the site. The default value for this can be set in your profile.');
+  t('City');
+  t('Will be published in the species register as \'Description\' next to the image.');
   t('nlsr');
   t('status');
 

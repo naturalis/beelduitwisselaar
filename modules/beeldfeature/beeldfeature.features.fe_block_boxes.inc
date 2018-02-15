@@ -23,22 +23,23 @@ function beeldfeature_default_fe_block_boxes() {
 </div>
 <div class="filter">
 <ul>
-<li><a href="/grid-afbeeldingen?combine=&order=created&sort=desc"><i class="ion-android-apps"></i></a> <a href="/afbeeldingen?combine=&order=created&sort=desc">Nieuwe beelden</a> <span class=\'count\'>(<?= $counts[\'new\'] ?>)</span></li>
+<li><a href="/grid-afbeeldingen?combine=&order=created&sort=desc"><i class="ion-android-apps"></i></a> <a href="/afbeeldingen?combine=&order=created&sort=desc">New images</a> <span class=\'count\'>(<?= $counts[\'new\'] ?>)</span></li>
 <li><a href="/grid-afbeeldingen-expert-all?combine=&order=field_created&sort=desc"><i class="ion-android-apps"></i></a> 
-<a href="/afbeeldingen-expert-all?combine=&order=field_created&sort=desc">Beelden bij validator</a> <span class=\'count\'>(<?= $counts[\'queued\'] ?>)</span></li>
+<a href="/afbeeldingen-expert-all?combine=&order=field_created&sort=desc">Images being validated</a> <span class=\'count\'>(<?= $counts[\'queued\'] ?>)</span></li>
 <li><a href="/grid-afbeeldingen-geevalueerd-all?combine=&order=created&sort=desc"><i class="ion-android-apps"></i></a>
-<a href="/afbeeldingen-geevalueerd-all?combine=&order=created&sort=desc">Gevalideerde beelden</a> <span class=\'count\'>(<?= $counts[\'validated\'] ?>)</span></li> 
+<a href="/afbeeldingen-geevalueerd-all?combine=&order=created&sort=desc">Confirmed images</a> <span class=\'count\'>(<?= $counts[\'validated\'] ?>)</span></li> 
 <li><a href="/grid-afbeeldingen-wachtrij?combine=&order=field_created&sort=desc"><i class="ion-android-apps"></i></a> 
-<a href="/afbeeldingen-wachtrij?combine=&order=field_created&sort=desc">Wachtrij</a> <span class=\'count\'>(<?= $counts[\'waiting\'] ?>)</span></li> 
+<a href="/afbeeldingen-wachtrij?combine=&order=field_created&sort=desc">Queued</a> <span class=\'count\'>(<?= $counts[\'waiting\'] ?>)</span></li> 
 
-<li><a href="/email-expert"><i class="ion-edit"></i> Lijst validatoren</a></li>
-<li><a href="/email-fotograaf"><i class="ion-edit"></i> Lijst fotografen</a></li>
-<li><a href="/mail-templates"><i class="ion-edit"></i> Mailsjablonen</a></li>
-<li><a href="/mails"><i class="ion-edit"></i> Verstuurde mails</a></li>
+<li><a href="/email-expert"><i class="ion-edit"></i> List of validators</a></li>
+<li><a href="/email-fotograaf"><i class="ion-edit"></i> List of photographers</a></li>
+<li><a href="/mail-templates"><i class="ion-edit"></i> Mailtemplates</a></li>
+<li><a href="/mails"><i class="ion-edit"></i> Mails sent</a></li>
 </ul>
 </div>
 
-</fieldset>';
+</fieldset>
+';
 
   $export['bu_admin_block'] = $fe_block_boxes;
 
@@ -52,16 +53,16 @@ if ($user) {
 ?>
 <fieldset class="block addon">
 <div class="formrow">
-<label for="admin">Fotograaf</label>
+<label for="admin">Photographer</label>
 </div>
 <div class="filter">
 <ul>
-<li><a href="/node/add/beelduitwisselaar"><i class="ion-plus-circled"></i> Beelden toevoegen</a></li>
-<li><a href="/afbeeldingen-user"><i class="ion-camera"></i> Beelden in behandeling</a>  <?php
+<li><a href="/node/add/beelduitwisselaar"><i class="ion-plus-circled"></i> Add Image</a></li>
+<li><a href="/afbeeldingen-user"><i class="ion-camera"></i> Images being processed</a>  <?php
   $sqlnew = "SELECT count(*) from {field_data_field_fotograaf} f, {field_data_field_status} s  WHERE f.entity_id = s.entity_id AND s.field_status_value < 5 AND f.field_fotograaf_target_id = " . $user->uid;
   echo "<span style=\'color:gray;font-size:9pt;\'>(" . db_query($sqlnew)->fetchField() . ")</span>";
 ?></li>
-<li><a target="_blank" href="http://www.nederlandsesoorten.nl/linnaeus_ng/app/views/search/nsr_search_pictures.php?photographer=<?php echo($user->name); ?>&validator="><i class="ion-easel"></i> Gepubliceerde beelden</a></li>
+<li><a target="_blank" href="//www.dutchcaribbeanspecies.nl/linnaeus_ng/app/views/search/nsr_search_pictures.php?photographer=<?php echo($user->name); ?>&validator="><i class="ion-easel"></i> Published images</a></li>
 </ul>
 </fieldset>
 <?php
@@ -80,8 +81,8 @@ if ($user) {
 </div>
 <div class="filter">
 <ul>
-<li><a href="/user/login"><i class="ion-locked"></i> Inloggen</a></li>
-<li><a href="/user/register"><i class="ion-person-add"></i> Registreren</a></li>
+<li><a href="/user/login"><i class="ion-locked"></i> Login</a></li>
+<li><a href="/user/register"><i class="ion-person-add"></i> Register</a></li>
 </ul>
 </div>
 ';
@@ -103,8 +104,8 @@ if ($user) {
 </div>
 <div class="filter">
 <ul>
-<li><a href="/user/<?php echo($user->uid); ?>/edit"><i class="ion-edit"></i> Profiel aanpassen</a></li>
-<li><a href="/user/logout"><i class="ion-paper-airplane"></i> Uitloggen</a></li>
+<li><a href="/user/<?php echo($user->uid); ?>/edit"><i class="ion-edit"></i> Edit profile</a></li>
+<li><a href="/user/logout"><i class="ion-paper-airplane"></i> Logout</a></li>
 </ul>
 </div>
 </fieldset>
@@ -129,24 +130,33 @@ if ($user) {
 </div>
 <div class="filter">
 <ul>
-<li><a href="/afbeeldingen-expert?order=created&sort=asc"><i class="ion-camera"></i> Nieuwe beelden</a> <span class=\'count\'>(<?= $counts[\'queued\'] ?>)</span></li>
-<li><a href="/afbeeldingen-geevalueerd"><i class="ion-camera"></i> Gevalideerde beelden</a> <span class=\'count\'>(<?= $counts[\'validated\'] ?>)</span></li>
-<li><a target="_blank" href="//www.nederlandsesoorten.nl/linnaeus_ng/app/views/search/nsr_search_pictures.php?photographer=&validator=<?= $user->name ?>"><i class="ion-camera"></i> Gepubliceerde beelden</a></li><?php
+<li><a href="/afbeeldingen-expert?order=created&sort=asc"><i class="ion-camera"></i> New images</a> <span class=\'count\'>(<?= $counts[\'queued\'] ?>)</span></li>
+<li><a href="/afbeeldingen-geevalueerd"><i class="ion-camera"></i> Validated images</a> <span class=\'count\'>(<?= $counts[\'validated\'] ?>)</span></li>
+<li><a target="_blank" href="//www.dutchcaribbeanspecies.org/linnaeus_ng/app/views/search/nsr_search_pictures.php?photographer=&validator=<?= $user->name ?>"><i class="ion-camera"></i> Published images</a></li><?php
 
 }
 ?>
 </ul>
-</fieldset>';
+</fieldset>
+';
 
   $export['bu_validator_block'] = $fe_block_boxes;
 
   $fe_block_boxes = new stdClass();
+  $fe_block_boxes->info = 'Footer of Caribbean Species';
+  $fe_block_boxes->format = 'php_code';
+  $fe_block_boxes->machine_name = 'caribspec_footer';
+  $fe_block_boxes->body = ' <div id="block-nlsoort-components-nlsoort-components-footer" class="block block-nlsoort-components footerContainer"> <div class="footer"> <div class="row"> <div class="col-md-12"> <a class="toggleFooterLinks">Partner organisations and related websites</a> <a class="toggleFooterLinks partners">An initiative of</a> </div> </div> <div class="row"> <div class="col-md-12 cooperation"> <div class="footerLinkContainer"> <ul class="footerLinks"> <li> <a target="_blank" rel="external" href="http://www.cnsi.nl/">Caribbean Netherlands Science Institute</a> </li> <li> <a target="_blank" rel="external" href="http://www.dcbd.nl/">Dutch Caribbean Biodiversity Database</a> </li> <li> <a target="_blank" rel="external" href="http://www.dcnanature.org/">Dutch Caribbean Nature Alliance</a> </li> <li> <a target="_blank" rel="external" href="http://www.arubanationalpark.org/main/">Parke Nacional Arikok Aruba</a> </li> <li> <a target="_blank" rel="external" href="http://stinapabonaire.org/">STINAPA Bonaire National Parks Foundation</a> </li> <li> <a target="_blank" rel="external" href="http://www.carmabi.org/">CARMABI, Curaçao</a> </li> <li> <a target="_blank" rel="external" href="http://www.sabapark.org/">Saba Conservation Foundation</a> </li> <li> <a target="_blank" rel="external" href="http://www.statiapark.org/">St. Eustatius National Parks</a> </li> <li> <a target="_blank" rel="external" href="http://www.naturefoundationsxm.org/">Sint Maarten Nature Foundation</a> </li> <li> <a target="_blank" rel="external" href="http://www.anemoon.org/">Stichting ANEMOON</a> </li> </ul> <ul class="footerLinks"> <li> <a target="_blank" rel="external" href="/"></a> </li> </ul> <ul class="footerLinks"> <li> <a target="_blank" rel="external" href="/"></a> </li> </ul> <div class="logos"> <a href="http://www.naturalis.nl" target="_blank" alt="Go to Naturalis"><img src="/sites/all/themes/caribbean/assets/img/naturalis-logo-white.svg" class="naturalis_logo" width="50%" /></a> </div> </div> </div> </div> <div class="row"> <div class="col-md-4 sitemapLinks mobile"> <ul> <li> <a href="/sitemap"></a> </li> <li> <a href="/"></a> </li> <li> <a href="/"></a> </li> <li> <a href="/"></a> </li> </ul> </div> <div class="col-md-4 colofonLinks"> <div class="colofonContainer"> <div class="colofon"> <a class="blue" href="/"></a> </div> </div> </div> <div class="col-md-4 sitemapLinks desktop"> <ul> <li> <a href="/sitemap"></a> </li> <li> <a href="/"></a> </li> <li> <a href="/"></a> </li> <li> <a href="/"></a> </li> </ul> </div> <div class="col-md-4 upLink"> <a href="#" class="blue up">Go up</a> </div> </div> <div class="row"><span class="copyright">&copy; Naturalis 2018</span></div> </div> </div> ';
+
+  $export['caribspec_footer'] = $fe_block_boxes;
+
+  $fe_block_boxes = new stdClass();
   $fe_block_boxes->info = 'nlsoorten menu';
   $fe_block_boxes->format = 'php_code';
-  $fe_block_boxes->machine_name = 'nlsoorten_menu';
-  $fe_block_boxes->body = ' <div id="block-nlsoort-components-nlsoort-components-main-menu" class="block block-nlsoort-components menuHolder"> <a href="#" class="menuToggle"> <img src="/sites/all/themes/nlsoort2016/assets/img/menutoggle.png" alt="" /> <span class="mobileTitle">Nederlands Soortenregister</span> </a> <ul class="menu"><li class="home"><a href="http://www.nederlandsesoorten.nl/">Home</a><li><a href="/content/over-het-soortenregister">Over het Soortenregister</a><a class="toggle-submenu toggle-submenu-js" href="javascript:void(0);"><i class="ion-plus-round plus"></i> <i class="ion-minus-round min"></i></a><ol><li><a href="http://www.nederlandsesoorten.nl/content/doel-en-uitgangspunten">Doel en uitgangspunten</a></li><li><a href="http://www.nederlandsesoorten.nl/content/taxonomie">Taxonomie</a></li><li><a href="http://www.nederlandsesoorten.nl/content/voorkomen">Voorkomen</a></li><li><a href="http://www.nederlandsesoorten.nl/content/dna-barcoding">DNA Barcoding</a></li><li><a href="http://www.nederlandsesoorten.nl/content/wie-wie">Wie is wie?</a></li><li><a href="http://www.nederlandsesoorten.nl/content/citering">Citering</a></li><li><a href="http://natuurinbeeld.nederlandsesoorten.nl">Foto\'s uploaden</a></li><li><a href="http://www.nederlandsesoorten.nl/content/gebruiksvoorwaarden-fotos">Gebruiksvoorwaarden foto\'s</a></li></ol></li><li><a href="/exoten">Exoten</a><a class="toggle-submenu toggle-submenu-js" href="javascript:void(0);"><i class="ion-plus-round plus"></i> <i class="ion-minus-round min"></i></a><ol><li><a href="http://www.nederlandsesoorten.nl/content/inleiding">Inleiding</a></li><li><a href="http://www.nederlandsesoorten.nl/content/samenwerking">Samenwerking</a></li><li><a href="http://www.nederlandsesoorten.nl/content/definitie">Definitie</a></li><li><a href="http://www.nederlandsesoorten.nl/content/lijsten">Lijsten</a></li><li><a href="http://www.nederlandsesoorten.nl/content/soortinformatie">Soortinformatie</a></li><li><a href="http://www.nederlandsesoorten.nl/content/literatuur-en-websites">Literatuur en websites</a></li><li><a href="http://www.nederlandsesoorten.nl/content/exotenpaspoort">Exotenpaspoort</a></li></ol></li><li><a href="/determineren">Determineren</a><a class="toggle-submenu toggle-submenu-js" href="javascript:void(0);"><i class="ion-plus-round plus"></i> <i class="ion-minus-round min"></i></a><ol><li><a href="http://www.nederlandsesoorten.nl/content/dieren-en-rond-huis">Dieren in en rond huis</a></li><li><a href="http://www.nederlandsesoorten.nl/content/soortzoekers">Soortzoekers</a></li><li><a href="http://www.nederlandsesoorten.nl/content/tabellen-en-floras">Tabellen en flora\'s</a></li><li><a href="http://www.nederlandsesoorten.nl/content/zoekkaarten">Zoekkaarten</a></li></ol></li><li><a href="http://www.nederlandsesoorten.nl/linnaeus_ng/app/views/search/nsr_search.php">Zoeken</a><a class="toggle-submenu toggle-submenu-js" href="javascript:void(0);"><i class="ion-plus-round plus"></i> <i class="ion-minus-round min"></i></a><ol><li><a href="http://www.nederlandsesoorten.nl/linnaeus_ng/app/views/search/nsr_search_extended.php">Uitgebreid zoeken</a></li><li><a href="http://www.nederlandsesoorten.nl/linnaeus_ng/app/views/search/nsr_search_pictures.php">Foto\'s zoeken</a></li><li><a href="http://www.nederlandsesoorten.nl/linnaeus_ng/app/views/species/tree.php">Taxonomische boom</a></li></ol></li></li></ul><a href="javascript:void(0)" class="search-toggle search-toggle-js"><img src="/sites/all/themes/nlsoort2016/assets/img/search.svg" class="siteTitle" /></a></div> ';
+  $fe_block_boxes->machine_name = 'caribspecies_menu';
+  $fe_block_boxes->body = ' <div id="block-nlsoort-components-nlsoort-components-main-menu" class="block block-nlsoort-components menuHolder"> <a href="#" class="menuToggle"> <img src="/sites/all/themes/caribbean/assets/img/menutoggle.png" alt="" /> <span class="mobileTitle">Dutch Caribbean Species Register</span> </a> <ul class="menu"><li class="home"><a href="http://www.dutchcaribbeanspecies.org/">Home</a><li><a href="/content/about-project">About this project</a><a class="toggle-submenu toggle-submenu-js" href="javascript:void(0);"><i class="ion-plus-round plus"></i> <i class="ion-minus-round min"></i></a><ol><li><a href="http://www.dutchcaribbeanspecies.org/content/geography-dutch-caribbean">Geography of the Dutch Caribbean</a></li><li><a href="http://www.dutchcaribbeanspecies.org/content/presence-and-distribution-information">Presence and distribution information</a></li><li><a href="http://www.dutchcaribbeanspecies.org/content/citation">Citation</a></li><li><a href="http://www.dutchcaribbeanspecies.org/content/terms-use-photos">Terms of use for photos</a></li></ol></li><li><a href="/content/getting-involved">Getting involved</a></li><li><a href="http://www.dutchcaribbeanspecies.org/linnaeus_ng/app/views/search/nsr_search_extended.php?epi=1">Search</a><a class="toggle-submenu toggle-submenu-js" href="javascript:void(0);"><i class="ion-plus-round plus"></i> <i class="ion-minus-round min"></i></a><ol><li><a href="http://www.dutchcaribbeanspecies.org/linnaeus_ng/app/views/search/nsr_search_extended.php?epi=1">Extensive search</a></li><li><a href="http://www.dutchcaribbeanspecies.org/linnaeus_ng/app/views/search/nsr_search_pictures.php">Photo search</a></li><li><a href="http://www.dutchcaribbeanspecies.org/linnaeus_ng/app/views/species/tree.php">Taxonomic tree</a></li></ol></li></li></ul><a href="javascript:void(0)" class="search-toggle search-toggle-js"><img src="/sites/all/themes/nlsoort2016/assets/img/search.svg" class="siteTitle" /></a></div> ';
 
-  $export['nlsoorten_menu'] = $fe_block_boxes;
+  $export['caribspecies_menu'] = $fe_block_boxes;
 
   $fe_block_boxes = new stdClass();
   $fe_block_boxes->info = 'Footer van NL Soorten';
