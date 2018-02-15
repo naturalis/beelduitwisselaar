@@ -413,7 +413,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_newimage',
-    'label' => 'Beeld',
+    'label' => 'Image',
     'required' => 1,
     'settings' => array(
       'alt_field' => 0,

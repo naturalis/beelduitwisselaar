@@ -210,7 +210,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['relationship'] = 'field_afbeeldingen_node';
-  $handler->display->display_options['fields']['created']['label'] = 'Datum insturen';
+  $handler->display->display_options['fields']['created']['label'] = 'Date uploaded';
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd M Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
@@ -218,7 +218,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
-  $handler->display->display_options['fields']['field_datum']['label'] = 'Datum opname';
+  $handler->display->display_options['fields']['field_datum']['label'] = 'Date published';
   $handler->display->display_options['fields']['field_datum']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_datum']['settings'] = array(
     'format_type' => 'short',
@@ -240,7 +240,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['relationship'] = 'field_afbeeldingen_node';
-  $handler->display->display_options['fields']['field_achternaam']['label'] = 'Fotograaf';
+  $handler->display->display_options['fields']['field_achternaam']['label'] = 'Fotographer';
   $handler->display->display_options['fields']['field_achternaam']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['alter']['text'] = '<a href="/search/node/[field_achternaam] [field_voornaam]">[field_achternaam], [field_voornaam]</a>';
   $handler->display->display_options['fields']['field_achternaam']['element_label_colon'] = FALSE;
@@ -252,12 +252,12 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'field_data_field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
-  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Opmerking fotograaf';
+  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Comment photographer';
   /* Field: Field collection item: URL */
   $handler->display->display_options['fields']['url']['id'] = 'url';
   $handler->display->display_options['fields']['url']['table'] = 'views_entity_field_collection_item';
   $handler->display->display_options['fields']['url']['field'] = 'url';
-  $handler->display->display_options['fields']['url']['label'] = 'Bewerken';
+  $handler->display->display_options['fields']['url']['label'] = 'Edit';
   $handler->display->display_options['fields']['url']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['url']['alter']['text'] = '<a href="[url]/edit"><img src="/sites/all/files/icon/edit.png" class="gridicon" border="no" /></a>';
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
@@ -504,7 +504,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
-  $handler->display->display_options['fields']['field_datum']['label'] = 'Datum';
+  $handler->display->display_options['fields']['field_datum']['label'] = 'Date';
   $handler->display->display_options['fields']['field_datum']['settings'] = array(
     'format_type' => 'short',
     'fromto' => 'both',
@@ -764,7 +764,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_beeldevaluatie']['id'] = 'field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['table'] = 'field_data_field_beeldevaluatie';
   $handler->display->display_options['fields']['field_beeldevaluatie']['field'] = 'field_beeldevaluatie';
-  $handler->display->display_options['fields']['field_beeldevaluatie']['label'] = 'Evaluatie';
+  $handler->display->display_options['fields']['field_beeldevaluatie']['label'] = 'Evaluation';
   /* Filter criterion: Field collection item: status (field_status) */
   $handler->display->display_options['filters']['field_status_value']['id'] = 'field_status_value';
   $handler->display->display_options['filters']['field_status_value']['table'] = 'field_data_field_status';
@@ -967,9 +967,9 @@ function beeldfeature_views_default_views() {
     t('next ›'),
     t('last »'),
     t('field_afbeeldingen'),
-    t('Beeld'),
-    t('Datum van opname'),
-    t('Locatie'),
+    t('Image'),
+    t('Date of publication'),
+    t('Location'),
     t('Comment photographer'),
     t('Alle'),
     t('Block'),
@@ -1097,7 +1097,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['relationship'] = 'field_afbeeldingen_node';
-  $handler->display->display_options['fields']['created']['label'] = 'Datum insturen';
+  $handler->display->display_options['fields']['created']['label'] = 'Date uploaded';
   $handler->display->display_options['fields']['created']['date_format'] = 'superkort';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   /* Field: Field collection item: Locatie */
@@ -1133,7 +1133,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['filters']['combine']['operator'] = 'contains';
   $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
   $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
-  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter resultaten:';
+  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter results:';
   $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
   $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
   $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
@@ -1325,7 +1325,7 @@ function beeldfeature_views_default_views() {
       'postpone_processing' => 1,
       'skip_confirmation' => 0,
       'override_label' => 1,
-      'label' => 'Verstuur mail',
+      'label' => 'Send mail',
     ),
   );
   /* Field: Field collection item: Beeld */
@@ -1364,7 +1364,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['relationship'] = 'field_afbeeldingen_node';
-  $handler->display->display_options['fields']['field_achternaam']['label'] = 'Fotograaf';
+  $handler->display->display_options['fields']['field_achternaam']['label'] = 'Photographer';
   $handler->display->display_options['fields']['field_achternaam']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['alter']['text'] = '[field_achternaam], [field_voornaam]';
   $handler->display->display_options['fields']['field_achternaam']['element_label_colon'] = FALSE;
@@ -1391,7 +1391,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['filters']['combine_1']['group'] = 1;
   $handler->display->display_options['filters']['combine_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['combine_1']['expose']['operator_id'] = 'combine_1_op';
-  $handler->display->display_options['filters']['combine_1']['expose']['label'] = 'Filter resultaten:';
+  $handler->display->display_options['filters']['combine_1']['expose']['label'] = 'Filter results:';
   $handler->display->display_options['filters']['combine_1']['expose']['operator'] = 'combine_1_op';
   $handler->display->display_options['filters']['combine_1']['expose']['identifier'] = 'combine_1';
   $handler->display->display_options['filters']['combine_1']['expose']['remember_roles'] = array(
@@ -1640,13 +1640,13 @@ function beeldfeature_views_default_views() {
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Verwijder geselecteerde beelden',
+      'label' => 'Remove selected images',
     ),
     'action::views_bulk_operations_argument_selector_action' => array(
       'selected' => 1,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Beeld(en) toekennen aan validator / wachtrij',
+      'label' => 'Images to validator / queue',
       'settings' => array(
         'url' => 'beelduitwisselaar/selectexpertise',
       ),
@@ -1668,7 +1668,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['relationship'] = 'field_afbeeldingen_node';
-  $handler->display->display_options['fields']['created']['label'] = 'Datum insturen';
+  $handler->display->display_options['fields']['created']['label'] = 'Date uploaded';
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd M Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
@@ -1685,7 +1685,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['relationship'] = 'field_afbeeldingen_node';
-  $handler->display->display_options['fields']['field_achternaam']['label'] = 'Fotograaf';
+  $handler->display->display_options['fields']['field_achternaam']['label'] = 'Photographer';
   $handler->display->display_options['fields']['field_achternaam']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['alter']['text'] = '<a href="/search/node/[field_achternaam] [field_voornaam]">[field_achternaam], [field_voornaam]</a>';
   /* Field: Field: First name */
@@ -1782,7 +1782,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['filters']['combine']['operator'] = 'contains';
   $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
   $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
-  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter resultaten:';
+  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter results:';
   $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
   $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
   $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
@@ -1962,14 +1962,14 @@ function beeldfeature_views_default_views() {
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Beeld(en) publiceren',
+      'label' => 'Publish Image(s)',
     ),
     'action::system_send_email_action' => array(
       'selected' => 1,
       'postpone_processing' => 1,
       'skip_confirmation' => 0,
       'override_label' => 1,
-      'label' => 'Verstuur mail',
+      'label' => 'Send mail',
     ),
   );
   /* Field: Field collection item: Beeld */
@@ -2000,12 +2000,12 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['lightbox2']['id'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['table'] = 'lightbox2';
   $handler->display->display_options['fields']['lightbox2']['field'] = 'lightbox2';
-  $handler->display->display_options['fields']['lightbox2']['label'] = 'Beeld';
+  $handler->display->display_options['fields']['lightbox2']['label'] = 'Image';
   /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
-  $handler->display->display_options['fields']['field_datum']['label'] = 'Datum';
+  $handler->display->display_options['fields']['field_datum']['label'] = 'Date';
   $handler->display->display_options['fields']['field_datum']['settings'] = array(
     'format_type' => 'short',
     'fromto' => 'both',
@@ -2033,7 +2033,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = 'Fotograaf';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Photographer';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_achternaam], [field_voornaam]';
   /* Field: Field collection item: Soort/taxon */
   $handler->display->display_options['fields']['field_soort_taxon']['id'] = 'field_soort_taxon';
@@ -2237,7 +2237,7 @@ function beeldfeature_views_default_views() {
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Afronden',
+      'label' => 'Complete',
       'settings' => array(
         'show_all_tokens' => 1,
         'display_values' => array(
@@ -2413,7 +2413,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
-  $handler->display->display_options['fields']['field_datum']['label'] = 'Datum';
+  $handler->display->display_options['fields']['field_datum']['label'] = 'Date';
   $handler->display->display_options['fields']['field_datum']['settings'] = array(
     'format_type' => 'short',
     'fromto' => 'both',
@@ -2639,14 +2639,14 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['relationship'] = 'field_afbeeldingen_node';
-  $handler->display->display_options['fields']['created']['label'] = 'Datum insturen';
+  $handler->display->display_options['fields']['created']['label'] = 'Date uploaded';
   $handler->display->display_options['fields']['created']['date_format'] = 'superkort';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   /* Field: Field collection item: Datum van opname */
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
-  $handler->display->display_options['fields']['field_datum']['label'] = 'Datum opname';
+  $handler->display->display_options['fields']['field_datum']['label'] = 'Date uploaded';
   $handler->display->display_options['fields']['field_datum']['settings'] = array(
     'format_type' => 'short',
     'fromto' => 'both',
@@ -2662,7 +2662,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'field_data_field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
-  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Opmerking fotograaf';
+  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Comment photographer';
   /* Contextual filter: Field collection item: Validator (field_beeldexpert) */
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['id'] = 'field_beeldexpert_target_id';
   $handler->display->display_options['arguments']['field_beeldexpert_target_id']['table'] = 'field_data_field_beeldexpert';
@@ -2691,7 +2691,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['filters']['combine']['operator'] = 'contains';
   $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
   $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
-  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter resultaten: ';
+  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter results: ';
   $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
   $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
   $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
@@ -2741,7 +2741,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_datum']['id'] = 'field_datum';
   $handler->display->display_options['fields']['field_datum']['table'] = 'field_data_field_datum';
   $handler->display->display_options['fields']['field_datum']['field'] = 'field_datum';
-  $handler->display->display_options['fields']['field_datum']['label'] = 'Datum';
+  $handler->display->display_options['fields']['field_datum']['label'] = 'Date';
   $handler->display->display_options['fields']['field_datum']['settings'] = array(
     'format_type' => 'short',
     'fromto' => 'both',
@@ -2973,13 +2973,13 @@ function beeldfeature_views_default_views() {
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Verwijder geselecteerde beelden',
+      'label' => 'Remove selected images',
     ),
     'action::views_bulk_operations_argument_selector_action' => array(
       'selected' => 1,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Beeld(en) toekennen aan validator / wachtrij',
+      'label' => 'Images to validator / queue',
       'settings' => array(
         'url' => 'beelduitwisselaar/selectexpertise',
       ),
@@ -3021,7 +3021,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['relationship'] = 'field_afbeeldingen_node';
-  $handler->display->display_options['fields']['field_achternaam']['label'] = 'Fotograaf';
+  $handler->display->display_options['fields']['field_achternaam']['label'] = 'Photographer';
   $handler->display->display_options['fields']['field_achternaam']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['alter']['text'] = '<a href="/search/node/[field_achternaam] [field_voornaam]">[field_achternaam], [field_voornaam]</a>';
   $handler->display->display_options['fields']['field_achternaam']['element_label_colon'] = FALSE;
@@ -3053,7 +3053,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'field_data_field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
-  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Opmerking fotograaf';
+  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Comment photographer';
   /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
@@ -3135,7 +3135,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['filters']['combine']['operator'] = 'contains';
   $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
   $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
-  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter resultaten:';
+  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter results:';
   $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
   $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
   $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
@@ -3333,7 +3333,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['relationship'] = 'field_afbeeldingen_node';
-  $handler->display->display_options['fields']['created']['label'] = 'Datum insturen';
+  $handler->display->display_options['fields']['created']['label'] = 'Date uploaded';
   $handler->display->display_options['fields']['created']['date_format'] = 'superkort';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   /* Field: Field collection item: Locatie */
@@ -3344,7 +3344,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'field_data_field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
-  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Opmerking fotograaf';
+  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Comment photographer';
   /* Field: Field collection item: status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
@@ -3381,7 +3381,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['filters']['combine']['operator'] = 'contains';
   $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
   $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
-  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter resultaten: ';
+  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Filter results: ';
   $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
   $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
   $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
@@ -3928,7 +3928,7 @@ function beeldfeature_views_default_views() {
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 1,
-      'label' => 'Verwijder geselecteerde beelden',
+      'label' => 'Remove selected images',
     ),
     'action::views_bulk_operations_modify_action' => array(
       'selected' => 1,
@@ -4389,7 +4389,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['relationship'] = 'field_afbeeldingen_node';
-  $handler->display->display_options['fields']['created']['label'] = 'Datum insturen';
+  $handler->display->display_options['fields']['created']['label'] = 'Date uploaded';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'superkort';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
@@ -4437,7 +4437,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'field_data_field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
-  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Opmerkingen fotograaf';
+  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Comment photographer';
   $handler->display->display_options['fields']['field_opmerkingen']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_opmerkingen']['type'] = 'text_plain';
   /* Field: Field collection item: Opmerking validator */
@@ -4449,7 +4449,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_nlsr']['id'] = 'field_nlsr';
   $handler->display->display_options['fields']['field_nlsr']['table'] = 'field_data_field_nlsr';
   $handler->display->display_options['fields']['field_nlsr']['field'] = 'field_nlsr';
-  $handler->display->display_options['fields']['field_nlsr']['label'] = 'Nederlands soortenregister';
+  $handler->display->display_options['fields']['field_nlsr']['label'] = 'species register';
   $handler->display->display_options['fields']['field_nlsr']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_nlsr']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_nlsr']['alter']['text'] = 'http://www.nederlandsesoorten.nl/nsr/concept/[field_nlsr-value]';
@@ -4601,14 +4601,14 @@ function beeldfeature_views_default_views() {
       'postpone_processing' => 1,
       'skip_confirmation' => 0,
       'override_label' => 1,
-      'label' => 'Verstuur mail',
+      'label' => 'Send mail',
     ),
     'action::views_bulk_operations_modify_action' => array(
       'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Verander expert / Plaats in wachtrij',
+      'label' => 'Change expert / Add to queue',
       'settings' => array(
         'show_all_tokens' => 0,
         'display_values' => array(
@@ -4926,7 +4926,7 @@ function beeldfeature_views_default_views() {
       'selected' => 1,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Verstuur email',
+      'label' => 'Send email',
       'settings' => array(
         'url' => 'beelduitwisselaar/kiesmail',
       ),
@@ -5424,21 +5424,21 @@ echo db_query( $sql )->fetchField();
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 1,
-      'label' => 'Stuur email',
+      'label' => 'Send email',
     ),
     'action::views_bulk_operations_delete_item' => array(
       'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 1,
-      'label' => 'Verwijder geselecteerde beelden',
+      'label' => 'Remove selected images',
     ),
     'action::views_bulk_operations_modify_action' => array(
       'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Toekennen aan expert (selectie in next scherm)',
+      'label' => 'To expert (selection in next screen)',
       'settings' => array(
         'show_all_tokens' => 0,
         'display_values' => array(
@@ -5578,14 +5578,14 @@ echo db_query( $sql )->fetchField();
       'postpone_processing' => 1,
       'skip_confirmation' => 0,
       'override_label' => 1,
-      'label' => 'Verstuur mail',
+      'label' => 'Send mail',
     ),
     'action::views_bulk_operations_modify_action' => array(
       'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Verander expert / Plaats in wachtrij',
+      'label' => 'Change expert / Add to queue',
       'settings' => array(
         'show_all_tokens' => 0,
         'display_values' => array(
@@ -6212,7 +6212,7 @@ echo db_query( $sql )->fetchField();
       'selected' => 1,
       'skip_confirmation' => 1,
       'override_label' => 1,
-      'label' => 'Beeld(en) toekennen aan validator',
+      'label' => 'Image(s) to validator',
       'settings' => array(
         'url' => 'beelduitwisselaar/selectexpertise',
       ),
@@ -6690,7 +6690,7 @@ You can use the next fields that will be filled by the system automatically:
   $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
   $handler->display->display_options['fields']['filename']['field'] = 'filename';
   $handler->display->display_options['fields']['filename']['relationship'] = 'field_newimage_fid';
-  $handler->display->display_options['fields']['filename']['label'] = 'Naam';
+  $handler->display->display_options['fields']['filename']['label'] = 'Name';
   /* Filter criterion: Field collection item: Fotograaf (field_fotograaf) */
   $handler->display->display_options['filters']['field_fotograaf_target_id']['id'] = 'field_fotograaf_target_id';
   $handler->display->display_options['filters']['field_fotograaf_target_id']['table'] = 'field_data_field_fotograaf';
@@ -6717,7 +6717,7 @@ You can use the next fields that will be filled by the system automatically:
     t('Soort/taxon'),
     t('Soortnaam en opmerkingen'),
     t('Datum van opname'),
-    t('Locatie'),
+    t('Location'),
     t('Naam'),
     t('Page'),
   );
@@ -6900,7 +6900,7 @@ You can use the next fields that will be filled by the system automatically:
   $handler->display->display_options['fields']['field_newimage_file']['id'] = 'field_newimage_file';
   $handler->display->display_options['fields']['field_newimage_file']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_newimage_file']['field'] = 'field_newimage_file';
-  $handler->display->display_options['fields']['field_newimage_file']['label'] = 'Beeld';
+  $handler->display->display_options['fields']['field_newimage_file']['label'] = 'Image';
   $handler->display->display_options['fields']['field_newimage_file']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_newimage_file']['alter']['text'] = '<a href="/field-collection/field-afbeeldingen/[item_id]/edit"><img width="100px" src="/sites/default/files/[field_newimage_file_name]" style="max-width:100px;max-height:100px;" /></a>';
   $handler->display->display_options['fields']['field_newimage_file']['link_to_entity'] = 0;
@@ -6961,7 +6961,7 @@ You can use the next fields that will be filled by the system automatically:
   $handler->display->display_options['fields']['field_opmerkingen']['id'] = 'field_opmerkingen';
   $handler->display->display_options['fields']['field_opmerkingen']['table'] = 'search_api_index_collectionindex';
   $handler->display->display_options['fields']['field_opmerkingen']['field'] = 'field_opmerkingen';
-  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Opmerkingen fotograaf';
+  $handler->display->display_options['fields']['field_opmerkingen']['label'] = 'Comment photographer';
   /* Field: Indexed Field collection item: Soortgroep */
   $handler->display->display_options['fields']['field_groep']['id'] = 'field_groep';
   $handler->display->display_options['fields']['field_groep']['table'] = 'search_api_index_collectionindex';
@@ -7058,7 +7058,7 @@ You can use the next fields that will be filled by the system automatically:
     t('User ID (indexed)'),
     t('Validator'),
     t('<a href="/search/node/[field_beeldexpert_field_achternaam] [field_beeldexpert_field_voornaam]">[field_beeldexpert_field_achternaam], [field_beeldexpert_field_voornaam]</a>'),
-    t('Opmerkingen fotograaf'),
+    t('Comment photographer'),
     t('Soortgroep'),
     t('<a href="/search/node/[field_groep]">[field_groep]</a>'),
     t('Status'),
