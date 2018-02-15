@@ -497,7 +497,7 @@ function beelduitwisselaar_selectexpert_callback()
         <h2>Experts $resultspecialisatie</h2></div>" .
         t("Click the name to assign an expert to validate the image.") . "<br /><br />";
 
-    $resultusers = db_query("SELECT * FROM {users} WHERE uid IN (SELECT entity_id FROM {field_data_field_specialisatie} WHERE field_specialisatie_tid = :tid", [':tid' => $_GET['tid']]);
+    $resultusers = db_query('SELECT * FROM users WHERE uid IN (SELECT entity_id FROM field_data_field_specialisatie WHERE field_specialisatie_tid = :tid)', [':tid' => $_GET['tid']]);
 
     $aantal = $resultusers->rowCount();
     if ($resultusers->rowCount() == 0) {
@@ -798,7 +798,7 @@ function beelduitwisselaar_block_imgblock()
 
     $block['content'] = '';
     $nodeid = 0;
-    if ((arg(0) === 'field-collecion') && arg(1) === 'field-afbeeldingen') {
+    if ((arg(0) === 'field-collection') && arg(1) === 'field-afbeeldingen') {
         $nodeid = is_numeric(arg(2)) ? arg(2) : $nodeid;
     }
     if (arg(0) === 'beelddetail') {
@@ -840,8 +840,13 @@ jQuery(document).ready(
 	}
 );
 </script>
-<b>Beeld</b><br /><a href='/sites/default/files/$bldfilename' class='colorbox' rel=''><img src='/sites/default/files/$bldfilename' width='220px' class='colorbox' style='float:left;margin-right:10px;margin-bottom:10px;' /></a><b>Bestand</b>: <a href='/sites/default/files/$bldfilename' target='_blank' rel=''><img class='file-icon' alt='' title='image/jpeg' src='/modules/file/icons/image-x-generic.png' /> " . $bldfilename . "</a><br /><span style='font-size: 10px;margin-left: 75px;'>${$afbeeldcomment}</span><br /><br />";
-<b>Fotograaf</b>: 
+<b>Image</b>
+<br />
+<a href='/sites/default/files/$bldfilename' class='colorbox' rel=''><img src='/sites/default/files/$bldfilename' width='220px' class='colorbox' style='float:left;margin-right:10px;margin-bottom:10px;' /></a>
+<b>File</b>: 
+<a href='/sites/default/files/$bldfilename' target='_blank' rel=''><i class='ion-image'></i>$bldfilename</a><br />
+<span style='font-size: 10px;margin-left: 75px;'>$afbeeldcomment</span><br /><br />
+<b>Photographer</b>: 
 <a href='mailto:{$bldfotograaf->mail}'>{$bldfotograaf->field_voornaam['und'][0]['value']} {$bldfotograaf->field_achternaam['und'][0]['value']} <i class='ion-email'></i></a><br><br>
 JS1;
 
@@ -872,11 +877,7 @@ function beelduitwisselaar_block_block()
         $tmpnode = entity_load_single("field_collection_item", $nodeid);
         $myname = $tmpnode->field_soort_taxon['und'][0]['value'];
     }
-    $searchcomment =
-        t('Pick a name from the Dutch Species Register. 
-        This field is mandatory. If you do not know the name of the species, please supply the name of the taxon above it (genus, family, etc..).
-        <br>If not correct: <a href="#" onclick="undo();">Please select another.</a>'
-        );
+    $searchcomment = t('Pick a name from the Dutch Species Register. This field is mandatory. If you do not know the name of the species, please supply the name of the taxon above it (genus, family, etc..). <br>If not correct: <a href="#" onclick="undo();">Please select another.</a>');
     /*
     $searchcomment =
         t('Zoek en selecteer een naam uit het Nederlands Soortenregister.
@@ -907,7 +908,7 @@ function setName(ele) {
   jQuery('#edit-field-soort-taxon-und-0-value').value=ele;
   jQuery('#group').val(ele);
   clear();
-  jQuery('selectlijst').innerHTML={$searchcomment};
+  jQuery('selectlijst').innerHTML='{$searchcomment}';
   jQuery('#validated').style.visibility="visible";
   jQuery('#group').setAttribute("disabled","disabled");  
 }

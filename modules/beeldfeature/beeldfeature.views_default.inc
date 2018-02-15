@@ -136,7 +136,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen">Grid</a>: <a href="/?q=grid-afbeeldingen"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen">Grid</a>: <a href="/?q=grid-afbeeldingen"><i class="ion-android-apps"></i><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -240,7 +240,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_achternaam']['table'] = 'field_data_field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['field'] = 'field_achternaam';
   $handler->display->display_options['fields']['field_achternaam']['relationship'] = 'field_afbeeldingen_node';
-  $handler->display->display_options['fields']['field_achternaam']['label'] = 'Fotographer';
+  $handler->display->display_options['fields']['field_achternaam']['label'] = 'Photographer';
   $handler->display->display_options['fields']['field_achternaam']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_achternaam']['alter']['text'] = '<a href="/search/node/[field_achternaam] [field_voornaam]">[field_achternaam], [field_voornaam]</a>';
   $handler->display->display_options['fields']['field_achternaam']['element_label_colon'] = FALSE;
@@ -259,7 +259,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['url']['field'] = 'url';
   $handler->display->display_options['fields']['url']['label'] = 'Edit';
   $handler->display->display_options['fields']['url']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['url']['alter']['text'] = '<a href="[url]/edit"><img src="/sites/all/files/icon/edit.png" class="gridicon" border="no" /></a>';
+  $handler->display->display_options['fields']['url']['alter']['text'] = '<a href="[url]/edit"><i class="ion-edit"></i></a>';
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
   /* Sort criterion: Field collection item: Datum insturen (field_created) */
@@ -325,7 +325,7 @@ function beeldfeature_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright"><a href="/?q=grid-afbeeldingen">Grid</a>: <a href="/?q=grid-afbeeldingen"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright"><a href="/?q=grid-afbeeldingen">Grid</a>: <a href="/?q=grid-afbeeldingen"><i class="ion-android-apps"></i><div>'),
     t('field_afbeeldingen'),
     t('[url_1]/edit'),
     t('- Choose an operation -'),
@@ -340,7 +340,7 @@ function beeldfeature_views_default_views() {
     t('Location'),
     t('Comment photographer'),
     t('Edit'),
-    t('<a href="[url]/edit"><img src="/sites/all/files/icon/edit.png" class="gridicon" border="no" /></a>'),
+    t('<a href="[url]/edit"><i class="ion-edit"></i></a>'),
     t('Filter results:'),
     t('Page'),
   );
@@ -439,7 +439,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-afgekeurd">Grid</a>: <a href="/?q=grid-afbeeldingen-afgekeurd"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-afgekeurd">Grid</a>: <a href="/?q=grid-afbeeldingen-afgekeurd"><i class="ion-android-apps"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -579,7 +579,7 @@ function beeldfeature_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-afgekeurd">Grid</a>: <a href="/?q=grid-afbeeldingen-afgekeurd"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-afgekeurd">Grid</a>: <a href="/?q=grid-afbeeldingen-afgekeurd"><i class="ion-android-apps"></i></a><div>'),
     t('field_afbeeldingen'),
     t('- Choose an operation -'),
     t('Remove selected images'),
@@ -1292,7 +1292,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Grid</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Grid</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><i class="ion-android-apps"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -1447,7 +1447,7 @@ function beeldfeature_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><i class="ion-android-apps"></i></a><div>'),
     t('field_afbeeldingen'),
     t('[url]/edit'),
     t('- Choose an operation -'),
@@ -1598,7 +1598,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Grid</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Grid</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><i class="ion-android-apps"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -1737,7 +1737,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['url']['field'] = 'url';
   $handler->display->display_options['fields']['url']['label'] = 'Edit';
   $handler->display->display_options['fields']['url']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['url']['alter']['text'] = '<a href="[url]/edit"><img src="/sites/all/files/icon/edit.png" class="gridicon" border="no" /></a>';
+  $handler->display->display_options['fields']['url']['alter']['text'] = '<a href="[url]/edit"><i class="ion-edit"></i></a>';
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
   /* Field: Field collection item: status */
@@ -1820,7 +1820,7 @@ function beeldfeature_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-geevalueerd-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-geevalueerd-all"><i class="ion-android-apps"></i></a><div>'),
     t('field_afbeeldingen'),
     t('Gebruiker entity referenced from field_beeldexpert'),
     t('term from field_groep'),
@@ -1840,7 +1840,7 @@ function beeldfeature_views_default_views() {
     t('Species/taxon'),
     t('Comment validator'),
     t('Edit'),
-    t('<a href="[url]/edit"><img src="/sites/all/files/icon/edit.png" class="gridicon" border="no" /></a>'),
+    t('<a href="[url]/edit"><i class="ion-edit"></i></a>'),
     t('<img class="status" width="24px" src="/sites/all/modules/beelduitwisselaar/img/[field_status-value].png" title="[field_status]" />'),
     t('Filter resultaten:'),
     t('Page'),
@@ -1940,7 +1940,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-goedgekeurd">Grid</a>: <a href="/?q=grid-afbeeldingen-goedgekeurd"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-goedgekeurd">Grid</a>: <a href="/?q=grid-afbeeldingen-goedgekeurd"><i class="ion-android-apps"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -2080,7 +2080,7 @@ function beeldfeature_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-goedgekeurd">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-goedgekeurd"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-goedgekeurd">Grid</a>: <a href="/?q=grid-afbeeldingen-goedgekeurd"><i class="ion-android-apps"></i></a><div>'),
     t('field_afbeeldingen'),
     t('- Choose an operation -'),
     t('Image(s) publish'),
@@ -2920,7 +2920,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-expert-all">Grid</a>: <a href="/?q=grid-afbeeldingen-expert-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-expert-all">Grid</a>: <a href="/?q=grid-afbeeldingen-expert-all"><i class="ion-android-apps"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -3181,7 +3181,7 @@ function beeldfeature_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-expert-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-expert-all"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-expert-all">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-expert-all"><i class="ion-android-apps"></i></a><div>'),
     t('field_afbeeldingen'),
     t('User entity referenced from field_beeldexpert'),
     t('term from field_groep'),
@@ -4123,7 +4123,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-wachtrij">Grid</a>: <a href="/?q=grid-afbeeldingen-wachtrij"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=grid-afbeeldingen-wachtrij">Grid</a>: <a href="/?q=grid-afbeeldingen-wachtrij"><i class="ion-android-apps"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -4321,7 +4321,7 @@ function beeldfeature_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-wachtrij">Gridoverzicht</a>: <a href="/?q=grid-afbeeldingen-wachtrij"><img src="/sites/all/files/icon/grid.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright"><a href="/?q=grid-afbeeldingen-wachtrij">Grid</a>: <a href="/?q=grid-afbeeldingen-wachtrij"><i class="ion-android-apps"></i></a><div>'),
     t('field_afbeeldingen'),
     t('Gebruiker entity referenced from field_beeldexpert'),
     t('term from field_groep'),
@@ -4461,7 +4461,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['fields']['field_soort_taxon']['field'] = 'field_soort_taxon';
   $handler->display->display_options['fields']['field_soort_taxon']['alter']['text'] = '<a href="[field_nlsr]" target="_blank" >[field_soort_taxon]</a>';
   $handler->display->display_options['fields']['field_soort_taxon']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_soort_taxon']['empty'] = '<i>Nog niet op naam gebracht</i>';
+  $handler->display->display_options['fields']['field_soort_taxon']['empty'] = '<i>Not yet specified</i>';
   /* Contextual filter: Field collection item: Field collection item ID */
   $handler->display->display_options['arguments']['item_id']['id'] = 'item_id';
   $handler->display->display_options['arguments']['item_id']['table'] = 'field_collection_item';
@@ -4549,7 +4549,7 @@ function beeldfeature_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-goedgekeurd">Table</a>: <a href="/?q=afbeeldingen-goedgekeurd"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-goedgekeurd">Table</a>: <a href="/?q=afbeeldingen-goedgekeurd"><i class="ion-ios-list"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -4653,7 +4653,7 @@ function beeldfeature_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright"><a href="/?q=afbeeldingen-goedgekeurd">Table</a>: <a href="/?q=afbeeldingen-goedgekeurd"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright"><a href="/?q=afbeeldingen-goedgekeurd">Table</a>: <a href="/?q=afbeeldingen-goedgekeurd"><i class="ion-ios-list"></i></a><div>'),
     t('field_afbeeldingen'),
     t('- Choose an operation -'),
     t('Send mail'),
@@ -5391,7 +5391,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen">Table</a>: <a href="/?q=afbeeldingen"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen">Table</a>: <a href="/?q=afbeeldingen"><i class="ion-ios-list"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -5480,7 +5480,7 @@ echo db_query( $sql )->fetchField();
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright"><a href="/?q=afbeeldingen">Tabeloverzicht</a>: <a href="/?q=afbeeldingen"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright"><a href="/?q=afbeeldingen">Tabeloverzicht</a>: <a href="/?q=afbeeldingen"><i class="ion-ios-list"></i><div>'),
     t('field_afbeeldingen'),
     t('- Choose an operation -'),
     t('Send email'),
@@ -5526,7 +5526,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-afgekeurd">Table</a>: <a href="/?q=afbeeldingen-afgekeurd"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-afgekeurd">Table</a>: <a href="/?q=afbeeldingen-afgekeurd"><i class="ion-ios-list"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -5630,7 +5630,7 @@ echo db_query( $sql )->fetchField();
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright"><a href="/?q=afbeeldingen-afgekeurd">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-afgekeurd"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright"><a href="/?q=afbeeldingen-afgekeurd">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-afgekeurd"><i class="ion-ios-list"></i></a><div>'),
     t('field_afbeeldingen'),
     t('- Choose an operation -'),
     t('Send mail'),
@@ -5681,7 +5681,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-geevalueerd-all">Table</a>: <a href="/?q=afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-geevalueerd-all">Table</a>: <a href="/?q=afbeeldingen-geevalueerd-all"><i class="ion-ios-list"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -5769,7 +5769,7 @@ echo db_query( $sql )->fetchField();
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright"><a href="/?q=afbeeldingen-geevalueerd-all">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-geevalueerd-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright"><a href="/?q=afbeeldingen-geevalueerd-all">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-geevalueerd-all"><i class="ion-ios-list"></i></a><div>'),
     t('field_afbeeldingen'),
     t('[url]/edit'),
     t('<a href="[url]">[field_newimage_1]</a>'),
@@ -5815,7 +5815,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright" style="margin-top:-20px;"><a href="/?q=afbeeldingen-expert">Table</a>: <a href="/?q=afbeeldingen-expert"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright" style="margin-top:-20px;"><a href="/?q=afbeeldingen-expert">Table</a>: <a href="/?q=afbeeldingen-expert"><i class="ion-ios-list"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -5857,7 +5857,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['fields']['url']['field'] = 'url';
   $handler->display->display_options['fields']['url']['label'] = '';
   $handler->display->display_options['fields']['url']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['url']['alter']['text'] = '<a href="[url]/edit"><img src="/sites/all/files/icon/edit.png" class="gridicon" border="no" /></a>';
+  $handler->display->display_options['fields']['url']['alter']['text'] = '<a href="[url]/edit"><i class="ion-edit"></i></a>';
   $handler->display->display_options['fields']['url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
@@ -5899,9 +5899,9 @@ echo db_query( $sql )->fetchField();
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright" style="margin-top:-20px;"><a href="/?q=afbeeldingen-expert">Tabel overzicht</a>: <a href="/?q=afbeeldingen-expert"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright" style="margin-top:-20px;"><a href="/?q=afbeeldingen-expert">Tabel overzicht</a>: <a href="/?q=afbeeldingen-expert"><i class="ion-ios-list"></i></a><div>'),
     t('field_afbeeldingen'),
-    t('<a href="[url]/edit"><img src="/sites/all/files/icon/edit.png" class="gridicon" border="no" /></a>'),
+    t('<a href="[url]/edit"><i class="ion-edit"></i></a>'),
     t('Alle'),
     t('Page'),
   );
@@ -5943,7 +5943,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-expert-all">Table</a>: <a href="/?q=afbeeldingen-expert-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-expert-all">Table</a>: <a href="/?q=afbeeldingen-expert-all"><i class="ion-ios-list"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Field: Field collection item: Beeld */
   $handler->display->display_options['fields']['field_newimage']['id'] = 'field_newimage';
@@ -6016,7 +6016,7 @@ echo db_query( $sql )->fetchField();
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright"><a href="/?q=afbeeldingen-expert-all">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-expert-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright"><a href="/?q=afbeeldingen-expert-all">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-expert-all"><i class="ion-ios-list"></i></a><div>'),
     t('- Choose an operation -'),
     t('Verwijder geselecteerde beelden'),
     t('Toekennen aan andere expert (selectie in next scherm)'),
@@ -6060,7 +6060,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright" style="margin-top: -20px;"><a href="/?q=afbeeldingen-verwerkt-all">Table</a>: <a href="/?q=afbeeldingen-verwerkt-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright" style="margin-top: -20px;"><a href="/?q=afbeeldingen-verwerkt-all">Table</a>: <a href="/?q=afbeeldingen-verwerkt-all"><i class="ion-ios-list"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -6125,7 +6125,7 @@ echo db_query( $sql )->fetchField();
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright" style="margin-top: -20px;"><a href="/?q=afbeeldingen-verwerkt-all">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-verwerkt-all"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright" style="margin-top: -20px;"><a href="/?q=afbeeldingen-verwerkt-all">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-verwerkt-all"><i class="ion-ios-list"></i></a><div>'),
     t('field_afbeeldingen'),
     t('Page'),
   );
@@ -6166,7 +6166,7 @@ echo db_query( $sql )->fetchField();
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-wachtrij">Table</a>: <a href="/?q=afbeeldingen-wachtrij"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="gridright"><a href="/?q=afbeeldingen-wachtrij">Table</a>: <a href="/?q=afbeeldingen-wachtrij"><i class="ion-ios-list"></i></a><div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Field collection item: Entity with the Afbeeldingen (field_afbeeldingen) */
   $handler->display->display_options['relationships']['field_afbeeldingen_node']['id'] = 'field_afbeeldingen_node';
@@ -6253,7 +6253,7 @@ echo db_query( $sql )->fetchField();
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<div class="gridright"><a href="/?q=afbeeldingen-wachtrij">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-wachtrij"><img src="/sites/all/files/icon/details.png" class="gridiconlarge" border="no" /></a><div>'),
+    t('<div class="gridright"><a href="/?q=afbeeldingen-wachtrij">Tabeloverzicht</a>: <a href="/?q=afbeeldingen-wachtrij"><i class="ion-ios-list"></i></a><div>'),
     t('field_afbeeldingen'),
     t('[url]/edit'),
     t('<a href="[url]">[field_newimage_1]</a>'),
@@ -6713,7 +6713,7 @@ You can use the next fields that will be filled by the system automatically:
     t('image from field_newimage'),
     t('Field collection item'),
     t('- Choose an operation -'),
-    t('Fotograaf'),
+    t('Photographer'),
     t('Soort/taxon'),
     t('Soortnaam en opmerkingen'),
     t('Datum van opname'),

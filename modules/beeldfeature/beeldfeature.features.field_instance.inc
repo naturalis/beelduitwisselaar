@@ -370,7 +370,7 @@ function beeldfeature_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_locatie',
-    'label' => 'Locatie',
+    'label' => 'Location',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
