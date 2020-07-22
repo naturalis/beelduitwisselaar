@@ -862,7 +862,7 @@ jQuery(document).ready(
 JS1;
 
     $block['content'] .= "<b>" . t('Uploaded on') . "</b>: $datecreated<br>"; // Datum van inzenden
-    $block['content'] .= "<b>" . t('Published on') . "</b>: $datesubmit<br>"; // Datum van opname
+    $block['content'] .= "<b>" . t('Photographed on') . "</b>: $datesubmit<br>"; // Datum van opname
     $block['content'] .= is_object($licenseTerm) ? ("<b>" . t('License') . "</b>: " . $licenseTerm->name . "<br>") : ''; // Licentie
     $block['content'] .= "<br><b>" . t('Status') . "</b>: <img class='status' width='24px' src='/sites/all/modules/beelduitwisselaar/img/$bldstatus.png' title='(Status: " . beelduitwisselaar_statustext($bldstatus) . ")' /> " . beelduitwisselaar_statustext($bldstatus) . "<br>"; // Status
 
