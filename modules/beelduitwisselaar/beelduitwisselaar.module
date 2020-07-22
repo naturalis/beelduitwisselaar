@@ -12,8 +12,8 @@ define('IMAGEIMPORTFOLDER', '/var/www/drupal/import/');
 define('BEELDUITWISSELAARLICENSETERMID', 75);
 define('NATUURNLLICENSETERMID', 76);
 
-define('NSR_LINK', 'http://www.dutchcaribbeanspecies.org/nsr/concept/');
-define('LINNAEUS_SEARCH','http://www.dutchcaribbeanspecies.org/linnaeus_ng/app/views/webservices/search.php');
+define('NSR_LINK', 'https://www.dutchcaribbeanspecies.org/nsr/concept/');
+define('LINNAEUS_SEARCH','https://www.dutchcaribbeanspecies.org/linnaeus_ng/app/views/webservices/search.php');
 
 /**
  * Global variables, specify nodeids of the predefined email templates
@@ -358,6 +358,7 @@ function makemail($userid, $mailnodeid, $beeldid)
     if (!empty($beeldnode->field_newimage['und'][0])) {
         $filename = empty($beeldnode->field_newimage['und'][0]['filename']) ? $beeldnode->field_newimage['und'][0]['origname'] : $beeldnode->field_newimage['und'][0]['filename'];
     }
+    $nsr_url = NSR_LINK . $beeldnode->field_nlsr['und'][0]['value']['#value'] . "?cat=CTAB_MEDIA";
 
     $mymail = str_replace(
         [
@@ -368,7 +369,7 @@ function makemail($userid, $mailnodeid, $beeldid)
             '%%expert_link%%'
         ],
         [
-            "<a href='" . NSR_LINK . $beeldnode->field_nlsr['und'][0]['value']['#value'] . "'>" . $beeldnode->field_soort_taxon['und'][0]['value']['#value'] . "</a>",
+            "<a href='" . $nsr_url . "'>" . $beeldnode->field_soort_taxon['und'][0]['value']['#value'] . "</a>",
             $beeldnode->field_newimage['und'][0]['filename'],
             $filename,
             $user->name,
@@ -544,7 +545,8 @@ function beelduitwisselaar_wachtrij_callback()
         }
         $nsr_link = "";
         if (!empty($entity->field_nlsr)) {
-            $nsr_link = "<a href='https://www.dutchcaribbeanspecies.org/nsr/concept/" . $entity->field_nlsr['und'][0]['value']['#value'] . "'>" .  $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>";
+            $url = NSR_LINK . $entity->field_nlsr['und'][0]['value']['#value'] . "?cat=CTAB_MEDIA";
+            $nsr_link = "<a href='" . $url . "'>" .  $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>";
         }
 
         $mail = $mymail->body['und'][0]['value'];
@@ -836,7 +838,7 @@ function beelduitwisselaar_block_imgblock()
     $collectionItem = entity_load_single("field_collection_item", $nodeid);
 
     $datecreated = date('d-m-Y', $collectionItem->field_created['und'][0]['value']);
-    $datesubmit = date('d-m-Y', $collectionItem->field_datum['und'][0]['value']);
+    $datesubmit = date('d-m-Y', strtotime($collectionItem->field_datum['und'][0]['value']));
     $licenseTerm = taxonomy_term_load($collectionItem->field_license['und'][0]['tid']);
 
     $afbeeldcomment = t('(click the file to see the image in full)'); // (klik op de bestandsnaam om beeld op volledige grootte te bekijken)
@@ -1129,6 +1131,7 @@ function beelduitwisselaar_publish_action(&$entity, $context = array())
 
         //Stuur mail wacht
         $mymail = node_load(MAILACCEPTSUBMISSION);
+        $nsr_url = NSR_LINK . $entity->field_nlsr['und'][0]['value']['#value'] . "?cat=CTAB_MEDIA";
         $mail = $mymail->body['und'][0]['value'];
         $mail = str_replace(
             [
@@ -1142,7 +1145,7 @@ function beelduitwisselaar_publish_action(&$entity, $context = array())
                 $entity->field_newimage['und'][0]['filename'],
                 $user->name,
                 "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>",
-                "<a href='" . NSR_LINK . $entity->field_nlsr['und'][0]['value']['#value'] . "'>" . $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>",
+                "<a href='" . $nsr_url . "'>" . $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>",
                 $entity->field_newimage['und'][0]['filename']
             ],
             $mail
@@ -1764,6 +1767,7 @@ function beelduitwisselaar_afgekeurd(&$form, &$form_state)
         $myentity->field_opmerkingen['und'][0]['value'] = $form['field_opmerkingen']['und'][0]['value']['#default_value'];
     }
     $myentity->field_textsoortenregister['und'][0]['value'] = $form['field_textsoortenregister']['und'][0]['value']['#value'];
+    $nsr_url = NSR_LINK . $entity->field_nlsr['und'][0]['value']['#value'] . "?cat=CTAB_MEDIA";
 
     $mymail = node_load(MAILDECLINESUBMISSION);
     $mailbody = $mymail->body['und'][0]['value'];
@@ -1779,7 +1783,7 @@ function beelduitwisselaar_afgekeurd(&$form, &$form_state)
             $myentity->field_newimage['und'][0]['#file']->filename,
             $user->name,
             "<a href='$base_url/?q=afbeeldingen-expert'>" . $user->name . "</a>",
-            "<a href='" . NSR_LINK . $form['field_nlsr']['und'][0]['value']['#value'] . "'>" . $form['field_soort_taxon']['und'][0]['value']['#value'] . "</a>",
+            "<a href='$nsr_url'>" . $form['field_soort_taxon']['und'][0]['value']['#value'] . "</a>",
             $form['#entity']->item_id
         ],
         $mailbody);
@@ -2021,6 +2025,7 @@ function beelduitwisselaar_afronden(&$form, &$form_state)
     //Stuur mail goedgekeurd
     $mymail = node_load(MAILACCEPTSUBMISSION);
     $mailbody = $mymail->body['und'][0]['value'];
+    $nsr_url = NSR_LINK . $entity->field_nlsr['und'][0]['value']['#value'] . "?cat=CTAB_MEDIA";
 
     $mail = str_replace(
         [
@@ -2034,7 +2039,7 @@ function beelduitwisselaar_afronden(&$form, &$form_state)
             $form['field_newimage']['und'][0]['#file']->filename,
             $user->name,
             '<a href="' . $base_url . '/?q=afbeeldingen-expert">' . $user->name . '</a>',
-            '<a href="' . NSR_LINK . $form['field_nlsr']['und'][0]['value']['#value'] . '">' . $form['field_soort_taxon']['und'][0]['value']['#value'] . '</a>',
+            '<a href="' . $nsr_url . '">' . $form['field_soort_taxon']['und'][0]['value']['#value'] . '</a>',
             $form["#entity"]->item_id
         ],
         $mailbody
