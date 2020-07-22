@@ -320,7 +320,7 @@ function makemail($userid, $mailnodeid, $aboutnodeid)
   } else {
     $mymail = str_replace("%%beeldnaam%%", $myentity->field_newimage['und'][0]['filename'], $mymail);
   }
-  $mymail = str_replace("%%nsr_link%%", "<a href='http://www.nederlandsesoorten.nl/nsr/concept/" . $myentity->field_nlsr['und'][0]['value']['#value'] . "'>" .  $myentity->field_soort_taxon['und'][0]['value']['#value'] . "</a>", $mymail);
+  $mymail = str_replace("%%nsr_link%%", "<a href='https://www.nederlandsesoorten.nl/nsr/concept/" . $myentity->field_nlsr['und'][0]['value']['#value'] . "/images'>" .  $myentity->field_soort_taxon['und'][0]['value']['#value'] . "</a>", $mymail);
   $mymail = str_replace("%%bestandsnamen%%", $entity->field_newimage['und'][0]['filename'], $mymail);
   $mymail = str_replace("%%expertnaam%%", $tempuser->name, $mymail);
   $mymail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $tempuser->name . "</a>", $mymail);
@@ -455,7 +455,7 @@ function beelduitwisselaar_wachtrij_callback() {
   $mail = str_replace("%%expertnaam%%", $user->name, $mail);
   $mail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>", $mail);
   if (!empty($entity->field_nlsr)) {
-    $mail = str_replace("%%nsr_link%%", "<a href='http://www.nederlandsesoorten.nl/nsr/concept/" . $entity->field_nlsr['und'][0]['value']['#value'] . "'>" .  $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>", $mail);
+    $mail = str_replace("%%nsr_link%%", "<a href='https://www.nederlandsesoorten.nl/nsr/concept/" . $entity->field_nlsr['und'][0]['value']['#value'] . "/images'>" .  $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>", $mail);
   }
   else {
     $mail = str_replace("%%nsr_link%%", "", $mail);
@@ -1015,7 +1015,7 @@ function beelduitwisselaar_publish_action(&$entity, $context = array()) {
   $mail = str_replace("%%beeldnaam%%",  $entity->field_newimage['und'][0]['filename'], $mail);
   $mail = str_replace("%%expertnaam%%", $user->name, $mail);
   $mail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>", $mail);
-  $mail = str_replace("%%nsr_link%%", "<a href='http://www.nederlandsesoorten.nl/nsr/concept/" . $entity->field_nlsr['und'][0]['value']['#value'] . "'>" .  $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>", $mail);
+  $mail = str_replace("%%nsr_link%%", "<a href='https://www.nederlandsesoorten.nl/nsr/concept/" . $entity->field_nlsr['und'][0]['value']['#value'] . "/images'>" .  $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>", $mail);
   $mail = str_replace("%%bestandsnamen%%", $entity->field_newimage['und'][0]['filename'], $mail);
 
   $fotograafid = $entity->field_fotograaf['und'][0]['target_id'];
@@ -1531,7 +1531,7 @@ function beelduitwisselaar_node_insert($node) {
   $mail = str_replace("%%beeldnaam%%",  $form['field_textsoortenregister']['und'][0]['value']['#value'], $mail);
   $mail = str_replace("%%expertnaam%%", $user->name, $mail);
   $mail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>", $mail);
-  $mail = str_replace("%%nsr_link%%", $form['field_nlsr']['und'][0]['value']['#value'], $mail);
+  $mail = str_replace("%%nsr_link%%", "<a href='https://www.nederlandsesoorten.nl/nsr/concept/" . $form['field_nlsr']['und'][0]['value']['#value'] . "/images'>" .  $form['field_soort_taxon']['und'][0]['value']['#value'] . "</a>", $mail);
   $mail = str_replace("%%bestandsnamen%%", $beeldnamen, $mail);
   $to = $user->mail;
   $subject = $mymail->title;
@@ -1691,7 +1691,7 @@ function beelduitwisselaar_afgekeurd(&$form, &$form_state) {
   $mail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>", $mail);
   //$mail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/user/" . $user->uid . "'>" . $user->name . "</a>", $mail);
   // http://www.nederlandsesoorten.nl/nsr/concept/000457090693
-  $mail = str_replace("%%nsr_link%%", "<a href='http://www.nederlandsesoorten.nl/nsr/concept/" . $form['field_nlsr']['und'][0]['value']['#value'] . "'>" .  $form['field_soort_taxon']['und'][0]['value']['#value'] . "</a>", $mail);
+  $mail = str_replace("%%nsr_link%%", "<a href='https://www.nederlandsesoorten.nl/nsr/concept/" . $form['field_nlsr']['und'][0]['value']['#value'] . "/images'>" .  $form['field_soort_taxon']['und'][0]['value']['#value'] . "</a>", $mail);
   $mail = str_replace("%%bestandsnamen%%", $form["#entity"]->item_id, $mail);
 
   $nodeid = arg(2);
@@ -1933,7 +1933,7 @@ function beelduitwisselaar_afronden(&$form, &$form_state) {
   $mail = str_replace("%%expertnaam%%", $user->name, $mail);
   //$mail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/user/" . $user->uid . "'>" . $user->name . "</a>", $mail);
   $mail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>", $mail);
-  $mail = str_replace("%%nsr_link%%", "<a href='http://www.nederlandsesoorten.nl/nsr/concept/" . $form['field_nlsr']['und'][0]['value']['#value'] . "'>" .  $form['field_soort_taxon']['und'][0]['value']['#value'] . "</a>", $mail);
+  $mail = str_replace("%%nsr_link%%", "<a href='https://www.nederlandsesoorten.nl/nsr/concept/" . $form['field_nlsr']['und'][0]['value']['#value'] . "/images'>" .  $form['field_soort_taxon']['und'][0]['value']['#value'] . "</a>", $mail);
   $mail = str_replace("%%bestandsnamen%%", $form["#entity"]->item_id, $mail);
 
   $nodeid = arg(2);
@@ -1995,7 +1995,7 @@ function beelduitwisselaar_entity_delete($entity, $type) {
   $mail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>", $mail);
   //$mail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/user/" . $user->uid . "'>" . $user->name . "</a>", $mail);
   // http://www.nederlandsesoorten.nl/nsr/concept/000457090693
-  $mail = str_replace("%%nsr_link%%", "<a href='http://www.nederlandsesoorten.nl/nsr/concept/" . $entity->field_nlsr['und'][0]['value']['#value'] . "'>" .  $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>", $mail);
+  $mail = str_replace("%%nsr_link%%", "<a href='https://www.nederlandsesoorten.nl/nsr/concept/" . $entity->field_nlsr['und'][0]['value']['#value'] . "/images'>" .  $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>", $mail);
   $mail = str_replace("%%bestandsnamen%%", $entity->field_newimage['und'][0]['filename'], $mail);
  
   $fotograafid = $entity->field_fotograaf['und'][0]['target_id'];
