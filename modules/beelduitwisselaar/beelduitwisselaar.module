@@ -1530,9 +1530,6 @@ function beelduitwisselaar_node_insert($node) {
   $node->field_fotograafref['und'][0]['target_id'] = $user->uid;
   $node->field_fotograafref['und'][0]['target_type'] = "user";
 
-  $fotograafid = $node->field_fotograaf['und'][0]['target_id'];
-  $defotograaf = user_load($fotograafid);
-
   $beeldnamen = "";
   foreach ($node->field_afbeeldingen['und'] as $beeld) {
     $myentity = entity_load_single("field_collection_item", $beeld);
@@ -1546,8 +1543,8 @@ function beelduitwisselaar_node_insert($node) {
   $mymail = node_load(MAILNEWSUBMISSION);
   $mail = $mymail->body['und'][0]['value'];
   $mail = str_replace("%%beeldnaam%%",  $form['field_textsoortenregister']['und'][0]['value']['#value'], $mail);
-  $mail = str_replace("%%expertnaam%%", $user->name, $mail);
-  $mail = str_replace("%%fotograafnaam%%", $defotograaf->name, $mail);
+  $mail = str_replace("%%expertnaam%%", 'expert', $mail);
+  $mail = str_replace("%%fotograafnaam%%", $fotograafnaam, $mail);
   $mail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>", $mail);
   $mail = str_replace("%%nsr_link%%", "<a href='https://www.nederlandsesoorten.nl/nsr/concept/" . $form['field_nlsr']['und'][0]['value']['#value'] . "/images'>" .  $form['field_soort_taxon']['und'][0]['value']['#value'] . "</a>", $mail);
   $mail = str_replace("%%bestandsnamen%%", $beeldnamen, $mail);
