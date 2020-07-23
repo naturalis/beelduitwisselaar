@@ -226,7 +226,7 @@ function beelduitwisselaar_kiesmail_callback()
     <a href='/node/add/mail'>New mail templates</a> can be made by adminstrative users and will appear in the
     list below.<br><br>
     <b>Be warned:</b> These mails will be sent automatically! Please only save if you want to change the content of the mail.<br><br>
-    The variables you can use are %%beeldnaam%%, %%expertnaam%%, %%expert_link%%, %%nsr_link%%, %%bestandsnamen%%");
+    The variables you can use are %%beeldnaam%%, %%fotograafnaam%%, %%expertnaam%%, %%expert_link%%, %%nsr_link%%, %%bestandsnamen%%");
 
     /*
     Kies hier een bestaand mailtemplate om naar de geselecteerde gebruikers te sturen.
@@ -360,12 +360,16 @@ function makemail($userid, $mailnodeid, $beeldid)
     }
     $nsr_url = NSR_LINK . $beeldnode->field_nlsr['und'][0]['value']['#value'] . "/images";
 
+    $fotograafid = $beeldnode->field_fotograaf['und'][0]['target_id'];
+    $defotograaf = user_load($fotograafid);
+
     $mymail = str_replace(
         [
             '%%nsr_link%%',
             '%%bestandsnamen%%',
             '%%beeldnaam%%',
             '%%expertnaam%%',
+            '%%fotograafnaam%%',
             '%%expert_link%%'
         ],
         [
@@ -373,6 +377,7 @@ function makemail($userid, $mailnodeid, $beeldid)
             $beeldnode->field_newimage['und'][0]['filename'],
             $filename,
             $user->name,
+            $defotograaf->name,
             "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>"
         ],
         $mailbody
@@ -439,6 +444,7 @@ function beelduitwisselaar_mail_form_submit($form, &$form_state)
                 '%%beeldnaam%%',
                 '%%nsr_link%%',
                 '%%bestandsnamen%%',
+                '%%fotograafnaam%%',
                 '%%expertnaam%%',
                 '%%expert_link%%'
             ],
@@ -446,6 +452,7 @@ function beelduitwisselaar_mail_form_submit($form, &$form_state)
                 '',
                 '',
                 '',
+                'fotograaf',
                 $tempuser->name,
                 "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $tempuser->name . "</a>"
             ], $mymail);
@@ -549,11 +556,15 @@ function beelduitwisselaar_wachtrij_callback()
             $nsr_link = "<a href='" . $url . "'>" .  $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>";
         }
 
+        $fotograafid = $entity->field_fotograaf['und'][0]['target_id'];
+        $defotograaf = user_load($fotograafid);
+
         $mail = $mymail->body['und'][0]['value'];
         $mail = str_replace(
             [
                 '%%beeldnaam%%',
                 '%%expertnaam%%',
+                '%%fotograafnaam%%',
                 '%%expert_link%%',
                 '%%bestandsnamen%%',
                 '%%nsr_link%%'
@@ -561,15 +572,13 @@ function beelduitwisselaar_wachtrij_callback()
             [
                 $entity->field_newimage['und'][0]['filename'],
                 $user->name,
+                $defotograaf->name,
                 "<a href='" . $base_url . "/afbeeldingen-expert'>" . $user->name . "</a>",
                 $entity->field_newimage['und'][0]['filename'],
                 $nsr_link
             ],
             $mail
         );
-
-        $fotograafid = $entity->field_fotograaf['und'][0]['target_id'];
-        $defotograaf = user_load($fotograafid);
         $to = $defotograaf->mail;
         $subject = $mymail->title;
 
@@ -1132,11 +1141,16 @@ function beelduitwisselaar_publish_action(&$entity, $context = array())
         //Stuur mail wacht
         $mymail = node_load(MAILACCEPTSUBMISSION);
         $nsr_url = NSR_LINK . $entity->field_nlsr['und'][0]['value']['#value'] . "/images";
+
+        $fotograafid = $entity->field_fotograaf['und'][0]['target_id'];
+        $defotograaf = user_load($fotograafid);
+
         $mail = $mymail->body['und'][0]['value'];
         $mail = str_replace(
             [
                 "%%beeldnaam%%",
                 "%%expertnaam%%",
+                "%%fotograafnaam%%",
                 "%%expert_link%%",
                 "%%nsr_link%%",
                 "%%bestandsnamen%%"
@@ -1144,15 +1158,13 @@ function beelduitwisselaar_publish_action(&$entity, $context = array())
             [
                 $entity->field_newimage['und'][0]['filename'],
                 $user->name,
+                $defotograaf->name,
                 "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $user->name . "</a>",
                 "<a href='" . $nsr_url . "'>" . $entity->field_soort_taxon['und'][0]['value']['#value'] . "</a>",
                 $entity->field_newimage['und'][0]['filename']
             ],
             $mail
         );
-
-        $fotograafid = $entity->field_fotograaf['und'][0]['target_id'];
-        $defotograaf = user_load($fotograafid);
 
         $to = $defotograaf->mail;
         $subject = $mymail->title;
@@ -1625,6 +1637,8 @@ function beelduitwisselaar_node_insert($node)
     }
     $node->field_fotograafref['und'][0]['target_id'] = $user->uid;
     $node->field_fotograafref['und'][0]['target_type'] = 'user';
+    $fotograafid = $node->field_fotograaf['und'][0]['target_id'];
+    $defotograaf = user_load($fotograafid);
 
     $beeldnamen = "";
     foreach ($node->field_afbeeldingen['und'] as $beeld) {
@@ -1640,6 +1654,7 @@ function beelduitwisselaar_node_insert($node)
         [
             '%%beeldnaam%%',
             '%%expertnaam%%',
+            '%%fotograafnaam%%',
             '%%expert_link%%',
             '%%nsr_link%%',
             '%%bestandsnamen%%'
@@ -1647,6 +1662,7 @@ function beelduitwisselaar_node_insert($node)
         [
             $form['field_textsoortenregister']['und'][0]['value']['#value'],
             $user->name,
+            $defotograaf->name,
             "<a href='$base_url/?q=afbeeldingen-expert'>" . $user->name . "</a>",
             $form['field_nlsr']['und'][0]['value']['#value'],
             $beeldnamen
@@ -1769,12 +1785,16 @@ function beelduitwisselaar_afgekeurd(&$form, &$form_state)
     $myentity->field_textsoortenregister['und'][0]['value'] = $form['field_textsoortenregister']['und'][0]['value']['#value'];
     $nsr_url = NSR_LINK . $entity->field_nlsr['und'][0]['value']['#value'] . "/images";
 
+    $fotograafid = $myentity->field_fotograaf['und'][0]['target_id'];
+    $defotograaf = user_load($fotograafid);
+
     $mymail = node_load(MAILDECLINESUBMISSION);
     $mailbody = $mymail->body['und'][0]['value'];
     $mail = str_replace(
         [
             '%%beeldnaam%%',
             '%%expertnaam%%',
+            '%%fotograafnaam%%',
             '%%expert_link%%',
             '%%nsr_link%%',
             '%%bestandsnamen%%'
@@ -1782,13 +1802,12 @@ function beelduitwisselaar_afgekeurd(&$form, &$form_state)
         [
             $myentity->field_newimage['und'][0]['#file']->filename,
             $user->name,
+            $defotograaf->name,
             "<a href='$base_url/?q=afbeeldingen-expert'>" . $user->name . "</a>",
             "<a href='$nsr_url'>" . $form['field_soort_taxon']['und'][0]['value']['#value'] . "</a>",
             $form['#entity']->item_id
         ],
         $mailbody);
-
-    $fotograafid = $myentity->field_fotograaf['und'][0]['target_id'];
 
     $nodeid = arg(2);
     variable_set("beelduitwisselaar_entityid", $nodeid);
@@ -2027,10 +2046,14 @@ function beelduitwisselaar_afronden(&$form, &$form_state)
     $mailbody = $mymail->body['und'][0]['value'];
     $nsr_url = NSR_LINK . $entity->field_nlsr['und'][0]['value']['#value'] . "/images";
 
+    $fotograafid = $myentity->field_fotograaf['und'][0]['target_id'];
+    $defotograaf = user_load($fotograafid);
+
     $mail = str_replace(
         [
             '%%beeldnaam%%',
             '%%expertnaam%%',
+            '%%fotograafnaam%%',
             '%%expert_link%%',
             '%%nsr_link%%',
             '%%bestandsnamen%%'
@@ -2038,15 +2061,13 @@ function beelduitwisselaar_afronden(&$form, &$form_state)
         [
             $form['field_newimage']['und'][0]['#file']->filename,
             $user->name,
+            $defotograaf->name,
             '<a href="' . $base_url . '/?q=afbeeldingen-expert">' . $user->name . '</a>',
             '<a href="' . $nsr_url . '">' . $form['field_soort_taxon']['und'][0]['value']['#value'] . '</a>',
             $form["#entity"]->item_id
         ],
         $mailbody
     );
-
-    $fotograafid = $myentity->field_fotograaf['und'][0]['target_id'];
-    $defotograaf = user_load($fotograafid);
 
     $to = $defotograaf->mail;
     $subject = $mymail->title;
