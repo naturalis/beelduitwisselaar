@@ -315,9 +315,6 @@ function makemail($userid, $mailnodeid, $aboutnodeid)
   //Add check if user allows mail receipt
   $myusermail[] = $tempuser->mail;
 
-  $fotograafid = $myentity->field_fotograafref['und'][0]['target_id'];
-  $defotograaf = user_load($fotograafid);
-
 
   if (empty($myentity->field_newimage['und'][0]['filename'])) {
     $mymail = str_replace("%%beeldnaam%%", $myentity->field_newimage['und'][0]['origname'], $mymail);
@@ -327,7 +324,7 @@ function makemail($userid, $mailnodeid, $aboutnodeid)
   $mymail = str_replace("%%nsr_link%%", "<a href='https://www.nederlandsesoorten.nl/nsr/concept/" . $myentity->field_nlsr['und'][0]['value']['#value'] . "/images'>" .  $myentity->field_soort_taxon['und'][0]['value']['#value'] . "</a>", $mymail);
   $mymail = str_replace("%%bestandsnamen%%", $entity->field_newimage['und'][0]['filename'], $mymail);
   $mymail = str_replace("%%expertnaam%%", $tempuser->name, $mymail);
-  $mymail = str_replace("%%fotograafnaam%%", $defotograaf->name, $mymail);
+  $mymail = str_replace("%%fotograafnaam%%", $tempuser->name, $mymail);
   $mymail = str_replace("%%expert_link%%", "<a href='" . $base_url . "/?q=afbeeldingen-expert'>" . $tempuser->name . "</a>", $mymail);
 
   return $mymail;
