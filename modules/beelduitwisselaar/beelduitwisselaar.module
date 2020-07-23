@@ -347,11 +347,12 @@ function beelduitwisselaar_mail_form($form, &$form_state)
 function makemail($userid, $mailnodeid, $beeldid)
 {
     global $base_url;
+    global $user;
     
     $node = node_load($mailnodeid);
     $mailbody = $node->body['und'][0]['value'];
 
-    $user = user_load($userid);
+    $defotograaf = user_load($userid);
     $beeldnode = entity_load_single('field_collection_item', $beeldid);
 
     $filename = '';
@@ -359,9 +360,6 @@ function makemail($userid, $mailnodeid, $beeldid)
         $filename = empty($beeldnode->field_newimage['und'][0]['filename']) ? $beeldnode->field_newimage['und'][0]['origname'] : $beeldnode->field_newimage['und'][0]['filename'];
     }
     $nsr_url = NSR_LINK . $beeldnode->field_nlsr['und'][0]['value']['#value'] . "/images";
-
-    $fotograafid = $beeldnode->field_fotograafref['und'][0]['target_id'];
-    $defotograaf = user_load($fotograafid);
 
     $mymail = str_replace(
         [
