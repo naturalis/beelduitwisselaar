@@ -1637,7 +1637,7 @@ function beelduitwisselaar_node_insert($node)
     }
     $node->field_fotograafref['und'][0]['target_id'] = $user->uid;
     $node->field_fotograafref['und'][0]['target_type'] = 'user';
-    $fotograafid = $node->field_fotograaf['und'][0]['target_id'];
+    $fotograafid = $user->uid;
     $defotograaf = user_load($fotograafid);
 
     $beeldnamen = "";
