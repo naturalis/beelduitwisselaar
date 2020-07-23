@@ -315,7 +315,7 @@ function makemail($userid, $mailnodeid, $aboutnodeid)
   //Add check if user allows mail receipt
   $myusermail[] = $tempuser->mail;
 
-  $fotograafid = $myentity->field_fotograaf['und'][0]['target_id'];
+  $fotograafid = $myentity->field_fotograafref['und'][0]['target_id'];
   $defotograaf = user_load($fotograafid);
 
 
@@ -455,7 +455,7 @@ function beelduitwisselaar_wachtrij_callback() {
     } else {
       $entity->save();
     }
-    $fotograafid = $entity->field_fotograaf['und'][0]['target_id'];
+    $fotograafid = $entity->field_fotograafref['und'][0]['target_id'];
     $defotograaf = user_load($fotograafid);
 
 
@@ -624,9 +624,9 @@ foreach ($entity as $beeld) {
   $beeldarray["datePublished"] = date("Y-m-d H:i:s", $beeld->field_datum_publicatie['und'][0]['value']);
   //$beeldarray["status"] = $beeld->field_status['und'][0]['value'];
 
-  $myfotograaf = user_load( $beeld->field_fotograaf['und'][0]['target_id']  ); //$noderesult->field_fotograaf_target_id);
+  $myfotograaf = user_load( $beeld->field_fotograafref['und'][0]['target_id']  ); //$noderesult->field_fotograaf_target_id);
   $beeldarray["photographer"] = $myfotograaf->field_voornaam['und'][0]['value'] . " " . $myfotograaf->field_achternaam['und'][0]['value'];
-  $beeldarray["photographerid"] = $beeld->field_fotograaf['und'][0]['target_id'];
+  $beeldarray["photographerid"] = $beeld->field_fotograafref['und'][0]['target_id'];
   $beeldarray["photographerContact"] = $myfotograaf->field_contact['und'][0]['value'];
   $license = taxonomy_term_load($beeld->field_license['und'][0]['tid']);
   $beeldarray["copyrightPhoto"] = $license->name;
@@ -1018,7 +1018,7 @@ function beelduitwisselaar_publish_action(&$entity, $context = array()) {
     $myentity->save();
 
 
-    $fotograafid = $entity->field_fotograaf['und'][0]['target_id'];
+    $fotograafid = $entity->field_fotograafref['und'][0]['target_id'];
     $defotograaf = user_load($fotograafid);
 
 
@@ -1696,7 +1696,7 @@ function beelduitwisselaar_afgekeurd(&$form, &$form_state) {
   $myentity->field_textsoortenregister['und'][0]['value'] = $form['field_textsoortenregister']['und'][0]['value']['#value'];
   //$myentity->save();
 
-  $fotograafid = $myentity->field_fotograaf['und'][0]['target_id'];
+  $fotograafid = $myentity->field_fotograafref['und'][0]['target_id'];
   $defotograaf = user_load($fotograafid);
 
   //Stuur mail afgekeurd
@@ -2006,7 +2006,7 @@ function beelduitwisselaar_entity_delete($entity, $type) {
      // drupal_set_message("Deleted: $type");
 
  
-  $fotograafid = $entity->field_fotograaf['und'][0]['target_id'];
+  $fotograafid = $entity->field_fotograafref['und'][0]['target_id'];
   $defotograaf = user_load($fotograafid);
 
   //Stuur mail afgekeurd
