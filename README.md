@@ -1,3 +1,7 @@
+## THIS PROJECT HAS MOVED: https://gitlab.com/naturalis/bii/drupal/beelduitwisselaar
+
+Please update your project urls.
+
 # beelduitwisselaar
 Modules and themes of the beelduitwisselaar application and a drush makefile to deploy this site fast and accurately.
 
