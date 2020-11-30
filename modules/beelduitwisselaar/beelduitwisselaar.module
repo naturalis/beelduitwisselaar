@@ -687,21 +687,15 @@ function beelduitwisselaar_newimages_callback()
       field_data_field_datum_publicatie AS p 
     WHERE 
       p.entity_id = s.entity_id 
-      AND (FROM_UNIXTIME(p.field_datum_publicatie_value) > :pubdate) 
+      AND (FROM_UNIXTIME(p.field_datum_publicatie_value) > '" . date("Y-m-d H:i:s", strtotime($mydate)) . "') 
       AND d.entity_id = s.entity_id 
       AND c.item_id = s.entity_id 
       AND a.field_afbeeldingen_value = s.entity_id 
       AND s.entity_type = 'field_collection_item' 
-      AND s.field_status_value IN (:status) 
-    LIMIT :start,:aantal";
+      AND s.field_status_value IN (" . STATUSDONE . ") 
+    LIMIT " . $mystart . "," . $myaantal;
 
-    $myresult = db_query($sql, [
-        ':pubdate' => date("Y-m-d H:i:s", strtotime($mydate)),
-        ':status' => STATUSDONE,
-        ':start' => $mystart,
-        ':aantal' => $myaantal
-        ]
-    );
+    $myresult = db_query($sql);
     foreach ($myresult as $item) {
         $mynodes[] = $item->nid;
     }
@@ -727,9 +721,11 @@ function beelduitwisselaar_newimages_callback()
 
         $entity = entity_load('field_collection_item', $myimages);
         $mycount = 0;
+	$ximages = [];
 
-        foreach ($entity as $beeld) {
-            if ($beeld->field_status['und'][0]['value'] === STATUSDONE) {
+	foreach ($entity as $beeld) 
+	{
+            if ($beeld->field_status['und'][0]['value'] == STATUSDONE) {
                 $mycount++;
 
                 $myfotograaf = user_load($beeld->field_fotograaf['und'][0]['target_id']);
@@ -757,7 +753,7 @@ function beelduitwisselaar_newimages_callback()
         }
 
         $xarray = array(
-            "requested_date" => date("Y-m-d H:i:s", $mydate),
+            "requested_date" => date("Y-m-d H:i:s", strtotime($mydate)),
             "exported" => date("Y-m-d H:i:s"),
             "count" => $mycount,
             "start" => $mystart,
